@@ -25,3 +25,9 @@ Route::name('frontend.')->group(function () {
     Route::get('/product', [HomeController::class, 'product'])->name('product');
 
 });
+
+Route::name('service.')->group(function () {
+
+    Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+
+});

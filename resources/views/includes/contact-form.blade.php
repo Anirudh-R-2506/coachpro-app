@@ -74,18 +74,18 @@
             </h3>
             <form>
               <div class="mb-6">
-                <label for="fullName" class="block text-md text-dark"
+                <label for="fullName" class="block text-sm text-dark"
                   >Full Name*</label
                 >
                 <input
                   type="text"
-                  name="fullName"
+                  name="full_name"
                   placeholder="Adam Gelius"
                   class="w-full border-0 border-b border-[#f1f1f1] py-4 focus:border-primary focus:outline-none"
                 />
               </div>
               <div class="mb-6">
-                <label for="email" class="block text-xs text-dark"
+                <label for="email" class="block text-sm text-dark"
                   >Email*</label
                 >
                 <input
@@ -96,7 +96,7 @@
                 />
               </div>
               <div class="mb-6">
-                <label for="phone" class="block text-xs text-dark"
+                <label for="phone" class="block text-sm text-dark"
                   >Phone*</label
                 >
                 <input
@@ -107,13 +107,24 @@
                 />
               </div>
               <div class="mb-6">
-                <label for="message" class="block text-xs text-dark"
+                <label for="subject" class="block text-sm text-dark"
+                  >Subject*</label
+                >
+                <input
+                  type="text"
+                  name="subject"
+                  placeholder="Type your subject here"
+                  class="w-full border-0 border-b border-[#f1f1f1] py-4 focus:border-primary focus:outline-none"
+                />
+              </div>
+              <div class="mb-6">
+                <label for="message" class="block text-sm text-dark"
                   >Message*</label
                 >
                 <textarea
                   name="message"
                   rows="1"
-                  placeholder="type your message here"
+                  placeholder="Type your message here"
                   class="w-full resize-none border-0 border-b border-[#f1f1f1] py-4 focus:border-primary focus:outline-none"
                 ></textarea>
               </div>
