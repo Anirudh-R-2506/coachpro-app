@@ -7,7 +7,7 @@ class ContactStatusEnum
     const PENDING = 0;
     const ACTION_TAKEN = 1;
 
-    public static function getContactStatus()
+    public static function getValues()
     {
         return [
             self::PENDING => 'Pending',
@@ -15,7 +15,7 @@ class ContactStatusEnum
         ];
     }
 
-    public static function getContactStatusColor()
+    public static function getColors()
     {
         return [
             self::PENDING => 'warning',
@@ -23,7 +23,7 @@ class ContactStatusEnum
         ];
     }
 
-    public static function getContactStatusIcon()
+    public static function getIcons()
     {
         return [
             self::PENDING => 'fa fa-clock',
@@ -31,7 +31,7 @@ class ContactStatusEnum
         ];
     }
 
-    public static function getContactStatusClass()
+    public static function getClasses()
     {
         return [
             self::PENDING => 'badge badge-warning',

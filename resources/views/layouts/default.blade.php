@@ -7,8 +7,6 @@
 
 </head>
 
-<body>
-
     <body class="bg-[#f3f4ff]">
 
         @include('includes.header')
@@ -32,4 +30,5 @@
 
     </body>
 
-</body>
+    @include('sweetalert::alert')
+</html>

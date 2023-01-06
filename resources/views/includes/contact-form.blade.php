@@ -72,10 +72,11 @@
             <h3 class="mb-8 text-2xl font-semibold md:text-[26px]">
               Send us a Message
             </h3>
-            <form>
+            <form method="POST" action="{{ route('services.contact.store') }}">
+              @csrf
               <div class="mb-6">
                 <label for="fullName" class="block text-sm text-dark"
-                  >Full Name*</label
+                  >Full Name<span style="color: red"> *</span></label
                 >
                 <input
                   type="text"
@@ -86,7 +87,7 @@
               </div>
               <div class="mb-6">
                 <label for="email" class="block text-sm text-dark"
-                  >Email*</label
+                  >Email<span style="color: red"> *</span></label
                 >
                 <input
                   type="email"
@@ -97,7 +98,7 @@
               </div>
               <div class="mb-6">
                 <label for="phone" class="block text-sm text-dark"
-                  >Phone*</label
+                  >Phone<span style="color: red"> *</span></label
                 >
                 <input
                   type="text"
@@ -108,7 +109,7 @@
               </div>
               <div class="mb-6">
                 <label for="subject" class="block text-sm text-dark"
-                  >Subject*</label
+                  >Subject<span style="color: red"> *</span></label
                 >
                 <input
                   type="text"
@@ -119,7 +120,7 @@
               </div>
               <div class="mb-6">
                 <label for="message" class="block text-sm text-dark"
-                  >Message*</label
+                  >Message<span style="color: red"> *</span></label
                 >
                 <textarea
                   name="message"
