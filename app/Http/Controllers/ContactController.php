@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Enums\ContactStatusEnum;
+use App\Enums\ContactStatus;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Models\Contact;
 
@@ -29,7 +29,7 @@ class ContactController
                     'phone' => $request->phone,
                     'subject' => $request->subject,
                     'message' => $request->message,
-                    'status' => ContactStatusEnum::PENDING,
+                    'status' => ContactStatus::PENDING,
                 ]
             );
             Alert::success('Success', 'Message sent successfully.');
