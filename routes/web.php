@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,5 +24,11 @@ Route::name('frontend.')->group(function () {
     Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 
     Route::get('/product', [HomeController::class, 'product'])->name('product');
+
+});
+
+Route::name('services.')->group(function () {
+
+    Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 
 });

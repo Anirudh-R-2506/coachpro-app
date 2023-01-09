@@ -72,21 +72,22 @@
             <h3 class="mb-8 text-2xl font-semibold md:text-[26px]">
               Send us a Message
             </h3>
-            <form>
+            <form method="POST" action="{{ route('services.contact.store') }}">
+              @csrf
               <div class="mb-6">
-                <label for="fullName" class="block text-md text-dark"
-                  >Full Name*</label
+                <label for="fullName" class="block text-sm text-dark"
+                  >Full Name<span style="color: red"> *</span></label
                 >
                 <input
                   type="text"
-                  name="fullName"
+                  name="full_name"
                   placeholder="Adam Gelius"
                   class="w-full border-0 border-b border-[#f1f1f1] py-4 focus:border-primary focus:outline-none"
                 />
               </div>
               <div class="mb-6">
-                <label for="email" class="block text-xs text-dark"
-                  >Email*</label
+                <label for="email" class="block text-sm text-dark"
+                  >Email<span style="color: red"> *</span></label
                 >
                 <input
                   type="email"
@@ -96,8 +97,8 @@
                 />
               </div>
               <div class="mb-6">
-                <label for="phone" class="block text-xs text-dark"
-                  >Phone*</label
+                <label for="phone" class="block text-sm text-dark"
+                  >Phone<span style="color: red"> *</span></label
                 >
                 <input
                   type="text"
@@ -107,13 +108,24 @@
                 />
               </div>
               <div class="mb-6">
-                <label for="message" class="block text-xs text-dark"
-                  >Message*</label
+                <label for="subject" class="block text-sm text-dark"
+                  >Subject<span style="color: red"> *</span></label
+                >
+                <input
+                  type="text"
+                  name="subject"
+                  placeholder="Type your subject here"
+                  class="w-full border-0 border-b border-[#f1f1f1] py-4 focus:border-primary focus:outline-none"
+                />
+              </div>
+              <div class="mb-6">
+                <label for="message" class="block text-sm text-dark"
+                  >Message<span style="color: red"> *</span></label
                 >
                 <textarea
                   name="message"
                   rows="1"
-                  placeholder="type your message here"
+                  placeholder="Type your message here"
                   class="w-full resize-none border-0 border-b border-[#f1f1f1] py-4 focus:border-primary focus:outline-none"
                 ></textarea>
               </div>
