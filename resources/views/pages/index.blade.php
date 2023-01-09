@@ -46,12 +46,12 @@
               <h1
                 class="mb-8 text-3xl font-bold leading-snug text-white sm:text-4xl sm:leading-snug md:text-[45px] md:leading-snug"
               >
-                Lorem ipsum dolor sit amet
+                Find Your Tutorial Service Now!
               </h1>
               <p
                 class="mx-auto mb-6 max-w-[600px] text-base text-[#e4e4e4] sm:text-lg sm:leading-relaxed md:text-xl md:leading-relaxed"
               >
-                Non nulla magnam sed dolor amet sit neque officia non rerum dignissimos eos illum necessitatibus vel labore natus!
+                Platform to choose your path to success.
               </p>
               <ul class="mb-6 flex flex-wrap items-center justify-center">
                 <li>
@@ -59,7 +59,7 @@
                     href="#instituteSearch"
                     class="inline-flex items-center justify-center rounded-lg bg-white py-4 px-6 text-center text-base font-medium text-dark transition duration-300 ease-in-out hover:text-primary hover:shadow-lg sm:px-10"
                   >
-                  Try it now !
+                  Why Coach-Pro?
                   </a>
                 </li><!-- 
                 <li>
@@ -1454,46 +1454,35 @@
               <p
                 class="text-lg leading-relaxed text-body-color sm:text-xl sm:leading-relaxed"
               >
-                There are many variations of passages of Lorem Ipsum available
-                but the majority have suffered alteration in some form.
+                Our platform offers a range of convenient features for connecting students with qualified tutors.
+                These include a search function, ratings and reviews, payment system, and In-Depth Information about Centers.
               </p>
             </div>
           </div>
         </div>
         <div class="-mx-4 flex flex-wrap">
           <div class="w-full px-4 md:w-1/2 lg:w-1/4">
-            <div class="wow fadeInUp group mb-12 bg-white" data-wow-delay=".1s">
+            <div class="wow fadeInUp group bg-white px-5 py-4" data-wow-delay=".1s">
               <div
                 class="relative z-10 mb-8 flex h-[70px] w-[70px] items-center justify-center rounded-2xl bg-primary"
               >
                 <span
                   class="absolute top-0 left-0 z-[-1] mb-8 flex h-[70px] w-[70px] rotate-[25deg] items-center justify-center rounded-2xl bg-primary bg-opacity-20 duration-300 group-hover:rotate-45"
                 ></span>
-                <svg
-                  width="35"
-                  height="35"
-                  viewBox="0 0 52 52"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M44.9313 11.7H38.9188C40.5438 10.9687 41.7626 9.99374 42.2501 8.69374C42.9001 6.98749 42.2501 5.19999 40.3001 3.33124C38.1876 1.29999 35.9938 0.568738 33.8001 1.13749C29.9813 2.11249 27.4626 7.06874 26.2438 9.99374C25.1063 7.06874 22.5876 2.11249 18.6876 1.13749C16.4938 0.568738 14.3001 1.29999 12.1876 3.33124C10.2376 5.19999 9.5876 6.98749 10.2376 8.69374C10.7251 9.99374 12.0251 10.9687 13.5688 11.7H7.06885C5.0376 11.7 3.4126 13.325 3.4126 15.3562V21.5312C3.4126 23.5625 5.0376 25.1875 7.06885 25.1875H7.71885V46.2312C7.71885 48.8312 9.83135 51.025 12.5126 51.025H40.1376C42.7376 51.025 44.9313 48.9125 44.9313 46.2312V25.1875C46.9626 25.1875 48.5876 23.5625 48.5876 21.5312V15.3562C48.5063 13.325 46.8813 11.7 44.9313 11.7ZM34.5313 3.98124C34.7751 3.89999 35.0188 3.89999 35.1813 3.89999C36.1563 3.89999 37.2126 4.38749 38.2688 5.52499C38.7563 6.01249 39.8126 7.06874 39.5688 7.79999C39.0001 9.34374 33.9626 10.6437 28.9251 11.05C30.0626 8.36874 32.1751 4.54999 34.5313 3.98124ZM13.0001 7.71874C12.7563 6.98749 13.8126 5.93124 14.3001 5.44374C15.4376 4.38749 16.4126 3.81874 17.3876 3.81874C17.6313 3.81874 17.8751 3.81874 18.0376 3.89999C20.4751 4.54999 22.5063 8.28749 23.6438 10.9687C18.6063 10.5625 13.5688 9.26249 13.0001 7.71874ZM42.0063 46.2312C42.0063 47.2875 41.1126 48.1812 40.0563 48.1812H12.4313C11.3751 48.1812 10.4813 47.2875 10.4813 46.2312V25.1875H41.9251V46.2312H42.0063ZM45.6626 21.5312C45.6626 22.0187 45.3376 22.3437 44.8501 22.3437H7.06885C6.6626 22.3437 6.25635 22.0187 6.25635 21.5312V15.3562C6.25635 14.95 6.6626 14.5437 7.06885 14.5437H44.8501C45.2563 14.5437 45.6626 14.8687 45.6626 15.3562V21.5312Z"
-                    fill="white"
-                  />
-                </svg>
+                <i class="fa-solid fa-magnifying-glass fa-2xl" style="color:white"></i>
               </div>
               <h4 class="mb-3 text-xl font-bold text-dark">
-                Lorem Ipsum
+                Flexible Search
               </h4>
               <p class="mb-8 text-body-color lg:mb-11">
-                Lorem Ipsum is simply dummy text of the printing and industry.
+                Allows students to find tutors based on subject, location, availability, and other criteria.
               </p>
               
             </div>
           </div>
           <div class="w-full px-4 md:w-1/2 lg:w-1/4">
             <div
-              class="wow fadeInUp group mb-12 bg-white"
+              class="wow fadeInUp group bg-white px-5 py-4"
               data-wow-delay=".15s"
             >
               <div
@@ -1502,73 +1491,39 @@
                 <span
                   class="absolute top-0 left-0 z-[-1] mb-8 flex h-[70px] w-[70px] rotate-[25deg] items-center justify-center rounded-2xl bg-primary bg-opacity-20 duration-300 group-hover:rotate-45"
                 ></span>
-                <svg
-                  width="35"
-                  height="35"
-                  viewBox="0 0 52 52"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M49.8062 23.3187L43.875 17.3875C43.3063 16.8187 42.4125 16.8187 41.8438 17.3875C41.275 17.9562 41.275 18.85 41.8438 19.4187L46.9625 24.6187H27.4625V4.87498L32.5812 10.075C33.15 10.6437 34.0437 10.6437 34.6125 10.075C35.1812 9.50623 35.1812 8.61248 34.6125 8.04373L28.6812 2.11248C27.95 1.38123 26.975 0.974976 26 0.974976C24.9438 0.974976 24.05 1.38123 23.3188 2.11248L17.3875 8.04373C16.8187 8.61248 16.8187 9.50623 17.3875 10.075C17.6312 10.3187 18.0375 10.4812 18.3625 10.4812C18.6875 10.4812 19.0937 10.3187 19.3375 10.075L24.6187 4.87498V24.5375H4.95625L10.075 19.3375C10.6437 18.7687 10.6437 17.875 10.075 17.3062C9.50625 16.7375 8.6125 16.7375 8.04375 17.3062L2.1125 23.2375C0.65 24.7 0.65 27.1375 2.1125 28.6L8.04375 34.5312C8.2875 34.775 8.69375 34.9375 9.01875 34.9375C9.34375 34.9375 9.75 34.775 9.99375 34.5312C10.5625 33.9625 10.5625 33.0687 9.99375 32.5L4.79375 27.3H24.4563V47.125L19.2563 41.925C18.6875 41.3562 17.7938 41.3562 17.225 41.925C16.6563 42.4937 16.6563 43.3875 17.225 43.9562L23.1562 49.8875C23.8875 50.6187 24.8625 51.025 25.8375 51.025C26.8937 51.025 27.7875 50.6187 28.5187 49.8875L34.45 43.9562C35.0188 43.3875 35.0188 42.4937 34.45 41.925C33.8813 41.3562 32.9875 41.3562 32.4188 41.925L27.4625 47.125V27.3812H47.0438L41.8438 32.5812C41.275 33.15 41.275 34.0437 41.8438 34.6125C42.0875 34.8562 42.4938 35.0187 42.8188 35.0187C43.1438 35.0187 43.55 34.8562 43.7938 34.6125L49.725 28.6812C51.2688 27.2187 51.2687 24.7812 49.8062 23.3187Z"
-                    fill="white"
-                  />
-                </svg>
+                <i class="fa-regular fa-face-smile fa-2xl" style="color:white"></i>
               </div>
               <h4 class="mb-3 text-xl font-bold text-dark">
-                Lorem Ipsum
+                Ratings and Reviews
               </h4>
               <p class="mb-8 text-body-color lg:mb-11">
-                Lorem Ipsum is simply dummy text of the printing and industry.
+                Allows students to rate their experiences with individual tutors and helps other students make informed decisions.
               </p>
               
             </div>
           </div>
           <div class="w-full px-4 md:w-1/2 lg:w-1/4">
-            <div class="wow fadeInUp group mb-12 bg-white" data-wow-delay=".2s">
+            <div class="wow fadeInUp group bg-white px-5 py-4" data-wow-delay=".2s">
               <div
                 class="relative z-10 mb-8 flex h-[70px] w-[70px] items-center justify-center rounded-2xl bg-primary"
               >
                 <span
                   class="absolute top-0 left-0 z-[-1] mb-8 flex h-[70px] w-[70px] rotate-[25deg] items-center justify-center rounded-2xl bg-primary bg-opacity-20 duration-300 group-hover:rotate-45"
                 ></span>
-                <svg
-                  width="35"
-                  height="35"
-                  viewBox="0 0 35 35"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M10.7734 14.3281H3.82813C2.07813 14.3281 0.65625 12.9062 0.65625 11.1562V4.21094C0.65625 2.46094 2.07813 1.03906 3.82813 1.03906H10.7734C12.5234 1.03906 13.9453 2.46094 13.9453 4.21094V11.1562C13.9453 12.9062 12.5234 14.3281 10.7734 14.3281ZM3.82813 2.95312C3.17188 2.95312 2.57031 3.5 2.57031 4.21094V11.1562C2.57031 11.8125 3.11719 12.4141 3.82813 12.4141H10.7734C11.4297 12.4141 12.0313 11.8672 12.0313 11.1562V4.21094C12.0313 3.55469 11.4844 2.95312 10.7734 2.95312H3.82813Z"
-                    fill="white"
-                  />
-                  <path
-                    d="M31.1719 14.3281H24.2266C22.4766 14.3281 21.0547 12.9062 21.0547 11.1562V4.21094C21.0547 2.46094 22.4766 1.03906 24.2266 1.03906H31.1719C32.9219 1.03906 34.3438 2.46094 34.3438 4.21094V11.1562C34.3438 12.9062 32.9219 14.3281 31.1719 14.3281ZM24.2266 2.95312C23.5703 2.95312 22.9688 3.5 22.9688 4.21094V11.1562C22.9688 11.8125 23.5156 12.4141 24.2266 12.4141H31.1719C31.8281 12.4141 32.4297 11.8672 32.4297 11.1562V4.21094C32.4297 3.55469 31.8828 2.95312 31.1719 2.95312H24.2266Z"
-                    fill="white"
-                  />
-                  <path
-                    d="M10.7734 33.9609H3.82813C2.07813 33.9609 0.65625 32.5391 0.65625 30.7891V23.8438C0.65625 22.0938 2.07813 20.6719 3.82813 20.6719H10.7734C12.5234 20.6719 13.9453 22.0938 13.9453 23.8438V30.7891C13.9453 32.5391 12.5234 33.9609 10.7734 33.9609ZM3.82813 22.5859C3.17188 22.5859 2.57031 23.1328 2.57031 23.8438V30.7891C2.57031 31.4453 3.11719 32.0469 3.82813 32.0469H10.7734C11.4297 32.0469 12.0313 31.5 12.0313 30.7891V23.8438C12.0313 23.1875 11.4844 22.5859 10.7734 22.5859H3.82813Z"
-                    fill="white"
-                  />
-                  <path
-                    d="M31.1719 33.9609H24.2266C22.4766 33.9609 21.0547 32.5391 21.0547 30.7891V23.8438C21.0547 22.0938 22.4766 20.6719 24.2266 20.6719H31.1719C32.9219 20.6719 34.3438 22.0938 34.3438 23.8438V30.7891C34.3438 32.5391 32.9219 33.9609 31.1719 33.9609ZM24.2266 22.5859C23.5703 22.5859 22.9688 23.1328 22.9688 23.8438V30.7891C22.9688 31.4453 23.5156 32.0469 24.2266 32.0469H31.1719C31.8281 32.0469 32.4297 31.5 32.4297 30.7891V23.8438C32.4297 23.1875 31.8828 22.5859 31.1719 22.5859H24.2266Z"
-                    fill="white"
-                  />
-                </svg>
+                  <i class="fa-regular fa-credit-card fa-2xl" style="color:white"></i>
               </div>
               <h4 class="mb-3 text-xl font-bold text-dark">
-                Lorem Ipsum
+                Payment System
               </h4>
               <p class="mb-8 text-body-color lg:mb-11">
-                Lorem Ipsum is simply dummy text of the printing and industry.
+                Makes it easy for students to pay for tutoring sessions, either in advance or at the time of the session.
               </p>
               
             </div>
           </div>
           <div class="w-full px-4 md:w-1/2 lg:w-1/4">
             <div
-              class="wow fadeInUp group mb-12 bg-white"
+              class="wow fadeInUp group bg-white px-5 py-4"
               data-wow-delay=".25s"
             >
               <div
@@ -1591,10 +1546,10 @@
                 </svg>
               </div>
               <h4 class="mb-3 text-xl font-bold text-dark">
-                Lorem Ipsum
+                In-Depth Information
               </h4>
               <p class="mb-8 text-body-color lg:mb-11">
-                Lorem Ipsum is simply dummy text of the printing and industry.
+                Our platform collects detailed information about tutorial services to ensure their authenticity and quality.
               </p>
               
             </div>
@@ -1619,13 +1574,12 @@
               <h2
                 class="mb-4 text-3xl font-bold text-dark sm:text-4xl md:text-[42px]"
               >
-                Learn how to make the hardest choice of your child's life
+                Learn how you choose your perfect tutorial institute
               </h2>
               <p
                 class="text-lg leading-relaxed text-body-color sm:text-xl sm:leading-relaxed"
               >
-                There are many variations of passages of Lorem Ipsum available
-                but the majority have suffered alteration in some form.
+                Learn more about how our platform connects students with qualified tutors in four easy steps.
               </p>
             </div>
           </div>
@@ -1641,30 +1595,30 @@
               <div class="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline">
                 <div class="order-1 w-5/12"></div>
                 <div class="order-1 w-5/12 p-6 text-right bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
-                  <p class="mb-3 text-base text-primary">Lorem Ipsum</p>
-                  <h4 class="mb-3 font-bold text-lg md:text-2xl">Lorem Ipsum</h4>
+                  <p class="mb-3 text-base text-primary">Step 1</p>
+                  <h4 class="mb-3 font-bold text-lg md:text-2xl">Search for courses</h4>
                   <p class="text-sm md:text-base leading-relaxed text-gray-50 text-opacity-100">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+                    Use our search function to find tutors who offer the courses you need. Specify criteria such as subject, location, and availability to narrow down the results.
                   </p>
                 </div>
               </div>
               <div class="mb-8 flex justify-between items-center w-full right-timeline">
                 <div class="order-1 w-5/12"></div>
                 <div class="order-1  w-5/12 p-6 text-left bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
-                  <p class="mb-3 text-base text-primary">Lorem Ipsum</p>
-                  <h4 class="mb-3 font-bold text-lg md:text-2xl">Lorem Ipsum</h4>
+                  <p class="mb-3 text-base text-primary">Step 2</p>
+                  <h4 class="mb-3 font-bold text-lg md:text-2xl">Enquire about courses</h4>
                   <p class="text-sm md:text-base leading-relaxed text-gray-50 text-opacity-100">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+                    Contact the tutor to ask questions and learn more about the course. The tutor can provide additional information and clarify any details.
                   </p>
                 </div>
               </div>
               <div class="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline">
                 <div class="order-1 w-5/12"></div>
                 <div class="order-1 w-5/12 p-6 text-right bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
-                  <p class="mb-3 text-base text-primary">Lorem Ipsum</p>
-                  <h4 class="mb-3 font-bold text-lg md:text-2xl">Lorem Ipsum</h4>
+                  <p class="mb-3 text-base text-primary">Step 3</p>
+                  <h4 class="mb-3 font-bold text-lg md:text-2xl">Book Courses</h4>
                   <p class="text-sm md:text-base leading-relaxed text-gray-50 text-opacity-100">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+                    If you want to book a course, use our booking system to reserve a spot. Payment may be required at this time, depending on the tutor's policy.
                   </p>
                 </div>
               </div>
@@ -1673,10 +1627,10 @@
                 <div class="order-1 w-5/12"></div>
   
                 <div class="order-1  w-5/12 p-6 bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
-                  <p class="mb-3 text-base text-primary">Lorem Ipsum</p>
-                  <h4 class="mb-3 font-bold  text-lg md:text-2xl text-left">Lorem Ipsum</h4>
+                  <p class="mb-3 text-base text-primary">Step 4</p>
+                  <h4 class="mb-3 font-bold  text-lg md:text-2xl text-left">Attend sessions</h4>
                   <p class="text-sm md:text-base leading-relaxed text-gray-50 text-opacity-100">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+                    Once the booking is complete, attend the tutoring sessions as scheduled.
                   </p>
                 </div>
               </div>
@@ -1711,8 +1665,7 @@
               <p
                 class="text-lg leading-relaxed text-body-color sm:text-xl sm:leading-relaxed"
               >
-                There are many variations of passages of Lorem Ipsum available
-                but the majority have suffered alteration in some form.
+                Find answers to common questions about our platform.
               </p>
             </div>
           </div>
@@ -1744,13 +1697,13 @@
                 </div>
                 <div class="w-full">
                   <h4 class="text-base font-semibold text-black sm:text-lg">
-                    How to use CoachPro?
+                    How do I find a tutor on your platform?
                   </h4>
                 </div>
               </button>
               <div class="faq-content hidden pl-[62px]">
                 <p class="py-3 text-base leading-relaxed text-body-color">
-                  Lorem ipsum dolor sit amet. Non eius tenetur ea galisum natus eos libero eligendi et maxime earum nam molestiae esse est quibusdam dolor. Sit laboriosam harum ex voluptas reiciendis et voluptatum beatae qui voluptatem quisquam.
+                  To find a tutor on our platform, use the search function and specify your criteria such as subject, location, and availability.
                 </p>
               </div>
             </div>
@@ -1778,13 +1731,13 @@
                 </div>
                 <div class="w-full">
                   <h4 class="text-base font-semibold text-black sm:text-lg">
-                    How to ask a question?
+                    Can I see reviews from other students before booking a course?
                   </h4>
                 </div>
               </button>
               <div class="faq-content hidden pl-[62px]">
                 <p class="py-3 text-base leading-relaxed text-body-color">
-                  Lorem ipsum dolor sit amet. Non eius tenetur ea galisum natus eos libero eligendi et maxime earum nam molestiae esse est quibusdam dolor. Sit laboriosam harum ex voluptas reiciendis et voluptatum beatae qui voluptatem quisquam.
+                  Yes, you can see reviews from other students before booking a course.
                 </p>
               </div>
             </div>
@@ -1812,13 +1765,13 @@
                 </div>
                 <div class="w-full">
                   <h4 class="text-base font-semibold text-black sm:text-lg">
-                    Is it easy to use?
+                    How do I update my account information or change my password?
                   </h4>
                 </div>
               </button>
               <div class="faq-content hidden pl-[62px]">
                 <p class="py-3 text-base leading-relaxed text-body-color">
-                  Lorem ipsum dolor sit amet. Non eius tenetur ea galisum natus eos libero eligendi et maxime earum nam molestiae esse est quibusdam dolor. Sit laboriosam harum ex voluptas reiciendis et voluptatum beatae qui voluptatem quisquam.
+                  To update your account information or change your password, use the account settings on the platform.
                 </p>
               </div>
             </div>
@@ -1848,13 +1801,13 @@
                 </div>
                 <div class="w-full">
                   <h4 class="text-base font-semibold text-black sm:text-lg">
-                    Can I use this for myself?
+                  Can I ask the tutor questions before booking a course?  
                   </h4>
                 </div>
               </button>
               <div class="faq-content hidden pl-[62px]">
                 <p class="py-3 text-base leading-relaxed text-body-color">
-                  Lorem ipsum dolor sit amet. Non eius tenetur ea galisum natus eos libero eligendi et maxime earum nam molestiae esse est quibusdam dolor. Sit laboriosam harum ex voluptas reiciendis et voluptatum beatae qui voluptatem quisquam.
+                  Yes, you can ask the tutor questions before booking a course using the Enquire option in the course page.
                 </p>
               </div>
             </div>
@@ -1882,13 +1835,13 @@
                 </div>
                 <div class="w-full">
                   <h4 class="text-base font-semibold text-black sm:text-lg">
-                    Do you have plan to release soon?
+                    How do I get in touch with customer support if I have a question or concern?
                   </h4>
                 </div>
               </button>
               <div class="faq-content hidden pl-[62px]">
                 <p class="py-3 text-base leading-relaxed text-body-color">
-                  Lorem ipsum dolor sit amet. Non eius tenetur ea galisum natus eos libero eligendi et maxime earum nam molestiae esse est quibusdam dolor. Sit laboriosam harum ex voluptas reiciendis et voluptatum beatae qui voluptatem quisquam.
+                  If you have a question or concern, you can contact customer support through the platform or by using the contact information provided.
                 </p>
               </div>
             </div>
@@ -1922,7 +1875,7 @@
               </button>
               <div class="faq-content hidden pl-[62px]">
                 <p class="py-3 text-base leading-relaxed text-body-color">
-                  Lorem ipsum dolor sit amet. Non eius tenetur ea galisum natus eos libero eligendi et maxime earum nam molestiae esse est quibusdam dolor. Sit laboriosam harum ex voluptas reiciendis et voluptatum beatae qui voluptatem quisquam.
+                  To sign up for our platform, visit the sign-up page and follow the prompts to create an account.
                 </p>
               </div>
             </div>
@@ -1974,13 +1927,12 @@
               <h2
                 class="mb-4 text-3xl font-bold text-dark sm:text-4xl md:text-[42px]"
               >
-                What our Client Say
+                What our Students Say
               </h2>
               <p
                 class="text-lg leading-relaxed text-body-color sm:text-xl sm:leading-relaxed"
               >
-                There are many variations of passages of Lorem Ipsum available
-                but the majority have suffered alteration in some form.
+                See what our satisfied students have to say about our tutoring platform.
               </p>
             </div>
           </div>
