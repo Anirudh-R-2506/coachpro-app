@@ -32,10 +32,10 @@
                   Lorem ipsum dolor sit amet Non eius tenetur .
                   </h2>
                   <p class="mb-9 text-base leading-relaxed text-body-color">
-                    Lorem ipsum dolor sit amet. Non eius tenetur ea galisum natus eos libero eligendi et maxime earum nam molestiae esse est quibusdam dolor. Sit laboriosam harum ex voluptas reiciendis et voluptatum beatae qui voluptatem quisquam. Ab sunt minima ut voluptatem debitis et officiis quam sit ducimus eius sit iure dolores At illo culpa.
+                    Welcome to our tutoring platform! We are a team of education enthusiasts who are passionate about connecting students with top-notch tutors. Our platform makes it easy for students to find the help they need to succeed in their studies.
                   </p>
                   <p class="mb-9 text-base leading-relaxed text-body-color">
-                    Id voluptatem quis non corrupti excepturi ut esse odio sed repellat voluptates est quasi ipsam ad dignissimos dolorum eos facere omnis. Et culpa laudantium est suscipit nemo ea tenetur ullam. Qui repellendus fuga aut provident vero ut facere alias. Non maxime vitae est totam iste ad voluptas porro ad blanditiis galisum.
+                    Our platform was founded by [Founder Name] in [Year], with the goal of revolutionizing the way students find and connect with tutors. [Founder Name] saw firsthand the challenges students faced in finding high-quality tutoring resources, and wanted to create a platform that made it easier and more convenient for students to get the help they needed. Today, our platform has helped thousands of students and tutors connect and achieve their academic goals.
                   </p>
                   <a
                     href="javascript:void(0)"
