@@ -46,12 +46,12 @@
               <h1
                 class="mb-8 text-3xl font-bold leading-snug text-white sm:text-4xl sm:leading-snug md:text-[45px] md:leading-snug"
               >
-                Find Your Tutorial Service Now!
+                Find The Right Path For Your Future!
               </h1>
               <p
                 class="mx-auto mb-6 max-w-[600px] text-base text-[#e4e4e4] sm:text-lg sm:leading-relaxed md:text-xl md:leading-relaxed"
               >
-                Platform to choose your path to success.
+                We are a platform where you can choose the right coach for you and start your journey to the summit of success.
               </p>
               <ul class="mb-6 flex flex-wrap items-center justify-center">
                 <li>
@@ -59,7 +59,7 @@
                     href="#instituteSearch"
                     class="inline-flex items-center justify-center rounded-lg bg-white py-4 px-6 text-center text-base font-medium text-dark transition duration-300 ease-in-out hover:text-primary hover:shadow-lg sm:px-10"
                   >
-                  Why Coach-Pro?
+                  Try now!
                   </a>
                 </li><!-- 
                 <li>
