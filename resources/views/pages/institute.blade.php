@@ -473,15 +473,13 @@
                             </div>
                             <div class="w-full">
                                 <h4 class="text-base font-semibold text-black sm:text-lg">
-                                    How to use CoachPro?
+                                    What are the benefits of registering with your platform?
                                 </h4>
                             </div>
                         </button>
                         <div class="faq-content hidden pl-[62px]">
                             <p class="py-3 text-base leading-relaxed text-body-color">
-                                Lorem ipsum dolor sit amet. Non eius tenetur ea galisum natus eos libero eligendi et maxime
-                                earum nam molestiae esse est quibusdam dolor. Sit laboriosam harum ex voluptas reiciendis et
-                                voluptatum beatae qui voluptatem quisquam.
+                                You will have access to a large student base, and will be able to reach more students with our marketing efforts.
                             </p>
                         </div>
                     </div>
@@ -499,15 +497,13 @@
                             </div>
                             <div class="w-full">
                                 <h4 class="text-base font-semibold text-black sm:text-lg">
-                                    How to ask a question?
+                                    What are the requirements for registering?
                                 </h4>
                             </div>
                         </button>
                         <div class="faq-content hidden pl-[62px]">
                             <p class="py-3 text-base leading-relaxed text-body-color">
-                                Lorem ipsum dolor sit amet. Non eius tenetur ea galisum natus eos libero eligendi et maxime
-                                earum nam molestiae esse est quibusdam dolor. Sit laboriosam harum ex voluptas reiciendis et
-                                voluptatum beatae qui voluptatem quisquam.
+                                Your institute must be a legitimate tutorial service with a physical location.
                             </p>
                         </div>
                     </div>
@@ -525,15 +521,13 @@
                             </div>
                             <div class="w-full">
                                 <h4 class="text-base font-semibold text-black sm:text-lg">
-                                    Is it easy to use?
+                                    Can I update my institute's information after registering?
                                 </h4>
                             </div>
                         </button>
                         <div class="faq-content hidden pl-[62px]">
                             <p class="py-3 text-base leading-relaxed text-body-color">
-                                Lorem ipsum dolor sit amet. Non eius tenetur ea galisum natus eos libero eligendi et maxime
-                                earum nam molestiae esse est quibusdam dolor. Sit laboriosam harum ex voluptas reiciendis et
-                                voluptatum beatae qui voluptatem quisquam.
+                                Yes, you can update your institute's information at any time through your dashboard.
                             </p>
                         </div>
                     </div>
@@ -553,15 +547,13 @@
                             </div>
                             <div class="w-full">
                                 <h4 class="text-base font-semibold text-black sm:text-lg">
-                                    Can I use this for myself?
+                                    How do I reach more students on your platform?
                                 </h4>
                             </div>
                         </button>
                         <div class="faq-content hidden pl-[62px]">
                             <p class="py-3 text-base leading-relaxed text-body-color">
-                                Lorem ipsum dolor sit amet. Non eius tenetur ea galisum natus eos libero eligendi et maxime
-                                earum nam molestiae esse est quibusdam dolor. Sit laboriosam harum ex voluptas reiciendis et
-                                voluptatum beatae qui voluptatem quisquam.
+                                We offer a variety of marketing and promotion services to help you reach more students.
                             </p>
                         </div>
                     </div>
@@ -579,15 +571,13 @@
                             </div>
                             <div class="w-full">
                                 <h4 class="text-base font-semibold text-black sm:text-lg">
-                                    Do you have plan to releasing Coach Pro Pro?
+                                    What happens if a student has a complaint about my institute?
                                 </h4>
                             </div>
                         </button>
                         <div class="faq-content hidden pl-[62px]">
                             <p class="py-3 text-base leading-relaxed text-body-color">
-                                Lorem ipsum dolor sit amet. Non eius tenetur ea galisum natus eos libero eligendi et maxime
-                                earum nam molestiae esse est quibusdam dolor. Sit laboriosam harum ex voluptas reiciendis et
-                                voluptatum beatae qui voluptatem quisquam.
+                                Students can leave reviews of your institute on our platform, and we encourage you to respond to any complaints in a professional and timely manner.
                             </p>
                         </div>
                     </div>
@@ -605,15 +595,13 @@
                             </div>
                             <div class="w-full">
                                 <h4 class="text-base font-semibold text-black sm:text-lg">
-                                    Where and how to sign up?
+                                    How do I manage my bookings on your platform?
                                 </h4>
                             </div>
                         </button>
                         <div class="faq-content hidden pl-[62px]">
                             <p class="py-3 text-base leading-relaxed text-body-color">
-                                Lorem ipsum dolor sit amet. Non eius tenetur ea galisum natus eos libero eligendi et maxime
-                                earum nam molestiae esse est quibusdam dolor. Sit laboriosam harum ex voluptas reiciendis et
-                                voluptatum beatae qui voluptatem quisquam.
+                                You can manage your bookings through your Dashboard on our platform.
                             </p>
                         </div>
                     </div>
