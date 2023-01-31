@@ -29,7 +29,7 @@
                   <h2
                     class="mb-6 text-3xl font-bold text-dark sm:text-4xl sm:leading-snug 2xl:text-[40px]"
                   >
-                  Lorem ipsum dolor sit amet Non eius tenetur .
+                  Edu Hunt - Where your success is our priority
                   </h2>
                   <p class="mb-9 text-base leading-relaxed text-body-color">
                     Welcome to our tutoring platform! We are a team of education enthusiasts who are passionate about connecting students with top-notch tutors. Our platform makes it easy for students to find the help they need to succeed in their studies.

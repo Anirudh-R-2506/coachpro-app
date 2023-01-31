@@ -7,7 +7,7 @@
               <img src="{{ asset('images/logo/logo.png') }}" alt="logo" class="max-w-full" />
             </a>
             <p class="mb-7 text-base text-[#f3f4fe]">
-              Lorem ipsum dolor sit amet Hic atque adipisci hic tempora sunt aut accusamus.
+              We are an online service where you can choose form a wide collection of tutors and book a seat right from the comfort of your home.
             </p>
             <div class="flex items-center -mx-3">
               <a href="javascript:void(0)" class="px-3 text-[#dddddd] hover:text-white">
@@ -43,30 +43,36 @@
         </div>
         <div class="w-full px-4 sm:w-1/2 md:w-1/2 lg:w-2/12 xl:w-2/12">
           <div class="w-full mb-6">
-            <h4 class="text-lg font-semibold text-white mb-9">About Us</h4>
+            <h4 class="text-lg font-semibold text-white mb-9">Quick Links</h4>
             <ul>
               <li>
-                <a href="javascript:void(0)"
+                <a href="{{ route('frontend.index') }}"
                   class="mb-2 inline-block text-base leading-loose text-[#f3f4fe] hover:text-primary">
                   Home
                 </a>
-              </li>
+              </li>              
               <li>
-                <a href="javascript:void(0)"
-                  class="mb-2 inline-block text-base leading-loose text-[#f3f4fe] hover:text-primary">
-                  Features
-                </a>
-              </li>
-              <li>
-                <a href="javascript:void(0)"
+                <a href="{{ route('frontend.about') }}"
                   class="mb-2 inline-block text-base leading-loose text-[#f3f4fe] hover:text-primary">
                   About
                 </a>
               </li>
               <li>
-                <a href="javascript:void(0)"
+                <a href="{{ route('frontend.product') }}"
                   class="mb-2 inline-block text-base leading-loose text-[#f3f4fe] hover:text-primary">
-                  Testimonial
+                  Edu Hunt
+                </a>
+              </li>
+              <li>
+                <a href="{{ route('frontend.contact') }}"
+                  class="mb-2 inline-block text-base leading-loose text-[#f3f4fe] hover:text-primary">
+                  Contact
+                </a>
+              </li>
+              <li>
+                <a href="{{ route('frontend.signin') }}"
+                  class="mb-2 inline-block text-base leading-loose text-[#f3f4fe] hover:text-primary">
+                  Login/Sign Up
                 </a>
               </li>
             </ul>
@@ -74,10 +80,10 @@
         </div>
         <div class="w-full px-4 sm:w-1/2 md:w-1/2 lg:w-3/12 xl:w-2/12">
           <div class="w-full mb-6">
-            <h4 class="text-lg font-semibold text-white mb-9">Features</h4>
+            <h4 class="text-lg font-semibold text-white mb-9">Learn How</h4>
             <ul>
               <li>
-                <a href="javascript:void(0)"
+                <a href="{{ route('frontend.index') . '/#tutorial' }}"
                   class="mb-2 inline-block text-base leading-loose text-[#f3f4fe] hover:text-primary">
                   How it works
                 </a>

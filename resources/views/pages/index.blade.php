@@ -1,34 +1,6 @@
 @extends('layouts.default')
 
 @section("content")
-    <script>
-      window.onload = () => {
-        var lp = new locationPicker('map', {
-            setCurrentPosition: true, // You can omit this, defaults to true
-        }, {
-        });
-      }
-    </script>
-    <script>      
-
-      init = () => {
-        return {
-          step : 1,
-          education : '',
-          showLocationSelect: false,
-
-          nextStep() {
-            this.step++;
-          },
-          hello() {
-            alert('Hello');
-          },
-          prevStep() {
-            this.step--;
-          },
-        };
-      };
-    </script>
 
     <!-- ====== Hero Section Start -->
     <div
@@ -1377,7 +1349,7 @@
     <!-- ====== Product Section Starts -->
     <section
       class="relative z-20 overflow-hidden bg-[#f3f4ff] pt-20 pb-12 lg:pt-[120px] lg:pb-[90px]"
-      id="instituteSearch"
+      id="tutorial"
     >
       <div class="container">
         <div class="-mx-4 flex flex-wrap">

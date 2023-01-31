@@ -23,10 +23,9 @@ Route::name('frontend.')->group(function () {
 
     Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 
-    Route::get('/product', [HomeController::class, 'product'])->name('product');
+    Route::get('/eduhunt', [HomeController::class, 'product'])->name('product');
 
     Route::get('/signin', [HomeController::class, 'signin'])->name('signin');
-
     
     Route::get('/institute', [HomeController::class, 'institute'])->name('institute');
 });

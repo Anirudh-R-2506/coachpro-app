@@ -34,7 +34,7 @@
                 <li class="relative group">
                   <a href="{{ route('frontend.product') }}"
                     class="flex py-2 mx-8 text-base ud-menu-scroll text-dark group-hover:text-primary lg:mr-0 lg:ml-7 lg:inline-flex lg:py-6 lg:px-0 lg:text-white lg:group-hover:text-white lg:group-hover:opacity-70 xl:ml-12">
-                    Coach Pro
+                    Edu Hunt
                   </a>
                 </li>
                 <!-- <li class="relative group">
@@ -51,16 +51,17 @@
                     Contact
                   </a>
                 </li>
+                <li class="relative group">
+                  <a href="{{ route('frontend.signin') }}"
+                    class="flex py-2 mx-8 text-base ud-menu-scroll text-dark group-hover:text-primary lg:mr-0 lg:ml-7 lg:inline-flex lg:py-6 lg:px-0 lg:text-white lg:group-hover:text-white lg:group-hover:opacity-70 xl:ml-12">
+                    Sign In
+                  </a>
+                </li>
               </ul>
             </nav>
           </div>
           <div class="justify-end hidden pr-16 sm:flex lg:pr-0">
-            <button class="py-3 text-base font-medium text-white loginBtn px-7 hover:opacity-70" type="button"
-              @click="window.location.href='{{ route('frontend.signin') }}'"
-              >
-              Sign In
-            </button>
-            <a href="#"
+            <a href="{{ auth()->check() ? route('frontend.product') : route('frontend.signin') }}"
               class="px-6 py-3 text-base font-medium text-white duration-300 ease-in-out bg-white rounded-lg signUpBtn bg-opacity-20 hover:bg-opacity-100 hover:text-dark">
               Try it now !
             </a>

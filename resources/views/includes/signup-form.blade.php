@@ -1,5 +1,5 @@
                 <div
-                    class="wow fadeInUp rounded-lg bg-white py-10 px-8 shadow-testimonial sm:py-12 sm:px-10 md:p-[60px] lg:p-10 lg:py-12 lg:px-10 2xl:p-[60px]"
+                    class="rounded-lg bg-white py-10 px-8 shadow-testimonial sm:py-12 sm:px-10 md:p-[60px] lg:p-10 lg:py-12 lg:px-10 2xl:p-[60px]"
                     data-wow-delay=".2s
                     "
                   >
@@ -194,5 +194,15 @@
                         x-on:click="step != 3 ? nextStep : submit"
                       >
                       </button>
+                    </div>
+                    <div class="mt-8 flex flex-wrap text-center justify-center items-center">
+                      <p class="text-sm text-dark">
+                        Already have an account?
+                        <button
+                          type="button"
+                          @click="login = true"
+                          class="text-primary hover:text-dark focus:text-dark focus:outline-none"
+                          >Login</button>
+                      </p>
                     </div>
                   </div>
