@@ -16,9 +16,9 @@ use App\Http\Controllers\ContactController;
 */
 
 Route::name('frontend.')->group(function () {
-
+    
     Route::get('/', [HomeController::class, 'index'])->name('index');
-
+    
     Route::get('/about', [HomeController::class, 'about'])->name('about');
 
     Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
@@ -27,7 +27,11 @@ Route::name('frontend.')->group(function () {
 
     Route::get('/signin', [HomeController::class, 'signin'])->name('signin');
 
+    
+    Route::get('/institute', [HomeController::class, 'institute'])->name('institute');
 });
+
+
 
 Route::name('services.')->group(function () {
 
