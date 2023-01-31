@@ -2,7 +2,7 @@
 
 namespace App\Enums;
 
-class ContactStatusEnum
+class ContactStatus
 {
     const PENDING = 0;
     const ACTION_TAKEN = 1;
