@@ -101,7 +101,8 @@
             >
               <div class="mt-16">
                 <div class="w-full px-4 mb-6">
-                  @include('includes.signup-form')
+                  {{-- @include('includes.signup-form') --}}
+                  <img src="{{ asset('images/hero/hero.png') }}" alt="image" class="mx-auto w-full max-w-[845px]" />
                 </div>
               </div>
               <div class="absolute bottom-0 -left-9 z-[-1]">
@@ -1263,7 +1264,7 @@
               <h2
                 class="mb-4 text-3xl font-bold text-dark sm:text-4xl md:text-[42px]"
               >
-                Main Features Of Coach Pro
+                Main Features Of Edu Hunt
               </h2>
               <p
                 class="text-lg leading-relaxed text-body-color sm:text-xl sm:leading-relaxed"
@@ -1289,7 +1290,7 @@
                 Flexible Search
               </h4>
               <p class="mb-8 text-body-color lg:mb-11">
-                Allows students to find tutors based on subject, location, availability, and other criteria.
+                Allows students to find tutors based on subject, location, availability, and other critical criteria.
               </p>
               
             </div>
@@ -1311,7 +1312,7 @@
                 Ratings and Reviews
               </h4>
               <p class="mb-8 text-body-color lg:mb-11">
-                Allows students to rate their experiences with individual tutors and helps other students make informed decisions.
+                Allows students to rate their experiences with tutors and helps students choose right.
               </p>
               
             </div>
@@ -1360,7 +1361,7 @@
                 </svg>
               </div>
               <h4 class="mb-3 text-xl font-bold text-dark">
-                In-Depth Information
+                Vast Database
               </h4>
               <p class="mb-8 text-body-color lg:mb-11">
                 Our platform collects detailed information about tutorial services to ensure their authenticity and quality.
@@ -1444,7 +1445,7 @@
                   <p class="mb-3 text-base text-primary">Step 4</p>
                   <h4 class="mb-3 font-bold  text-lg md:text-2xl text-left">Attend sessions</h4>
                   <p class="text-sm md:text-base leading-relaxed text-gray-50 text-opacity-100">
-                    Once the booking is complete, attend the tutoring sessions as scheduled.
+                    Once the booking is complete, we will generate a document with the necessary details to attend the tutoring sessions of your choice as scheduled.
                   </p>
                 </div>
               </div>

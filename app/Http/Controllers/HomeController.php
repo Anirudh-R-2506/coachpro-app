@@ -30,4 +30,9 @@ class HomeController extends BaseController
     {
         return view('app.index');
     }
+
+    public function signin()
+    {
+        return view('pages.signin');
+    }
 }

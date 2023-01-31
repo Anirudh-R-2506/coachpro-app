@@ -56,7 +56,8 @@
           </div>
           <div class="justify-end hidden pr-16 sm:flex lg:pr-0">
             <button class="py-3 text-base font-medium text-white loginBtn px-7 hover:opacity-70" type="button"
-              data-modal-toggle="authentication-modal">
+              @click="window.location.href='{{ route('frontend.signin') }}'"
+              >
               Sign In
             </button>
             <a href="#"
@@ -70,7 +71,7 @@
   </div>
   <!-- ====== Navbar Section End -->
 
-  <div id="authentication-modal" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full">
+  {{-- <div id="authentication-modal" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full">
         <div class="relative w-full h-full max-w-md md:h-auto">
             <!-- Modal content -->
             <div class="relative bg-white rounded-lg shadow dark:bg-gray-700 p-3">
@@ -166,4 +167,4 @@
                 </div>
             </div>
         </div>
-    </div> 
+    </div>  --}}

@@ -25,6 +25,8 @@ Route::name('frontend.')->group(function () {
 
     Route::get('/product', [HomeController::class, 'product'])->name('product');
 
+    Route::get('/signin', [HomeController::class, 'signin'])->name('signin');
+
 });
 
 Route::name('services.')->group(function () {
