@@ -3,7 +3,8 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use App\Enums\ContactStatus;
+
+use Illuminate\Support\Facades\DB;
 
 return new class extends Migration
 {
@@ -14,16 +15,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('contacts', function (Blueprint $table) {
+        Schema::create('cities', function (Blueprint $table) {
             $table->id();
-            $table->string('full_name');
-            $table->string('email');
-            $table->string('phone');
-            $table->string('subject');
-            $table->string('message');
-            $table->enum('status', ContactStatus::getValues())->comment('0: Pending, 1: Action Taken');
+            $table->string('name');
             $table->timestamps();
         });
+
+        DB::table('cities')->insert(['name' => 'Bangalore']);        
     }
 
     /**
@@ -33,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('contacts');
+        Schema::dropIfExists('cities'); 
     }
 };
