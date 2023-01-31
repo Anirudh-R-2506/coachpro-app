@@ -35,7 +35,7 @@
                     <form x-show="step == 1">
                       <div class="mb-6">
                         <label for="fullName" class="block text-md text-dark"
-                          >Interested competitive exam/course*</label
+                          >Interested competitive exam/course<span style="color: red"> *</span></label
                         >
                         <select id="underline_select" class="block py-2.5 px-0 w-full text-gray-500 bg-transparent w-full border-0 border-b border-[#f1f1f1] py-4 focus:border-primary focus:outline-none peer">
                           <option selected>Choose a competitive exam/course</option>
@@ -47,7 +47,7 @@
                       </div>
                       <div class="mb-6">
                         <label for="email" class="block text-md text-dark"
-                          >Education*</label
+                          >Education<span style="color: red"> *</span></label
                         >
                         <select x-on:change="education = $el.value" id="underline_select" class="block py-2.5 px-0 w-full text-gray-500 bg-transparent w-full border-0 border-b border-[#f1f1f1] py-4 focus:border-primary focus:outline-none peer">
                           <option selected>Choose an education level</option>
@@ -58,7 +58,7 @@
                       </div>
                       <div class="mb-6" x-show="education == 'school'">
                         <label for="phone" class="block text-md text-dark"
-                          >Class currently studying*</label
+                          >Class currently studying<span style="color: red"> *</span></label
                         >
                         <select id="underline_select" class="block py-2.5 px-0 w-full text-gray-500 bg-transparent w-full border-0 border-b border-[#f1f1f1] py-4 focus:border-primary focus:outline-none peer">
                           <option selected>Choose a class</option>
@@ -71,7 +71,7 @@
                       </div>
                       <div class="mb-6" x-show="education == 'ug' || education == 'pg'">
                         <label for="message" class="block text-md text-dark"
-                          >Year of completion*</label
+                          >Year of completion<span style="color: red"> *</span></label
                         >
                         <select id="underline_select" class="block py-2.5 px-0 w-full text-gray-500 bg-transparent w-full border-0 border-b border-[#f1f1f1] py-4 focus:border-primary focus:outline-none peer">
                           <option selected>Choose a year</option>
@@ -84,7 +84,7 @@
 
                       <div class="mb-6">
                         <label for="message" class="block text-md text-dark"
-                          >Preferred session*</label
+                          >Preferred session<span style="color: red"> *</span></label
                         >
                         <select id="underline_select" class="block py-2.5 px-0 w-full text-gray-500 bg-transparent w-full border-0 border-b border-[#f1f1f1] py-4 focus:border-primary focus:outline-none peer">
                           <option selected>Choose a session</option>
@@ -95,7 +95,7 @@
 
                       <div class="mb-6">
                         <label for="message" class="block text-md text-dark"
-                          >Preferred timings*</label
+                          >Preferred timings<span style="color: red"> *</span></label
                         >
                         <select id="underline_select" class="block py-2.5 px-0 w-full text-gray-500 bg-transparent w-full border-0 border-b border-[#f1f1f1] py-4 focus:border-primary focus:outline-none peer">
                           <option selected>Choose a timing</option>
@@ -108,7 +108,7 @@
                     <form x-show="step == 2">
                       <div class="mb-6">
                         <label for="fullName" class="block text-md text-dark"
-                          >City*</label
+                          >City<span style="color: red"> *</span></label
                         >
                         <select id="underline_select" class="block py-2.5 px-0 w-full text-gray-500 bg-transparent w-full border-0 border-b border-[#f1f1f1] py-4 focus:border-primary focus:outline-none peer">
                           <option selected>Choose a city</option>
@@ -137,7 +137,18 @@
                     <form x-show="step == 3">
                       <div class="mb-6">
                         <label for="fullName" class="block text-xs text-dark"
-                          >Full Name*</label
+                          >First Name<span style="color: red"> *</span></label
+                        >
+                        <input
+                          type="text"
+                          name="fullName"
+                          placeholder="Adam Gelius"
+                          class="w-full border-0 border-b border-[#f1f1f1] py-4 focus:border-primary focus:outline-none"
+                        />
+                      </div>
+                      <div class="mb-6">
+                        <label for="fullName" class="block text-xs text-dark"
+                          >Last Name<span style="color: red"> *</span></label
                         >
                         <input
                           type="text"
@@ -159,7 +170,7 @@
                       </div>
                       <div class="mb-6">
                         <label for="phone" class="block text-xs text-dark"
-                          >Phone*</label
+                          >Phone<span style="color: red"> *</span></label
                         >
                         <input
                           type="text"
