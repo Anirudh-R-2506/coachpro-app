@@ -6,7 +6,16 @@ data-wow-delay=".2s
 <h3 class="pb-4 text-2xl border-b-2 w-full font-semibold md:text-[26px]">
   Login to access our services
 </h3>
-<form class="mt-8">
+@if ($errors->any())
+    <div class="m-6 alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+<form class="mt-8" method="POST" action="{{ route('services.login') }}">
   <div class="mb-6">
     <label for="email" class="block text-md text-dark"
       >Email<span style="color: red"> *</span></label
@@ -44,21 +53,21 @@ data-wow-delay=".2s
     >
   </div>
   <a
-    href="#"
+    href="{{ route('services.password.index') }}"
     class="text-sm text-primary hover:text-dark focus:text-dark focus:outline-none"
     >Forgot password?</a
   >
 </div>
 
-<div class="mt-8 flex flex-wrap text-center justify-center items-center">
+<div class="flex flex-wrap items-center justify-center mt-8 text-center">
   <button
-  class="w-1/3 inline-flex items-center justify-center rounded bg-primary py-4 px-6 text-base font-medium text-white transition duration-300 ease-in-out hover:bg-dark"
+  class="inline-flex items-center justify-center w-1/3 px-6 py-4 text-base font-medium text-white transition duration-300 ease-in-out rounded bg-primary hover:bg-dark"
   >
     Login
   </button>
 </div>
 
-<div class="mt-8 flex flex-wrap text-center justify-center items-center">
+<div class="flex flex-wrap items-center justify-center mt-8 text-center">
   <p class="text-sm text-dark">
     Don't have an account?
     <button
