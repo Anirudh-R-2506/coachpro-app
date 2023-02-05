@@ -7,7 +7,7 @@
 </title>
 <link rel="shortcut icon" href="{{ asset('images/logo/logo.png') }}" type="image/x-icon" />
 <link rel="stylesheet" href="{{ asset('css/animate.css') }} "/>
-<link rel="stylesheet" href="{{ asset('css/tailwind.css') }} "/>
+<link rel="stylesheet" href="{{ asset('css/tailwind.css?v=').time() }} "/>
 <link href="https://vjs.zencdn.net/7.20.3/video-js.css" rel="stylesheet" />
 <link href="https://unpkg.com/@videojs/themes@1/dist/sea/index.css" rel="stylesheet" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.9.0/tailwind.min.css"
@@ -22,6 +22,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/js/all.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <!-- ==== WOW JS ==== -->
 <script src="{{ asset('js/wow.min.js') }}"></script>
 <style>

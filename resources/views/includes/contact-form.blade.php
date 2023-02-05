@@ -3,20 +3,20 @@
       class="absolute top-0 left-0 z-[-1] h-1/2 w-full bg-[#f3f4fe] lg:h-[45%] xl:h-1/2"
     ></div>
     <div class="container px-4">
-      <div class="-mx-4 flex flex-wrap items-center">
+      <div class="flex flex-wrap items-center -mx-4">
         <div class="w-full px-4 lg:w-7/12 xl:w-8/12">
           <div class="ud-contact-content-wrapper">
             <div class="ud-contact-title mb-12 lg:mb-[150px]">
-              <span class="mb-5 text-base font-semibold text-dark">
+              <span class="mb-5 text-base font-semibold text-dark" data-aos="fade-zoom-in">
                 CONTACT US
               </span>
-              <h2 class="text-[35px] font-semibold">
+              <h2 class="text-[35px] font-semibold" data-aos="fade-zoom-in" data-aos-delay="150">
                 Let's talk about <br />
                 Love to hear from you!
               </h2>
             </div>
-            <div class="mb-12 flex flex-wrap justify-between lg:mb-0">
-              <div class="mb-8 flex w-[330px] max-w-full">
+            <div class="flex flex-wrap justify-between mb-12 lg:mb-0">
+              <div class="mb-8 flex w-[330px] max-w-full" data-aos="fade-zoom-in" data-aos-delay="250">
                 <div class="mr-6 text-[32px] text-primary">
                   <svg
                     width="29"
@@ -33,13 +33,15 @@
                   </svg>
                 </div>
                 <div>
-                  <h5 class="mb-6 text-lg font-semibold">Our Location</h5>
+                  <h5 class="mb-2 text-lg font-semibold">Our Location</h5>
                   <p class="text-base text-body-color">
-                    401 Broadway, 24th Floor, Orchard Cloud View, London
+                    Manipal Institute of Technology, <br />
+                    Udupi - Karkala Rd, Eshwar Nagar, <br />
+                    Manipal, Karnataka 576104
                   </p>
                 </div>
               </div>
-              <div class="mb-8 flex w-[330px] max-w-full">
+              <div class="mb-8 flex w-[330px] max-w-full" data-aos="fade-zoom-in" data-aos-delay="350">
                 <div class="mr-6 text-[32px] text-primary">
                   <svg
                     width="34"
@@ -53,11 +55,10 @@
                   </svg>
                 </div>
                 <div>
-                  <h5 class="mb-6 text-lg font-semibold">How Can We Help?</h5>
-                  <p class="text-base text-body-color">info@yourdomain.com</p>
-                  <p class="text-base text-body-color">
-                    contact@yourdomain.com
-                  </p>
+                  <h5 class="mb-2 text-lg font-semibold">How Can We Help?</h5>
+                  <a href="mailto:helpline@eduhunt.co" class="text-base no-underline text-primary">
+                    helpline@eduhunt.co
+                  </a>
                 </div>
               </div>
             </div>
@@ -65,9 +66,8 @@
         </div>
         <div class="w-full px-4 lg:w-5/12 xl:w-4/12">
           <div
-            class="wow fadeInUp rounded-lg bg-white py-10 px-8 shadow-testimonial sm:py-12 sm:px-10 md:p-[60px] lg:p-10 lg:py-12 lg:px-10 2xl:p-[60px]"
-            data-wow-delay=".2s
-            "
+            class="rounded-lg bg-white py-10 px-8 shadow-testimonial sm:py-12 sm:px-10 md:p-[60px] lg:p-10 lg:py-12 lg:px-10 2xl:p-[60px]"
+            data-aos="fade-zoom-in" data-aos-delay="550"
           >
             <h3 class="mb-8 text-2xl font-semibold md:text-[26px]">
               Send us a Message
@@ -132,7 +132,7 @@
               <div class="mb-0">
                 <button
                   type="submit"
-                  class="inline-flex items-center justify-center rounded bg-primary py-4 px-6 text-base font-medium text-white transition duration-300 ease-in-out hover:bg-dark"
+                  class="inline-flex items-center justify-center px-6 py-4 text-base font-medium text-white transition duration-300 ease-in-out rounded bg-primary hover:bg-dark"
                 >
                   Send Message
                 </button>

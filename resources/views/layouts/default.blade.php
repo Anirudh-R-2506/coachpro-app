@@ -27,7 +27,14 @@
             ></span>
         </a>
         <!-- ====== Back To Top End -->
-
+        <script>
+            AOS.init({ 
+                once: true, 
+                duration: 800,
+                easing: 'ease-in-out',
+                delay: 0,                
+            });
+        </script>
     </body>
 
     @include('sweetalert::alert')

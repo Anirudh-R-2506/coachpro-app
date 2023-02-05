@@ -7,12 +7,13 @@
     <!-- ====== Banner Section Start -->
 <div
 class="relative z-10 overflow-hidden pb-[100px]"
+id="hero"
 style="background: linear-gradient(to right,  rgb(15, 31, 82) 0%,rgb(15, 31, 82) 50%,rgb(48, 86, 211) 50%,rgb(48, 86, 211) 100%);"
 >
 <div class="container">
-  <div class="flex flex-wrap items-center -mx-4">
+  <div class="flex flex-wrap items-center -mx-4 -mb-8">
     <div class="w-full text-white md:w-1/2">
-        <header class="w-full px-6 mb-10 sm:px-0">
+        <header data-aos="fade-zoom-in" class="w-full px-6 mb-10 sm:px-0">
           <img class="w-32 mx-auto mt-6 md:mx-0 lg:w-40" src="{{ asset('images/logo/logo.png') }}" alt="base apparel logo" />
         </header>
         <div
@@ -28,21 +29,21 @@ style="background: linear-gradient(to right,  rgb(15, 31, 82) 0%,rgb(15, 31, 82)
               xl:text-7xl
             "
           >
-            <span class="mb-3 font-light text-desaturated-red">We're</span>
+            <span data-aos="fade-zoom-down" data-aos-delay="200" class="mb-3 font-light text-desaturated-red">We're</span>
             <br /><br />
-            <span class="mb-3 font-bold" style="color: rgb(48, 86, 211);"
+            <span data-aos="fade-zoom-down" data-aos-delay="300" class="mb-3 font-bold" style="color: rgb(48, 86, 211);"
               >coming</span>
-              <span class="font-bold" style="color: rgb(48, 86, 211);"
+              <span data-aos="fade-zoom-down" data-aos-delay="400" class="font-bold" style="color: rgb(48, 86, 211);"
               >soon</span
             >
           </h1>
-          <p class="mt-6 sm:mt-8 text-desaturated-red sm:text-lg xl:text-xl">
+          <p class="mt-6 sm:mt-8 text-desaturated-red sm:text-lg xl:text-xl" data-aos="fade-zoom-down" data-aos-delay="500">
             Hello fellow students! We're currently building our new product to help you choose
             the best path for your career. We're excited to show you more soon!
           </p>
         </div>
     </div>    
-    <div class="w-full px-4 pt-8 md:pl-10 md:w-1/2 wow fadeInUp" data-wow-delay=".25s">
+    <div class="w-full px-4 pt-8 md:pl-10 md:w-1/2" data-aos="fade-zoom-in" data-aos-delay="500">
         @include('includes.signup-cs')
     </div>
   </div>
@@ -61,6 +62,7 @@ style="background: linear-gradient(to right,  rgb(15, 31, 82) 0%,rgb(15, 31, 82)
         stroke="white"
         stroke-opacity="0.04"
         stroke-width="50"
+        class="animate-pulse"        
       />
       <circle
         cx="446"
@@ -68,12 +70,48 @@ style="background: linear-gradient(to right,  rgb(15, 31, 82) 0%,rgb(15, 31, 82)
         stroke="white"
         stroke-opacity="0.04"
         stroke-width="20"
+        class="animate-pulse"
       />
       <path
         d="M245.406 137.609L233.985 94.9852L276.609 106.406L245.406 137.609Z"
         stroke="white"
         stroke-opacity="0.08"
         stroke-width="12"
+        class="animate-pulse"
+      />
+    </svg>
+  </span>
+  <span class="absolute bottom-0 left-0 z-[-1]" style="transform: rotateX(-180deg) rotateY(-180deg)">
+    <svg
+      width="495"
+      height="470"
+      viewBox="0 0 495 470"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle
+        cx="55"
+        cy="442"
+        r="138"
+        stroke="white"
+        stroke-opacity="0.04"
+        stroke-width="50"
+        class="animate-pulse"
+      />
+      <circle
+        cx="446"
+        r="39"
+        stroke="white"
+        stroke-opacity="0.04"
+        stroke-width="20"
+        class="animate-pulse"
+      />
+      <path
+        d="M245.406 137.609L233.985 94.9852L276.609 106.406L245.406 137.609Z"
+        stroke="white"
+        stroke-opacity="0.08"
+        stroke-width="12"
+        class="animate-pulse"
       />
     </svg>
   </span>
@@ -92,6 +130,7 @@ style="background: linear-gradient(to right,  rgb(15, 31, 82) 0%,rgb(15, 31, 82)
         stroke="white"
         stroke-opacity="0.04"
         stroke-width="50"
+        class="animate-pulse"
       />
       <circle
         cx="49"
@@ -100,12 +139,49 @@ style="background: linear-gradient(to right,  rgb(15, 31, 82) 0%,rgb(15, 31, 82)
         stroke="white"
         stroke-opacity="0.04"
         stroke-width="20"
+        class="animate-pulse"
       />
       <path
         d="M222.393 226.701L272.808 213.192L259.299 263.607L222.393 226.701Z"
         stroke="white"
         stroke-opacity="0.06"
         stroke-width="13"
+        class="animate-pulse"
+      />
+    </svg>
+  </span>
+  <span class="absolute bottom-0 right-0 z-[-1]" style="transform: rotateX(180deg) rotateY(180deg)">
+    <svg
+      width="493"
+      height="470"
+      viewBox="0 0 493 470"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle
+        cx="462"
+        cy="5"
+        r="138"
+        stroke="white"
+        stroke-opacity="0.04"
+        stroke-width="50"
+        class="animate-pulse"
+      />
+      <circle
+        cx="49"
+        cy="470"
+        r="39"
+        stroke="white"
+        stroke-opacity="0.04"
+        stroke-width="20"
+        class="animate-pulse"
+      />
+      <path
+        d="M222.393 226.701L272.808 213.192L259.299 263.607L222.393 226.701Z"
+        stroke="white"
+        stroke-opacity="0.06"
+        stroke-width="13"
+        class="animate-pulse"
       />
     </svg>
   </span>
@@ -119,7 +195,7 @@ style="background: linear-gradient(to right,  rgb(15, 31, 82) 0%,rgb(15, 31, 82)
       <div class="container">
         <div class="flex flex-wrap -mx-4">
           <div class="w-full px-4">
-            <div class="mb-12 max-w-[620px] lg:mb-20">
+            <div class="mb-12 max-w-[620px] lg:mb-20" data-aos="fade-zoom-in-right">
               <span class="block mb-2 text-lg font-semibold text-primary">
                 Features
               </span>
@@ -139,7 +215,7 @@ style="background: linear-gradient(to right,  rgb(15, 31, 82) 0%,rgb(15, 31, 82)
         </div>
         <div class="flex flex-wrap -mx-4">
           <div class="w-full px-4 md:w-1/2 lg:w-1/4">
-            <div class="px-5 py-4 bg-white wow fadeInUp group" data-wow-delay=".1s">
+            <div class="px-5 py-4 bg-white rounded-lg group" data-aos="fade-up" data-aos-delay="100">
               <div
                 class="relative z-10 mb-8 flex h-[70px] w-[70px] items-center justify-center rounded-2xl bg-primary"
               >
@@ -159,8 +235,8 @@ style="background: linear-gradient(to right,  rgb(15, 31, 82) 0%,rgb(15, 31, 82)
           </div>
           <div class="w-full px-4 md:w-1/2 lg:w-1/4">
             <div
-              class="px-5 py-4 bg-white wow fadeInUp group"
-              data-wow-delay=".15s"
+              class="px-5 py-4 bg-white rounded-lg group"
+              data-aos="fade-up" data-aos-delay="150"
             >
               <div
                 class="relative z-10 mb-8 flex h-[70px] w-[70px] items-center justify-center rounded-2xl bg-primary"
@@ -180,7 +256,7 @@ style="background: linear-gradient(to right,  rgb(15, 31, 82) 0%,rgb(15, 31, 82)
             </div>
           </div>
           <div class="w-full px-4 md:w-1/2 lg:w-1/4">
-            <div class="px-5 py-4 bg-white wow fadeInUp group" data-wow-delay=".2s">
+            <div class="px-5 py-4 bg-white rounded-lg group" data-aos="fade-up" data-aos-delay="200">
               <div
                 class="relative z-10 mb-8 flex h-[70px] w-[70px] items-center justify-center rounded-2xl bg-primary"
               >
@@ -200,8 +276,8 @@ style="background: linear-gradient(to right,  rgb(15, 31, 82) 0%,rgb(15, 31, 82)
           </div>
           <div class="w-full px-4 md:w-1/2 lg:w-1/4">
             <div
-              class="px-5 py-4 bg-white wow fadeInUp group"
-              data-wow-delay=".25s"
+              class="px-5 py-4 bg-white rounded-lg group"
+              data-aos="fade-up" data-aos-delay="250"
             >
               <div
                 class="relative z-10 mb-8 flex h-[70px] w-[70px] items-center justify-center rounded-2xl bg-primary"
@@ -244,7 +320,7 @@ style="background: linear-gradient(to right,  rgb(15, 31, 82) 0%,rgb(15, 31, 82)
       <div class="container">
         <div class="flex flex-wrap -mx-4">
           <div class="w-full px-4">
-            <div class="mx-auto mb-[60px] max-w-[620px] text-center lg:mb-20">
+            <div class="mx-auto mb-[60px] max-w-[620px] text-center lg:mb-20" data-aos="fade-zoom-in">
               <span class="block mb-2 text-lg font-semibold text-primary">
                 About Edu Hunt
               </span>
@@ -273,7 +349,7 @@ style="background: linear-gradient(to right,  rgb(15, 31, 82) 0%,rgb(15, 31, 82)
       <div class="container">
         <div class="flex flex-wrap -mx-4">
           <div class="w-full px-4">
-            <div class="mx-auto mb-[60px] max-w-[620px] text-center lg:mb-20">
+            <div class="mx-auto mb-[60px] max-w-[620px] text-center lg:mb-20" data-aos="fade-zoom-in" data-aos-delay="250">
               <span class="block mb-2 text-lg font-semibold text-primary">
                 FAQ
               </span>
@@ -294,9 +370,8 @@ style="background: linear-gradient(to right,  rgb(15, 31, 82) 0%,rgb(15, 31, 82)
         <div class="flex flex-wrap -mx-4">
           <div class="w-full px-4 lg:w-1/2">
             <div
-              class="single-faq wow fadeInUp mb-8 w-full rounded-lg border border-[#F3F4FE] bg-white p-5 sm:p-8"
-              data-wow-delay=".1s
-              "
+              class="single-faq mb-8 w-full rounded-lg border border-[#F3F4FE] bg-white p-5 sm:p-8"
+              data-aos="fade-up" data-aos-delay="350"
             >
               <button class="flex items-center w-full text-left faq-btn">
                 <div
@@ -328,9 +403,8 @@ style="background: linear-gradient(to right,  rgb(15, 31, 82) 0%,rgb(15, 31, 82)
               </div>
             </div>
             <div
-              class="single-faq wow fadeInUp mb-8 w-full rounded-lg border border-[#F3F4FE] bg-white p-5 sm:p-8"
-              data-wow-delay=".15s
-              "
+              class="single-faq mb-8 w-full rounded-lg border border-[#F3F4FE] bg-white p-5 sm:p-8"
+              data-aos="fade-up" data-aos-delay="450"
             >
               <button class="flex items-center w-full text-left faq-btn">
                 <div
@@ -362,9 +436,8 @@ style="background: linear-gradient(to right,  rgb(15, 31, 82) 0%,rgb(15, 31, 82)
               </div>
             </div>
             <div
-              class="single-faq wow fadeInUp mb-8 w-full rounded-lg border border-[#F3F4FE] bg-white p-5 sm:p-8"
-              data-wow-delay=".2s
-              "
+              class="single-faq  mb-8 w-full rounded-lg border border-[#F3F4FE] bg-white p-5 sm:p-8"
+              data-aos="fade-up" data-aos-delay="550"
             >
               <button class="flex items-center w-full text-left faq-btn">
                 <div
@@ -398,9 +471,8 @@ style="background: linear-gradient(to right,  rgb(15, 31, 82) 0%,rgb(15, 31, 82)
           </div>
           <div class="w-full px-4 lg:w-1/2">
             <div
-              class="single-faq wow fadeInUp mb-8 w-full rounded-lg border border-[#F3F4FE] bg-white p-5 sm:p-8"
-              data-wow-delay=".1s
-              "
+              class="single-faq  mb-8 w-full rounded-lg border border-[#F3F4FE] bg-white p-5 sm:p-8"
+              data-aos="fade-up" data-aos-delay="650"
             >
               <button class="flex items-center w-full text-left faq-btn">
                 <div
@@ -432,9 +504,8 @@ style="background: linear-gradient(to right,  rgb(15, 31, 82) 0%,rgb(15, 31, 82)
               </div>
             </div>
             <div
-              class="single-faq wow fadeInUp mb-8 w-full rounded-lg border border-[#F3F4FE] bg-white p-5 sm:p-8"
-              data-wow-delay=".15s
-              "
+              class="single-faq mb-8 w-full rounded-lg border border-[#F3F4FE] bg-white p-5 sm:p-8"
+              data-aos="fade-up" data-aos-delay="750"
             >
               <button class="flex items-center w-full text-left faq-btn">
                 <div
@@ -466,9 +537,8 @@ style="background: linear-gradient(to right,  rgb(15, 31, 82) 0%,rgb(15, 31, 82)
               </div>
             </div>
             <div
-              class="single-faq wow fadeInUp mb-8 w-full rounded-lg border border-[#F3F4FE] bg-white p-5 sm:p-8"
-              data-wow-delay=".2s
-              "
+              class="single-faq  mb-8 w-full rounded-lg border border-[#F3F4FE] bg-white p-5 sm:p-8"
+              data-aos="fade-up" data-aos-delay="850"
             >
               <button class="flex items-center w-full text-left faq-btn">
                 <div
@@ -503,7 +573,7 @@ style="background: linear-gradient(to right,  rgb(15, 31, 82) 0%,rgb(15, 31, 82)
         </div>
       </div>
 
-      <div class="absolute bottom-0 right-0 z-[-1]">
+      <div class="absolute bottom-0 right-0 z-[-1]" data-aos="zoom-in-up" data-aos-delay="650">
         <svg
           width="1440"
           height="886"
@@ -561,7 +631,7 @@ style="background: linear-gradient(to right,  rgb(15, 31, 82) 0%,rgb(15, 31, 82)
         <div class="flex flex-wrap">
           <div class="w-full px-4 md:w-1/2 lg:w-1/3">
             <div
-              class="p-8 mb-12 bg-white ud-single-testimonial wow fadeInUp shadow-testimonial"
+              class="p-8 mb-12 bg-white ud-single-testimonial shadow-testimonial"
               data-wow-delay=".1s
               "
             >
@@ -651,7 +721,7 @@ style="background: linear-gradient(to right,  rgb(15, 31, 82) 0%,rgb(15, 31, 82)
           </div>
           <div class="w-full px-4 md:w-1/2 lg:w-1/3">
             <div
-              class="p-8 mb-12 bg-white ud-single-testimonial wow fadeInUp shadow-testimonial"
+              class="p-8 mb-12 bg-white ud-single-testimonial shadow-testimonial"
               data-wow-delay=".15s
               "
             >
@@ -741,7 +811,7 @@ style="background: linear-gradient(to right,  rgb(15, 31, 82) 0%,rgb(15, 31, 82)
           </div>
           <div class="w-full px-4 md:w-1/2 lg:w-1/3">
             <div
-              class="p-8 mb-12 bg-white ud-single-testimonial wow fadeInUp shadow-testimonial"
+              class="p-8 mb-12 bg-white ud-single-testimonial shadow-testimonial"
               data-wow-delay=".2s
               "
             >
