@@ -1,5 +1,20 @@
 @extends('layouts.default')
 
+@section('addons')
+
+<script>
+    faq = () => {
+        return {
+            dropFaq(id){
+                let faq = document.getElementById("faq"+id);
+                faq.classList.toggle('hidden');
+            }
+        };
+    };
+</script>
+
+@endsection
+
 
 @section("content")
 
@@ -11,7 +26,7 @@ id="hero"
 style="background: linear-gradient(to right,  rgb(15, 31, 82) 0%,rgb(15, 31, 82) 50%,rgb(48, 86, 211) 50%,rgb(48, 86, 211) 100%);"
 >
 <div class="container">
-  <div class="flex flex-wrap items-center -mx-4 -mb-8">
+  <div class="flex flex-wrap items-center -mx-4 -mb-12">
     <div class="w-full text-white md:w-1/2">
         <header data-aos="fade-zoom-in" class="w-full px-6 mb-10 sm:px-0">
           <img class="w-32 mx-auto mt-6 md:mx-0 lg:w-40" src="{{ asset('images/logo/logo.png') }}" alt="base apparel logo" />
@@ -37,7 +52,7 @@ style="background: linear-gradient(to right,  rgb(15, 31, 82) 0%,rgb(15, 31, 82)
               >soon</span
             >
           </h1>
-          <p class="mt-6 sm:mt-8 text-desaturated-red sm:text-lg xl:text-xl" data-aos="fade-zoom-down" data-aos-delay="500">
+          <p class="mt-6 sm:mt-8 text-desaturated-red sm:text-lg xl:text-xl wow fadeIn" data-wow-delay="0.5s">
             Hello fellow students! We're currently building our new product to help you choose
             the best path for your career. We're excited to show you more soon!
           </p>
@@ -344,7 +359,7 @@ style="background: linear-gradient(to right,  rgb(15, 31, 82) 0%,rgb(15, 31, 82)
     <!-- ====== Faq Section Start -->
     <section
       class="relative z-20 overflow-hidden bg-[#f3f4ff] pt-20 pb-12 lg:pt-[120px] lg:pb-[90px]"
-      id="faq"
+      x-data="faq"
     >
       <div class="container">
         <div class="flex flex-wrap -mx-4">
@@ -373,7 +388,7 @@ style="background: linear-gradient(to right,  rgb(15, 31, 82) 0%,rgb(15, 31, 82)
               class="single-faq mb-8 w-full rounded-lg border border-[#F3F4FE] bg-white p-5 sm:p-8"
               data-aos="fade-up" data-aos-delay="350"
             >
-              <button class="flex items-center w-full text-left faq-btn">
+              <button class="flex items-center w-full text-left faq-btn" @click="dropFaq(1)">
                 <div
                   class="mr-5 flex h-10 w-full max-w-[40px] items-center justify-center rounded-lg bg-primary bg-opacity-5 text-primary"
                 >
@@ -396,7 +411,7 @@ style="background: linear-gradient(to right,  rgb(15, 31, 82) 0%,rgb(15, 31, 82)
                   </h4>
                 </div>
               </button>
-              <div class="faq-content hidden pl-[62px]">
+              <div class="faq-content hidden pl-[62px]" id="faq1">
                 <p class="py-3 text-base leading-relaxed text-body-color">
                   To find a tutor on our platform, use the search function and specify your criteria such as subject, location, and availability.
                 </p>
@@ -406,7 +421,7 @@ style="background: linear-gradient(to right,  rgb(15, 31, 82) 0%,rgb(15, 31, 82)
               class="single-faq mb-8 w-full rounded-lg border border-[#F3F4FE] bg-white p-5 sm:p-8"
               data-aos="fade-up" data-aos-delay="450"
             >
-              <button class="flex items-center w-full text-left faq-btn">
+              <button class="flex items-center w-full text-left faq-btn" @click="dropFaq(2)">
                 <div
                   class="mr-5 flex h-10 w-full max-w-[40px] items-center justify-center rounded-lg bg-primary bg-opacity-5 text-primary"
                 >
@@ -429,7 +444,7 @@ style="background: linear-gradient(to right,  rgb(15, 31, 82) 0%,rgb(15, 31, 82)
                   </h4>
                 </div>
               </button>
-              <div class="faq-content hidden pl-[62px]">
+              <div class="faq-content hidden pl-[62px]" id="faq2">
                 <p class="py-3 text-base leading-relaxed text-body-color">
                   Yes, you can see reviews from other students before booking a course.
                 </p>
@@ -439,7 +454,7 @@ style="background: linear-gradient(to right,  rgb(15, 31, 82) 0%,rgb(15, 31, 82)
               class="single-faq  mb-8 w-full rounded-lg border border-[#F3F4FE] bg-white p-5 sm:p-8"
               data-aos="fade-up" data-aos-delay="550"
             >
-              <button class="flex items-center w-full text-left faq-btn">
+              <button class="flex items-center w-full text-left faq-btn" @click="dropFaq(3)">
                 <div
                   class="mr-5 flex h-10 w-full max-w-[40px] items-center justify-center rounded-lg bg-primary bg-opacity-5 text-primary"
                 >
@@ -462,7 +477,7 @@ style="background: linear-gradient(to right,  rgb(15, 31, 82) 0%,rgb(15, 31, 82)
                   </h4>
                 </div>
               </button>
-              <div class="faq-content hidden pl-[62px]">
+              <div class="faq-content hidden pl-[62px]" id="faq3">
                 <p class="py-3 text-base leading-relaxed text-body-color">
                   You can update your preferences any time you want by going to your profile when our website goes live.
                 </p>
@@ -474,7 +489,7 @@ style="background: linear-gradient(to right,  rgb(15, 31, 82) 0%,rgb(15, 31, 82)
               class="single-faq  mb-8 w-full rounded-lg border border-[#F3F4FE] bg-white p-5 sm:p-8"
               data-aos="fade-up" data-aos-delay="650"
             >
-              <button class="flex items-center w-full text-left faq-btn">
+              <button class="flex items-center w-full text-left faq-btn" @click="dropFaq(4)">
                 <div
                   class="mr-5 flex h-10 w-full max-w-[40px] items-center justify-center rounded-lg bg-primary bg-opacity-5 text-primary"
                 >
@@ -493,13 +508,13 @@ style="background: linear-gradient(to right,  rgb(15, 31, 82) 0%,rgb(15, 31, 82)
                 </div>
                 <div class="w-full">
                   <h4 class="text-base font-semibold text-black sm:text-lg">
-                  Can I ask the tutor questions before booking a course?  
+                  Can I enquire about a course ?
                   </h4>
                 </div>
               </button>
-              <div class="faq-content hidden pl-[62px]">
+              <div class="faq-content hidden pl-[62px]" id="faq4">
                 <p class="py-3 text-base leading-relaxed text-body-color">
-                  Yes, you can ask the tutor questions before booking a course using the Enquire option in the course page.
+                  Yes, you can enquire about a course by clicking on the "Enquire" button on the course page and a member of our team will get back to you.
                 </p>
               </div>
             </div>
@@ -507,7 +522,7 @@ style="background: linear-gradient(to right,  rgb(15, 31, 82) 0%,rgb(15, 31, 82)
               class="single-faq mb-8 w-full rounded-lg border border-[#F3F4FE] bg-white p-5 sm:p-8"
               data-aos="fade-up" data-aos-delay="750"
             >
-              <button class="flex items-center w-full text-left faq-btn">
+              <button class="flex items-center w-full text-left faq-btn" @click="dropFaq(5)">
                 <div
                   class="mr-5 flex h-10 w-full max-w-[40px] items-center justify-center rounded-lg bg-primary bg-opacity-5 text-primary"
                 >
@@ -530,7 +545,7 @@ style="background: linear-gradient(to right,  rgb(15, 31, 82) 0%,rgb(15, 31, 82)
                   </h4>
                 </div>
               </button>
-              <div class="faq-content hidden pl-[62px]">
+              <div class="faq-content hidden pl-[62px]" id="faq5">
                 <p class="py-3 text-base leading-relaxed text-body-color">
                   If you have a question or concern, you can contact customer support through the platform or by using the contact information provided.
                 </p>
@@ -540,7 +555,7 @@ style="background: linear-gradient(to right,  rgb(15, 31, 82) 0%,rgb(15, 31, 82)
               class="single-faq  mb-8 w-full rounded-lg border border-[#F3F4FE] bg-white p-5 sm:p-8"
               data-aos="fade-up" data-aos-delay="850"
             >
-              <button class="flex items-center w-full text-left faq-btn">
+              <button class="flex items-center w-full text-left faq-btn" @click="dropFaq(6)">
                 <div
                   class="mr-5 flex h-10 w-full max-w-[40px] items-center justify-center rounded-lg bg-primary bg-opacity-5 text-primary"
                 >
@@ -559,13 +574,13 @@ style="background: linear-gradient(to right,  rgb(15, 31, 82) 0%,rgb(15, 31, 82)
                 </div>
                 <div class="w-full">
                   <h4 class="text-base font-semibold text-black sm:text-lg">
-                    Where and how to sign up?
+                    How do I sign up for the platform?
                   </h4>
                 </div>
               </button>
-              <div class="faq-content hidden pl-[62px]">
+              <div class="faq-content hidden pl-[62px]" id="faq6">
                 <p class="py-3 text-base leading-relaxed text-body-color">
-                  To sign up for our platform, visit the sign-up page and follow the prompts to create an account.
+                  Sign ups aren't open yet, but you can show your interest by filling out the form on the homepage.
                 </p>
               </div>
             </div>
@@ -585,8 +600,9 @@ style="background: linear-gradient(to right,  rgb(15, 31, 82) 0%,rgb(15, 31, 82)
             opacity="0.5"
             d="M193.307 -273.321L1480.87 1014.24L1121.85 1373.26C1121.85 1373.26 731.745 983.231 478.513 729.927C225.976 477.317 -165.714 85.6993 -165.714 85.6993L193.307 -273.321Z"
             fill="url(#paint0_linear)"
+            class="animate-pulse"
           />
-          <defs>
+          <defs class="animate-pulse">
             <linearGradient
               id="paint0_linear"
               x1="1308.65"

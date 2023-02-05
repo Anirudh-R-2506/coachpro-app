@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Enums\ContactStatus;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Models\Contact;
+use App\Helpers\DiscordHelper;
 
 
 class ContactController
@@ -22,7 +23,7 @@ class ContactController
         ]);
 
         try{
-            Contact::create(
+            $contact = Contact::create(
                 [
                     'full_name' => $request->full_name,
                     'email' => $request->email,
@@ -32,11 +33,12 @@ class ContactController
                     'status' => ContactStatus::PENDING,
                 ]
             );
+            DiscordHelper::newContact($contact); 
             Alert::success('Success', 'Message sent successfully.');
-            return redirect()->route('frontend.contact');
+            return redirect()->back();
         }catch(\Exception $e){
             Alert::error('Oops!', 'Could not send message. Please try again later.');
-            return redirect()->route('frontend.contact');
+            return redirect()->back();
         }
     }
     
