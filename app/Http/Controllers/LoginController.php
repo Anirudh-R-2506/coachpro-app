@@ -4,9 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Routing\Controller;
+use App\Models\User;
+use App\Enums\Education;
+use App\Enums\UserRole;
 
 class LoginController extends Controller
 {
+
+    protected $city = "Bangalore";
+
     public function login(Request $request)
     {
         $request->validate([
@@ -61,5 +69,49 @@ class LoginController extends Controller
             'message' => 'Login successful',                
         ];
         return response()->json($response, 200);
+    }
+
+    public function register_cs(Request $request)
+    {
+        $request->validate([
+            'first_name' => 'string|max:255',
+            'last_name' => 'string|max:255',
+            'email' => 'string|email|max:255',
+            'phone' => 'required|string|max:255|unique:users',
+            'education' => 'string|min:2',
+            'class' => 'required_if:education,==,school',
+            'year_of_passing' => 'required_if:education,!=,school',
+        ]);
+
+        $edu = Education::getEnum($request->education);
+        $user = User::create([
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'education' => $edu,
+            'role' => UserRole::STUDENT,
+            'city' => $this->city,
+        ]);
+        if ($user){
+            if ($edu == Education::SCHOOL) {
+                $user->class = $request->class;
+                $user->year_of_passing = null;
+            } else {
+                $user->year_of_passing = $request->year_of_passing;
+                $user->class = null;
+            }
+            $user->save();
+
+            return response()->json([
+                'status' => 'success',
+                'message' => 'We will keep you updated and help you in your journey towards success.',
+            ], 200);
+        } else {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Something went wrong. Please try again.',
+            ], 500);
+        }
     }
 }

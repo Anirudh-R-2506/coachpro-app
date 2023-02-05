@@ -26,6 +26,11 @@ class HomeController extends BaseController
         return view('pages.contact');
     }
 
+    public function coming_soon()
+    {
+        return view('pages.coming-soon');
+    }
+
     public function product()
     {
         return view('app.index');

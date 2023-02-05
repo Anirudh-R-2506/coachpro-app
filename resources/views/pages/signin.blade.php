@@ -14,30 +14,17 @@
 
       init = () => {
         return {
-          step : 1,
           login: true,
-          education : '',
-          showLocationSelect: false,
-
-          nextStep() {
-            this.step++;
-          },
-          hello() {
-            alert('Hello');
-          },
-          prevStep() {
-            this.step--;
-          },
         };
       };
     </script>
     <div
     id="home"
-    class="relative overflow-hidden p-10 bg-primary"
+    class="relative p-10 overflow-hidden bg-primary"
     x-data="init"
   >
     <div class="container">
-      <div class="-mx-4 flex flex-wrap items-center justify-center">
+      <div class="flex flex-wrap items-center justify-center -mx-4">
         <div class="w-full px-4">
           <div
             class="hero-content mx-auto max-w-[780px]"

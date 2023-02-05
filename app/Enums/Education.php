@@ -18,6 +18,20 @@ class Education
         ];
     }
 
+    public static function getEnum($education): ?string
+    {
+        switch ($education) {
+            case 'school':
+                return self::SCHOOL;
+            case 'ug':
+                return self::UG;
+            case 'pg':
+                return self::PG;
+            default:
+                return null;
+        }
+    }
+
     public static function getLabels(): array
     {
         return [

@@ -9,7 +9,7 @@
       x-data="init"
     >
       <div class="container">
-        <div class="-mx-4 flex flex-wrap items-center justify-center">
+        <div class="flex flex-wrap items-center justify-center -mx-4">
           <div class="w-full px-4">
             <div
               class="hero-content wow fadeInUp mx-auto max-w-[780px] text-center"
@@ -25,11 +25,11 @@
               >
                 We are a platform where you can choose the right coach for you and start your journey to the summit of success.
               </p>
-              <ul class="mb-6 flex flex-wrap items-center justify-center">
+              <ul class="flex flex-wrap items-center justify-center mb-6">
                 <li>
                   <a
                     href="#instituteSearch"
-                    class="inline-flex items-center justify-center rounded-lg bg-white py-4 px-6 text-center text-base font-medium text-dark transition duration-300 ease-in-out hover:text-primary hover:shadow-lg sm:px-10"
+                    class="inline-flex items-center justify-center px-6 py-4 text-base font-medium text-center transition duration-300 ease-in-out bg-white rounded-lg text-dark hover:text-primary hover:shadow-lg sm:px-10"
                   >
                   Try now!
                   </a>
@@ -38,7 +38,7 @@
                   <a
                     href="https://github.com/tailgrids/Coach Pro-tailwind"
                     target="_blank"
-                    class="flex items-center py-4 px-6 text-base font-medium text-white transition duration-300 ease-in-out hover:opacity-70 sm:px-10"
+                    class="flex items-center px-6 py-4 text-base font-medium text-white transition duration-300 ease-in-out hover:opacity-70 sm:px-10"
                   >
                     Star on Github
                     <span class="pl-2">
@@ -56,7 +56,7 @@
                   </a>
                 </li> -->
               </ul><!-- 
-              <div class="wow fadeInUp text-center" data-wow-delay=".3s">
+              <div class="text-center wow fadeInUp" data-wow-delay=".3s">
                 <img
                   src="assets/images/hero/brand.svg"
                   alt="image"
@@ -73,8 +73,7 @@
             >
               <div class="mt-16">
                 <div class="w-full px-4 mb-6">
-                  {{-- @include('includes.signup-form') --}}
-                  <img src="{{ asset('images/hero/hero.png') }}" alt="image" class="mx-auto w-full max-w-[845px]" />
+                  @include('includes.signup-form')
                 </div>
               </div>
               <div class="absolute bottom-0 -left-9 z-[-1]">
@@ -1227,10 +1226,10 @@
     <!-- ====== Features Section Start -->
     <section class="pt-20 pb-8 lg:pt-[120px] lg:pb-[70px]" id="features">
       <div class="container">
-        <div class="-mx-4 flex flex-wrap">
+        <div class="flex flex-wrap -mx-4">
           <div class="w-full px-4">
             <div class="mb-12 max-w-[620px] lg:mb-20">
-              <span class="mb-2 block text-lg font-semibold text-primary">
+              <span class="block mb-2 text-lg font-semibold text-primary">
                 Features
               </span>
               <h2
@@ -1247,9 +1246,9 @@
             </div>
           </div>
         </div>
-        <div class="-mx-4 flex flex-wrap">
+        <div class="flex flex-wrap -mx-4">
           <div class="w-full px-4 md:w-1/2 lg:w-1/4">
-            <div class="wow fadeInUp group bg-white px-5 py-4" data-wow-delay=".1s">
+            <div class="px-5 py-4 bg-white wow fadeInUp group" data-wow-delay=".1s">
               <div
                 class="relative z-10 mb-8 flex h-[70px] w-[70px] items-center justify-center rounded-2xl bg-primary"
               >
@@ -1269,7 +1268,7 @@
           </div>
           <div class="w-full px-4 md:w-1/2 lg:w-1/4">
             <div
-              class="wow fadeInUp group bg-white px-5 py-4"
+              class="px-5 py-4 bg-white wow fadeInUp group"
               data-wow-delay=".15s"
             >
               <div
@@ -1290,7 +1289,7 @@
             </div>
           </div>
           <div class="w-full px-4 md:w-1/2 lg:w-1/4">
-            <div class="wow fadeInUp group bg-white px-5 py-4" data-wow-delay=".2s">
+            <div class="px-5 py-4 bg-white wow fadeInUp group" data-wow-delay=".2s">
               <div
                 class="relative z-10 mb-8 flex h-[70px] w-[70px] items-center justify-center rounded-2xl bg-primary"
               >
@@ -1310,7 +1309,7 @@
           </div>
           <div class="w-full px-4 md:w-1/2 lg:w-1/4">
             <div
-              class="wow fadeInUp group bg-white px-5 py-4"
+              class="px-5 py-4 bg-white wow fadeInUp group"
               data-wow-delay=".25s"
             >
               <div
@@ -1352,10 +1351,10 @@
       id="tutorial"
     >
       <div class="container">
-        <div class="-mx-4 flex flex-wrap">
+        <div class="flex flex-wrap -mx-4">
           <div class="w-full px-4">
             <div class="mx-auto mb-[60px] max-w-[620px] text-center lg:mb-20">
-              <span class="mb-2 block text-lg font-semibold text-primary">
+              <span class="block mb-2 text-lg font-semibold text-primary">
                 Know how it works
               </span>
               <h2
@@ -1373,50 +1372,50 @@
         </div>
 
         <div class="mx-4">
-          <div class="container mx-auto w-full h-full">
-            <div class="relative wrap overflow-hidden p-10 h-full">
-              <div class="border-2-2 border-yellow-555 absolute h-full border"
+          <div class="container w-full h-full mx-auto">
+            <div class="relative h-full p-10 overflow-hidden wrap">
+              <div class="absolute h-full border border-2-2 border-yellow-555"
                 style="right: 50%; border: 2px solid #3056D3; border-radius: 1%;"></div>
-              <div class="border-2-2 border-yellow-555 absolute h-full border"
+              <div class="absolute h-full border border-2-2 border-yellow-555"
                 style="left: 50%; border: 2px solid #3056D3; border-radius: 1%;"></div>
-              <div class="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline">
+              <div class="flex flex-row-reverse items-center justify-between w-full mb-8 left-timeline">
                 <div class="order-1 w-5/12"></div>
                 <div class="order-1 w-5/12 p-6 text-right bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
                   <p class="mb-3 text-base text-primary">Step 1</p>
-                  <h4 class="mb-3 font-bold text-lg md:text-2xl">Search for courses</h4>
-                  <p class="text-sm md:text-base leading-relaxed text-gray-50 text-opacity-100">
+                  <h4 class="mb-3 text-lg font-bold md:text-2xl">Search for courses</h4>
+                  <p class="text-sm leading-relaxed text-opacity-100 md:text-base text-gray-50">
                     Use our search function to find tutors who offer the courses you need. Specify criteria such as subject, location, and availability to narrow down the results.
                   </p>
                 </div>
               </div>
-              <div class="mb-8 flex justify-between items-center w-full right-timeline">
+              <div class="flex items-center justify-between w-full mb-8 right-timeline">
                 <div class="order-1 w-5/12"></div>
-                <div class="order-1  w-5/12 p-6 text-left bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
+                <div class="order-1 w-5/12 p-6 text-left bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
                   <p class="mb-3 text-base text-primary">Step 2</p>
-                  <h4 class="mb-3 font-bold text-lg md:text-2xl">Enquire about courses</h4>
-                  <p class="text-sm md:text-base leading-relaxed text-gray-50 text-opacity-100">
+                  <h4 class="mb-3 text-lg font-bold md:text-2xl">Enquire about courses</h4>
+                  <p class="text-sm leading-relaxed text-opacity-100 md:text-base text-gray-50">
                     Contact the tutor to ask questions and learn more about the course. The tutor can provide additional information and clarify any details.
                   </p>
                 </div>
               </div>
-              <div class="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline">
+              <div class="flex flex-row-reverse items-center justify-between w-full mb-8 left-timeline">
                 <div class="order-1 w-5/12"></div>
                 <div class="order-1 w-5/12 p-6 text-right bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
                   <p class="mb-3 text-base text-primary">Step 3</p>
-                  <h4 class="mb-3 font-bold text-lg md:text-2xl">Book Courses</h4>
-                  <p class="text-sm md:text-base leading-relaxed text-gray-50 text-opacity-100">
+                  <h4 class="mb-3 text-lg font-bold md:text-2xl">Book Courses</h4>
+                  <p class="text-sm leading-relaxed text-opacity-100 md:text-base text-gray-50">
                     If you want to book a course, use our booking system to reserve a spot. Payment may be required at this time, depending on the tutor's policy.
                   </p>
                 </div>
               </div>
   
-              <div class="mb-8 flex justify-between items-center w-full right-timeline">
+              <div class="flex items-center justify-between w-full mb-8 right-timeline">
                 <div class="order-1 w-5/12"></div>
   
-                <div class="order-1  w-5/12 p-6 bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
+                <div class="order-1 w-5/12 p-6 bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
                   <p class="mb-3 text-base text-primary">Step 4</p>
-                  <h4 class="mb-3 font-bold  text-lg md:text-2xl text-left">Attend sessions</h4>
-                  <p class="text-sm md:text-base leading-relaxed text-gray-50 text-opacity-100">
+                  <h4 class="mb-3 text-lg font-bold text-left md:text-2xl">Attend sessions</h4>
+                  <p class="text-sm leading-relaxed text-opacity-100 md:text-base text-gray-50">
                     Once the booking is complete, we will generate a document with the necessary details to attend the tutoring sessions of your choice as scheduled.
                   </p>
                 </div>
@@ -1438,10 +1437,10 @@
       id="faq"
     >
       <div class="container">
-        <div class="-mx-4 flex flex-wrap">
+        <div class="flex flex-wrap -mx-4">
           <div class="w-full px-4">
             <div class="mx-auto mb-[60px] max-w-[620px] text-center lg:mb-20">
-              <span class="mb-2 block text-lg font-semibold text-primary">
+              <span class="block mb-2 text-lg font-semibold text-primary">
                 FAQ
               </span>
               <h2
@@ -1458,14 +1457,14 @@
           </div>
         </div>
 
-        <div class="-mx-4 flex flex-wrap">
+        <div class="flex flex-wrap -mx-4">
           <div class="w-full px-4 lg:w-1/2">
             <div
               class="single-faq wow fadeInUp mb-8 w-full rounded-lg border border-[#F3F4FE] bg-white p-5 sm:p-8"
               data-wow-delay=".1s
               "
             >
-              <button class="faq-btn flex w-full items-center text-left">
+              <button class="flex items-center w-full text-left faq-btn">
                 <div
                   class="mr-5 flex h-10 w-full max-w-[40px] items-center justify-center rounded-lg bg-primary bg-opacity-5 text-primary"
                 >
@@ -1473,7 +1472,7 @@
                     width="17"
                     height="10"
                     viewBox="0 0 17 10"
-                    class="icon fill-current"
+                    class="fill-current icon"
                   >
                     <path
                       d="M7.28687 8.43257L7.28679 8.43265L7.29496 8.43985C7.62576 8.73124 8.02464 8.86001 8.41472 8.86001C8.83092 8.86001 9.22376 8.69083 9.53447 8.41713L9.53454 8.41721L9.54184 8.41052L15.7631 2.70784L15.7691 2.70231L15.7749 2.69659C16.0981 2.38028 16.1985 1.80579 15.7981 1.41393C15.4803 1.1028 14.9167 1.00854 14.5249 1.38489L8.41472 7.00806L2.29995 1.38063L2.29151 1.37286L2.28271 1.36548C1.93092 1.07036 1.38469 1.06804 1.03129 1.41393L1.01755 1.42738L1.00488 1.44184C0.69687 1.79355 0.695778 2.34549 1.0545 2.69659L1.05999 2.70196L1.06565 2.70717L7.28687 8.43257Z"
@@ -1499,7 +1498,7 @@
               data-wow-delay=".15s
               "
             >
-              <button class="faq-btn flex w-full items-center text-left">
+              <button class="flex items-center w-full text-left faq-btn">
                 <div
                   class="mr-5 flex h-10 w-full max-w-[40px] items-center justify-center rounded-lg bg-primary bg-opacity-5 text-primary"
                 >
@@ -1507,7 +1506,7 @@
                     width="17"
                     height="10"
                     viewBox="0 0 17 10"
-                    class="icon fill-current"
+                    class="fill-current icon"
                   >
                     <path
                       d="M7.28687 8.43257L7.28679 8.43265L7.29496 8.43985C7.62576 8.73124 8.02464 8.86001 8.41472 8.86001C8.83092 8.86001 9.22376 8.69083 9.53447 8.41713L9.53454 8.41721L9.54184 8.41052L15.7631 2.70784L15.7691 2.70231L15.7749 2.69659C16.0981 2.38028 16.1985 1.80579 15.7981 1.41393C15.4803 1.1028 14.9167 1.00854 14.5249 1.38489L8.41472 7.00806L2.29995 1.38063L2.29151 1.37286L2.28271 1.36548C1.93092 1.07036 1.38469 1.06804 1.03129 1.41393L1.01755 1.42738L1.00488 1.44184C0.69687 1.79355 0.695778 2.34549 1.0545 2.69659L1.05999 2.70196L1.06565 2.70717L7.28687 8.43257Z"
@@ -1533,7 +1532,7 @@
               data-wow-delay=".2s
               "
             >
-              <button class="faq-btn flex w-full items-center text-left">
+              <button class="flex items-center w-full text-left faq-btn">
                 <div
                   class="mr-5 flex h-10 w-full max-w-[40px] items-center justify-center rounded-lg bg-primary bg-opacity-5 text-primary"
                 >
@@ -1541,7 +1540,7 @@
                     width="17"
                     height="10"
                     viewBox="0 0 17 10"
-                    class="icon fill-current"
+                    class="fill-current icon"
                   >
                     <path
                       d="M7.28687 8.43257L7.28679 8.43265L7.29496 8.43985C7.62576 8.73124 8.02464 8.86001 8.41472 8.86001C8.83092 8.86001 9.22376 8.69083 9.53447 8.41713L9.53454 8.41721L9.54184 8.41052L15.7631 2.70784L15.7691 2.70231L15.7749 2.69659C16.0981 2.38028 16.1985 1.80579 15.7981 1.41393C15.4803 1.1028 14.9167 1.00854 14.5249 1.38489L8.41472 7.00806L2.29995 1.38063L2.29151 1.37286L2.28271 1.36548C1.93092 1.07036 1.38469 1.06804 1.03129 1.41393L1.01755 1.42738L1.00488 1.44184C0.69687 1.79355 0.695778 2.34549 1.0545 2.69659L1.05999 2.70196L1.06565 2.70717L7.28687 8.43257Z"
@@ -1569,7 +1568,7 @@
               data-wow-delay=".1s
               "
             >
-              <button class="faq-btn flex w-full items-center text-left">
+              <button class="flex items-center w-full text-left faq-btn">
                 <div
                   class="mr-5 flex h-10 w-full max-w-[40px] items-center justify-center rounded-lg bg-primary bg-opacity-5 text-primary"
                 >
@@ -1577,7 +1576,7 @@
                     width="17"
                     height="10"
                     viewBox="0 0 17 10"
-                    class="icon fill-current"
+                    class="fill-current icon"
                   >
                     <path
                       d="M7.28687 8.43257L7.28679 8.43265L7.29496 8.43985C7.62576 8.73124 8.02464 8.86001 8.41472 8.86001C8.83092 8.86001 9.22376 8.69083 9.53447 8.41713L9.53454 8.41721L9.54184 8.41052L15.7631 2.70784L15.7691 2.70231L15.7749 2.69659C16.0981 2.38028 16.1985 1.80579 15.7981 1.41393C15.4803 1.1028 14.9167 1.00854 14.5249 1.38489L8.41472 7.00806L2.29995 1.38063L2.29151 1.37286L2.28271 1.36548C1.93092 1.07036 1.38469 1.06804 1.03129 1.41393L1.01755 1.42738L1.00488 1.44184C0.69687 1.79355 0.695778 2.34549 1.0545 2.69659L1.05999 2.70196L1.06565 2.70717L7.28687 8.43257Z"
@@ -1603,7 +1602,7 @@
               data-wow-delay=".15s
               "
             >
-              <button class="faq-btn flex w-full items-center text-left">
+              <button class="flex items-center w-full text-left faq-btn">
                 <div
                   class="mr-5 flex h-10 w-full max-w-[40px] items-center justify-center rounded-lg bg-primary bg-opacity-5 text-primary"
                 >
@@ -1611,7 +1610,7 @@
                     width="17"
                     height="10"
                     viewBox="0 0 17 10"
-                    class="icon fill-current"
+                    class="fill-current icon"
                   >
                     <path
                       d="M7.28687 8.43257L7.28679 8.43265L7.29496 8.43985C7.62576 8.73124 8.02464 8.86001 8.41472 8.86001C8.83092 8.86001 9.22376 8.69083 9.53447 8.41713L9.53454 8.41721L9.54184 8.41052L15.7631 2.70784L15.7691 2.70231L15.7749 2.69659C16.0981 2.38028 16.1985 1.80579 15.7981 1.41393C15.4803 1.1028 14.9167 1.00854 14.5249 1.38489L8.41472 7.00806L2.29995 1.38063L2.29151 1.37286L2.28271 1.36548C1.93092 1.07036 1.38469 1.06804 1.03129 1.41393L1.01755 1.42738L1.00488 1.44184C0.69687 1.79355 0.695778 2.34549 1.0545 2.69659L1.05999 2.70196L1.06565 2.70717L7.28687 8.43257Z"
@@ -1637,7 +1636,7 @@
               data-wow-delay=".2s
               "
             >
-              <button class="faq-btn flex w-full items-center text-left">
+              <button class="flex items-center w-full text-left faq-btn">
                 <div
                   class="mr-5 flex h-10 w-full max-w-[40px] items-center justify-center rounded-lg bg-primary bg-opacity-5 text-primary"
                 >
@@ -1645,7 +1644,7 @@
                     width="17"
                     height="10"
                     viewBox="0 0 17 10"
-                    class="icon fill-current"
+                    class="fill-current icon"
                   >
                     <path
                       d="M7.28687 8.43257L7.28679 8.43265L7.29496 8.43985C7.62576 8.73124 8.02464 8.86001 8.41472 8.86001C8.83092 8.86001 9.22376 8.69083 9.53447 8.41713L9.53454 8.41721L9.54184 8.41052L15.7631 2.70784L15.7691 2.70231L15.7749 2.69659C16.0981 2.38028 16.1985 1.80579 15.7981 1.41393C15.4803 1.1028 14.9167 1.00854 14.5249 1.38489L8.41472 7.00806L2.29995 1.38063L2.29151 1.37286L2.28271 1.36548C1.93092 1.07036 1.38469 1.06804 1.03129 1.41393L1.01755 1.42738L1.00488 1.44184C0.69687 1.79355 0.695778 2.34549 1.0545 2.69659L1.05999 2.70196L1.06565 2.70717L7.28687 8.43257Z"
@@ -1706,9 +1705,9 @@
     <section id="testimonials" class="pt-20 md:pt-[120px]">
       <div class="container px-4">
         <div class="flex flex-wrap">
-          <div class="mx-4 w-full">
+          <div class="w-full mx-4">
             <div class="mx-auto mb-[60px] max-w-[620px] text-center lg:mb-20">
-              <span class="mb-2 block text-lg font-semibold text-primary">
+              <span class="block mb-2 text-lg font-semibold text-primary">
                 Testimonials
               </span>
               <h2
@@ -1728,11 +1727,11 @@
         <div class="flex flex-wrap">
           <div class="w-full px-4 md:w-1/2 lg:w-1/3">
             <div
-              class="ud-single-testimonial wow fadeInUp mb-12 bg-white p-8 shadow-testimonial"
+              class="p-8 mb-12 bg-white ud-single-testimonial wow fadeInUp shadow-testimonial"
               data-wow-delay=".1s
               "
             >
-              <div class="ud-testimonial-ratings mb-3 flex items-center">
+              <div class="flex items-center mb-3 ud-testimonial-ratings">
                 <span class="mr-1 text-[#fbb040]">
                   <svg
                     width="18"
@@ -1794,13 +1793,13 @@
                   </svg>
                 </span>
               </div>
-              <div class="ud-testimonial-content mb-6">
+              <div class="mb-6 ud-testimonial-content">
                 <p class="text-base tracking-wide text-body-color">
                   “Our members are so impressed. It's intuitive. It's clean.
                   It's distraction free. If you're building a community.
                 </p>
               </div>
-              <div class="ud-testimonial-info flex items-center">
+              <div class="flex items-center ud-testimonial-info">
                 <div
                   class="ud-testimonial-image mr-5 h-[50px] w-[50px] overflow-hidden rounded-full"
                 >
@@ -1818,11 +1817,11 @@
           </div>
           <div class="w-full px-4 md:w-1/2 lg:w-1/3">
             <div
-              class="ud-single-testimonial wow fadeInUp mb-12 bg-white p-8 shadow-testimonial"
+              class="p-8 mb-12 bg-white ud-single-testimonial wow fadeInUp shadow-testimonial"
               data-wow-delay=".15s
               "
             >
-              <div class="ud-testimonial-ratings mb-3 flex items-center">
+              <div class="flex items-center mb-3 ud-testimonial-ratings">
                 <span class="mr-1 text-[#fbb040]">
                   <svg
                     width="18"
@@ -1884,13 +1883,13 @@
                   </svg>
                 </span>
               </div>
-              <div class="ud-testimonial-content mb-6">
+              <div class="mb-6 ud-testimonial-content">
                 <p class="text-base tracking-wide text-body-color">
                   “Our members are so impressed. It's intuitive. It's clean.
                   It's distraction free. If you're building a community.
                 </p>
               </div>
-              <div class="ud-testimonial-info flex items-center">
+              <div class="flex items-center ud-testimonial-info">
                 <div
                   class="ud-testimonial-image mr-5 h-[50px] w-[50px] overflow-hidden rounded-full"
                 >
@@ -1908,11 +1907,11 @@
           </div>
           <div class="w-full px-4 md:w-1/2 lg:w-1/3">
             <div
-              class="ud-single-testimonial wow fadeInUp mb-12 bg-white p-8 shadow-testimonial"
+              class="p-8 mb-12 bg-white ud-single-testimonial wow fadeInUp shadow-testimonial"
               data-wow-delay=".2s
               "
             >
-              <div class="ud-testimonial-ratings mb-3 flex items-center">
+              <div class="flex items-center mb-3 ud-testimonial-ratings">
                 <span class="mr-1 text-[#fbb040]">
                   <svg
                     width="18"
@@ -1974,13 +1973,13 @@
                   </svg>
                 </span>
               </div>
-              <div class="ud-testimonial-content mb-6">
+              <div class="mb-6 ud-testimonial-content">
                 <p class="text-base tracking-wide text-body-color">
                   “Our members are so impressed. It's intuitive. It's clean.
                   It's distraction free. If you're building a community.
                 </p>
               </div>
-              <div class="ud-testimonial-info flex items-center">
+              <div class="flex items-center ud-testimonial-info">
                 <div
                   class="ud-testimonial-image mr-5 h-[50px] w-[50px] overflow-hidden rounded-full"
                 >

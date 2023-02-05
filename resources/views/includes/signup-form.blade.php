@@ -1,34 +1,65 @@
+<script>
+  window.onload = () => {
+    var lp = new locationPicker('map', {
+        setCurrentPosition: true, // You can omit this, defaults to true
+    }, {
+    });
+  }
+</script>
+<script>      
+
+  signup = () => {
+    return {
+      step : 1,
+      education : '',
+      showLocationSelect: false,
+
+      nextStep() {
+        this.step++;
+      },
+      hello() {
+        alert('Hello');
+      },
+      prevStep() {
+        this.step--;
+      },
+    };
+  };
+</script>
+
+
                 <div
-                    class="rounded-lg bg-white py-10 px-8 shadow-testimonial sm:py-12 sm:px-10 md:p-[60px] lg:p-10 lg:py-12 lg:px-10 2xl:p-[60px]"
+                    class="rounded-lg bg-white py-10 px-8 sm:py-12 sm:px-10 md:p-[60px] lg:p-10 lg:py-12 lg:px-10 2xl:p-[60px]"
                     data-wow-delay=".2s
                     "
+                    x-data="signup"
                   >
                     <h3 class="mb-8 text-2xl font-semibold md:text-[26px]" x-on:click="hello">
                       Sign up & start your journey to success
                     </h3>
-                    <div class="border-b-2 mb-8">
-                      <div class="uppercase tracking-wide text-xs font-bold text-gray-500 mb-1 leading-tight" x-text="`Step: ${step} of 3`"></div>
+                    <div class="mb-8 border-b-2">
+                      <div class="mb-1 text-xs font-bold leading-tight tracking-wide text-gray-500 uppercase" x-text="`Step: ${step} of 3`"></div>
                       <div class="flex flex-col md:flex-row md:items-center md:justify-between">
                         <div class="flex-1">
                           <div x-show="step === 1">
-                            <div class="text-lg font-bold text-gray-700 leading-tight">Course details</div>
+                            <div class="text-lg font-bold leading-tight text-gray-700">Course details</div>
                           </div>
                           
                           <div x-show="step === 2">
-                            <div class="text-lg font-bold text-gray-700 leading-tight">Location details</div>
+                            <div class="text-lg font-bold leading-tight text-gray-700">Location details</div>
                           </div>
 
                           <div x-show="step === 3">
-                            <div class="text-lg font-bold text-gray-700 leading-tight">Personal details</div>
+                            <div class="text-lg font-bold leading-tight text-gray-700">Personal details</div>
                           </div>
 
                         </div>
             
                         <div class="flex items-center md:w-64">
-                          <div class="w-full bg-gray-200rounded-full mr-2">
-                            <div class="rounded-full bg-primary text-xs leading-none h-2 text-center text-white" :style="'width: '+ parseInt(step / 3 * 100) +'%'"></div>
+                          <div class="w-full mr-2 bg-gray-200rounded-full">
+                            <div class="h-2 text-xs leading-none text-center text-white rounded-full bg-primary" :style="'width: '+ parseInt(step / 3 * 100) +'%'"></div>
                           </div>
-                          <div class="text-xs w-10 text-gray-600" x-text="parseInt(step / 3 * 100) +'%'"></div>
+                          <div class="w-10 text-xs text-gray-600" x-text="parseInt(step / 3 * 100) +'%'"></div>
                         </div>
                       </div>
                     </div>
@@ -118,14 +149,14 @@
                         </select>
                       </div>
                       <div class="mb-6">
-                        <label for="fullName" class="block text-xs mb-4 text-dark"
+                        <label for="fullName" class="block mb-4 text-xs text-dark"
                             >Location</label
                           >
-                          <div class="flex justify-center items-center flex-col space-y-5 p-4 mb-4 text-sm text-blue-700 bg-blue-100 rounded-lg dark:bg-blue-200 dark:text-blue-800" role="alert">
+                          <div class="flex flex-col items-center justify-center p-4 mb-4 space-y-5 text-sm text-blue-700 bg-blue-100 rounded-lg dark:bg-blue-200 dark:text-blue-800" role="alert">
                             Your location will be used to find the best tutors and coaching centers near you and to provide you with the best experience.
-                            <span class="font-medium mt-2 text-lg">Your location will not be shared anywhere</span>
+                            <span class="mt-2 text-lg font-medium">Your location will not be shared anywhere</span>
                             <button
-                              class="inline-flex items-center justify-center rounded bg-primary py-4 px-6 text-base font-medium text-white transition duration-300 ease-in-out hover:bg-dark"
+                              class="inline-flex items-center justify-center px-6 py-4 text-base font-medium text-white transition duration-300 ease-in-out rounded bg-primary hover:bg-dark"
                               x-on:click="enableLocation"
                             >
                               Grant Location Access
@@ -180,29 +211,35 @@
                         />
                       </div>
                     </form>
-                    <div class="mb-0 flex w-full justify-center">
+                    <div class="flex justify-center w-full mb-0">
                       <button
-                        class="inline-flex items-center justify-center rounded bg-white py-4 px-6 text-base font-medium text-primary transition duration-300 ease-in-out hover:bg-dark mr-5"
+                        class="inline-flex items-center justify-center px-6 py-4 mr-5 text-base font-medium transition duration-300 ease-in-out bg-white rounded text-primary hover:bg-dark"
                         x-show="step > 1"
                         x-on:click="prevStep"
                       >
                       Previous
                       </button>
                       <button
-                        class="inline-flex items-center justify-center rounded bg-primary py-4 px-6 text-base font-medium text-white transition duration-300 ease-in-out hover:bg-dark"
+                        class="inline-flex items-center justify-center px-6 py-4 text-base font-medium text-white transition duration-300 ease-in-out rounded bg-primary hover:bg-dark"
                         x-text="step === 3 ? 'Submit' : 'Next'"
                         x-on:click="step != 3 ? nextStep : submit"
                       >
                       </button>
                     </div>
-                    <div class="mt-8 flex flex-wrap text-center justify-center items-center">
+                    {{-- <div class="flex flex-wrap items-center justify-center mt-8 text-center">
                       <p class="text-sm text-dark">
                         Already have an account?
                         <button
                           type="button"
-                          @click="login = true"
+                          @click="if (home){
+                            window.location.href = {{ route('frontend.signin'); }}
+                          }
+                          else{
+                            login = true;
+                          }
+                          "
                           class="text-primary hover:text-dark focus:text-dark focus:outline-none"
                           >Login</button>
                       </p>
-                    </div>
+                    </div> --}}
                   </div>

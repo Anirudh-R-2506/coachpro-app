@@ -7,9 +7,9 @@
     class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full">
     <div class="relative w-full h-full max-w-7xl md:h-auto">
       <!-- Modal content -->
-      <div class="bg-white rounded-lg  dark:bg-gray-700" style="overflow-y: auto; max-height: 90vh;">
+      <div class="bg-white rounded-lg dark:bg-gray-700" style="overflow-y: auto; max-height: 90vh;">
         <!-- Modal header -->
-        <div class="sticky bg-transparent top-0 right-0 flex items-center justify-between p-5 "
+        <div class="sticky top-0 right-0 flex items-center justify-between p-5 bg-transparent "
           style="box-shadow: none !important; backdrop-filter: blur(0px) !important;">
 
           <button type="button"
@@ -31,40 +31,40 @@
                     data-wow-delay=".1s
                             ">
                     <img src="{{ asset("images/hero/hero-image.jpg") }}" alt="image"
-                      class="h-full w-full object-cover object-center" />
+                      class="object-cover object-center w-full h-full" />
 
                   </div>
-                  <div class="-mx-4 flex flex-wrap">
+                  <div class="flex flex-wrap -mx-4">
 
-                    <div class="w-full  lg:w-8/12">
+                    <div class="w-full lg:w-8/12">
                       <nav
                         class="bg-white py-2.5 dark:bg-gray-900 sticky w-full z-100 top-0 left-0 border-b border-gray-200 dark:border-gray-600 mb-4">
-                        <div class=" flex flex-wrap items-start float-left justify-between w-full ">
+                        <div class="flex flex-wrap items-start justify-between float-left w-full ">
 
-                          <div class="items-center justify-between hidden w-full md:flex md:order-1 bg-white"
+                          <div class="items-center justify-between hidden w-full bg-white md:flex md:order-1"
                             id="navbar-sticky">
                             <ul
-                              class="flex flex-col mt-4 border border-gray-100  bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm py-4 md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700 w-full">
+                              class="flex flex-col w-full py-4 mt-4 border border-gray-100 bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
                               <li>
                                 <a href="#"
-                                  class="block py-2 pl-3 pr-4 text-white bg-blue-700  md:bg-transparent md:text-blue-700 md:p-0 dark:text-white border-b-2 border-primary"
+                                  class="block py-2 pl-3 pr-4 text-white bg-blue-700 border-b-2 md:bg-transparent md:text-blue-700 md:p-0 dark:text-white border-primary"
                                   aria-current="page">About Company</a>
                               </li>
                               <li>
                                 <a href="#"
-                                  class="block py-2 pl-3 pr-4 text-gray-700  hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Photos</a>
+                                  class="block py-2 pl-3 pr-4 text-gray-700 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Photos</a>
                               </li>
                               <li>
                                 <a href="#"
-                                  class="block py-2 pl-3 pr-4 text-gray-700  hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Reviews</a>
+                                  class="block py-2 pl-3 pr-4 text-gray-700 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Reviews</a>
                               </li>
                               <li>
                                 <a href="#"
-                                  class="block py-2 pl-3 pr-4 text-gray-700  hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">FAQs</a>
+                                  class="block py-2 pl-3 pr-4 text-gray-700 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">FAQs</a>
                               </li>
                               <li>
                                 <a href="#"
-                                  class="block py-2 pl-3 pr-4 text-gray-700  hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Social
+                                  class="block py-2 pl-3 pr-4 text-gray-700 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Social
                                   Media</a>
                               </li>
                             </ul>
@@ -72,7 +72,7 @@
                         </div>
                       </nav>
                       <div>
-                        <div id="About-Company" class="p-4 rounded-lg mt-3">
+                        <div id="About-Company" class="p-4 mt-3 rounded-lg">
 
                             <div>
                                 <h4
@@ -81,7 +81,7 @@
                                         ">
                                     EduHunt score
                                 </h4>
-                                <p class="text-base leading-relaxed text-body-color -my-4"
+                                <p class="-my-4 text-base leading-relaxed text-body-color"
                                     data-wow-delay=".1s">
                                     <strong>4.5</strong> out of 5
                                 </p>
@@ -93,7 +93,7 @@
                                     ">
                                 Courses Offered
                             </h4>
-                            <p class="mb-4 text-base leading-relaxed text-body-color -my-4"
+                            <p class="mb-4 -my-4 text-base leading-relaxed text-body-color"
                                 data-wow-delay=".1s">
                                 JEE NEET coaching
                             </p>
@@ -105,7 +105,7 @@
                                 ">
                             Serving Areas
                           </h4>
-                          <p class="mb-4 text-base leading-relaxed text-body-color -my-4"
+                          <p class="mb-4 -my-4 text-base leading-relaxed text-body-color"
                             data-wow-delay=".1s">
                             Chandigarh
                           </p>
@@ -117,19 +117,19 @@
                                 ">
                             Document verification
                             </h4>
-                            <div class="flex items-start justify-start space-x-3 mb-2 w-fit">
+                            <div class="flex items-start justify-start mb-2 space-x-3 w-fit">
                                 <i class="fas fa-university"></i>
-                                <p class="leading-relaxed text-body-color -my-2">
+                                <p class="-my-2 leading-relaxed text-body-color">
                                     Bank details
                                 </p>
-                                <i class="fas fa-check-circle text-green-500"></i>
+                                <i class="text-green-500 fas fa-check-circle"></i>
                             </div>
-                            <div class="flex items-start justify-start space-x-3 mb-2 w-fit">
+                            <div class="flex items-start justify-start mb-2 space-x-3 w-fit">
                                 <i class="fas fa-location-arrow"></i>
-                                <p class="leading-relaxed text-body-color -my-2">
+                                <p class="-my-2 leading-relaxed text-body-color">
                                     Location details
                                 </p>
-                                <i class="fas fa-check-circle text-green-500"></i>
+                                <i class="text-green-500 fas fa-check-circle"></i>
                             </div>
                           </div>
                           <hr class="mb-4 border-gray-200 dark:border-gray-600" />
@@ -145,7 +145,7 @@
                                 ">
                             Sample lecture
                           </h4>
-                          <video id="my-video" class="video-js mb-10 vjs-theme-sea" data-wow-delay=".1s"
+                          <video id="my-video" class="mb-10 video-js vjs-theme-sea" data-wow-delay=".1s"
                             controls preload="auto" width="640px" height="500px" poster="{{ asset("images/hero/hero-image.jpg") }}"
                             data-setup="{}">
                             <source src="{{ asset("videos/video.mp4") }}" type="video/mp4" />
@@ -164,11 +164,11 @@
                           ">
                             Photos [50]
                           </h4>
-                          <div class="flex space-x-4 mb-6">
-                            <img src="{{ asset("images/logo/logo.png") }}" class="w-1/4 h-32 object-cover rounded-lg" />
-                            <img src="{{ asset("images/logo/logo.png") }}" class="w-1/4 h-32 object-cover rounded-lg" />
-                            <img src="{{ asset("images/logo/logo.png") }}" class="w-1/4 h-32 object-cover rounded-lg" />
-                            <img src="{{ asset("images/logo/logo.png") }}" class="w-1/4 h-32 object-cover rounded-lg" />
+                          <div class="flex mb-6 space-x-4">
+                            <img src="{{ asset("images/logo/logo.png") }}" class="object-cover w-1/4 h-32 rounded-lg" />
+                            <img src="{{ asset("images/logo/logo.png") }}" class="object-cover w-1/4 h-32 rounded-lg" />
+                            <img src="{{ asset("images/logo/logo.png") }}" class="object-cover w-1/4 h-32 rounded-lg" />
+                            <img src="{{ asset("images/logo/logo.png") }}" class="object-cover w-1/4 h-32 rounded-lg" />
 
 
                           </div>
@@ -191,8 +191,8 @@
                             <dl>
                               <dt class="text-sm font-medium text-gray-500 dark:text-gray-400">Staff</dt>
                               <dd class="flex items-center mb-3">
-                                <div class="w-full bg-gray-200 rounded h-2 dark:bg-gray-700 mr-2">
-                                  <div class="bg-primary h-2 rounded dark:bg-blue-500" style="width: 88%"></div>
+                                <div class="w-full h-2 mr-2 bg-gray-200 rounded dark:bg-gray-700">
+                                  <div class="h-2 rounded bg-primary dark:bg-blue-500" style="width: 88%"></div>
                                 </div>
                                 <span class="text-sm font-medium text-gray-500 dark:text-gray-400">8.8</span>
                               </dd>
@@ -200,8 +200,8 @@
                             <dl>
                               <dt class="text-sm font-medium text-gray-500 dark:text-gray-400">Comfort</dt>
                               <dd class="flex items-center mb-3">
-                                <div class="w-full bg-gray-200 rounded h-2 dark:bg-gray-700 mr-2">
-                                  <div class="bg-primary h-2 rounded dark:bg-blue-500" style="width: 89%"></div>
+                                <div class="w-full h-2 mr-2 bg-gray-200 rounded dark:bg-gray-700">
+                                  <div class="h-2 rounded bg-primary dark:bg-blue-500" style="width: 89%"></div>
                                 </div>
                                 <span class="text-sm font-medium text-gray-500 dark:text-gray-400">8.9</span>
                               </dd>
@@ -209,8 +209,8 @@
                             <dl>
                               <dt class="text-sm font-medium text-gray-500 dark:text-gray-400">Free WiFi</dt>
                               <dd class="flex items-center mb-3">
-                                <div class="w-full bg-gray-200 rounded h-2 dark:bg-gray-700 mr-2">
-                                  <div class="bg-primary h-2 rounded dark:bg-blue-500" style="width: 88%"></div>
+                                <div class="w-full h-2 mr-2 bg-gray-200 rounded dark:bg-gray-700">
+                                  <div class="h-2 rounded bg-primary dark:bg-blue-500" style="width: 88%"></div>
                                 </div>
                                 <span class="text-sm font-medium text-gray-500 dark:text-gray-400">8.8</span>
                               </dd>
@@ -218,8 +218,8 @@
                             <dl>
                               <dt class="text-sm font-medium text-gray-500 dark:text-gray-400">Facilities</dt>
                               <dd class="flex items-center">
-                                <div class="w-full bg-gray-200 rounded h-2 dark:bg-gray-700 mr-2">
-                                  <div class="bg-primary h-2 rounded dark:bg-blue-500" style="width: 54%"></div>
+                                <div class="w-full h-2 mr-2 bg-gray-200 rounded dark:bg-gray-700">
+                                  <div class="h-2 rounded bg-primary dark:bg-blue-500" style="width: 54%"></div>
                                 </div>
                                 <span class="text-sm font-medium text-gray-500 dark:text-gray-400">5.4</span>
                               </dd>
@@ -229,8 +229,8 @@
                             <dl>
                               <dt class="text-sm font-medium text-gray-500 dark:text-gray-400">Value for money</dt>
                               <dd class="flex items-center mb-3">
-                                <div class="w-full bg-gray-200 rounded h-2 dark:bg-gray-700 mr-2">
-                                  <div class="bg-primary h-2 rounded dark:bg-blue-500" style="width: 89%"></div>
+                                <div class="w-full h-2 mr-2 bg-gray-200 rounded dark:bg-gray-700">
+                                  <div class="h-2 rounded bg-primary dark:bg-blue-500" style="width: 89%"></div>
                                 </div>
                                 <span class="text-sm font-medium text-gray-500 dark:text-gray-400">8.9</span>
                               </dd>
@@ -238,8 +238,8 @@
                             <dl>
                               <dt class="text-sm font-medium text-gray-500 dark:text-gray-400">Cleanliness</dt>
                               <dd class="flex items-center mb-3">
-                                <div class="w-full bg-gray-200 rounded h-2 dark:bg-gray-700 mr-2">
-                                  <div class="bg-primary h-2 rounded dark:bg-blue-500" style="width: 70%"></div>
+                                <div class="w-full h-2 mr-2 bg-gray-200 rounded dark:bg-gray-700">
+                                  <div class="h-2 rounded bg-primary dark:bg-blue-500" style="width: 70%"></div>
                                 </div>
                                 <span class="text-sm font-medium text-gray-500 dark:text-gray-400">7.0</span>
                               </dd>
@@ -247,8 +247,8 @@
                             <dl>
                               <dt class="text-sm font-medium text-gray-500 dark:text-gray-400">Location</dt>
                               <dd class="flex items-center">
-                                <div class="w-full bg-gray-200 rounded h-2 dark:bg-gray-700 mr-2">
-                                  <div class="bg-primary h-2 rounded dark:bg-blue-500" style="width: 89%"></div>
+                                <div class="w-full h-2 mr-2 bg-gray-200 rounded dark:bg-gray-700">
+                                  <div class="h-2 rounded bg-primary dark:bg-blue-500" style="width: 89%"></div>
                                 </div>
                                 <span class="text-sm font-medium text-gray-500 dark:text-gray-400">8.9</span>
                               </dd>
@@ -336,7 +336,7 @@
                                 <h4 class="text-xl font-bold text-gray-900 dark:text-white">Spotless, good appliances, excellent layout, host
                                   was genuinely nice and helpful.</h4>
                               </div>
-                              <p class="bg-blue-700 text-white text-sm font-semibold inline-flex items-center p-2 rounded">8.7</p>
+                              <p class="inline-flex items-center p-2 text-sm font-semibold text-white bg-blue-700 rounded">8.7</p>
                             </div>
                             <p class="mb-2 font-light text-gray-500 dark:text-gray-400">The flat was spotless, very comfortable, and the host
                               was amazing. I highly recommend this accommodation for anyone visiting Brasov city centre. It's quite a while
@@ -543,10 +543,10 @@
                               class="mb-6 h-[50px] w-full cursor-pointer rounded bg-[#13C296] text-center text-sm font-medium text-white transition duration-300 ease-in-out hover:bg-opacity-90 hover:shadow-lg" />
                           </form>
 
-                          <div class="flex space-x-5 w-full justify-center">
-                            <i class="fa-brands fa-instagram text-4xl text-white"></i>
-                            <i class="fa-brands fa-twitter text-4xl text-white"></i>
-                            <i class="fa-brands fa-facebook text-4xl text-white"></i>
+                          <div class="flex justify-center w-full space-x-5">
+                            <i class="text-4xl text-white fa-brands fa-instagram"></i>
+                            <i class="text-4xl text-white fa-brands fa-twitter"></i>
+                            <i class="text-4xl text-white fa-brands fa-facebook"></i>
                           </div>
 
                           <div>
@@ -654,7 +654,7 @@
         <!-- Modal content -->
         <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
           <button type="button"
-            class="absolute top-3 right-3 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white"
+            class="absolute inline-flex items-center p-1 ml-auto text-sm text-gray-400 bg-transparent rounded-lg top-3 right-3 hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-800 dark:hover:text-white"
             data-modal-toggle="crypto-modal">
             <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg">
@@ -739,24 +739,24 @@
 
 
 
-    <div class="mt-10 items-center">
+    <div class="items-center mt-10">
 
 
 
       <section class="">
 
         <div class="container">
-          <div class="-mx-4 mb-4">
+          <div class="mb-4 -mx-4">
             <button type="button" data-modal-toggle="crypto-modal"
-              class="text-white bg-primary focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-3 py-3 text-center inline-flex items-center">
-              <i class="fa-solid fa-filter pr-2"></i>
+              class="inline-flex items-center px-3 py-3 text-sm font-medium text-center text-white rounded-lg bg-primary focus:ring-4 focus:outline-none">
+              <i class="pr-2 fa-solid fa-filter"></i>
               Sort By
             </button>
           </div>
-          <div class="-mx-4 flex flex-wrap">
+          <div class="flex flex-wrap -mx-4">
             <div class="w-full md:w-1/2 lg:w-1/3">
 
-              <div class="group mb-6" data-wow-delay=".1s">
+              <div class="mb-6 group" data-wow-delay=".1s">
                 <div class="mb-8 overflow-hidden rounded">
                   <div
                     class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
@@ -823,7 +823,7 @@
               </div>
             </div>
             <div class="w-full md:w-1/2 lg:w-1/3">
-              <div class="group mb-6" data-wow-delay=".1s">
+              <div class="mb-6 group" data-wow-delay=".1s">
                 <div class="mb-8 overflow-hidden rounded">
                   <div
                     class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
@@ -890,7 +890,7 @@
               </div>
             </div>
             <div class="w-full md:w-1/2 lg:w-1/3">
-              <div class="group mb-6" data-wow-delay=".1s">
+              <div class="mb-6 group" data-wow-delay=".1s">
                 <div class="mb-8 overflow-hidden rounded">
                   <div
                     class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
@@ -957,7 +957,7 @@
               </div>
             </div>
             <div class="w-full md:w-1/2 lg:w-1/3">
-              <div class="group mb-6" data-wow-delay=".1s">
+              <div class="mb-6 group" data-wow-delay=".1s">
                 <div class="mb-8 overflow-hidden rounded">
                   <div
                     class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
@@ -1024,7 +1024,7 @@
               </div>
             </div>
             <div class="w-full md:w-1/2 lg:w-1/3">
-              <div class="group mb-6" data-wow-delay=".1s">
+              <div class="mb-6 group" data-wow-delay=".1s">
                 <div class="mb-8 overflow-hidden rounded">
                   <div
                     class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
@@ -1094,7 +1094,7 @@
               </div>
             </div>
             <div class="w-full md:w-1/2 lg:w-1/3">
-              <div class="group mb-6" data-wow-delay=".1s">
+              <div class="mb-6 group" data-wow-delay=".1s">
                 <div class="mb-8 overflow-hidden rounded">
                   <div
                     class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">

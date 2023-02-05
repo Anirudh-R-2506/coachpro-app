@@ -1,3 +1,12 @@
+<script>
+  login = () => {
+    return {
+      
+    };
+  }
+</script>
+
+
 <div
 class="rounded-lg bg-white py-10 px-8 shadow-testimonial sm:py-12 sm:px-10 md:p-[60px] lg:p-10 lg:py-12 lg:px-10 2xl:p-[60px]"
 data-wow-delay=".2s

@@ -27,13 +27,13 @@ return new class extends Migration
             $table->enum('education', Education::getValues())->comment('0: School, 1: Undergraduate, 2: Postgraduate');
             $table->integer('class')->nullable();
             $table->integer('year_of_passing')->nullable();
-            $table->enum('session', Session::getValues())->comment('0: Weekday, 1: Weekend, 2: Both, 3: Flexible');
-            $table->enum('timing', Timing::getValues())->comment('0: Forenoon, 1: Afternoon, 2: Evening, 3: Flexible');
+            $table->enum('session', Session::getValues())->comment('0: Weekday, 1: Weekend, 2: Both, 3: Flexible')->nullable();
+            $table->enum('timing', Timing::getValues())->comment('0: Forenoon, 1: Afternoon, 2: Evening, 3: Flexible')->nullable();
             $table->string('city');
-            $table->string('locality');
+            $table->string('locality')->nullable();
             $table->double('latitude')->nullable();
             $table->double('longitude')->nullable();
-            $table->string('password');
+            $table->string('password')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
