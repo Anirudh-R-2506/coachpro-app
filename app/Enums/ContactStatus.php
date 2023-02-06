@@ -2,40 +2,38 @@
 
 namespace App\Enums;
 
+use App\Traits\EnumConstant;
+
 class ContactStatus
 {
+
+    use EnumConstant;
+
     const PENDING = 0;
     const ACTION_TAKEN = 1;
 
     public static function getValues()
     {
         return [
-            self::PENDING => 'Pending',
-            self::ACTION_TAKEN => 'Action Taken',
+            self::PENDING,
+            self::ACTION_TAKEN,
         ];
     }
 
-    public static function getColors()
+    public static function colors(): array
     {
         return [
-            self::PENDING => 'warning',
-            self::ACTION_TAKEN => 'success',
+            'warning' => self::PENDING,
+            'success' => self::ACTION_TAKEN,
         ];
     }
 
-    public static function getIcons()
+    public static function icons()
     {
         return [
-            self::PENDING => 'fa fa-clock',
-            self::ACTION_TAKEN => 'fa fa-check',
+            'heroicon-o-clock' => self::PENDING,
+            'heroicon-o-check' => self::ACTION_TAKEN,
         ];
     }
 
-    public static function getClasses()
-    {
-        return [
-            self::PENDING => 'badge badge-warning',
-            self::ACTION_TAKEN => 'badge badge-success',
-        ];
-    }
 }

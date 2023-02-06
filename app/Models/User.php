@@ -9,10 +9,28 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Activitylog\Traits\LogsActivity;
 use Spatie\Activitylog\LogOptions;
+use Filament\Models\Contracts\FilamentUser;
+use App\Enums\UserRole;
+use Spatie\Permission\Traits\HasRoles;
 
-class User extends Authenticatable
+class User extends Authenticatable implements FilamentUser
 {
-    use HasApiTokens, HasFactory, Notifiable, LogsActivity;
+    use HasApiTokens, HasFactory, Notifiable, LogsActivity, HasRoles;
+
+
+    /**
+     * canAccessFilament - this is the logic for permitting login into Filament
+     *
+     * @return bool
+     */
+    public function canAccessFilament(): bool
+    {
+        if($this->role == UserRole::ADMIN || $this->user_type == UserRole::SUPER_ADMIN) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     /**
      * The attributes that are mass assignable.
@@ -20,8 +38,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'first_name',
-        'last_name',
+        'name',
         'email',
         'password',
         'phone',
@@ -31,7 +48,9 @@ class User extends Authenticatable
         'session',
         'timing',
         'city',
-        'locality',                
+        'locality',       
+        'account_status',
+        'admin_remarks',       
     ];
 
     /**

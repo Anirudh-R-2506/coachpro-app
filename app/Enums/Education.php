@@ -1,10 +1,14 @@
 <?php
 
 namespace App\Enums;
+use App\Traits\EnumConstant;
 
 
 class Education
 {
+
+    use EnumConstant;
+
     const SCHOOL = 0;
     const UG = 1;
     const PG = 2;

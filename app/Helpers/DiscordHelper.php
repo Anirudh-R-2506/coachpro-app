@@ -46,7 +46,7 @@ class DiscordHelper
               ]
           ],
           "username"=> "Edu Hunt",
-          "avatar_url"=> "https://zephyr.icrewsystems.com/images/logo-white.png",
+          "avatar_url"=> "https://eduhunt.co/images/logo/logo.png",
           "attachments"=> []
         ],
         "url" => config('webhooks.contact_webhook_url')
@@ -57,14 +57,14 @@ class DiscordHelper
     {
         return [
             "data" => [
-            "content"=> "Hey, you have a new registration from " . $user->first_name . " " . $user->last_name . " (" . $user->phone . ")",
+            "content"=> "Hey, you have a new registration from " . $user->name . " (" . $user->email . ")",
               "embeds"=> [
                 [
                   "color"=> 5814783,
                   "fields"=> [
                     [
                       "name"=> "Name",
-                      "value"=> $user->first_name . " " . $user->last_name,
+                      "value"=> $user->name,
                     ],
                     [
                       "name"=> "Email",
@@ -110,7 +110,7 @@ class DiscordHelper
                   ]
               ],
               "username"=> "Edu Hunt",
-              "avatar_url"=> "https://zephyr.icrewsystems.com/images/logo-white.png",
+              "avatar_url"=> "https://eduhunt.co/images/logo/logo.png",
               "attachments"=> []
             ],
             "url" => config('webhooks.registration_webhook_url')

@@ -5,8 +5,7 @@
         step : 3,
         education : '',
         email : '',
-        first_name : '',
-        last_name : '',
+        name : '',
         phone : '',
         school_class : '',
         year_of_passing : '',
@@ -100,29 +99,14 @@
                         @csrf
                         <div class="mb-6">
                           <label for="fullName" class="block text-sm text-dark"
-                            >First Name<span style="color: red"> *</span></label
+                            >Name<span style="color: red"> *</span></label
                           >
                           <input
                             type="text"
-                            name="first_name"
-                            id="first_name"
-                            x-model="first_name"
-                            placeholder="First Name"
-                            required
-                            class="w-full border-0 border-b border-[#f1f1f1] py-4 focus:border-primary focus:outline-none"
-                          />
-                          
-                        </div>
-                        <div class="mb-6">
-                          <label for="fullName" class="block text-sm text-dark"
-                            >Last Name<span style="color: red"> *</span></label
-                          >
-                          <input
-                            type="text"
-                            name="last_name"
-                            id="last_name"
-                            x-model="last_name"
-                            placeholder="Last Name"
+                            name="name"
+                            id="name"
+                            x-model="name"
+                            placeholder="John Doe"
                             required
                             class="w-full border-0 border-b border-[#f1f1f1] py-4 focus:border-primary focus:outline-none"
                           />

@@ -9,6 +9,7 @@ use Illuminate\Routing\Controller;
 use App\Models\User;
 use App\Enums\Education;
 use App\Enums\UserRole;
+use App\Enums\AccountStatus;
 use App\Helpers\DiscordHelper;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -49,16 +50,14 @@ class LoginController extends Controller
     public function register(Request $request)
     {
         $request->validate([
-            'first_name' => 'string|max:255',
-            'last_name' => 'string|max:255',
+            'name' => 'string|max:255',
             'email' => 'string|email|max:255',
             'phone' => 'required|string|max:255|unique:users',
             'password' => 'required|string|min:8',
         ]);
 
         $user = User::create([
-            'first_name' => $request->first_name,
-            'last_name' => $request->last_name,
+            'name' => $request->name,
             'email' => $request->email,
             'phone' => $request->phone,
             'password' => Hash::make($request->password),
@@ -76,9 +75,8 @@ class LoginController extends Controller
     public function register_cs(Request $request)
     {
         $request->validate([
-            'first_name' => 'string|max:255',
-            'last_name' => 'string|max:255',
-            'email' => 'string|email|max:255',
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255',
             'phone' => 'required|string|max:255',
             'education' => 'required|string|min:2',
             'class' => 'required_if:education,==,school',
@@ -89,11 +87,11 @@ class LoginController extends Controller
         $user_exists = User::where('phone', $request->phone)->first();
         if (!$user_exists){
             $user = User::create([
-                'first_name' => $request->first_name,
-                'last_name' => $request->last_name,
+                'name' => $request->name,
                 'email' => $request->email,
                 'phone' => $request->phone,
                 'education' => $edu,
+                'status' => AccountStatus::UNVERIFIED,
                 'role' => UserRole::STUDENT,
                 'city' => $this->city,
             ]);

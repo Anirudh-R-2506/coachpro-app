@@ -3,9 +3,13 @@
 
 namespace App\Enums;
 
+use App\Traits\EnumConstant;
 
 class Session
 {
+
+    use EnumConstant;
+
     const WEEKDAY = 0;
     const WEEKEND = 1;
     const BOTH = 2;
