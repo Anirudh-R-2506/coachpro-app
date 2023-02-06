@@ -86,10 +86,10 @@ class LoginController extends Controller
                 'email' => $request->email,
                 'phone' => $request->phone,
                 'education' => $edu,
-                'status' => AccountStatus::UNVERIFIED,
+                'account_status' => AccountStatus::UNVERIFIED,
                 'role' => UserRole::STUDENT,
                 'city' => $this->city,
-            ]);
+            ]);            
             if ($user){
                 if ($edu == Education::SCHOOL) {
                     $user->class = $request->class;
@@ -100,7 +100,7 @@ class LoginController extends Controller
                 }
                 $user->save();
 
-                DiscordHelper::newRegistration($user);
+                DiscordHelper::newRegistration(User::find($user->id));
 
                 Alert::success('Success', 'We will keep you updated and help you in your journey towards success :)');
                 return redirect()->back();
