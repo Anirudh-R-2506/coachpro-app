@@ -86,7 +86,6 @@ class LoginController extends Controller
                 'email' => $request->email,
                 'phone' => $request->phone,
                 'education' => $edu,
-                'account_status' => AccountStatus::UNVERIFIED,
                 'role' => UserRole::STUDENT,
                 'city' => $this->city,
             ]);            
