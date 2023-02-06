@@ -10,10 +10,10 @@ class UserRole
 
     use EnumConstant;
 
-    const STUDENT = 0;
-    const INSTITUTE = 1;
-    const ADMIN = 2;
-    const SUPER_ADMIN = 3;
+    const STUDENT = '0';
+    const INSTITUTE = '1';
+    const ADMIN = '2';
+    const SUPER_ADMIN = '3';
 
     public static function getValues(): array
     {

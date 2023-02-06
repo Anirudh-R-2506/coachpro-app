@@ -10,10 +10,10 @@ class Timing
 
     use EnumConstant;
 
-    const FORENOON = 0;
-    const AFTERNOON = 1;
-    const EVENING = 2;
-    const FLEXIBLE = 3;
+    const FORENOON = '0';
+    const AFTERNOON = '1';
+    const EVENING = '2';
+    const FLEXIBLE = '3';
 
     public static function getValues(): array
     {

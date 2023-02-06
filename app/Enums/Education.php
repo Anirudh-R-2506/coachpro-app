@@ -9,9 +9,9 @@ class Education
 
     use EnumConstant;
 
-    const SCHOOL = 0;
-    const UG = 1;
-    const PG = 2;
+    const SCHOOL = '0';
+    const UG = '1';
+    const PG = '2';
 
     public static function getValues(): array
     {

@@ -9,8 +9,8 @@ class ContactStatus
 
     use EnumConstant;
 
-    const PENDING = 0;
-    const ACTION_TAKEN = 1;
+    const PENDING = '0';
+    const ACTION_TAKEN = '1';
 
     public static function getValues()
     {

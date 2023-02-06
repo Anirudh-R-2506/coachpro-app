@@ -10,10 +10,10 @@ class Session
 
     use EnumConstant;
 
-    const WEEKDAY = 0;
-    const WEEKEND = 1;
-    const BOTH = 2;
-    const FLEXIBLE = 3;
+    const WEEKDAY = '0';
+    const WEEKEND = '1';
+    const BOTH = '2';
+    const FLEXIBLE = '3';
 
     public static function getValues(): array
     {

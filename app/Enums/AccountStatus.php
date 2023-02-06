@@ -10,11 +10,11 @@ class AccountStatus
     use EnumConstant;
 
     
-    public CONST UNVERIFIED = 0;
-    public CONST VERIFIED = 1;
-    public CONST FLAGGED = 2;
-    public CONST BANNED = 3;
-    public CONST INACTIVE = 4;
+    public CONST UNVERIFIED = '0';
+    public CONST VERIFIED = '1';
+    public CONST FLAGGED = '2';
+    public CONST BANNED = '3';
+    public CONST INACTIVE = '4';
 
     /**
      * colors
