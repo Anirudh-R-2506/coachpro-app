@@ -13,6 +13,8 @@
 
         {{-- @include('includes.header') --}}
 
+        @include('includes.shapes')
+
         @include('includes.sign-in-modal')
 
         @yield('content')
@@ -32,7 +34,7 @@
         <script>
             AOS.init({ 
                 once: true, 
-                duration: 800,
+                duration: 1000,
                 easing: 'ease-in-out',
                 delay: 0,                
             });

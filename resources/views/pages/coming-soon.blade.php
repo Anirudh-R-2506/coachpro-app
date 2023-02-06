@@ -8,10 +8,16 @@
             dropFaq(id){
                 let faq = document.getElementById("faq"+id);
                 faq.classList.toggle('hidden');
-            }
+            },
         };
     };
 </script>
+
+<style>
+    .top {
+        z-index: 20 !important;
+    }
+</style>
 
 @endsection
 
@@ -21,15 +27,17 @@
     <!-- ====== Hero Section Start -->
     <!-- ====== Banner Section Start -->
 <div
-class="relative z-10 overflow-hidden pb-[100px]"
+class="relative overflow-hidden pb-[100px]"
 id="hero"
-style="background: linear-gradient(to right,  rgb(15, 31, 82) 0%,rgb(15, 31, 82) 50%,rgb(48, 86, 211) 50%,rgb(48, 86, 211) 100%);"
+data-aos="fade-zoom-out"
+style="background: linear-gradient(to left,  rgb(15, 31, 82) 0%,rgb(15, 31, 82) 50%,rgb(48, 86, 211) 50%,rgb(48, 86, 211) 100%);"
+x-intersect="changeToWhite()"
 >
 <div class="container">
   <div class="flex flex-wrap items-center -mx-4 -mb-12">
-    <div class="w-full text-white md:w-1/2">
-        <header data-aos="fade-zoom-in" class="w-full px-6 mb-10 sm:px-0">
-          <img class="w-32 mx-auto mt-6 md:mx-0 lg:w-40" src="{{ asset('images/logo/logo.png') }}" alt="base apparel logo" />
+    <div class="w-full px-4 pt-8 text-white md:w-1/2 top">
+        <header data-aos="fade-zoom-in" class="w-full" data-aos-delay="500">
+          <img class="mt-6 -mb-6 -ml-10" width="300" height="300" src="{{ asset('images/logo/logo.png') }}" alt="base apparel logo" />
         </header>
         <div
           class="px-2 mt-8 text-center sm:px-0 sm:mt-12 sm:max-w-sm sm:mx-auto lg:mx-0 lg:max-w-xl lg:text-left lg:my-auto"
@@ -44,162 +52,24 @@ style="background: linear-gradient(to right,  rgb(15, 31, 82) 0%,rgb(15, 31, 82)
               xl:text-7xl
             "
           >
-            <span data-aos="fade-zoom-down" data-aos-delay="200" class="mb-3 font-light text-desaturated-red">We're</span>
+            <span data-aos="fade-zoom-down" data-aos-delay="600" class="mb-3 font-light text-desaturated-red">We're</span>
             <br /><br />
-            <span data-aos="fade-zoom-down" data-aos-delay="300" class="mb-3 font-bold" style="color: rgb(48, 86, 211);"
+            <span data-aos="fade-zoom-down" data-aos-delay="700" class="mb-3 font-bold text-white sm:text-primary"
               >coming</span>
-              <span data-aos="fade-zoom-down" data-aos-delay="400" class="font-bold" style="color: rgb(48, 86, 211);"
+              <span data-aos="fade-zoom-down" data-aos-delay="800" class="font-bold text-white sm:text-primary"
               >soon</span
             >
           </h1>
-          <p class="mt-6 sm:mt-8 text-desaturated-red sm:text-lg xl:text-xl wow fadeIn" data-wow-delay="0.5s">
+          <p class="mt-6 sm:mt-8 text-desaturated-red sm:text-lg xl:text-xl wow fadeIn" data-wow-delay="0.9s">
             Hello fellow students! We're currently building our new product to help you choose
             the best path for your career. We're excited to show you more soon!
           </p>
         </div>
     </div>    
-    <div class="w-full px-4 pt-8 md:pl-10 md:w-1/2" data-aos="fade-zoom-in" data-aos-delay="500">
+    <div class="w-full px-4 pt-8 md:pl-8 md:w-1/2 top" data-aos="fade-zoom-in" data-aos-delay="1000">
         @include('includes.signup-cs')
     </div>
   </div>
-  <span class="absolute top-0 left-0 z-[-1]">
-    <svg
-      width="495"
-      height="470"
-      viewBox="0 0 495 470"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <circle
-        cx="55"
-        cy="442"
-        r="138"
-        stroke="white"
-        stroke-opacity="0.04"
-        stroke-width="50"
-        class="animate-pulse"        
-      />
-      <circle
-        cx="446"
-        r="39"
-        stroke="white"
-        stroke-opacity="0.04"
-        stroke-width="20"
-        class="animate-pulse"
-      />
-      <path
-        d="M245.406 137.609L233.985 94.9852L276.609 106.406L245.406 137.609Z"
-        stroke="white"
-        stroke-opacity="0.08"
-        stroke-width="12"
-        class="animate-pulse"
-      />
-    </svg>
-  </span>
-  <span class="absolute bottom-0 left-0 z-[-1]" style="transform: rotateX(-180deg) rotateY(-180deg)">
-    <svg
-      width="495"
-      height="470"
-      viewBox="0 0 495 470"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <circle
-        cx="55"
-        cy="442"
-        r="138"
-        stroke="white"
-        stroke-opacity="0.04"
-        stroke-width="50"
-        class="animate-pulse"
-      />
-      <circle
-        cx="446"
-        r="39"
-        stroke="white"
-        stroke-opacity="0.04"
-        stroke-width="20"
-        class="animate-pulse"
-      />
-      <path
-        d="M245.406 137.609L233.985 94.9852L276.609 106.406L245.406 137.609Z"
-        stroke="white"
-        stroke-opacity="0.08"
-        stroke-width="12"
-        class="animate-pulse"
-      />
-    </svg>
-  </span>
-  <span class="absolute top-0 right-0 z-[-1]">
-    <svg
-      width="493"
-      height="470"
-      viewBox="0 0 493 470"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <circle
-        cx="462"
-        cy="5"
-        r="138"
-        stroke="white"
-        stroke-opacity="0.04"
-        stroke-width="50"
-        class="animate-pulse"
-      />
-      <circle
-        cx="49"
-        cy="470"
-        r="39"
-        stroke="white"
-        stroke-opacity="0.04"
-        stroke-width="20"
-        class="animate-pulse"
-      />
-      <path
-        d="M222.393 226.701L272.808 213.192L259.299 263.607L222.393 226.701Z"
-        stroke="white"
-        stroke-opacity="0.06"
-        stroke-width="13"
-        class="animate-pulse"
-      />
-    </svg>
-  </span>
-  <span class="absolute bottom-0 right-0 z-[-1]" style="transform: rotateX(180deg) rotateY(180deg)">
-    <svg
-      width="493"
-      height="470"
-      viewBox="0 0 493 470"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <circle
-        cx="462"
-        cy="5"
-        r="138"
-        stroke="white"
-        stroke-opacity="0.04"
-        stroke-width="50"
-        class="animate-pulse"
-      />
-      <circle
-        cx="49"
-        cy="470"
-        r="39"
-        stroke="white"
-        stroke-opacity="0.04"
-        stroke-width="20"
-        class="animate-pulse"
-      />
-      <path
-        d="M222.393 226.701L272.808 213.192L259.299 263.607L222.393 226.701Z"
-        stroke="white"
-        stroke-opacity="0.06"
-        stroke-width="13"
-        class="animate-pulse"
-      />
-    </svg>
-  </span>
 </div>
 </div>
 <!-- ====== Banner Section End -->
@@ -210,7 +80,7 @@ style="background: linear-gradient(to right,  rgb(15, 31, 82) 0%,rgb(15, 31, 82)
       <div class="container">
         <div class="flex flex-wrap -mx-4">
           <div class="w-full px-4">
-            <div class="mb-12 max-w-[620px] lg:mb-20" data-aos="fade-zoom-in-right">
+            <div class="mb-12 top max-w-[620px] lg:mb-20" data-aos="fade-zoom-in-right">
               <span class="block mb-2 text-lg font-semibold text-primary">
                 Features
               </span>
@@ -232,10 +102,10 @@ style="background: linear-gradient(to right,  rgb(15, 31, 82) 0%,rgb(15, 31, 82)
           <div class="w-full px-4 md:w-1/2 lg:w-1/4">
             <div class="px-5 py-4 bg-white rounded-lg group" data-aos="fade-up" data-aos-delay="100">
               <div
-                class="relative z-10 mb-8 flex h-[70px] w-[70px] items-center justify-center rounded-2xl bg-primary"
+                class="relative mb-8 flex h-[70px] w-[70px] items-center justify-center rounded-2xl bg-primary"
               >
                 <span
-                  class="absolute top-0 left-0 z-[-1] mb-8 flex h-[70px] w-[70px] rotate-[25deg] items-center justify-center rounded-2xl bg-primary bg-opacity-20 duration-300 group-hover:rotate-45"
+                  class="absolute top-0 left-0 mb-8 flex h-[70px] w-[70px] rotate-[25deg] items-center justify-center rounded-2xl bg-primary bg-opacity-20 duration-300 group-hover:rotate-45"
                 ></span>
                 <i class="fa-solid fa-magnifying-glass fa-2xl" style="color:white"></i>
               </div>
@@ -254,10 +124,10 @@ style="background: linear-gradient(to right,  rgb(15, 31, 82) 0%,rgb(15, 31, 82)
               data-aos="fade-up" data-aos-delay="150"
             >
               <div
-                class="relative z-10 mb-8 flex h-[70px] w-[70px] items-center justify-center rounded-2xl bg-primary"
+                class="relative mb-8 flex h-[70px] w-[70px] items-center justify-center rounded-2xl bg-primary"
               >
                 <span
-                  class="absolute top-0 left-0 z-[-1] mb-8 flex h-[70px] w-[70px] rotate-[25deg] items-center justify-center rounded-2xl bg-primary bg-opacity-20 duration-300 group-hover:rotate-45"
+                  class="absolute top-0 left-0 mb-8 flex h-[70px] w-[70px] rotate-[25deg] items-center justify-center rounded-2xl bg-primary bg-opacity-20 duration-300 group-hover:rotate-45"
                 ></span>
                 <i class="fa-regular fa-face-smile fa-2xl" style="color:white"></i>
               </div>
@@ -271,12 +141,12 @@ style="background: linear-gradient(to right,  rgb(15, 31, 82) 0%,rgb(15, 31, 82)
             </div>
           </div>
           <div class="w-full px-4 md:w-1/2 lg:w-1/4">
-            <div class="px-5 py-4 bg-white rounded-lg group" data-aos="fade-up" data-aos-delay="200">
+            <div class="px-5 py-4 bg-white rounded-lg top group" data-aos="fade-up" data-aos-delay="200">
               <div
-                class="relative z-10 mb-8 flex h-[70px] w-[70px] items-center justify-center rounded-2xl bg-primary"
+                class="relative mb-8 flex h-[70px] w-[70px] items-center justify-center rounded-2xl bg-primary"
               >
                 <span
-                  class="absolute top-0 left-0 z-[-1] mb-8 flex h-[70px] w-[70px] rotate-[25deg] items-center justify-center rounded-2xl bg-primary bg-opacity-20 duration-300 group-hover:rotate-45"
+                  class="absolute top-0 left-0 mb-8 flex h-[70px] w-[70px] rotate-[25deg] items-center justify-center rounded-2xl bg-primary bg-opacity-20 duration-300 group-hover:rotate-45"
                 ></span>
                   <i class="fa-regular fa-credit-card fa-2xl" style="color:white"></i>
               </div>
@@ -291,14 +161,14 @@ style="background: linear-gradient(to right,  rgb(15, 31, 82) 0%,rgb(15, 31, 82)
           </div>
           <div class="w-full px-4 md:w-1/2 lg:w-1/4">
             <div
-              class="px-5 py-4 bg-white rounded-lg group"
+              class="px-5 py-4 bg-white rounded-lg top group"
               data-aos="fade-up" data-aos-delay="250"
             >
               <div
-                class="relative z-10 mb-8 flex h-[70px] w-[70px] items-center justify-center rounded-2xl bg-primary"
+                class="relative mb-8 flex h-[70px] w-[70px] items-center justify-center rounded-2xl bg-primary"
               >
                 <span
-                  class="absolute top-0 left-0 z-[-1] mb-8 flex h-[70px] w-[70px] rotate-[25deg] items-center justify-center rounded-2xl bg-primary bg-opacity-20 duration-300 group-hover:rotate-45"
+                  class="absolute top-0 left-0 mb-8 flex h-[70px] w-[70px] rotate-[25deg] items-center justify-center rounded-2xl bg-primary bg-opacity-20 duration-300 group-hover:rotate-45"
                 ></span>
                 <svg
                   width="35"
@@ -329,13 +199,13 @@ style="background: linear-gradient(to right,  rgb(15, 31, 82) 0%,rgb(15, 31, 82)
 
     <!-- ====== Product Section Starts -->
     <section
-      class="relative z-20 overflow-hidden bg-[#f3f4ff] pt-20 pb-12 lg:pt-[120px] lg:pb-[90px]"
+      class="relative overflow-hidden pt-20 pb-12 lg:pt-[120px] lg:pb-[90px]"
       id="tutorial"
     >
       <div class="container">
         <div class="flex flex-wrap -mx-4">
           <div class="w-full px-4">
-            <div class="mx-auto mb-[60px] max-w-[620px] text-center lg:mb-20" data-aos="fade-zoom-in">
+            <div class="top mx-auto mb-[60px] max-w-[620px] text-center lg:mb-20" data-aos="fade-zoom-in">
               <span class="block mb-2 text-lg font-semibold text-primary">
                 About Edu Hunt
               </span>
@@ -358,13 +228,13 @@ style="background: linear-gradient(to right,  rgb(15, 31, 82) 0%,rgb(15, 31, 82)
 
     <!-- ====== Faq Section Start -->
     <section
-      class="relative z-20 overflow-hidden bg-[#f3f4ff] pt-20 pb-12 lg:pt-[120px] lg:pb-[90px]"
+      class="relative overflow-hidden pt-20 pb-12 lg:pt-[120px] lg:pb-[90px]"
       x-data="faq"
     >
       <div class="container">
         <div class="flex flex-wrap -mx-4">
           <div class="w-full px-4">
-            <div class="mx-auto mb-[60px] max-w-[620px] text-center lg:mb-20" data-aos="fade-zoom-in" data-aos-delay="250">
+            <div class="top mx-auto mb-[60px] max-w-[620px] text-center lg:mb-20" data-aos="fade-zoom-in" data-aos-delay="250">
               <span class="block mb-2 text-lg font-semibold text-primary">
                 FAQ
               </span>
@@ -382,7 +252,7 @@ style="background: linear-gradient(to right,  rgb(15, 31, 82) 0%,rgb(15, 31, 82)
           </div>
         </div>
 
-        <div class="flex flex-wrap -mx-4">
+        <div class="flex flex-wrap -mx-4 top">
           <div class="w-full px-4 lg:w-1/2">
             <div
               class="single-faq mb-8 w-full rounded-lg border border-[#F3F4FE] bg-white p-5 sm:p-8"

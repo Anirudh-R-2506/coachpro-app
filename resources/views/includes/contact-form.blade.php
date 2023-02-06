@@ -1,6 +1,6 @@
 <section id="contact" class="relative py-20 md:py-[120px]">
     <div
-      class="absolute top-0 left-0 z-[-1] h-1/2 w-full bg-[#f3f4fe] lg:h-[45%] xl:h-1/2"
+      class="absolute top-0 left-0 z-[-1] h-1/2 w-full lg:h-[45%] xl:h-1/2"
     ></div>
     <div class="container px-4">
       <div class="flex flex-wrap items-center -mx-4">

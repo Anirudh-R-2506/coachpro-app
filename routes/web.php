@@ -19,6 +19,7 @@ use App\Http\Controllers\LoginController;
 Route::name('frontend.')->group(function () {
     
     Route::get('/', [HomeController::class, 'coming_soon'])->name('coming_soon');
+    Route::get('/institute', [HomeController::class, 'institute'])->name('institute');
     /* Route::get('/about', [HomeController::class, 'about'])->name('about');
     Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
     Route::get('/eduhunt', [HomeController::class, 'product'])->name('product');

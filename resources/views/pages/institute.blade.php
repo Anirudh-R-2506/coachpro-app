@@ -1,4 +1,4 @@
-@extends('layouts.defaultinst')
+@extends('layouts.default')
 
 @section('content')
     
@@ -6,7 +6,7 @@
     <!-- ====== Hero Section Start -->
     <div id="home" class="relative overflow-hidden bg-primary pt-[120px] md:pt-[130px] lg:pt-[160px]">
         <div class="container">
-            <div class="-mx-4 flex flex-wrap items-center">
+            <div class="flex flex-wrap items-center -mx-4">
                 <div class="w-full px-4">
                     <div class="hero-content wow fadeInUp mx-auto max-w-[780px] text-center" data-wow-delay=".2s">
                         <h1
@@ -17,10 +17,10 @@
                             class="mx-auto mb-10 max-w-[600px] text-base text-[#e4e4e4] sm:text-lg sm:leading-relaxed md:text-xl md:leading-relaxed">
                             Learn about our commitment to providing quality education solutions and how we work with institutes to revolutionize offline learning.
                         </p>
-                        <ul class="mb-10 flex flex-wrap items-center justify-center">
+                        <ul class="flex flex-wrap items-center justify-center mb-10">
                             <li>
                                 <a href="https://links.tailgrids.com/Coach-Pro-download"
-                                    class="inline-flex items-center justify-center rounded-lg bg-white py-4 px-6 text-center text-base font-medium text-dark transition duration-300 ease-in-out hover:text-primary hover:shadow-lg sm:px-10">
+                                    class="inline-flex items-center justify-center px-6 py-4 text-base font-medium text-center transition duration-300 ease-in-out bg-white rounded-lg text-dark hover:text-primary hover:shadow-lg sm:px-10">
                                     Sign up now
                                 </a>
                             </li>
@@ -29,7 +29,7 @@
                       <a
                         href="https://github.com/tailgrids/Coach Pro-tailwind"
                         target="_blank"
-                        class="flex items-center py-4 px-6 text-base font-medium text-white transition duration-300 ease-in-out hover:opacity-70 sm:px-10"
+                        class="flex items-center px-6 py-4 text-base font-medium text-white transition duration-300 ease-in-out hover:opacity-70 sm:px-10"
                       >
                         Star on Github
                         <span class="pl-2">
@@ -48,7 +48,7 @@
                     </li> -->
                         </ul>
                         <!--
-                  <div class="wow fadeInUp text-center" data-wow-delay=".3s">
+                  <div class="text-center wow fadeInUp" data-wow-delay=".3s">
                     <img
                       src="assets/images/hero/brand.svg"
                       alt="image"
@@ -62,7 +62,7 @@
                     <div class="wow fadeInUp relative z-10 mx-auto max-w-[845px]" data-wow-delay=".25s">
                         <div class="mt-16">
                             <img src={{asset('images/hero/hero-image.jpg')}} alt="hero"
-                                class="mx-auto max-w-full rounded-t-xl rounded-tr-xl" />
+                                class="max-w-full mx-auto rounded-t-xl rounded-tr-xl" />
                         </div>
                         <div class="absolute bottom-0 -left-9 z-[-1]">
                             <svg width="134" height="106" viewBox="0 0 134 106" fill="none"
@@ -404,22 +404,22 @@
     <!-- ====== About Section Start -->
     <section id="about" class="bg-[#f3f4fe] pt-20 pb-20 lg:pt-[120px] lg:pb-[120px]">
         <div class="container">
-            <div class="wow fadeInUp bg-white" data-wow-delay=".2s">
-                <div class="-mx-4 flex flex-wrap">
+            <div class="bg-white wow fadeInUp" data-wow-delay=".2s">
+                <div class="flex flex-wrap -mx-4">
                     <div class="w-full px-4">
                         <div class="items-center justify-between overflow-hidden border lg:flex">
                             <div
                                 class="w-full py-12 px-7 sm:px-12 md:p-16 lg:max-w-[565px] lg:py-9 lg:px-16 xl:max-w-[640px] xl:p-[70px]">
-                                <span class="mb-5 inline-block bg-primary py-2 px-5 text-sm font-medium text-white">
+                                <span class="inline-block px-5 py-2 mb-5 text-sm font-medium text-white bg-primary">
                                     About Us
                                 </span>
                                 <h2 class="mb-6 text-3xl font-bold text-dark sm:text-4xl sm:leading-snug 2xl:text-[40px]">
                                     Your Partner in Revolutionizing Offline Learning .
                                 </h2>
-                                <p class="mb-9 text-base leading-relaxed text-body-color">
+                                <p class="text-base leading-relaxed mb-9 text-body-color">
                                     We are dedicated to revolutionizing the way students find and connect with quality tutorial services. Our platform brings together students, parents, and tutors to provide a comprehensive solution for offline learning. Our goal is to make it easier for students to get the help they need to succeed in their studies and for tutorial services to reach more students and grow their businesses.
                                 </p>
-                                <p class="mb-9 text-base leading-relaxed text-body-color">
+                                <p class="text-base leading-relaxed mb-9 text-body-color">
                                     As a registered institute on our platform, you'll benefit from our expertise in digital marketing and our commitment to providing a seamless user experience. Our team of experts will work closely with you to understand your unique needs and help you achieve your goals. Whether you're just starting out or you're an established tutorial service, our platform is the perfect solution for growing your business and reaching more students. We're here to help, so get in touch with us today!
                                 </p>
                             </div>
@@ -440,10 +440,10 @@
     <!-- ====== Faq Section Start -->
     <section id="faq" class="relative z-20 overflow-hidden bg-[#f3f4ff] pt-20 pb-12 lg:pt-[120px] lg:pb-[90px]">
         <div class="container">
-            <div class="-mx-4 flex flex-wrap">
+            <div class="flex flex-wrap -mx-4">
                 <div class="w-full px-4">
                     <div class="mx-auto mb-[60px] max-w-[620px] text-center lg:mb-20">
-                        <span class="mb-2 block text-lg font-semibold text-primary">
+                        <span class="block mb-2 text-lg font-semibold text-primary">
                             FAQ
                         </span>
                         <h2 class="mb-4 text-3xl font-bold text-dark sm:text-4xl md:text-[42px]">
@@ -457,15 +457,15 @@
                 </div>
             </div>
 
-            <div class="-mx-4 flex flex-wrap">
+            <div class="flex flex-wrap -mx-4">
                 <div class="w-full px-4 lg:w-1/2">
                     <div class="single-faq wow fadeInUp mb-8 w-full rounded-lg border border-[#F3F4FE] bg-white p-5 sm:p-8"
                         data-wow-delay=".1s
               ">
-                        <button class="faq-btn flex w-full items-center text-left">
+                        <button class="flex items-center w-full text-left faq-btn">
                             <div
                                 class="mr-5 flex h-10 w-full max-w-[40px] items-center justify-center rounded-lg bg-primary bg-opacity-5 text-primary">
-                                <svg width="17" height="10" viewBox="0 0 17 10" class="icon fill-current">
+                                <svg width="17" height="10" viewBox="0 0 17 10" class="fill-current icon">
                                     <path
                                         d="M7.28687 8.43257L7.28679 8.43265L7.29496 8.43985C7.62576 8.73124 8.02464 8.86001 8.41472 8.86001C8.83092 8.86001 9.22376 8.69083 9.53447 8.41713L9.53454 8.41721L9.54184 8.41052L15.7631 2.70784L15.7691 2.70231L15.7749 2.69659C16.0981 2.38028 16.1985 1.80579 15.7981 1.41393C15.4803 1.1028 14.9167 1.00854 14.5249 1.38489L8.41472 7.00806L2.29995 1.38063L2.29151 1.37286L2.28271 1.36548C1.93092 1.07036 1.38469 1.06804 1.03129 1.41393L1.01755 1.42738L1.00488 1.44184C0.69687 1.79355 0.695778 2.34549 1.0545 2.69659L1.05999 2.70196L1.06565 2.70717L7.28687 8.43257Z"
                                         fill="#3056D3" stroke="#3056D3" />
@@ -486,10 +486,10 @@
                     <div class="single-faq wow fadeInUp mb-8 w-full rounded-lg border border-[#F3F4FE] bg-white p-5 sm:p-8"
                         data-wow-delay=".15s
               ">
-                        <button class="faq-btn flex w-full items-center text-left">
+                        <button class="flex items-center w-full text-left faq-btn">
                             <div
                                 class="mr-5 flex h-10 w-full max-w-[40px] items-center justify-center rounded-lg bg-primary bg-opacity-5 text-primary">
-                                <svg width="17" height="10" viewBox="0 0 17 10" class="icon fill-current">
+                                <svg width="17" height="10" viewBox="0 0 17 10" class="fill-current icon">
                                     <path
                                         d="M7.28687 8.43257L7.28679 8.43265L7.29496 8.43985C7.62576 8.73124 8.02464 8.86001 8.41472 8.86001C8.83092 8.86001 9.22376 8.69083 9.53447 8.41713L9.53454 8.41721L9.54184 8.41052L15.7631 2.70784L15.7691 2.70231L15.7749 2.69659C16.0981 2.38028 16.1985 1.80579 15.7981 1.41393C15.4803 1.1028 14.9167 1.00854 14.5249 1.38489L8.41472 7.00806L2.29995 1.38063L2.29151 1.37286L2.28271 1.36548C1.93092 1.07036 1.38469 1.06804 1.03129 1.41393L1.01755 1.42738L1.00488 1.44184C0.69687 1.79355 0.695778 2.34549 1.0545 2.69659L1.05999 2.70196L1.06565 2.70717L7.28687 8.43257Z"
                                         fill="#3056D3" stroke="#3056D3" />
@@ -510,10 +510,10 @@
                     <div class="single-faq wow fadeInUp mb-8 w-full rounded-lg border border-[#F3F4FE] bg-white p-5 sm:p-8"
                         data-wow-delay=".2s
               ">
-                        <button class="faq-btn flex w-full items-center text-left">
+                        <button class="flex items-center w-full text-left faq-btn">
                             <div
                                 class="mr-5 flex h-10 w-full max-w-[40px] items-center justify-center rounded-lg bg-primary bg-opacity-5 text-primary">
-                                <svg width="17" height="10" viewBox="0 0 17 10" class="icon fill-current">
+                                <svg width="17" height="10" viewBox="0 0 17 10" class="fill-current icon">
                                     <path
                                         d="M7.28687 8.43257L7.28679 8.43265L7.29496 8.43985C7.62576 8.73124 8.02464 8.86001 8.41472 8.86001C8.83092 8.86001 9.22376 8.69083 9.53447 8.41713L9.53454 8.41721L9.54184 8.41052L15.7631 2.70784L15.7691 2.70231L15.7749 2.69659C16.0981 2.38028 16.1985 1.80579 15.7981 1.41393C15.4803 1.1028 14.9167 1.00854 14.5249 1.38489L8.41472 7.00806L2.29995 1.38063L2.29151 1.37286L2.28271 1.36548C1.93092 1.07036 1.38469 1.06804 1.03129 1.41393L1.01755 1.42738L1.00488 1.44184C0.69687 1.79355 0.695778 2.34549 1.0545 2.69659L1.05999 2.70196L1.06565 2.70717L7.28687 8.43257Z"
                                         fill="#3056D3" stroke="#3056D3" />
@@ -536,10 +536,10 @@
                     <div class="single-faq wow fadeInUp mb-8 w-full rounded-lg border border-[#F3F4FE] bg-white p-5 sm:p-8"
                         data-wow-delay=".1s
               ">
-                        <button class="faq-btn flex w-full items-center text-left">
+                        <button class="flex items-center w-full text-left faq-btn">
                             <div
                                 class="mr-5 flex h-10 w-full max-w-[40px] items-center justify-center rounded-lg bg-primary bg-opacity-5 text-primary">
-                                <svg width="17" height="10" viewBox="0 0 17 10" class="icon fill-current">
+                                <svg width="17" height="10" viewBox="0 0 17 10" class="fill-current icon">
                                     <path
                                         d="M7.28687 8.43257L7.28679 8.43265L7.29496 8.43985C7.62576 8.73124 8.02464 8.86001 8.41472 8.86001C8.83092 8.86001 9.22376 8.69083 9.53447 8.41713L9.53454 8.41721L9.54184 8.41052L15.7631 2.70784L15.7691 2.70231L15.7749 2.69659C16.0981 2.38028 16.1985 1.80579 15.7981 1.41393C15.4803 1.1028 14.9167 1.00854 14.5249 1.38489L8.41472 7.00806L2.29995 1.38063L2.29151 1.37286L2.28271 1.36548C1.93092 1.07036 1.38469 1.06804 1.03129 1.41393L1.01755 1.42738L1.00488 1.44184C0.69687 1.79355 0.695778 2.34549 1.0545 2.69659L1.05999 2.70196L1.06565 2.70717L7.28687 8.43257Z"
                                         fill="#3056D3" stroke="#3056D3" />
@@ -560,10 +560,10 @@
                     <div class="single-faq wow fadeInUp mb-8 w-full rounded-lg border border-[#F3F4FE] bg-white p-5 sm:p-8"
                         data-wow-delay=".15s
               ">
-                        <button class="faq-btn flex w-full items-center text-left">
+                        <button class="flex items-center w-full text-left faq-btn">
                             <div
                                 class="mr-5 flex h-10 w-full max-w-[40px] items-center justify-center rounded-lg bg-primary bg-opacity-5 text-primary">
-                                <svg width="17" height="10" viewBox="0 0 17 10" class="icon fill-current">
+                                <svg width="17" height="10" viewBox="0 0 17 10" class="fill-current icon">
                                     <path
                                         d="M7.28687 8.43257L7.28679 8.43265L7.29496 8.43985C7.62576 8.73124 8.02464 8.86001 8.41472 8.86001C8.83092 8.86001 9.22376 8.69083 9.53447 8.41713L9.53454 8.41721L9.54184 8.41052L15.7631 2.70784L15.7691 2.70231L15.7749 2.69659C16.0981 2.38028 16.1985 1.80579 15.7981 1.41393C15.4803 1.1028 14.9167 1.00854 14.5249 1.38489L8.41472 7.00806L2.29995 1.38063L2.29151 1.37286L2.28271 1.36548C1.93092 1.07036 1.38469 1.06804 1.03129 1.41393L1.01755 1.42738L1.00488 1.44184C0.69687 1.79355 0.695778 2.34549 1.0545 2.69659L1.05999 2.70196L1.06565 2.70717L7.28687 8.43257Z"
                                         fill="#3056D3" stroke="#3056D3" />
@@ -584,10 +584,10 @@
                     <div class="single-faq wow fadeInUp mb-8 w-full rounded-lg border border-[#F3F4FE] bg-white p-5 sm:p-8"
                         data-wow-delay=".2s
               ">
-                        <button class="faq-btn flex w-full items-center text-left">
+                        <button class="flex items-center w-full text-left faq-btn">
                             <div
                                 class="mr-5 flex h-10 w-full max-w-[40px] items-center justify-center rounded-lg bg-primary bg-opacity-5 text-primary">
-                                <svg width="17" height="10" viewBox="0 0 17 10" class="icon fill-current">
+                                <svg width="17" height="10" viewBox="0 0 17 10" class="fill-current icon">
                                     <path
                                         d="M7.28687 8.43257L7.28679 8.43265L7.29496 8.43985C7.62576 8.73124 8.02464 8.86001 8.41472 8.86001C8.83092 8.86001 9.22376 8.69083 9.53447 8.41713L9.53454 8.41721L9.54184 8.41052L15.7631 2.70784L15.7691 2.70231L15.7749 2.69659C16.0981 2.38028 16.1985 1.80579 15.7981 1.41393C15.4803 1.1028 14.9167 1.00854 14.5249 1.38489L8.41472 7.00806L2.29995 1.38063L2.29151 1.37286L2.28271 1.36548C1.93092 1.07036 1.38469 1.06804 1.03129 1.41393L1.01755 1.42738L1.00488 1.44184C0.69687 1.79355 0.695778 2.34549 1.0545 2.69659L1.05999 2.70196L1.06565 2.70717L7.28687 8.43257Z"
                                         fill="#3056D3" stroke="#3056D3" />
@@ -632,9 +632,9 @@
     <section id="testimonials" class="pt-20 md:pt-[120px]">
         <div class="container px-4">
             <div class="flex flex-wrap">
-                <div class="mx-4 w-full">
+                <div class="w-full mx-4">
                     <div class="mx-auto mb-[60px] max-w-[620px] text-center lg:mb-20">
-                        <span class="mb-2 block text-lg font-semibold text-primary">
+                        <span class="block mb-2 text-lg font-semibold text-primary">
                             Testimonials
                         </span>
                         <h2 class="mb-4 text-3xl font-bold text-dark sm:text-4xl md:text-[42px]">
@@ -650,10 +650,10 @@
 
             <div class="flex flex-wrap">
                 <div class="w-full px-4 md:w-1/2 lg:w-1/3">
-                    <div class="ud-single-testimonial wow fadeInUp mb-12 bg-white p-8 shadow-testimonial"
+                    <div class="p-8 mb-12 bg-white ud-single-testimonial wow fadeInUp shadow-testimonial"
                         data-wow-delay=".1s
               ">
-                        <div class="ud-testimonial-ratings mb-3 flex items-center">
+                        <div class="flex items-center mb-3 ud-testimonial-ratings">
                             <span class="mr-1 text-[#fbb040]">
                                 <svg width="18" height="16" viewBox="0 0 18 16" class="fill-current">
                                     <path
@@ -685,13 +685,13 @@
                                 </svg>
                             </span>
                         </div>
-                        <div class="ud-testimonial-content mb-6">
+                        <div class="mb-6 ud-testimonial-content">
                             <p class="text-base tracking-wide text-body-color">
                                 “Our members are so impressed. It's intuitive. It's clean.
                                 It's distraction free. If you're building a community.
                             </p>
                         </div>
-                        <div class="ud-testimonial-info flex items-center">
+                        <div class="flex items-center ud-testimonial-info">
                             <div class="ud-testimonial-image mr-5 h-[50px] w-[50px] overflow-hidden rounded-full">
                                 <img src={{asset("images/testimonials/author-01.png")}} alt="author" />
                             </div>
@@ -703,10 +703,10 @@
                     </div>
                 </div>
                 <div class="w-full px-4 md:w-1/2 lg:w-1/3">
-                    <div class="ud-single-testimonial wow fadeInUp mb-12 bg-white p-8 shadow-testimonial"
+                    <div class="p-8 mb-12 bg-white ud-single-testimonial wow fadeInUp shadow-testimonial"
                         data-wow-delay=".15s
               ">
-                        <div class="ud-testimonial-ratings mb-3 flex items-center">
+                        <div class="flex items-center mb-3 ud-testimonial-ratings">
                             <span class="mr-1 text-[#fbb040]">
                                 <svg width="18" height="16" viewBox="0 0 18 16" class="fill-current">
                                     <path
@@ -738,13 +738,13 @@
                                 </svg>
                             </span>
                         </div>
-                        <div class="ud-testimonial-content mb-6">
+                        <div class="mb-6 ud-testimonial-content">
                             <p class="text-base tracking-wide text-body-color">
                                 “Our members are so impressed. It's intuitive. It's clean.
                                 It's distraction free. If you're building a community.
                             </p>
                         </div>
-                        <div class="ud-testimonial-info flex items-center">
+                        <div class="flex items-center ud-testimonial-info">
                             <div class="ud-testimonial-image mr-5 h-[50px] w-[50px] overflow-hidden rounded-full">
                                 <img src={{asset("images/testimonials/author-02.png")}} alt="author" />
                             </div>
@@ -756,10 +756,10 @@
                     </div>
                 </div>
                 <div class="w-full px-4 md:w-1/2 lg:w-1/3">
-                    <div class="ud-single-testimonial wow fadeInUp mb-12 bg-white p-8 shadow-testimonial"
+                    <div class="p-8 mb-12 bg-white ud-single-testimonial wow fadeInUp shadow-testimonial"
                         data-wow-delay=".2s
               ">
-                        <div class="ud-testimonial-ratings mb-3 flex items-center">
+                        <div class="flex items-center mb-3 ud-testimonial-ratings">
                             <span class="mr-1 text-[#fbb040]">
                                 <svg width="18" height="16" viewBox="0 0 18 16" class="fill-current">
                                     <path
@@ -791,13 +791,13 @@
                                 </svg>
                             </span>
                         </div>
-                        <div class="ud-testimonial-content mb-6">
+                        <div class="mb-6 ud-testimonial-content">
                             <p class="text-base tracking-wide text-body-color">
                                 “Our members are so impressed. It's intuitive. It's clean.
                                 It's distraction free. If you're building a community.
                             </p>
                         </div>
-                        <div class="ud-testimonial-info flex items-center">
+                        <div class="flex items-center ud-testimonial-info">
                             <div class="ud-testimonial-image mr-5 h-[50px] w-[50px] overflow-hidden rounded-full">
                                 <img src={{asset("images/testimonials/author-03.png")}} alt="author" />
                             </div>
@@ -810,44 +810,44 @@
                 </div>
             </div>
             <div class="flex flex-wrap">
-                <div class="mx-4 w-full">
+                <div class="w-full mx-4">
                     <div class="wow fadeInUp" data-wow-delay=".2s">
-                        <div class="ud-title mb-8">
+                        <div class="mb-8 ud-title">
                             <h6 class="relative inline-flex items-center text-xs font-normal text-body-color">
                                 Some Of Our Clients
                                 <span class="ml-4 inline-block h-[1px] w-8 bg-[#afb2b5]">
                                 </span>
                             </h6>
                         </div>
-                        <div class="ud-brands-logo flex flex-wrap items-center">
+                        <div class="flex flex-wrap items-center ud-brands-logo">
                             <div class="ud-single-logo mr-10 mb-5 max-w-[140px]">
                                 <a href="https://tailgrids.com" target="_blank" rel="nofollow noopner">
                                     <img src={{asset("images/brands/tailgrids.svg")}} alt="tailgrids"
-                                        class="grayscale duration-300 hover:filter-none" />
+                                        class="duration-300 grayscale hover:filter-none" />
                                 </a>
                             </div>
                             <div class="ud-single-logo mr-10 mb-5 max-w-[140px]">
                                 <a href="https://ayroui.com" target="_blank" rel="nofollow noopner">
                                     <img src={{asset("images/brands/ayroui.svg")}} alt="ayroui"
-                                        class="grayscale duration-300 hover:filter-none" />
+                                        class="duration-300 grayscale hover:filter-none" />
                                 </a>
                             </div>
                             <div class="ud-single-logo mr-10 mb-5 max-w-[140px]">
                                 <a href="https://uideck.com" target="_blank" rel="nofollow noopner">
                                     <img src={{asset("images/brands/uideck.svg")}} alt="uideck"
-                                        class="grayscale duration-300 hover:filter-none" />
+                                        class="duration-300 grayscale hover:filter-none" />
                                 </a>
                             </div>
                             <div class="ud-single-logo mr-10 mb-5 max-w-[140px]">
                                 <a href="https://graygrids.com" target="_blank" rel="nofollow noopner">
                                     <img src={{asset("images/brands/graygrids.svg")}} alt="graygrids"
-                                        class="grayscale duration-300 hover:filter-none" />
+                                        class="duration-300 grayscale hover:filter-none" />
                                 </a>
                             </div>
                             <div class="ud-single-logo mr-10 mb-5 max-w-[140px]">
                                 <a href="https://lineicons.com" target="_blank" rel="nofollow noopner">
                                     <img src={{asset("images/brands/lineicons.svg")}} alt="lineicons"
-                                        class="grayscale duration-300 hover:filter-none" />
+                                        class="duration-300 grayscale hover:filter-none" />
                                 </a>
                             </div>
                         </div>
@@ -864,7 +864,7 @@
     <section id="contact" class="relative py-20 md:py-[120px]">
         <div class="absolute top-0 left-0 z-[-1] h-1/2 w-full bg-[#f3f4fe] lg:h-[45%] xl:h-1/2"></div>
         <div class="container px-4">
-            <div class="-mx-4 flex flex-wrap items-center">
+            <div class="flex flex-wrap items-center -mx-4">
                 <div class="w-full px-4 lg:w-7/12 xl:w-8/12">
                     <div class="ud-contact-content-wrapper">
                         <div class="ud-contact-title mb-12 lg:mb-[150px]">
@@ -876,7 +876,7 @@
                                 Love to hear from you!
                             </h2>
                         </div>
-                        <div class="mb-12 flex flex-wrap justify-between lg:mb-0">
+                        <div class="flex flex-wrap justify-between mb-12 lg:mb-0">
                             <div class="mb-8 flex w-[330px] max-w-full">
                                 <div class="mr-6 text-[32px] text-primary">
                                     <svg width="29" height="35" viewBox="0 0 29 35" class="fill-current">
@@ -941,7 +941,7 @@
                             </div>
                             <div class="mb-0">
                                 <button type="submit"
-                                    class="inline-flex items-center justify-center rounded bg-primary py-4 px-6 text-base font-medium text-white transition duration-300 ease-in-out hover:bg-dark">
+                                    class="inline-flex items-center justify-center px-6 py-4 text-base font-medium text-white transition duration-300 ease-in-out rounded bg-primary hover:bg-dark">
                                     Send Message
                                 </button>
                             </div>
@@ -956,16 +956,16 @@
     <!-- ====== Footer Section Start -->
     <footer class="wow fadeInUp relative z-10 bg-black pt-20 lg:pt-[120px]" data-wow-delay=".15s">
         <div class="container">
-            <div class="-mx-4 flex flex-wrap">
+            <div class="flex flex-wrap -mx-4">
                 <div class="w-full px-4 sm:w-1/2 md:w-1/2 lg:w-4/12 xl:w-3/12">
-                    <div class="mb-10 w-full">
+                    <div class="w-full mb-10">
                         <a href="javascript:void(0)" class="mb-6 inline-block max-w-[160px]">
                             <img src={{asset("images/logo/logo-white.svg")}} alt="logo" class="max-w-full" />
                         </a>
                         <p class="mb-7 text-base text-[#f3f4fe]">
                             Lorem ipsum dolor sit amet Hic atque adipisci hic tempora sunt aut accusamus.
                         </p>
-                        <div class="-mx-3 flex items-center">
+                        <div class="flex items-center -mx-3">
                             <a href="javascript:void(0)" class="px-3 text-[#dddddd] hover:text-white">
                                 <svg width="10" height="18" viewBox="0 0 10 18" class="fill-current">
                                     <path
@@ -998,8 +998,8 @@
                     </div>
                 </div>
                 <div class="w-full px-4 sm:w-1/2 md:w-1/2 lg:w-2/12 xl:w-2/12">
-                    <div class="mb-10 w-full">
-                        <h4 class="mb-9 text-lg font-semibold text-white">About Us</h4>
+                    <div class="w-full mb-10">
+                        <h4 class="text-lg font-semibold text-white mb-9">About Us</h4>
                         <ul>
                             <li>
                                 <a href="javascript:void(0)"
@@ -1029,8 +1029,8 @@
                     </div>
                 </div>
                 <div class="w-full px-4 sm:w-1/2 md:w-1/2 lg:w-3/12 xl:w-2/12">
-                    <div class="mb-10 w-full">
-                        <h4 class="mb-9 text-lg font-semibold text-white">Features</h4>
+                    <div class="w-full mb-10">
+                        <h4 class="text-lg font-semibold text-white mb-9">Features</h4>
                         <ul>
                             <li>
                                 <a href="javascript:void(0)"
@@ -1060,8 +1060,8 @@
                     </div>
                 </div>
                 <!-- <div class="w-full px-4 md:w-2/3 lg:w-6/12 xl:w-3/12">
-                <div class="mb-10 w-full">
-                  <h4 class="mb-9 text-lg font-semibold text-white">Partners</h4>
+                <div class="w-full mb-10">
+                  <h4 class="text-lg font-semibold text-white mb-9">Partners</h4>
                   <ul class="flex flex-wrap items-center">
                     <li>
                       <a
@@ -1149,10 +1149,10 @@
 
         <div class="mt-12 border-t border-opacity-40 py-8 lg:mt-[60px]">
             <div class="container">
-                <div class="-mx-4 flex flex-wrap">
+                <div class="flex flex-wrap -mx-4">
                     <div class="w-full px-4 md:w-2/3 lg:w-1/2">
                         <div class="my-1">
-                            <div class="-mx-3 flex items-center justify-center md:justify-start">
+                            <div class="flex items-center justify-center -mx-3 md:justify-start">
                                 <a href="javascript:void(0)" class="px-3 text-base text-[#f3f4fe] hover:text-primary">
                                     Privacy policy
                                 </a>

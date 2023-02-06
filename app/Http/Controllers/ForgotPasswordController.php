@@ -36,9 +36,9 @@ class ForgotPasswordController extends Controller
 
         Mail::to($request->email)->send(new ResetPassword($token));
 
-        alert()->success('Reset Password Link Sent!', 'Please check your email')->persistent('Close');
+        Alert::success('Reset Password Link Sent!', 'Please check your email')->persistent('Close');
 
-        return route('frontend.index');
+        return redirect()->route('frontend.index');
     }
 
     public function update(Request $request)
@@ -57,8 +57,8 @@ class ForgotPasswordController extends Controller
                             ->first();
 
         if(!$updatePassword){
-            alert()->error('Invalid token!', 'Please try again')->persistent('Close');
-            return route('frontend.signin');
+            Alert::error('Invalid token!', 'Please try again')->persistent('Close');
+            return redirect()->route('frontend.signin');
         }
 
         $user = User::where('email', $request->email)
@@ -66,7 +66,7 @@ class ForgotPasswordController extends Controller
 
         DB::table('password_resets')->where(['email'=> $request->email])->delete();
 
-        alert()->success('Password Changed!', 'Please login again')->persistent('Close');
-        return route('frontend.signin');
+        Alert::success('Password Changed!', 'Please login again')->persistent('Close');
+        return redirect()->route('frontend.signin');
     }
 }

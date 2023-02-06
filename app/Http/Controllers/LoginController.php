@@ -21,7 +21,7 @@ class LoginController extends Controller
     public function login(Request $request)
     {
         $request->validate([
-            'email' => 'required|email',
+            'email' => 'required|email|in:user',
             'password' => 'required',
         ]);
 
@@ -29,29 +29,24 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            $response = [
-                'status' => 'success',
-                'message' => 'Login successful',                
-            ];
-            return response()->json($response, 200);
+            redirect()->route('dashboard.index');
         }
+
+        Alert::error('Oops!', 'Incorrect email or password. Please try again :(');
+        return redirect()->back();        
     }
 
     public function logout()
     {
         Auth::logout();
-
-        return response()->json([
-            'status' => 'success',
-            'message' => 'Logout successful',
-        ], 200);
+        return redirect()->route();
     }
 
     public function register(Request $request)
     {
         $request->validate([
-            'name' => 'string|max:255',
-            'email' => 'string|email|max:255',
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255',
             'phone' => 'required|string|max:255|unique:users',
             'password' => 'required|string|min:8',
         ]);
