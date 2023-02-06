@@ -74,7 +74,7 @@ class DiscordHelper
                     ],
                     [
                       "name"=> "Type",
-                      "value"=> UserRole::value($user->role),
+                      "value"=> UserRole::getLabels()[$user->role],
                       "inline"=> true
                     ],
                     [
@@ -88,7 +88,7 @@ class DiscordHelper
                     ],
                     [
                       "name"=> "Education",
-                      "value"=> Education::value($user->education),
+                      "value"=> Education::getLabels()[$user->education],
                       "inline"=> true
                     ],
                     [
