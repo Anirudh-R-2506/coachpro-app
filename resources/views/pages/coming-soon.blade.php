@@ -218,7 +218,17 @@ x-intersect="changeToWhite()"
           </div>
         </div>
 
-        
+        <video id="my-video" class="w-full mb-10 video-js vjs-theme-sea" data-aos="fade-zoom-in" data-aos-delay="250"
+                controls preload="auto" height="500px" poster="{{ asset('images/poster.png') }}"
+            data-setup="{}">
+            <source src="{{ asset("videos/about.mp4") }}" type="video/mp4" />
+            <p class="vjs-no-js">
+                To view this video please enable JavaScript, and consider upgrading to a
+                web browser that
+            <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5
+                video</a>
+            </p>
+        </video>
         
         </div>
 
@@ -793,5 +803,6 @@ x-intersect="changeToWhite()"
     @include('includes.contact-form')
 
     <script src="{{ asset('js/main.js') }}"></script>    
+    <script src="https://vjs.zencdn.net/7.20.3/video.min.js"></script>
 
 @endsection
