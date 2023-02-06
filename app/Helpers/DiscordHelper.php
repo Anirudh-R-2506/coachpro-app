@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Http;
 use App\Enums\Education;
 use App\Models\User;
 use App\Models\Contact;
+use App\Enums\UserRole;
 
 class DiscordHelper
 {
@@ -16,6 +17,8 @@ class DiscordHelper
             "content"=> "Hey, you have a new contact request from " . $contact->full_name . " (" . $contact->email . ")",
           "embeds"=> [
             [
+              "title"=> "Click to view in admin panel",
+              "url"=> config('app.url') . "/admin/contacts/" . $contact->id . "/edit",
               "color"=> 5814783,
               "fields"=> [
                 [
@@ -61,14 +64,17 @@ class DiscordHelper
               "embeds"=> [
                 [
                   "color"=> 5814783,
+                  "title"=> "Click to view in admin panel",
+                  "url"=> config('app.url') . "/admin/users/" . $user->id . "/edit",
                   "fields"=> [
                     [
                       "name"=> "Name",
                       "value"=> $user->name,
+                      "inline"=> true
                     ],
                     [
-                      "name"=> "Email",
-                      "value"=> $user->email,
+                      "name"=> "Type",
+                      "value"=> UserRole::value($user->role),
                       "inline"=> true
                     ],
                     [
@@ -77,14 +83,19 @@ class DiscordHelper
                       "inline"=> true
                     ],
                     [
+                        "name"=> "Email",
+                        "value"=> $user->email,                        
+                    ],
+                    [
                       "name"=> "Education",
-                      "value"=> $user->education,
+                      "value"=> Education::value($user->education),
+                      "inline"=> true
                     ],
                     [
                       "name"=> $user->education == Education::SCHOOL ? "Class" : "Year of Passing",
                       "value"=> $user->education == Education::SCHOOL ? $user->class : $user->year_of_passing,
                       "inline"=> true
-                    ],
+                    ],                    
                     /* [
                       "name"=> "Session",
                       "value"=> $user->session,
@@ -130,8 +141,8 @@ class DiscordHelper
     {
         $json = self::registration_alert($model);
         $url = $json['url'];
-        unset($json['url']);
-        $response = Http::post($url, $json);
+        $data = $json['data'];
+        $response = Http::post($url, $data);
         return $response;
     }
 }
