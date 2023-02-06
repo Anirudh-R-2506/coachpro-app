@@ -68,7 +68,7 @@
 
           <div class="w-3/4 px-4">
             <div
-              class="wow fadeInUp relative z-10 mx-auto max-w-[845px]"
+              class="wow fadeInUp relative top mx-auto max-w-[845px]"
               data-wow-delay=".25s"
             >
               <div class="mt-16">
@@ -76,7 +76,7 @@
                   @include('includes.signup-form')
                 </div>
               </div>
-              <div class="absolute bottom-0 -left-9 z-[-1]">
+              <div class="absolute bottom-0 -left-9 ">
                 <svg
                   width="134"
                   height="106"
@@ -646,7 +646,7 @@
                   />
                 </svg>
               </div>
-              <div class="absolute -top-6 -right-6 z-[-1]">
+              <div class="absolute -top-6 -right-6 ">
                 <svg
                   width="134"
                   height="106"
@@ -1250,10 +1250,10 @@
           <div class="w-full px-4 md:w-1/2 lg:w-1/4">
             <div class="px-5 py-4 bg-white wow fadeInUp group" data-wow-delay=".1s">
               <div
-                class="relative z-10 mb-8 flex h-[70px] w-[70px] items-center justify-center rounded-2xl bg-primary"
+                class="relative top mb-8 flex h-[70px] w-[70px] items-center justify-center rounded-2xl bg-primary"
               >
                 <span
-                  class="absolute top-0 left-0 z-[-1] mb-8 flex h-[70px] w-[70px] rotate-[25deg] items-center justify-center rounded-2xl bg-primary bg-opacity-20 duration-300 group-hover:rotate-45"
+                  class="absolute top-0 left-0  mb-8 flex h-[70px] w-[70px] rotate-[25deg] items-center justify-center rounded-2xl bg-primary bg-opacity-20 duration-300 group-hover:rotate-45"
                 ></span>
                 <i class="fa-solid fa-magnifying-glass fa-2xl" style="color:white"></i>
               </div>
@@ -1272,10 +1272,10 @@
               data-wow-delay=".15s"
             >
               <div
-                class="relative z-10 mb-8 flex h-[70px] w-[70px] items-center justify-center rounded-2xl bg-primary"
+                class="relative top mb-8 flex h-[70px] w-[70px] items-center justify-center rounded-2xl bg-primary"
               >
                 <span
-                  class="absolute top-0 left-0 z-[-1] mb-8 flex h-[70px] w-[70px] rotate-[25deg] items-center justify-center rounded-2xl bg-primary bg-opacity-20 duration-300 group-hover:rotate-45"
+                  class="absolute top-0 left-0  mb-8 flex h-[70px] w-[70px] rotate-[25deg] items-center justify-center rounded-2xl bg-primary bg-opacity-20 duration-300 group-hover:rotate-45"
                 ></span>
                 <i class="fa-regular fa-face-smile fa-2xl" style="color:white"></i>
               </div>
@@ -1291,10 +1291,10 @@
           <div class="w-full px-4 md:w-1/2 lg:w-1/4">
             <div class="px-5 py-4 bg-white wow fadeInUp group" data-wow-delay=".2s">
               <div
-                class="relative z-10 mb-8 flex h-[70px] w-[70px] items-center justify-center rounded-2xl bg-primary"
+                class="relative top mb-8 flex h-[70px] w-[70px] items-center justify-center rounded-2xl bg-primary"
               >
                 <span
-                  class="absolute top-0 left-0 z-[-1] mb-8 flex h-[70px] w-[70px] rotate-[25deg] items-center justify-center rounded-2xl bg-primary bg-opacity-20 duration-300 group-hover:rotate-45"
+                  class="absolute top-0 left-0  mb-8 flex h-[70px] w-[70px] rotate-[25deg] items-center justify-center rounded-2xl bg-primary bg-opacity-20 duration-300 group-hover:rotate-45"
                 ></span>
                   <i class="fa-regular fa-credit-card fa-2xl" style="color:white"></i>
               </div>
@@ -1313,10 +1313,10 @@
               data-wow-delay=".25s"
             >
               <div
-                class="relative z-10 mb-8 flex h-[70px] w-[70px] items-center justify-center rounded-2xl bg-primary"
+                class="relative top mb-8 flex h-[70px] w-[70px] items-center justify-center rounded-2xl bg-primary"
               >
                 <span
-                  class="absolute top-0 left-0 z-[-1] mb-8 flex h-[70px] w-[70px] rotate-[25deg] items-center justify-center rounded-2xl bg-primary bg-opacity-20 duration-300 group-hover:rotate-45"
+                  class="absolute top-0 left-0  mb-8 flex h-[70px] w-[70px] rotate-[25deg] items-center justify-center rounded-2xl bg-primary bg-opacity-20 duration-300 group-hover:rotate-45"
                 ></span>
                 <svg
                   width="35"
@@ -1347,7 +1347,7 @@
 
     <!-- ====== Product Section Starts -->
     <section
-      class="relative z-20 overflow-hidden bg-[#f3f4ff] pt-20 pb-12 lg:pt-[120px] lg:pb-[90px]"
+      class="relative top overflow-hidden pt-20 pb-12 lg:pt-[120px] lg:pb-[90px]"
       id="tutorial"
     >
       <div class="container">
@@ -1433,13 +1433,13 @@
 
     <!-- ====== Faq Section Start -->
     <section
-      class="relative z-20 overflow-hidden bg-[#f3f4ff] pt-20 pb-12 lg:pt-[120px] lg:pb-[90px]"
-      id="faq"
+      class="relative overflow-hidden pt-20 pb-12 lg:pt-[120px] lg:pb-[90px]"
+      x-data="faq"
     >
       <div class="container">
         <div class="flex flex-wrap -mx-4">
           <div class="w-full px-4">
-            <div class="mx-auto mb-[60px] max-w-[620px] text-center lg:mb-20">
+            <div class="top mx-auto mb-[60px] max-w-[620px] text-center lg:mb-20" data-aos="fade-zoom-in" data-aos-delay="250">
               <span class="block mb-2 text-lg font-semibold text-primary">
                 FAQ
               </span>
@@ -1457,14 +1457,13 @@
           </div>
         </div>
 
-        <div class="flex flex-wrap -mx-4">
+        <div class="flex flex-wrap -mx-4 top">
           <div class="w-full px-4 lg:w-1/2">
             <div
-              class="single-faq wow fadeInUp mb-8 w-full rounded-lg border border-[#F3F4FE] bg-white p-5 sm:p-8"
-              data-wow-delay=".1s
-              "
+              class="single-faq mb-8 w-full rounded-lg border border-[#F3F4FE] bg-white p-5 sm:p-8"
+              data-aos="fade-up" data-aos-delay="350"
             >
-              <button class="flex items-center w-full text-left faq-btn">
+              <button class="flex items-center w-full text-left faq-btn" @click="dropFaq(1)">
                 <div
                   class="mr-5 flex h-10 w-full max-w-[40px] items-center justify-center rounded-lg bg-primary bg-opacity-5 text-primary"
                 >
@@ -1487,18 +1486,17 @@
                   </h4>
                 </div>
               </button>
-              <div class="faq-content hidden pl-[62px]">
+              <div class="faq-content hidden pl-[62px]" id="faq1">
                 <p class="py-3 text-base leading-relaxed text-body-color">
                   To find a tutor on our platform, use the search function and specify your criteria such as subject, location, and availability.
                 </p>
               </div>
             </div>
             <div
-              class="single-faq wow fadeInUp mb-8 w-full rounded-lg border border-[#F3F4FE] bg-white p-5 sm:p-8"
-              data-wow-delay=".15s
-              "
+              class="single-faq mb-8 w-full rounded-lg border border-[#F3F4FE] bg-white p-5 sm:p-8"
+              data-aos="fade-up" data-aos-delay="450"
             >
-              <button class="flex items-center w-full text-left faq-btn">
+              <button class="flex items-center w-full text-left faq-btn" @click="dropFaq(2)">
                 <div
                   class="mr-5 flex h-10 w-full max-w-[40px] items-center justify-center rounded-lg bg-primary bg-opacity-5 text-primary"
                 >
@@ -1521,18 +1519,17 @@
                   </h4>
                 </div>
               </button>
-              <div class="faq-content hidden pl-[62px]">
+              <div class="faq-content hidden pl-[62px]" id="faq2">
                 <p class="py-3 text-base leading-relaxed text-body-color">
                   Yes, you can see reviews from other students before booking a course.
                 </p>
               </div>
             </div>
             <div
-              class="single-faq wow fadeInUp mb-8 w-full rounded-lg border border-[#F3F4FE] bg-white p-5 sm:p-8"
-              data-wow-delay=".2s
-              "
+              class="single-faq  mb-8 w-full rounded-lg border border-[#F3F4FE] bg-white p-5 sm:p-8"
+              data-aos="fade-up" data-aos-delay="550"
             >
-              <button class="flex items-center w-full text-left faq-btn">
+              <button class="flex items-center w-full text-left faq-btn" @click="dropFaq(3)">
                 <div
                   class="mr-5 flex h-10 w-full max-w-[40px] items-center justify-center rounded-lg bg-primary bg-opacity-5 text-primary"
                 >
@@ -1551,24 +1548,23 @@
                 </div>
                 <div class="w-full">
                   <h4 class="text-base font-semibold text-black sm:text-lg">
-                    How do I update my account information or change my password?
+                    How do I update my preferences?
                   </h4>
                 </div>
               </button>
-              <div class="faq-content hidden pl-[62px]">
+              <div class="faq-content hidden pl-[62px]" id="faq3">
                 <p class="py-3 text-base leading-relaxed text-body-color">
-                  To update your account information or change your password, use the account settings on the platform.
+                  You can update your preferences any time you want by going to your profile when our website goes live.
                 </p>
               </div>
             </div>
           </div>
           <div class="w-full px-4 lg:w-1/2">
             <div
-              class="single-faq wow fadeInUp mb-8 w-full rounded-lg border border-[#F3F4FE] bg-white p-5 sm:p-8"
-              data-wow-delay=".1s
-              "
+              class="single-faq  mb-8 w-full rounded-lg border border-[#F3F4FE] bg-white p-5 sm:p-8"
+              data-aos="fade-up" data-aos-delay="650"
             >
-              <button class="flex items-center w-full text-left faq-btn">
+              <button class="flex items-center w-full text-left faq-btn" @click="dropFaq(4)">
                 <div
                   class="mr-5 flex h-10 w-full max-w-[40px] items-center justify-center rounded-lg bg-primary bg-opacity-5 text-primary"
                 >
@@ -1587,22 +1583,21 @@
                 </div>
                 <div class="w-full">
                   <h4 class="text-base font-semibold text-black sm:text-lg">
-                  Can I ask the tutor questions before booking a course?  
+                  Can I enquire about a course ?
                   </h4>
                 </div>
               </button>
-              <div class="faq-content hidden pl-[62px]">
+              <div class="faq-content hidden pl-[62px]" id="faq4">
                 <p class="py-3 text-base leading-relaxed text-body-color">
-                  Yes, you can ask the tutor questions before booking a course using the Enquire option in the course page.
+                  Yes, you can enquire about a course by clicking on the "Enquire" button on the course page and a member of our team will get back to you.
                 </p>
               </div>
             </div>
             <div
-              class="single-faq wow fadeInUp mb-8 w-full rounded-lg border border-[#F3F4FE] bg-white p-5 sm:p-8"
-              data-wow-delay=".15s
-              "
+              class="single-faq mb-8 w-full rounded-lg border border-[#F3F4FE] bg-white p-5 sm:p-8"
+              data-aos="fade-up" data-aos-delay="750"
             >
-              <button class="flex items-center w-full text-left faq-btn">
+              <button class="flex items-center w-full text-left faq-btn" @click="dropFaq(5)">
                 <div
                   class="mr-5 flex h-10 w-full max-w-[40px] items-center justify-center rounded-lg bg-primary bg-opacity-5 text-primary"
                 >
@@ -1625,18 +1620,17 @@
                   </h4>
                 </div>
               </button>
-              <div class="faq-content hidden pl-[62px]">
+              <div class="faq-content hidden pl-[62px]" id="faq5">
                 <p class="py-3 text-base leading-relaxed text-body-color">
                   If you have a question or concern, you can contact customer support through the platform or by using the contact information provided.
                 </p>
               </div>
             </div>
             <div
-              class="single-faq wow fadeInUp mb-8 w-full rounded-lg border border-[#F3F4FE] bg-white p-5 sm:p-8"
-              data-wow-delay=".2s
-              "
+              class="single-faq  mb-8 w-full rounded-lg border border-[#F3F4FE] bg-white p-5 sm:p-8"
+              data-aos="fade-up" data-aos-delay="850"
             >
-              <button class="flex items-center w-full text-left faq-btn">
+              <button class="flex items-center w-full text-left faq-btn" @click="dropFaq(6)">
                 <div
                   class="mr-5 flex h-10 w-full max-w-[40px] items-center justify-center rounded-lg bg-primary bg-opacity-5 text-primary"
                 >
@@ -1655,13 +1649,13 @@
                 </div>
                 <div class="w-full">
                   <h4 class="text-base font-semibold text-black sm:text-lg">
-                    Where and how to sign up?
+                    How do I sign up for the platform?
                   </h4>
                 </div>
               </button>
-              <div class="faq-content hidden pl-[62px]">
+              <div class="faq-content hidden pl-[62px]" id="faq6">
                 <p class="py-3 text-base leading-relaxed text-body-color">
-                  To sign up for our platform, visit the sign-up page and follow the prompts to create an account.
+                  Sign ups aren't open yet, but you can show your interest by filling out the form on the homepage.
                 </p>
               </div>
             </div>
@@ -1669,7 +1663,7 @@
         </div>
       </div>
 
-      <div class="absolute bottom-0 right-0 z-[-1]">
+      <div class="absolute bottom-0 right-0 " data-aos="zoom-in-up" data-aos-delay="650">
         <svg
           width="1440"
           height="886"
@@ -1681,8 +1675,9 @@
             opacity="0.5"
             d="M193.307 -273.321L1480.87 1014.24L1121.85 1373.26C1121.85 1373.26 731.745 983.231 478.513 729.927C225.976 477.317 -165.714 85.6993 -165.714 85.6993L193.307 -273.321Z"
             fill="url(#paint0_linear)"
+            class="animate-pulse"
           />
-          <defs>
+          <defs class="animate-pulse">
             <linearGradient
               id="paint0_linear"
               x1="1308.65"
