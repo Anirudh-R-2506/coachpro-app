@@ -53,7 +53,26 @@ Route::name('dashboard.')->group(function () {
 
 })->middleware(['auth']);
 
-Route::name('institute')->prefix('institutes')->group(function (){
+Route::name('institute.')->prefix('institutes')->group(function (){
 
     Route::get('/', [HomeController::class, 'institute'])->name('index');
+    Route::get('/signin', [HomeController::class, 'inst_signin'])->name('signin'); 
+
+    Route::name('services.')->group(function () {
+
+        Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+        Route::post('/signin', [LoginController::class, 'login'])->name('login'); 
+        Route::post('/register', [LoginController::class, 'register'])->name('register');
+        Route::post('/logout', [LoginController::class, 'logout'])->name('logout'); 
+        Route::name('password.')->group(function () {
+
+            Route::get('/password/forgot', [ForgotPasswordController::class, 'index'])->name('index');
+            Route::get('/password/reset/{token}', [ResetPasswordController::class, 'show_form'])->name('reset.index');
+            Route::post('/password/forgot', [ForgotPasswordController::class, 'send_reset_link'])->name('send.reset.link');
+            Route::post('/password/reset', [ResetPasswordController::class, 'update'])->name('reset');
+
+        });    
+    });
+    
+    
 });

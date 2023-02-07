@@ -15,6 +15,10 @@ return new class extends Migration
     {
         Schema::create('faculties', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('institute_id')->references('id')->on('institutes');
+            $table->string('name');
+            $table->string('qualification');
+            $table->string('experience')->nullable();            
             $table->timestamps();
         });
     }

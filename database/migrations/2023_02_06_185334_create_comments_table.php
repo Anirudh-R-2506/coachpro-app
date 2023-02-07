@@ -15,6 +15,10 @@ return new class extends Migration
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('course_id')->references('id')->on('courses');
+            $table->unsignedBigInteger('user_id')->references('id')->on('users');
+            $table->text('comment');
+            $table->boolean('is_approved')->default(false);
             $table->timestamps();
         });
     }

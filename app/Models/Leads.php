@@ -8,4 +8,19 @@ use Illuminate\Database\Eloquent\Model;
 class Leads extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'course_id',
+        'user_id',
+    ];
+
+    public function course()
+    {
+        return $this->belongsTo(Courses::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

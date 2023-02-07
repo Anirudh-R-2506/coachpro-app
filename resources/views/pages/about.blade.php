@@ -9,11 +9,11 @@
     <!-- ====== About Section Start -->
     <section
       id="about"
-      class="bg-[#f3f4fe] pt-20 pb-20 lg:pt-[120px] lg:pb-[120px]"
+      class="pt-20 pb-20 lg:pt-[120px] lg:pb-[120px]"
     >
       <div class="container">
-        <div class="wow fadeInUp bg-white" data-wow-delay=".2s">
-          <div class="-mx-4 flex flex-wrap">
+        <div class="bg-white wow fadeInUp" data-wow-delay=".2s">
+          <div class="flex flex-wrap -mx-4">
             <div class="w-full px-4">
               <div
                 class="items-center justify-between overflow-hidden border lg:flex"
@@ -22,7 +22,7 @@
                   class="w-full py-12 px-7 sm:px-12 md:p-16 lg:max-w-[565px] lg:py-9 lg:px-16 xl:max-w-[640px] xl:p-[70px]"
                 >
                   <span
-                    class="mb-5 inline-block bg-primary py-2 px-5 text-sm font-medium text-white"
+                    class="inline-block px-5 py-2 mb-5 text-sm font-medium text-white bg-primary"
                   >
                     About Us
                   </span>
@@ -31,15 +31,15 @@
                   >
                   Edu Hunt - Where your success is our priority
                   </h2>
-                  <p class="mb-9 text-base leading-relaxed text-body-color">
+                  <p class="text-base leading-relaxed mb-9 text-body-color">
                     Welcome to our tutoring platform! We are a team of education enthusiasts who are passionate about connecting students with top-notch tutors. Our platform makes it easy for students to find the help they need to succeed in their studies.
                   </p>
-                  <p class="mb-9 text-base leading-relaxed text-body-color">
+                  <p class="text-base leading-relaxed mb-9 text-body-color">
                     Our platform was founded by [Founder Name] in [Year], with the goal of revolutionizing the way students find and connect with tutors. [Founder Name] saw firsthand the challenges students faced in finding high-quality tutoring resources, and wanted to create a platform that made it easier and more convenient for students to get the help they needed. Today, our platform has helped thousands of students and tutors connect and achieve their academic goals.
                   </p>
                   <a
                     href="javascript:void(0)"
-                    class="inline-flex items-center justify-center rounded bg-primary py-4 px-6 text-base font-medium text-white transition duration-300 ease-in-out hover:bg-opacity-90 hover:shadow-lg"
+                    class="inline-flex items-center justify-center px-6 py-4 text-base font-medium text-white transition duration-300 ease-in-out rounded bg-primary hover:bg-opacity-90 hover:shadow-lg"
                   >
                     Learn More
                   </a>
@@ -47,7 +47,7 @@
                 <div class="text-center">
                   <div class="relative z-10 inline-block">
                     <img
-                      src="{{ asset('images/about/about-image.svg') }}"
+                      src="{{ asset('images/about/about-image.gif') }}"
                       alt="image"
                       class="mx-auto lg:ml-auto"
                     />
@@ -65,10 +65,10 @@
     <!-- ====== Team Section Start -->
     <section id="team" class="pt-20 pb-10 lg:pt-[120px] lg:pb-20">
       <div class="container">
-        <div class="-mx-4 flex flex-wrap">
+        <div class="flex flex-wrap -mx-4">
           <div class="w-full px-4">
             <div class="mx-auto mb-[60px] max-w-[620px] text-center">
-              <span class="mb-2 block text-lg font-semibold text-primary">
+              <span class="block mb-2 text-lg font-semibold text-primary">
                 Our Team
               </span>
               <h2
@@ -86,9 +86,9 @@
           </div>
         </div>
 
-        <div class="-mx-4 flex flex-wrap justify-center">
+        <div class="flex flex-wrap justify-center -mx-4">
           <div class="w-full px-4 sm:w-1/2 lg:w-1/4">
-            <div class="wow fadeInUp mb-10" data-wow-delay=".1s">
+            <div class="mb-10 wow fadeInUp" data-wow-delay=".1s">
               <div
                 class="h-170px] relative z-10 mx-auto mb-6 w-[170px] rounded-full"
               >
@@ -499,7 +499,7 @@
                     />
                   </svg>
                 </span>
-                <span class="absolute right-0 bottom-0">
+                <span class="absolute bottom-0 right-0">
                   <svg
                     width="22"
                     height="22"
@@ -578,7 +578,7 @@
             </div>
           </div>
           <div class="w-full px-4 sm:w-1/2 lg:w-1/4">
-            <div class="wow fadeInUp mb-10" data-wow-delay=".15s">
+            <div class="mb-10 wow fadeInUp" data-wow-delay=".15s">
               <div
                 class="h-170px] relative z-10 mx-auto mb-6 w-[170px] rounded-full"
               >
@@ -989,7 +989,7 @@
                     />
                   </svg>
                 </span>
-                <span class="absolute right-0 bottom-0">
+                <span class="absolute bottom-0 right-0">
                   <svg
                     width="22"
                     height="22"
@@ -1066,7 +1066,7 @@
             </div>
           </div>
           <div class="w-full px-4 sm:w-1/2 lg:w-1/4">
-            <div class="wow fadeInUp mb-10" data-wow-delay=".2s">
+            <div class="mb-10 wow fadeInUp" data-wow-delay=".2s">
               <div
                 class="h-170px] relative z-10 mx-auto mb-6 w-[170px] rounded-full"
               >
@@ -1477,7 +1477,7 @@
                     />
                   </svg>
                 </span>
-                <span class="absolute right-0 bottom-0">
+                <span class="absolute bottom-0 right-0">
                   <svg
                     width="22"
                     height="22"
@@ -1556,7 +1556,7 @@
             </div>
           </div>
           <div class="w-full px-4 sm:w-1/2 lg:w-1/4">
-            <div class="wow fadeInUp mb-10" data-wow-delay=".25s">
+            <div class="mb-10 wow fadeInUp" data-wow-delay=".25s">
               <div
                 class="h-170px] relative z-10 mx-auto mb-6 w-[170px] rounded-full"
               >
@@ -1967,7 +1967,7 @@
                     />
                   </svg>
                 </span>
-                <span class="absolute right-0 bottom-0">
+                <span class="absolute bottom-0 right-0">
                   <svg
                     width="22"
                     height="22"

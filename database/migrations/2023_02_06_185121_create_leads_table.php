@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('leads', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('course_id')->references('id')->on('courses');
+            $table->unsignedBigInteger('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

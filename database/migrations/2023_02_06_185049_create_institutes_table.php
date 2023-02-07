@@ -16,10 +16,12 @@ return new class extends Migration
         Schema::create('institutes', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('city')->default('Bangalore');
-            $table->string('locality');
+            $table->unsignedBigInteger('city_id')->references('id')->on('cities')->default(1);
+            $table->unsignedBigInteger('locality_id')->references('id')->on('localities');
             $table->text('photos')->nullable();
-            $table->text('description')->nullable();
+            $table->text('address')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('email')->nullable();
             $table->timestamps();
         });
     }

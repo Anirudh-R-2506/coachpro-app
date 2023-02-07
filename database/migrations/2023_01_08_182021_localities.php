@@ -18,7 +18,7 @@ return new class extends Migration
         Schema::create('localities', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->unsignedBigInteger('city_id')->references('id')->on('cities');
+            $table->unsignedBigInteger('city_id')->references('id')->on('cities')->default(1);
             $table->timestamps();
         });
 

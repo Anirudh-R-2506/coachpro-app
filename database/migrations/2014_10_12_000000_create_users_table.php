@@ -36,6 +36,7 @@ return new class extends Migration
             $table->string('password')->nullable();
             $table->string('admin_remarks')->nullable();
             $table->enum('account_status', AccountStatus::getValues())->comment('0: Unverified, 1: Verified, 2: Flagged, 3: Banned, 4: Inactive')->default(AccountStatus::UNVERIFIED);
+            $table->unsignedBigInteger('institute_id')->references('id')->on('institutes')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

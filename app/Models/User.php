@@ -51,7 +51,8 @@ class User extends Authenticatable implements FilamentUser
         'locality',       
         'account_status',
         'admin_remarks', 
-        'role',      
+        'role',   
+        'institute_id',   
     ];
 
     /**

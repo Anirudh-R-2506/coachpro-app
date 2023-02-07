@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('edu_hunt_scores', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('course_id')->references('id')->on('courses');
+            $table->decimal('score', 2, 1);            
             $table->timestamps();
         });
     }
