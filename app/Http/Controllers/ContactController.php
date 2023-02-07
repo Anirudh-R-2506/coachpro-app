@@ -16,7 +16,7 @@ class ContactController
     public function store(Request $request)
     {
         $request->validate([
-            'recaptcha_token' => env('APP_ENV') == 'local' ? '' : ['required', new ReCaptchaRule($request->recaptcha_token)],
+            //'recaptcha_token' => env('APP_ENV') == 'local' ? '' : ['required', new ReCaptchaRule($request->recaptcha_token)],
             'full_name' => 'required',
             'email' => 'required|email',
             'phone' => 'required',
