@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('name');
             $table->string('city')->default('Bangalore');
             $table->string('locality');
+            $table->text('photos')->nullable();
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }
