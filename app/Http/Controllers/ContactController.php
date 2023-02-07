@@ -7,6 +7,7 @@ use App\Enums\ContactStatus;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Models\Contact;
 use App\Helpers\DiscordHelper;
+use App\Rules\ReCaptchaRule;
 
 
 class ContactController
@@ -15,6 +16,7 @@ class ContactController
     public function store(Request $request)
     {
         $request->validate([
+            'recaptcha_token' => env('APP_ENV') == 'local' ? '' : ['required', new ReCaptchaRule($request->recaptcha_token)],
             'full_name' => 'required',
             'email' => 'required|email',
             'phone' => 'required',

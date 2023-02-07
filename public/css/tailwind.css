@@ -2650,3 +2650,7 @@ body {
 .animate-pulse2 {
   animation: float1 3.5s ease-in-out infinite, pulse 3.5s cubic-bezier(0.8, 0.2, 0.6, 1) infinite !important;
 }
+
+.grecaptcha-badge {
+  display: none !important;
+}

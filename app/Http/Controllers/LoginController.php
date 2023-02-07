@@ -12,6 +12,7 @@ use App\Enums\UserRole;
 use App\Enums\AccountStatus;
 use App\Helpers\DiscordHelper;
 use RealRashid\SweetAlert\Facades\Alert;
+use App\Rules\ReCaptchaRule;
 
 class LoginController extends Controller
 {
@@ -70,6 +71,7 @@ class LoginController extends Controller
     public function register_cs(Request $request)
     {
         $request->validate([
+            'recaptcha_token' => env('APP_ENV') == 'local' ? '' : ['required', new ReCaptchaRule($request->recaptcha_token)],
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255',
             'phone' => 'required|string|max:255',

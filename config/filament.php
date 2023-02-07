@@ -105,7 +105,7 @@ return [
         'namespace' => 'App\\Filament\\Pages',
         'path' => app_path('Filament/Pages'),
         'register' => [
-            
+            \RyanChandler\FilamentProfile\Pages\Profile::class
         ],
     ],
 
@@ -315,6 +315,7 @@ return [
     'middleware' => [
         'auth' => [
             Authenticate::class,
+            \KaanTanis\FilamentPasswordConfirmation\Http\Middleware\PasswordConfirmationMiddleware::class
         ],
         'base' => [
             EncryptCookies::class,
