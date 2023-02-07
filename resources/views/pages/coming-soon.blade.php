@@ -37,7 +37,7 @@ x-intersect="changeToWhite()"
   <div class="flex flex-wrap items-center -mx-4 -mb-12">
     <div class="w-full px-4 pt-8 text-white md:w-1/2 top">
         <header data-aos="fade-zoom-in" class="w-full" data-aos-delay="500">
-          <img class="mt-6 -mb-6 -ml-10" width="300" height="300" src="{{ asset('images/logo/logo.png') }}" alt="base apparel logo" />
+          <img class="mx-auto mt-6 -mb-6 md:-ml-10" width="300" height="300" src="{{ asset('images/logo/logo.png') }}" alt="base apparel logo" />
         </header>
         <div
           class="px-2 mt-8 text-center sm:px-0 sm:mt-12 sm:max-w-sm sm:mx-auto lg:mx-0 lg:max-w-xl lg:text-left lg:my-auto"
@@ -217,7 +217,6 @@ x-intersect="changeToWhite()"
             </div>
           </div>
         </div>
-
         
         
         </div>
@@ -793,5 +792,6 @@ x-intersect="changeToWhite()"
     @include('includes.contact-form')
 
     <script src="{{ asset('js/main.js') }}"></script>    
+    <script src="https://vjs.zencdn.net/7.20.3/video.min.js"></script>
 
 @endsection

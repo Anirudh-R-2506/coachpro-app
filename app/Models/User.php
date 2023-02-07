@@ -25,7 +25,7 @@ class User extends Authenticatable implements FilamentUser
      */
     public function canAccessFilament(): bool
     {
-        if($this->role == UserRole::ADMIN || $this->user_type == UserRole::SUPER_ADMIN) {
+        if($this->role == UserRole::ADMIN || $this->role == UserRole::SUPER_ADMIN) {
             return true;
         } else {
             return false;

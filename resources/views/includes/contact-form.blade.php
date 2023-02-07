@@ -150,6 +150,7 @@
                   class="w-full resize-none border-0 border-b border-[#f1f1f1] py-4 focus:border-primary focus:outline-none"
                 ></textarea>
               </div>
+              @include('partials.recaptcha')
               <div class="mb-0">
                 <button
                   type="submit"

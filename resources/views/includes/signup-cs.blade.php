@@ -8,63 +8,7 @@
         name : '',
         phone : '',
         school_class : '',
-        year_of_passing : '',
-        /* register() {
-            let url = "{{ route('services.register-cs') }}";
-            let postData = {
-                first_name: this.first_name,
-                last_name: this.last_name,
-                email: '',
-                phone: this.phone,
-                education: this.education,
-                class: this.school_class,
-                year_of_passing: this.year_of_passing,
-            };
-            axios.post(url, postData)
-            .then(function (response) {
-                console.log(response.data);
-                if (response.data.status == 'success') {
-                    Swal.fire({
-                        title: 'Success',
-                        text: response.data.message,
-                        icon: 'success',
-                        confirmButtonText: 'Ok'
-                    });
-                }
-                else {
-                    Swal.fire({
-                        title: 'Error',
-                        text: response.data.message,
-                        icon: 'error',
-                        confirmButtonText: 'Ok'
-                    });
-                }
-            })
-            .catch(function (error) {
-                console.log(error);
-                let inputErrors = error.response.data.errors;
-                if (inputErrors){
-                    let errors = 'Hey! Looks like some of your inputs were incorrect! Please try submitting the form again :)<br><br>';
-                    for (let key in inputErrors) {
-                        errors += inputErrors[key][0] + '<br>';
-                    }
-                    Swal.fire({
-                        title: 'Error',
-                        html: errors,
-                        icon: 'error',
-                        confirmButtonText: 'Ok'
-                    });
-                }
-                else{
-                    Swal.fire({
-                        title: 'Error',
-                        text: 'Something went wrong. Please try again later.',
-                        icon: 'error',
-                        confirmButtonText: 'Ok'
-                    });
-                }
-            });
-        }, */
+        year_of_passing : '',        
       };
     };
   </script>
@@ -182,6 +126,7 @@
                             
                           </div> 
                           <div class="flex justify-center w-full mb-0">
+                            @include('partials.recaptcha')
                             <input
                               type="submit"
                               class="inline-flex items-center justify-center px-6 py-4 text-base font-medium text-white transition duration-300 ease-in-out rounded bg-primary hover:bg-dark"

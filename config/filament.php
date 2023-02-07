@@ -315,6 +315,7 @@ return [
     'middleware' => [
         'auth' => [
             Authenticate::class,
+            \KaanTanis\FilamentPasswordConfirmation\Http\Middleware\PasswordConfirmationMiddleware::class
         ],
         'base' => [
             EncryptCookies::class,

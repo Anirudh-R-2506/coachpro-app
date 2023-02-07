@@ -2654,3 +2654,6 @@ body {
 .top {
   z-index: 20 !important;
 }
+.grecaptcha-badge {
+  display: none !important;
+}
