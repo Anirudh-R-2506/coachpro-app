@@ -32,14 +32,17 @@ class LoginController extends Controller
             'password' => 'required',
         ]);
 
-        $credentials = $request->only('email', 'password');
+        $credentials = [
+            'email' => $request->email,
+            'password' => $request->password,
+        ];
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
             if (Auth::user()->role == UserRole::INSTITUTE) {
-                return redirect()->route('institute.dashboard');
+                return redirect()->route('institute.index');
             }
-            redirect()->route('dashboard.index');
+            return redirect()->route('institute.index');
         }
         
         Alert::error('Oops!', 'Incorrect email or password. Please try again :(');
@@ -67,7 +70,7 @@ class LoginController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'phone' => $request->phone,
-            'password' => Hash::make($request->password),
+            'password' => bcrypt($request->password),
         ]);
 
         Auth::login($user);
@@ -159,7 +162,7 @@ class LoginController extends Controller
                 'name' => $request->name,
                 'email' => $request->email,
                 'phone' => $request->phone,
-                'password' => Hash::make($request->password),
+                'password' => bcrypt($request->password),
                 'role' => UserRole::INSTITUTE,
                 'city' => $this->city(),
                 'institute_id' => $inst->id,
