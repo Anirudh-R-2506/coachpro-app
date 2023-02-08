@@ -1,4 +1,4 @@
-@extends('layouts.defaultinst')
+@extends('institute.layouts.default')
 
 @section('content')
     
@@ -402,7 +402,7 @@
     <!-- ====== Hero Section End -->
 
     <!-- ====== About Section Start -->
-    <section id="about" class="bg-[#f3f4fe] pt-20 pb-20 lg:pt-[120px] lg:pb-[120px]">
+    <section id="about" class="bg-transparent pt-20 pb-20 lg:pt-[120px] lg:pb-[120px]">
         <div class="container">
             <div class="bg-white">
                 <div class="flex flex-wrap -mx-4">

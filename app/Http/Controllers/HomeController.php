@@ -43,11 +43,11 @@ class HomeController extends BaseController
 
     public function inst_signin()
     {
-        return view('pages.inst_signin');
+        return view('institute.pages.signin');
     }
     
     public function institute()
     {
-        return view('pages.institute');
+        return view('institute.pages.index');
     }
 }

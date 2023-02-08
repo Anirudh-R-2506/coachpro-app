@@ -13,16 +13,22 @@ use App\Enums\AccountStatus;
 use App\Helpers\DiscordHelper;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Rules\ReCaptchaRule;
+use App\Models\City;
+use App\Models\Institute;
+use App\Models\Locality;
 
 class LoginController extends Controller
 {
 
-    protected $city = "Bangalore";
+    private function city()
+    {
+        return City::find(1);
+    }
 
     public function login(Request $request)
     {
         $request->validate([
-            'email' => 'required|email|in:user',
+            'email' => 'required|email',
             'password' => 'required',
         ]);
 
@@ -30,16 +36,21 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
+            if (Auth::user()->role == UserRole::INSTITUTE) {
+                return redirect()->route('institute.dashboard');
+            }
             redirect()->route('dashboard.index');
         }
-
+        
         Alert::error('Oops!', 'Incorrect email or password. Please try again :(');
-        return redirect()->back();        
+        return redirect()->back()->withInput();     
     }
 
     public function logout()
     {
         Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
         return redirect()->route();
     }
 
@@ -89,7 +100,7 @@ class LoginController extends Controller
                 'phone' => $request->phone,
                 'education' => $edu,
                 'role' => UserRole::STUDENT,
-                'city' => $this->city,
+                'city' => $this->city(),
             ]);            
             if ($user){
                 if ($edu == Education::SCHOOL) {
@@ -113,5 +124,77 @@ class LoginController extends Controller
             Alert::error('Slow down tiger', 'You have already shown interest in our noble quest to revolutionalise the world. We will keep you updated and help you in your journey towards success :)');
             return redirect()->back();
         }
+    }
+
+    public function register_inst(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'inst_name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255',
+            'phone' => 'required|string|max:255',
+            'city' => ['required', 'in:'.implode(',', City::all()->pluck('id')->toArray())],
+            'locality' => ['required', 'in:'.implode(',', Locality::all()->pluck('id')->toArray())],
+            'password' => 'required|string|min:8',
+        ]);
+
+        $inst_exists = Institute::where('email', $request->email)->first();
+        if ($inst_exists){
+            Alert::error('Slow down tiger', 'You have already registered as our comrade :)');
+            return redirect()->back()->withInput();
+        }
+
+        $inst = Institute::create([
+            'name' => $request->inst_name,
+            'city' => $request->city,
+            'locality' => $request->locality,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'status' => AccountStatus::UNVERIFIED,
+        ]);
+
+        $user_exists = User::where('phone', $request->phone)->first();
+        if (!$user_exists){
+            $user = User::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'phone' => $request->phone,
+                'password' => Hash::make($request->password),
+                'role' => UserRole::INSTITUTE,
+                'city' => $this->city(),
+                'institute_id' => $inst->id,
+                'account_status' => AccountStatus::UNVERIFIED,
+                'admin_remarks' => 'Part of institute ' . $inst->name,
+            ]);
+        } else {
+            $user = $user_exists;
+            $user->institute_id = $inst->id;
+            $user->admin_remarks = 'Part of institute ' . $inst->name;
+            $user->save();
+        }
+
+        DiscordHelper::newInstRegistration(User::find($user->id));
+
+        Alert::success('Success', 'Welcome aboard comrade :) Go to your dashboard after logging in to complete your registration.');
+        return redirect()->route('institute.signin');
+        
+    }
+
+    public static function login_inst(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|email|in:user',
+            'password' => 'required',
+        ]);
+
+        $credentials = $request->only('email', 'password');
+
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
+            redirect()->route('institute.dashboard.index');
+        }
+
+        Alert::error('Oops!', 'Incorrect email or password. Please try again :(');
+        return redirect()->back();        
     }
 }

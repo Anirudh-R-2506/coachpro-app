@@ -11,13 +11,13 @@
 
     <body class="bg-[#f3f4ff]">
 
-        @include('includes.headerinst')
+        @include('institute.includes.header')
 
         @include('includes.shapes')
 
         @yield('content')
 
-        @include('includes.footer')
+        @include('institute.includes.footer')
 
         <!-- ====== Back To Top Start -->
         <button   

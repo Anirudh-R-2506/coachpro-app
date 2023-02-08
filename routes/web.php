@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -62,17 +63,21 @@ Route::name('institute.')->prefix('institutes')->group(function (){
 
         Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
         Route::post('/signin', [LoginController::class, 'login'])->name('login'); 
-        Route::post('/register', [LoginController::class, 'register'])->name('register');
+        Route::post('/register', [LoginController::class, 'register_inst'])->name('register');
         Route::post('/logout', [LoginController::class, 'logout'])->name('logout'); 
         Route::name('password.')->group(function () {
-
             Route::get('/password/forgot', [ForgotPasswordController::class, 'index'])->name('index');
             Route::get('/password/reset/{token}', [ResetPasswordController::class, 'show_form'])->name('reset.index');
             Route::post('/password/forgot', [ForgotPasswordController::class, 'send_reset_link'])->name('send.reset.link');
             Route::post('/password/reset', [ResetPasswordController::class, 'update'])->name('reset');
-
-        });    
+        });
     });
+
+    Route::name('dashboard.')->group(function () {
+
+        Route::get('/dashboard', [DashboardController::class, 'inst_index'])->name('index');
+    
+    })->middleware(['auth.institute']);
     
     
 });

@@ -1663,7 +1663,7 @@
         </div>
       </div>
 
-      <div class="absolute bottom-0 right-0 " data-aos="zoom-in-up" data-aos-delay="650">
+      <div class="absolute bottom-0 right-0 z-[-1]" data-aos="zoom-in-up" data-aos-delay="650" style="">
         <svg
           width="1440"
           height="886"
@@ -1995,8 +1995,7 @@
       </div>
     </section>
     
-    @include('includes.contact-form')
-
+    @include('includes.contact-form')    
     <script src="{{ asset('js/main.js') }}"></script>    
 
 @endsection
