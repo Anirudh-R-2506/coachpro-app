@@ -218,6 +218,17 @@ x-intersect="changeToWhite()"
           </div>
         </div>
         
+        <video id="my-video" class="w-full video-js vjs-theme-sea" data-aos="fade-up" data-aos-delay="250"
+                            controls preload="auto" width="640px" height="500px" poster="{{ asset("images/about/cover.png") }}"
+                            data-setup="{}">
+                            <source src="{{ asset("videos/about.mp4") }}" type="video/mp4" />
+                            <p class="vjs-no-js">
+                              To view this video please enable JavaScript, and consider upgrading to a
+                              web browser that
+                              <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5
+                                video</a>
+                            </p>
+        </video>
         
         </div>
 
