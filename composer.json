@@ -10,6 +10,7 @@
         "cms-multi/filament-clear-cache": "^1.0",
         "devmarketer/easynav": "^1.0",
         "doctrine/dbal": "^3.6",
+        "ekremogul/filament-google-analytics-realtime": "^1.0",
         "filament/filament": "^2.0",
         "flowframe/laravel-trend": "^0.1.1",
         "google/recaptcha": "^1.2",
