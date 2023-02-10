@@ -34,7 +34,8 @@
    <script>
       new WOW().init();
    </script>
-   <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}" />
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+   {{-- <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}" /> --}}
    <link href="{{ asset('dist/css/app.css') }}" rel="stylesheet">
 
    {{-- JQUERY --}}
@@ -79,29 +80,39 @@
 
    <script src="{{ asset('js/bootstrap.bundle.js') }}"></script>
    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+   {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script> --}}
    {{-- APP JS --}}   
 
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
       html {
+         -webkit-font-smoothing: antialiased !important;
+         -webkit-text-size-adjust: 100%;
+         font-feature-settings: normal;         
+         line-height: 1.5;
+         -moz-tab-size: 4;
+         -o-tab-size: 4;
+         tab-size: 4;
+      }
+      .text-2xl {
+        font-size: 1.5rem;
+        line-height: 2rem;
+      }
+      .font-bold {
+         font-weight: 700;
+      }
+      .tracking-tight {
+         letter-spacing: -.025em;
+      }
+      .filament-header-heading {
+         color: #374151;
+      }
+      body {
          font-family: "Inter", sans-serif !important;
       }
       .main {
          background-color: #f3f4ff !important;
-      }
-
-      .sidebar-header {
-         color: #f3f4ff !important;
-         font-size: 0.8rem !important;
-         font-weight: 200 !important;
-         text-transform: uppercase !important;
-         letter-spacing: 1px !important;
-         background-color: #3056d3 !important;
-      }
-
-      .sidebar, .sidebar-content {
-         background-color: #3056d3 !important;
-      }
+      }      
 
       .text-primary {
          color: #3056d3 !important;
@@ -111,45 +122,7 @@
          padding: 10px !important;
          border-radius: 15px !important;
       }
-
-      #active > .sidebar-link i, #active > .sidebar-link svg, #active > a.sidebar-link i, #active > a.sidebar-link svg {
-         color: #0F1F52 !important;
-      }
-
-      .sidebar-link i, .sidebar-link svg, a.sidebar-link i, a.sidebar-link svg {
-         color: #f3f4ff !important;
-      }
-
-      .sidebar-link i:hover, .sidebar-link svg:hover, a.sidebar-link i:hover, a.sidebar-link svg:hover {
-         color: #0F1F52 !important;
-      }
-
-      .sidebar-item, .sidebar-link, a.sidebar-link{
-         color: #fff !important;
-         font-size: 1rem !important;
-         font-weight: 400 !important;
-         text-transform: uppercase !important;
-         letter-spacing: 0.5px !important;
-         background-color: #3056d3 !important;
-         border-top-right-radius: 20px !important;
-         border-bottom-right-radius: 20px !important;    
-      }
-
-      .sidebar-item > .sidebar-link:hover {
-         color: #0F1F52 !important;
-         background-color: #fff !important;
-      }
-
-      #active > .sidebar-link, #active > a.sidebar-link {
-         color: #0F1F52 !important;
-         background-color: #fff !important;
-      }
       
-      .sidebar-link, a.sidebar-link {
-         background-color: #3056d3 !important;
-         color: #fff !important;
-         font-size: 1rem !important;
-      }
     /* ALPINE JS CLOAK VARIABLE */
       [x-cloak] {
          display: none !important;

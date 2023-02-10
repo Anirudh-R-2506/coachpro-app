@@ -26,9 +26,11 @@
 
 <div class="row">
     <div class="col-12">
-        <h1 style="text-transform: uppercase !important;">
-            <span class="text-primary">Institute</span> Profile
-        </h1>
+        <div>
+            <h1 class="text-2xl font-bold tracking-tight filament-header-heading">
+                Dashboard
+            </h1>    
+        </div>
        
         <div class="mt-3 card" x-data="showUnsavedAlert()">
             <form action="{{ route('institute.dashboard.profile.update') }}" method="POST" id="profile_update_form">
