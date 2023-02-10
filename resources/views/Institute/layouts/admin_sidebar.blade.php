@@ -4,9 +4,9 @@
     </li>
 
 
-    <li class="sidebar-item {{ Nav::isRoute('institute.dashboard.profile.index') }}">
+    <li class="sidebar-item" id="{{ Nav::isRoute('institute.dashboard.profile.index') }}">
         <a class="sidebar-link" href="{{ route('institute.dashboard.profile.index') }}">
-            <i class="align-middle" data-feather="sliders" style="background: #fff !important;"></i> <span class="align-middle">Institute Profile</span>
+            <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Institute Profile</span>
         </a>
     </li>
     

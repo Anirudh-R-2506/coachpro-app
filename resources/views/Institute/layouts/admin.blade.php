@@ -107,34 +107,48 @@
          color: #3056d3 !important;
       }
 
-      .sidebar-item.active .sidebar-link:hover i, .sidebar-item.active .sidebar-link:hover svg, .sidebar-item.active>.sidebar-link i, .sidebar-item.active>.sidebar-link svg {
-         color: #0F1F52 !important;
-         font-size: 1rem !important;
-         font-weight: bold !important;
-      }
-
       input, select, textarea {
          padding: 10px !important;
          border-radius: 15px !important;
-         border: 1px #f1f1f1 solid !important;
       }
 
-      .sidebar-item.active .sidebar-link:hover, .sidebar-item.active>.sidebar-link {
-         border-left-color: #3056d3 !important;
+      #active > .sidebar-link i, #active > .sidebar-link svg, #active > a.sidebar-link i, #active > a.sidebar-link svg {
          color: #0F1F52 !important;
-         background: #fff !important;    
-         border-top-right-radius: 20px !important;
-         border-bottom-right-radius: 20px !important;
-         border: 1px solid #3056d3;     
-         font-size: 1rem !important;
-         font-weight: bold !important;
-      }      
+      }
 
+      .sidebar-link i, .sidebar-link svg, a.sidebar-link i, a.sidebar-link svg {
+         color: #f3f4ff !important;
+      }
+
+      .sidebar-link i:hover, .sidebar-link svg:hover, a.sidebar-link i:hover, a.sidebar-link svg:hover {
+         color: #0F1F52 !important;
+      }
+
+      .sidebar-item, .sidebar-link, a.sidebar-link{
+         color: #fff !important;
+         font-size: 1rem !important;
+         font-weight: 400 !important;
+         text-transform: uppercase !important;
+         letter-spacing: 0.5px !important;
+         background-color: #3056d3 !important;
+         border-top-right-radius: 20px !important;
+         border-bottom-right-radius: 20px !important;    
+      }
+
+      .sidebar-item > .sidebar-link:hover {
+         color: #0F1F52 !important;
+         background-color: #fff !important;
+      }
+
+      #active > .sidebar-link, #active > a.sidebar-link {
+         color: #0F1F52 !important;
+         background-color: #fff !important;
+      }
+      
       .sidebar-link, a.sidebar-link {
          background-color: #3056d3 !important;
          color: #fff !important;
          font-size: 1rem !important;
-         font-weight: bold !important;
       }
     /* ALPINE JS CLOAK VARIABLE */
       [x-cloak] {
@@ -223,7 +237,7 @@
    <div class="wrapper">
       <nav id="sidebar" class="sidebar js-sidebar">
          <div class="sidebar-content js-simplebar">
-            <a class="sidebar-brand" href="index.html">
+            <a class="sidebar-brand" href="{{ route('institute.dashboard.index') }}">
                <span class="align-middle">
                   <img src="{{ asset('images/logo/logo.png') }}" alt="logo" width="200" height="200" style="margin-bottom: -60px !important; margin-top: -20px !important;">
                </span>
