@@ -34,7 +34,7 @@
               @include('includes.login-form')
             </div>
             <div x-show="!login" class="p-10">
-              @include('institute.includes.signup-form')
+              @include('institute.includes.signup-form', ['localities' => $localities])
             </div>
           </div>
         </div>

@@ -7,8 +7,14 @@ use Illuminate\Routing\Controller;
 
 class DashboardController extends Controller
 {
-    public function inst_index()
+    public function __construct()
     {
-        return view('institute.admin.index');
+        $this->middleware('auth');
+        $this->middleware('verified');
+    }
+
+    public function index()
+    {
+        return view('app.index');
     }
 }

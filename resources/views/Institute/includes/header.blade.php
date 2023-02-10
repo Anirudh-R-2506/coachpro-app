@@ -55,7 +55,7 @@
             </nav>
           </div>
           <div class="justify-end hidden pr-16 sm:flex lg:pr-0">
-            <a href="{{ !auth()->check() ? route('institute.signin') : route('institute.index') }}"
+            <a href="{{ !auth()->check() ? route('institute.signin') : route('institute.dashboard.index') }}"
               class="px-6 py-3 text-base font-medium text-white duration-300 ease-in-out bg-white rounded-lg signUpBtn bg-opacity-20 hover:bg-opacity-100 hover:text-dark">
               {{ !auth()->check() ? 'Login' : 'Dashboard' }}
             </a>

@@ -28,5 +28,15 @@ class Institutes extends Model
     {
         return $this->hasMany(Faculties::class);
     }
+
+    public function city()
+    {
+        return $this->belongsTo(City::class);
+    }
+
+    public function locality()
+    {
+        return $this->belongsTo(Locality::class);
+    }
     
 }

@@ -78,6 +78,7 @@ data-wow-delay=".2s
         Login
       </button>
     </div>
+    <input type="hidden" name="redirect" x-value="redirect">
   </form>
 <div class="flex flex-wrap items-center justify-center mt-8 text-center">
   <p class="text-sm text-dark">

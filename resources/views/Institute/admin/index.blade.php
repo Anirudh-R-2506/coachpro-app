@@ -35,9 +35,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <h1 class="mt-1 mb-3" id="donations">{{ $donations }}</h1>
+                                <h1 class="mt-1 mb-3" id="donations">200</h1>
                                 <div class="mb-0">
-                                    <span class="text-success" id="donations_difference"> {{ $donations_difference }}<br> </span>
+                                    <span class="text-success" id="donations_difference"> -12<br> </span>
                                     <span class="text-muted" id="donations_difference_text">Since the last day</span>
                                 </div>
                             </div>
@@ -55,9 +55,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <h1 class="mt-1 mb-3" id="users">{{ $users }}</h1>
+                                <h1 class="mt-1 mb-3" id="users">150</h1>
                                 <div class="mb-0">
-                                    <span class="text-success" id="users_difference"> {{ $users_difference }}<br> </span>
+                                    <span class="text-success" id="users_difference"> 15<br> </span>
                                     <span class="text-muted" id="users_difference_text">Since the last day</span>
                                 </div>
                             </div>
@@ -77,9 +77,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <h1 class="mt-1 mb-3" id="amount_received">₹{{ $amount_received }}</h1>
+                                <h1 class="mt-1 mb-3" id="amount_received">₹100000</h1>
                                 <div class="mb-0">
-                                    <span class="text-success" id="amount_received_difference"> ₹{{ $amount_received_difference }}<br> </span>
+                                    <span class="text-success" id="amount_received_difference"> ₹15000<br> </span>
                                     <span class="text-muted" id="amount_received_difference_text">Since the last day</span>
                                 </div>
                             </div>
@@ -97,9 +97,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <h1 class="mt-1 mb-3" id="procurement_orders">{{ $procurement_orders }}</h1>
+                                <h1 class="mt-1 mb-3" id="procurement_orders">170</h1>
                                 <div class="mb-0">
-                                    <span class="text-success" id="procurement_orders_difference"> {{ $procurement_orders_difference }}<br> </span>
+                                    <span class="text-success" id="procurement_orders_difference"> 10<br> </span>
                                     <span class="text-muted" id="procurement_orders_difference_text">Since the last day</span>
                                 </div>
                             </div>
@@ -109,7 +109,7 @@
             </div>
         </div>
 
-        <div class="col-md-6">
+        {{-- <div class="col-md-6">
             <div class="card flex-fill w-100">
                 <div class="card-header">
                     <h5 class="card-title mb-100">
@@ -152,11 +152,11 @@
                     </form>
                 </div>
             </div>
-        </div>
+        </div> --}}
     </div>
 
 
-    <div class="row">
+    {{-- <div class="row">
         <div class="col-md-8 d-flex order-xxl-2">
             <div class="card flex-fill w-100">
                 <div class="card-header">
@@ -198,7 +198,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
     {{--<div class="row">
         <div class="col-md-12 d-flex">
@@ -284,7 +284,7 @@
 @endsection
 
 @section('js')
-<script>    
+{{-- <script>    
     document.addEventListener("DOMContentLoaded", function() {
         // Pie chart
         new Chart(document.getElementById("chartjs-dashboard-pie"), {
@@ -426,5 +426,5 @@ document.addEventListener("DOMContentLoaded", function() {
         });
 
     });
-</script>
+</script> --}}
 @endsection

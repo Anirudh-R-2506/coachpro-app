@@ -2,9 +2,40 @@
 <html lang="en">
 
 <head>
-   @include('includes.head')
-    {{-- WEBSITE ICONS (FONTAWESOME) --}}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+   <meta charset="UTF-8" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <meta name="csrf-token" content="{{ csrf_token() }}">
+   <title>
+      Edu Hunt | Dashboard
+   </title>
+   <link rel="shortcut icon" href="{{ asset('images/logo/logo.png') }}" type="image/x-icon" />
+   <link rel="stylesheet" href="{{ asset('css/animate.css') }} "/>
+   
+   <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}" />
+   <link href="https://vjs.zencdn.net/7.20.3/video-js.css" rel="stylesheet" />
+   <link href="https://unpkg.com/@videojs/themes@1/dist/sea/index.css" rel="stylesheet" />
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.2/axios.min.js" integrity="sha512-NCiXRSV460cHD9ClGDrTbTaw0muWUBf/zB/yLzJavRsPNUl9ODkUVmUHsZtKu17XknhsGlmyVoJxLg/ZQQEeGA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+   <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/js/all.min.js"></script>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+   <script src="https://cdn.jsdelivr.net/gh/mattkingshott/iodine@3/dist/iodine.min.js" defer></script>
+   <!-- ==== WOW JS ==== -->
+   <script src="{{ asset('js/wow.min.js') }}"></script>
+   <style>
+      button:focus {
+         outline: none !important;
+      }
+   </style>
+   <script>
+      new WOW().init();
+   </script>
+   <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}" />
+   <link href="{{ asset('dist/css/app.css') }}" rel="stylesheet">
 
    {{-- JQUERY --}}
    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -46,7 +77,65 @@
    <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/litepicker.js"></script>
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/litepicker/dist/css/litepicker.css"/>
 
+   <script src="{{ asset('js/bootstrap.bundle.js') }}"></script>
+   <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+   {{-- APP JS --}}   
+
     <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+      html {
+         font-family: "Inter", sans-serif !important;
+      }
+      .main {
+         background-color: #f3f4ff !important;
+      }
+
+      .sidebar-header {
+         color: #f3f4ff !important;
+         font-size: 0.8rem !important;
+         font-weight: 200 !important;
+         text-transform: uppercase !important;
+         letter-spacing: 1px !important;
+         background-color: #3056d3 !important;
+      }
+
+      .sidebar, .sidebar-content {
+         background-color: #3056d3 !important;
+      }
+
+      .text-primary {
+         color: #3056d3 !important;
+      }
+
+      .sidebar-item.active .sidebar-link:hover i, .sidebar-item.active .sidebar-link:hover svg, .sidebar-item.active>.sidebar-link i, .sidebar-item.active>.sidebar-link svg {
+         color: #0F1F52 !important;
+         font-size: 1rem !important;
+         font-weight: bold !important;
+      }
+
+      input, select, textarea {
+         padding: 10px !important;
+         border-radius: 15px !important;
+         border: 1px #f1f1f1 solid !important;
+      }
+
+      .sidebar-item.active .sidebar-link:hover, .sidebar-item.active>.sidebar-link {
+         border-left-color: #3056d3 !important;
+         color: #0F1F52 !important;
+         background: #fff !important;    
+         border-top-right-radius: 20px !important;
+         border-bottom-right-radius: 20px !important;
+         border: 1px solid #3056d3;     
+         font-size: 1rem !important;
+         font-weight: bold !important;
+      }      
+
+      .sidebar-link, a.sidebar-link {
+         background-color: #3056d3 !important;
+         color: #fff !important;
+         font-size: 1rem !important;
+         font-weight: bold !important;
+      }
     /* ALPINE JS CLOAK VARIABLE */
       [x-cloak] {
          display: none !important;
@@ -113,10 +202,17 @@
         .slider.round:before {
         border-radius: 50%;
         }
+
+        .-mt-1 {
+            margin-top: -0.6rem !important;
+        }
+
+        .text-muted {
+            margin-bottom: 0px !important;            
+        }
     </style>
 
-   @yield('css')
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+   @yield('css')   
    @yield('js')
 </head>
 
@@ -129,42 +225,20 @@
          <div class="sidebar-content js-simplebar">
             <a class="sidebar-brand" href="index.html">
                <span class="align-middle">
-                  {{ config('app.name') }}
+                  <img src="{{ asset('images/logo/logo.png') }}" alt="logo" width="200" height="200" style="margin-bottom: -60px !important; margin-top: -20px !important;">
                </span>
             </a>
 
-            @php
-                $unacknowledged_items = 0;
-            @endphp
-
-            @if($unacknowledged_items > 0)
-            <div class="sidebar-cta">
-                <div class="sidebar-cta-content">
-                   <strong class="mb-2 d-inline-block">
-                    <i class="fas fa-exclamation-triangle me-2"></i>
-                    Action Required</strong>
-                   <div class="mb-3">
-                      There are {{ $unacknowledged_items }} unacknowledged items in
-                      procurement list.
-                   </div>
-                   <div class="d-grid">
-                      <a href="{{ route('admin.operations.procurement.index') }}" class="btn btn-primary">
-                        View
-                      </a>
-                   </div>
-                </div>
-             </div>
-             @endif
-            @include('layouts.admin_sidebar')
+            @include('institute.layouts.admin_sidebar')
          </div>
       </nav>
       <div class="main">
-         @include('layouts.admin_navbar')
+         @include('institute.layouts.admin_navbar')
          <main class="content">
             <div class="p-0 container-fluid">
                @yield('content')
             </div>
-         </main>
+         </main>  
          <footer class="footer">
             <div class="container-fluid">
                <div class="row text-muted">
@@ -191,15 +265,17 @@
                      </div>
                </div>
             </div>
-         </footer>
+         </footer>       
       </div>
    </div>
+
+   <script src="{{ asset('dist/js/app.js') }}"></script>
 </body>
 
 <script>
 
    /* const scheduleRun = async() => {
-      const response = await axios.get("{{route('admin.schedule.run')}}");
+      const response = await axios.get("");
       console.log(response);
    } */
 </script>

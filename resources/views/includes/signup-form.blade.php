@@ -158,28 +158,21 @@
                         <label for="fullName" class="block text-md text-dark"
                           >City<span style="color: red"> *</span></label
                         >
-                        <select id="underline_select" class="block py-2.5 px-0 w-full text-gray-500 bg-transparent w-full border-0 border-b border-[#f1f1f1] py-4 focus:border-primary focus:outline-none peer">
-                          <option selected>Choose a city</option>
-                          <option value="US">Bangalore</option>
-                          <option value="CA">Chennai</option>
-                          <option value="FR">Mumbai</option>
+                        <select disabled name="city" id="underline_select" class="block py-2.5 px-0 w-full text-gray-500 bg-transparent w-full border-0 border-b border-[#f1f1f1] py-4 focus:border-primary focus:outline-none peer">
+                          <option selected value="1">Bangalore</option>
                         </select>
                       </div>
                       <div class="mb-6">
-                        <label for="fullName" class="block mb-4 text-xs text-dark"
-                            >Location</label
-                          >
-                          <div class="flex flex-col items-center justify-center p-4 mb-4 space-y-5 text-sm text-blue-700 bg-blue-100 rounded-lg dark:bg-blue-200 dark:text-blue-800" role="alert">
-                            Your location will be used to find the best tutors and coaching centers near you and to provide you with the best experience.
-                            <span class="mt-2 text-lg font-medium">Your location will not be shared anywhere</span>
-                            <button
-                              class="inline-flex items-center justify-center px-6 py-4 text-base font-medium text-white transition duration-300 ease-in-out rounded bg-primary hover:bg-dark"
-                              x-on:click="enableLocation"
-                            >
-                              Grant Location Access
-                            </button>
-                          </div>
-                        <div id="map" class="w-full" style="height: 500px"></div>
+                        <label for="fullName" class="block mb-4 text-sm text-dark"
+                                >Locality<span style="color: red"> *</span></label
+                              >
+                              <select @blur="blur" @input="input" data-rules='["required"]' id="underline_select" name="locality" class="block py-2.5 px-0 w-full text-gray-500 bg-transparent w-full border-0 border-b border-[#f1f1f1] py-4 focus:border-primary focus:outline-none peer">
+                                  <option selected value="">Choose a locality</option>
+                                  @foreach ($localities as $locality)
+                                      <option value="{{ $locality->id }}">{{ $locality->name }}</option>
+                                  @endforeach
+                              </select>
+                            <p x-show="locality.errorMessage && locality.blurred" x-text="locality.errorMessage" class="mt-2 text-red-500"></p>
                       </div>
                     </form>
                     <form x-show="step == 3">

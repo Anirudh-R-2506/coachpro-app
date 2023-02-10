@@ -98,7 +98,7 @@
                             type="text"
                             name="phone"
                             x-bind:class="{'invalid':phone.errorMessage && phone.blurred}"
-                            data-rules='["required", "integer"]'
+                            data-rules='["required", "numeric"]'
                             placeholder="9254521155"
                             @blur="blur" @input="input"
                             class="w-full border-0 border-b border-[#f1f1f1] py-4 focus:border-primary focus:outline-none"
@@ -134,13 +134,29 @@
                                 >Locality<span style="color: red"> *</span></label
                               >
                               <select @blur="blur" @input="input" data-rules='["required"]' id="underline_select" name="locality" class="block py-2.5 px-0 w-full text-gray-500 bg-transparent w-full border-0 border-b border-[#f1f1f1] py-4 focus:border-primary focus:outline-none peer">
-                                  <option selected>Choose a locality</option>
-                                  <option value="US">Bangalore</option>
-                                  <option value="CA">Chennai</option>
-                                  <option value="FR">Mumbai</option>
+                                  <option selected value="">Choose a locality</option>
+                                  @foreach ($localities as $locality)
+                                      <option value="{{ $locality->id }}">{{ $locality->name }}</option>
+                                  @endforeach
                               </select>
                               <p x-show="locality.errorMessage && locality.blurred" x-text="locality.errorMessage" class="mt-2 text-red-500"></p>
                         </div>
+                        <div class="mb-6">
+                          <label for="fullName" class="block mb-4 text-sm text-dark"
+                              >Address<span style="color: red"> *</span></label
+                            >
+                            <textarea
+                              name="address"
+                              x-bind:class="{'invalid':address.errorMessage && address.blurred}"
+                              data-rules='["required"]'
+                              placeholder="Enter your address"
+                              @blur="blur" @input="input"
+                              rows="4"
+                              style="resize: none;"
+                              class="w-full border-0 border-b border-[#f1f1f1] py-4 focus:border-primary focus:outline-none"
+                            ></textarea>
+                            <p x-show="locality.errorMessage && locality.blurred" x-text="locality.errorMessage" class="mt-2 text-red-500"></p>
+                      </div>
                         <div class="mb-6">
                             <label for="fullName" class="block text-sm text-dark"
                               >Create Password<span style="color: red"> *</span></label

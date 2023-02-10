@@ -2,10 +2,13 @@
 
 @section("content")
     <script>      
-
+      const params = new Proxy(new URLSearchParams(window.location.search), {
+        get: (searchParams, prop) => searchParams.get(prop),
+      });
       init = () => {
         return {
           login: true,
+          redirect: params.redirect,
         };
       };
     </script>
@@ -25,7 +28,7 @@
               @include('includes.login-form')
             </div>
             <div x-show="!login">
-              @include('includes.signup-form')
+              @include('includes.signup-form', ['localities' => $localities])
             </div>
           </div>
         </div>

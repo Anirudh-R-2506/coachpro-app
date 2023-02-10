@@ -6,6 +6,9 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
+use App\Models\Locality;
+use App\Models\User;
+use App\Jobs\SendAccountVerificationMail;
 
 class HomeController extends BaseController
 {
@@ -13,7 +16,9 @@ class HomeController extends BaseController
 
     public function index()
     {
-        return view('pages.index');
+        $localitites = Locality::all();
+
+        return view('pages.index', ['localities' => $localitites]);
     }
 
     public function about()
@@ -38,12 +43,22 @@ class HomeController extends BaseController
 
     public function signin()
     {
-        return view('pages.signin');
+
+        if (auth()->check()){
+            return redirect()->route('frontend.index');
+        }
+
+        $localitites = Locality::all();        
+
+        return view('pages.signin', ['localities' => $localitites]);
     }
 
     public function inst_signin()
     {
-        return view('institute.pages.signin');
+
+        $localitites = Locality::all();        
+
+        return view('institute.pages.signin', ['localities' => $localitites]);
     }
     
     public function institute()

@@ -91,12 +91,12 @@ class DiscordHelper
                 ],             
                 [
                   "name"=> "City",
-                  "value"=> City::find($user->city_id)->name,
+                  "value"=> City::find($inst->city_id)->name,
                   "inline"=> true
                 ],
                 [
                   "name"=> "Locality",
-                  "value"=> Locality::find($user->locality_id)->name,
+                  "value"=> Locality::find($inst->locality_id)->name,
                   "inline"=> true
                 ]
               ]
@@ -203,7 +203,7 @@ class DiscordHelper
 
     public static function newInstRegistration($inst, $user)
     {
-        $json = self::inst_registration_alert($inst, $model);
+        $json = self::inst_registration_alert($inst, $user);
         $url = $json['url'];
         $data = $json['data'];
         $response = Http::post($url, $data);
