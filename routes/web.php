@@ -21,48 +21,6 @@ use App\Http\Controllers\ForgotPasswordController;
 |
 */
 
-Route::name('frontend.')->group(function () {
-    
-    Route::get('/', [HomeController::class, 'coming_soon'])->name('index');
-    /* Route::get('/about', [HomeController::class, 'about'])->name('about');
-    Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
-    Route::get('/eduhunt', [HomeController::class, 'product'])->name('product'); */
-    Route::get('/signin', [HomeController::class, 'signin'])->name('signin');    
-
-});
-
-
-Route::name('services.')->group(function () {
-
-    Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
-    Route::post('/signin', [LoginController::class, 'login'])->name('login'); 
-    Route::post('/register', [LoginController::class, 'register_cs'])->name('register-cs');
-    Route::post('/logout', [LoginController::class, 'logout'])->name('logout'); 
-    Route::name('password.')->group(function () {
-
-        Route::get('/password/forgot', [ForgotPasswordController::class, 'index'])->name('index');
-        Route::get('/password/reset/{token}', [ForgotPasswordController::class, 'show_form'])->name('reset');
-        Route::post('/password/forgot', [ForgotPasswordController::class, 'send_reset_link'])->name('send.reset.link');
-        Route::post('/password/reset', [ForgotPasswordController::class, 'update'])->name('update');
-
-    });
-
-    Route::name('verification.')->group(function (){
-        
-        Route::get('/verify/{token}', [VerificationController::class, 'verify'])->name('verify');
-        Route::get('/resend/verify', [VerificationController::class, 'resend'])->name('resend');
-    
-    });
-    
-});
-
-/* Route::name('dashboard.')->group(function () {
-
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('index');
-    Route::post('/user/update', [DashboardController::class, 'update'])->name('update');
-
-}); */
-
 Route::name('institute.')->domain('institute.eduhunt.co' . env('APP_URL'))->group(function (){
 
     Route::get('/', [HomeController::class, 'institute'])->name('index');
@@ -127,3 +85,46 @@ Route::name('institute.')->domain('institute.eduhunt.co' . env('APP_URL'))->grou
     
     });
 });
+
+
+Route::name('frontend.')->group(function () {
+    
+    Route::get('/', [HomeController::class, 'coming_soon'])->name('index');
+    /* Route::get('/about', [HomeController::class, 'about'])->name('about');
+    Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
+    Route::get('/eduhunt', [HomeController::class, 'product'])->name('product'); */
+    Route::get('/signin', [HomeController::class, 'signin'])->name('signin');    
+
+});
+
+
+Route::name('services.')->group(function () {
+
+    Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+    Route::post('/signin', [LoginController::class, 'login'])->name('login'); 
+    Route::post('/register', [LoginController::class, 'register_cs'])->name('register-cs');
+    Route::post('/logout', [LoginController::class, 'logout'])->name('logout'); 
+    Route::name('password.')->group(function () {
+
+        Route::get('/password/forgot', [ForgotPasswordController::class, 'index'])->name('index');
+        Route::get('/password/reset/{token}', [ForgotPasswordController::class, 'show_form'])->name('reset');
+        Route::post('/password/forgot', [ForgotPasswordController::class, 'send_reset_link'])->name('send.reset.link');
+        Route::post('/password/reset', [ForgotPasswordController::class, 'update'])->name('update');
+
+    });
+
+    Route::name('verification.')->group(function (){
+        
+        Route::get('/verify/{token}', [VerificationController::class, 'verify'])->name('verify');
+        Route::get('/resend/verify', [VerificationController::class, 'resend'])->name('resend');
+    
+    });
+    
+});
+
+/* Route::name('dashboard.')->group(function () {
+
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('index');
+    Route::post('/user/update', [DashboardController::class, 'update'])->name('update');
+
+}); */
