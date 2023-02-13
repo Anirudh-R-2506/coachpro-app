@@ -21,7 +21,7 @@ use App\Http\Controllers\ForgotPasswordController;
 |
 */
 
-Route::name('institute.')->domain('institute.eduhunt.co' . env('APP_URL'))->group(function (){
+Route::name('institute.')->domain('institute.eduhunt.co')->group(function (){
 
     Route::get('/', [HomeController::class, 'institute'])->name('index');
     Route::get('/signin', [HomeController::class, 'inst_signin'])->name('signin'); 
