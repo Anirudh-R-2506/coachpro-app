@@ -26,7 +26,7 @@ class DeveloperSeeder extends Seeder
             [
                 'name' => 'Edu Hunt',
                 'email' => 'helpline@eduhunt.co',
-                'password' => bcrypt(),
+                'password' => bcrypt('password'),
                 'role' => UserRole::SUPER_ADMIN,
                 'phone' => '9361956014',
                 'account_status' => AccountStatus::VERIFIED,
