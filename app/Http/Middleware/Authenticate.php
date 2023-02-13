@@ -18,8 +18,8 @@ class Authenticate extends Middleware
     {
         if (!auth()->check()) {
             if (Route::is('services.verification.verify'))
-                return route(Auth::user()->role == UserRole::STUDENT ? 'frontend.signin' : 'institute.signin') . '?redirect=' . route('services.verification.verify', ['token' => $request->token]);
-            return redirect()->route(Auth::user()->role == UserRole::STUDENT ? 'frontend.signin' : 'institute.signin');
+                return route('institute.signin') . '?redirect=' . route('services.verification.verify', ['token' => $request->token]);
+            return redirect()->route('institute.signin');
         }
 
         if (auth()->user()->account_status == AccountStatus::UNVERIFIED) {
