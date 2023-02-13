@@ -12,10 +12,12 @@ use Spatie\Activitylog\LogOptions;
 use Filament\Models\Contracts\FilamentUser;
 use App\Enums\UserRole;
 use Spatie\Permission\Traits\HasRoles;
+use App\Models\Institutes;
+use App\Traits\Uuid;
 
 class User extends Authenticatable implements FilamentUser
 {
-    use HasApiTokens, HasFactory, Notifiable, LogsActivity, HasRoles;
+    use HasApiTokens, HasFactory, Notifiable, LogsActivity, HasRoles, Uuid;
 
 
     /**
@@ -51,7 +53,8 @@ class User extends Authenticatable implements FilamentUser
         'locality',       
         'account_status',
         'admin_remarks', 
-        'role',      
+        'role',   
+        'institute_id',   
     ];
 
     /**
@@ -70,4 +73,8 @@ class User extends Authenticatable implements FilamentUser
         ->logOnly(['name', 'email', 'phone', 'session', 'timing', 'locality']);
     }
 
+    public function institute()
+    {
+        return $this->belongsTo(Institutes::class, 'institute_id');
+    }
 }

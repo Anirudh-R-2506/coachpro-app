@@ -15,8 +15,6 @@
 
         @include('includes.shapes')
 
-        @include('includes.sign-in-modal')
-
         @yield('content')
 
         {{-- @include('includes.footer') --}}

@@ -1,20 +1,14 @@
 @extends('layouts.default')
 
 @section("content")
-    
-    <script>
-      window.onload = () => {
-        var lp = new locationPicker('map', {
-            setCurrentPosition: true, // You can omit this, defaults to true
-        }, {
-        });
-      }
-    </script>
     <script>      
-
+      const params = new Proxy(new URLSearchParams(window.location.search), {
+        get: (searchParams, prop) => searchParams.get(prop),
+      });
       init = () => {
         return {
           login: true,
+          redirect: params.redirect,
         };
       };
     </script>
@@ -27,14 +21,14 @@
       <div class="flex flex-wrap items-center justify-center -mx-4">
         <div class="w-full px-4">
           <div
-            class="hero-content mx-auto max-w-[780px]"
+            class="hero-content mx-auto max-w-[600px]"
             data-wow-delay=".2s"
           >
             <div x-show="login">
               @include('includes.login-form')
             </div>
             <div x-show="!login">
-              @include('includes.signup-form')
+              @include('includes.signup-form', ['localities' => $localities])
             </div>
           </div>
         </div>

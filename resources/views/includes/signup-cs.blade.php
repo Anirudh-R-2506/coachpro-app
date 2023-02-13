@@ -21,7 +21,7 @@
                       x-data="signup"
                     >
                       <div class="mb-8 border-b-2">
-                        <h3 class="text-2xl font-semibold md:text-[26px]" x-on:click="hello">
+                        <h3 class="pb-4 text-2xl border-b-2 w-full font-semibold md:text-[26px]">
                             Provide your details below so you can stay updated with the best coach finder
                         </h3>        
                         @if ($errors->any())
@@ -127,10 +127,12 @@
                           </div> 
                           <div class="flex justify-center w-full mb-0">
                             @include('partials.recaptcha')
-                            <input
+                            <button
                               type="submit"
                               class="inline-flex items-center justify-center px-6 py-4 text-base font-medium text-white transition duration-300 ease-in-out rounded bg-primary hover:bg-dark"
                             >
+                              I'm In
+                            </button>
                           </div>
                       </form>
                     </div>

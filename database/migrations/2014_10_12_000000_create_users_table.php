@@ -19,7 +19,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
             $table->enum('role', UserRole::getValues())->comment('0: Student, 1: Institute, 2: Admin, 3: Super Admin');
             $table->string('name');
             $table->string('email');
@@ -31,11 +31,10 @@ return new class extends Migration
             $table->enum('timing', Timing::getValues())->comment('0: Forenoon, 1: Afternoon, 2: Evening, 3: Flexible')->nullable();
             $table->string('city')->nullable();
             $table->string('locality')->nullable();
-            $table->double('latitude')->nullable();
-            $table->double('longitude')->nullable();
             $table->string('password')->nullable();
             $table->string('admin_remarks')->nullable();
             $table->enum('account_status', AccountStatus::getValues())->comment('0: Unverified, 1: Verified, 2: Flagged, 3: Banned, 4: Inactive')->default(AccountStatus::UNVERIFIED);
+            $table->uuid('institute_id')->references('id')->on('institutes')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

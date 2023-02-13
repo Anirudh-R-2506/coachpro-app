@@ -1,4 +1,4 @@
-@extends('layouts.default')
+@extends('layouts.form')
 
 @section("content")
 
@@ -19,6 +19,7 @@
                     data-wow-delay=".2s
                     "
                     >
+                    <img class="mx-auto -mt-6 -mb-6" width="200" height="200" src="{{ asset('images/logo/logo.png') }}" alt="base apparel logo" />
                     <h3 class="pb-4 text-2xl border-b-2 w-full font-semibold md:text-[26px]">
                       Reset password
                     </h3>
@@ -41,6 +42,7 @@
                         <input
                           type="email"
                           id="email"
+                          name="email"
                           class="block py-2.5 px-0 w-full text-gray-500 bg-transparent w-full border-0 border-b border-[#f1f1f1] py-4 focus:border-primary focus:outline-none peer"
                           value="{{ $email }}"
                           readonly
@@ -53,6 +55,7 @@
                             <input
                             type="password"
                             id="password"
+                            name="password"
                             class="block py-2.5 px-0 w-full text-gray-500 bg-transparent w-full border-0 border-b border-[#f1f1f1] py-4 focus:border-primary focus:outline-none peer"
                             placeholder="Enter your password"
                             required
@@ -65,20 +68,21 @@
                             <input
                             type="password"
                             id="password_confirmation"
+                            name="password_confirmation"
                             class="block py-2.5 px-0 w-full text-gray-500 bg-transparent w-full border-0 border-b border-[#f1f1f1] py-4 focus:border-primary focus:outline-none peer"
                             placeholder="Enter your password"
                             required
                             />
                         </div>
-                    </form>
-                    
-                    <div class="flex flex-wrap items-center justify-center mt-8 text-center">
-                      <button
-                      class="inline-flex items-center justify-center w-1/3 px-6 py-4 text-base font-medium text-white transition duration-300 ease-in-out rounded bg-primary hover:bg-dark"
-                      >
-                        Reset password
-                      </button>
-                    </div>
+                        <div class="flex flex-wrap items-center justify-center mt-8 text-center">
+                          <button
+                          type="submit"
+                          class="inline-flex items-center justify-center w-1/3 px-6 py-4 text-base font-medium text-white transition duration-300 ease-in-out rounded bg-primary hover:bg-dark"
+                          >
+                            Reset password
+                          </button>
+                        </div>
+                    </form>                                    
                     
                     </div>
 

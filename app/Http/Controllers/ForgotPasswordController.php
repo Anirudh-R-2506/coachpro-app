@@ -3,7 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
+use Carbon\Carbon;
+use App\Mail\PasswordResetMail;
+use Illuminate\Support\Facades\Mail;
 Use Alert;
+use App\Models\User;
 
 class ForgotPasswordController extends Controller
 {
@@ -15,15 +22,21 @@ class ForgotPasswordController extends Controller
     public function show_form($token)
     {
         $rec = DB::table('password_resets')->where('token', $token)->first();
+        if ($rec == null) {
+            Alert::error('Oops!', 'Something went wrong :(');
+            return redirect()->route('frontend.index');
+        }
         $email = $rec->email;
-        return view('auth.reset-password', compact('token', 'email'));
+        return view('auth.reset-password', [
+            'email' => $email,
+            'token' => $token
+        ]);
     }
 
-    public function send_reset_email(Request $request)
+    public function send_reset_link(Request $request)
     {
         $request->validate([
             'email' => 'required|email|exists:users,email',
-            'token' => 'required|string|exists:password_resets,token'
         ]);
 
         $token = Str::random(64);
@@ -34,7 +47,9 @@ class ForgotPasswordController extends Controller
             'created_at' => Carbon::now()
         ]);
 
-        Mail::to($request->email)->send(new ResetPassword($token));
+        $url = route('services.password.reset', $token);
+
+        Mail::to($request->email)->send(new PasswordResetMail($url));
 
         Alert::success('Reset Password Link Sent!', 'Please check your email')->persistent('Close');
 
@@ -46,7 +61,7 @@ class ForgotPasswordController extends Controller
         $request->validate([
             'email' => 'required|email|exists:users',
             'password' => 'required|string|min:6|confirmed',
-            'password_confirmation' => 'required'
+            'password_confirmation' => 'required|string|min:6|same:password',
         ]);
 
         $updatePassword = DB::table('password_resets')
@@ -62,11 +77,11 @@ class ForgotPasswordController extends Controller
         }
 
         $user = User::where('email', $request->email)
-                    ->update(['password' => Hash::make($request->password)]);
+                    ->update(['password' => bcrypt($request->password)]);
 
         DB::table('password_resets')->where(['email'=> $request->email])->delete();
 
         Alert::success('Password Changed!', 'Please login again')->persistent('Close');
-        return redirect()->route('frontend.signin');
+        return redirect()->route('frontend.index');
     }
 }
