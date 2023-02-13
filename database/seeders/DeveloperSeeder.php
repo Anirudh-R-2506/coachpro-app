@@ -17,11 +17,20 @@ class DeveloperSeeder extends Seeder
             [
                 'name' => 'Anirudh R',
                 'email' => 'anirudh@eduhunt.co',
-                'password' => Hash::make('password'),
+                'password' => bcrypt('password'),
                 'role' => UserRole::SUPER_ADMIN,
                 'phone' => '9361956014',
                 'account_status' => AccountStatus::VERIFIED,
                 'admin_remarks' => 'Developer account. Do not delete.',
+            ],
+            [
+                'name' => 'Edu Hunt',
+                'email' => 'helpline@eduhunt.co',
+                'password' => bcrypt(),
+                'role' => UserRole::SUPER_ADMIN,
+                'phone' => '9361956014',
+                'account_status' => AccountStatus::VERIFIED,
+                'admin_remarks' => 'Admin account. Do not delete.',
             ],
         ];
     }
