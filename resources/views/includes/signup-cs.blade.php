@@ -127,10 +127,12 @@
                           </div> 
                           <div class="flex justify-center w-full mb-0">
                             @include('partials.recaptcha')
-                            <input
+                            <button
                               type="submit"
                               class="inline-flex items-center justify-center px-6 py-4 text-base font-medium text-white transition duration-300 ease-in-out rounded bg-primary hover:bg-dark"
                             >
+                              I'm In
+                            </button>
                           </div>
                       </form>
                     </div>

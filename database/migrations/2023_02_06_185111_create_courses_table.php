@@ -5,6 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use App\Enums\Session;
 use App\Enums\Timing;
+use App\Models\Courses;
 
 return new class extends Migration
 {
@@ -16,8 +17,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('courses', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('institute_id')->references('id')->on('institutes');
+            $table->uuid('id')->primary();
+            $table->uuid('institute_id')->references('id')->on('institutes')->onDelete('cascade');
             $table->string('name');
             $table->string('description');            
             $table->string('video_url');
@@ -28,7 +29,12 @@ return new class extends Migration
             $table->text('course_timings');
             $table->datetime('start_date');
             $table->datetime('end_date');
-            $table->bigInteger('fees');                        
+            $table->bigInteger('fees'); 
+            $table->enum('status', Courses::enum('status')->values())->default(Courses::enum('status')->values()[0]);
+            $table->enum('availability', Courses::enum('availability')->values())->default(Courses::enum('availability')->values()[0]);
+            $table->dropColumn('video_url');
+            $table->string('slug');
+            $table->enum('leads_status', Courses::enum('leads_status')->values())->default(Courses::enum('leads_status')->values()[0]);                       
             $table->timestamps();
         });
     }

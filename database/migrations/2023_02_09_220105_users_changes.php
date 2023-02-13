@@ -14,8 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->unsignedBigInteger('city')->references('id')->on('cities')->nullable()->change();
-            $table->unsignedBigInteger('locality')->references('id')->on('localities')->nullable()->change();
+            $table->uuid('city')->references('id')->on('cities')->nullable()->change();
+            $table->uuid('locality')->references('id')->on('localities')->nullable()->change();
         });
     }
 

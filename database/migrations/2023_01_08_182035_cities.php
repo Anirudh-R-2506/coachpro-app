@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-use Illuminate\Support\Facades\DB;
+use App\Models\City;
 
 return new class extends Migration
 {
@@ -16,12 +16,14 @@ return new class extends Migration
     public function up()
     {
         Schema::create('cities', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
             $table->string('name');
             $table->timestamps();
         });
 
-        DB::table('cities')->insert(['name' => 'Bangalore']);        
+        City::create([
+            'name' => 'Bangalore',
+        ]);
     }
 
     /**

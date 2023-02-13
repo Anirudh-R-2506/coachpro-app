@@ -14,8 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('users_verify', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('user_id')->references('id')->on('users');
+            $table->uuid('id')->primary();
+            $table->uuid('user_id')->references('id')->on('users');
             $table->string('token');
             $table->timestamps();
         });

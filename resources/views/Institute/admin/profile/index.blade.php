@@ -28,11 +28,11 @@
     <div class="col-12">
         <div>
             <h1 class="text-2xl font-bold tracking-tight filament-header-heading">
-                Dashboard
+                Profile
             </h1>    
         </div>
        
-        <div class="mt-3 card" x-data="showUnsavedAlert()">
+        <div class="p-2 mt-3 card" x-data="showUnsavedAlert()">
             <form action="{{ route('institute.dashboard.profile.update') }}" method="POST" id="profile_update_form">
                 @csrf
                 <div class="card-body">
@@ -83,36 +83,6 @@
                         <div class="mb-5 row">
                             <div class="col-md-3">
                                 <label class="h4">
-                                    <strong>Email</strong>
-                                </label>
-                                <p class="-mt-1 text-muted">
-                                    <small>
-                                        The email address of the institute
-                                    </small>
-                                </p>
-                            </div>
-                            <div class="col-md-9">
-                                <input type="email" class="form-control" name="email" value="{{ $institute->email }}" placeholder="{{ $institute->email }}" @change="clicked">                                    
-                            </div>
-                        </div>
-                        <div class="mb-5 row">
-                            <div class="col-md-3">
-                                <label class="h4">
-                                    <strong>Phone</strong>
-                                </label>
-                                <p class="-mt-1 text-muted">
-                                    <small>
-                                        The phone number of the institute
-                                    </small>
-                                </p>
-                            </div>
-                            <div class="col-md-9">
-                                <input type="number" class="form-control" name="phone" value="{{ $institute->phone }}" placeholder="{{ $institute->phone }}" @change="clicked">                                    
-                            </div>
-                        </div>
-                        <div class="mb-5 row">
-                            <div class="col-md-3">
-                                <label class="h4">
                                     <strong>City</strong>
                                 </label>
                                 <p class="-mt-1 text-muted">
@@ -148,7 +118,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="mb-5 row">
+                        <div class="row">
                             <div class="col-md-3">
                                 <label class="h4">
                                     <strong>Address</strong>

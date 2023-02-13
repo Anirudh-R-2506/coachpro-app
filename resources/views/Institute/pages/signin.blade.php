@@ -4,6 +4,7 @@
       data = () => {
         return {
           login: true,
+          redirect: null,
           init(){
             const params = new Proxy(new URLSearchParams(window.location.search), {
               get: (searchParams, prop) => searchParams.get(prop),
@@ -13,6 +14,7 @@
               return;
             }
             this.login = true;
+            this.redirect = params.redirect;
           },
         };
       };

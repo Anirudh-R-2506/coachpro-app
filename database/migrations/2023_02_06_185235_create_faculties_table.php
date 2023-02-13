@@ -14,8 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('faculties', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('institute_id')->references('id')->on('institutes');
+            $table->uuid('id')->primary();
+            $table->uuid('institute_id')->references('id')->on('institutes')->onDelete('cascade');
             $table->string('name');
             $table->string('qualification');
             $table->string('experience')->nullable();            

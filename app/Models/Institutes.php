@@ -5,24 +5,66 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Faculties;
+use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
+use App\Traits\Uuid;
+use App\Traits\Enum;
 
-class Institutes extends Model
+class Institutes extends Model implements HasMedia
 {
-    use HasFactory;
+    use HasFactory, InteractsWithMedia, Uuid, Enum;
 
     protected $fillable = [
         'name',
         'city_id',
         'locality_id',
-        'photos',
         'address',
         'phone',
         'email',        
+        'leads_status',
+        'bookings_status',
+        'status'
     ];
 
-    protected $casts = [
-        'photos' => 'array',
-    ];
+    public function enums()
+    {
+        return [
+            'leads_status' => [
+                'ACTIVE' => [
+                    'value' => '0',
+                    'color' => 'success',
+                    'icon' => 'check',
+                    'label' => 'Active',
+                ],
+                'INACTIVE' => [
+                    'value' => '1',
+                    'color' => 'danger',
+                    'icon' => 'times',
+                    'label' => 'Inactive',
+                ],
+            ],
+            'bookings_status' => [
+                'ACTIVE' => [
+                    'value' => '0',
+                    'color' => 'success',
+                    'icon' => 'check',
+                    'label' => 'Active',
+                ],
+                'INACTIVE' => [
+                    'value' => '1',
+                    'color' => 'danger',
+                    'icon' => 'times',
+                    'label' => 'Inactive',
+                ],
+            ],
+        ];
+    }
+
+    public function registerMediaCollections(): void
+    {
+        $this->addMediaCollection('institute_images');
+    }
 
     public function faculties()
     {

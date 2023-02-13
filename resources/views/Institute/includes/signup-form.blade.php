@@ -173,10 +173,12 @@
                             <p x-show="password.errorMessage && password.blurred" x-text="password.errorMessage" class="mt-2 text-red-500"></p>
                         </div>
                         <div class="flex justify-center w-full mb-0">
-                            <input
+                            <button
                             type="submit"
                             class="inline-flex items-center justify-center w-1/3 px-6 py-4 text-base font-medium text-white transition duration-300 ease-in-out rounded bg-primary hover:bg-dark"
                             >
+                            Register
+                            </button>
                         </div>
                       </form>                                            
                       <div class="flex flex-wrap items-center justify-center mt-8 text-center">

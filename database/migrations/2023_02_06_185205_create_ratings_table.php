@@ -14,9 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::create('ratings', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('course_id')->references('id')->on('courses');
-            $table->unsignedBigInteger('user_id')->references('id')->on('users');
+            $table->uuid('id')->primary();
+            $table->uuid('course_id')->references('id')->on('courses')->onDelete('cascade');
+            $table->uuid('user_id')->references('id')->on('users');
             $table->integer('rating');            
             $table->timestamps();
         });

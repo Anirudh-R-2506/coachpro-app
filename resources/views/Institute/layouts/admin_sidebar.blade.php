@@ -136,7 +136,7 @@
     </a>
     <ul id="profile" class="mt-2 sidebar-dropdown list-unstyled collapse animate slideIn">
         <li class="mb-2 sidebar-item">
-            <a class="sidebar-link" href="#">My Profile</a>
+            <a class="sidebar-link" href="{{ route('institute.dashboard.user.index') }}">My Profile</a>
         </li>
         <li class="sidebar-item">
             <form action="{{ route('services.logout') }}" id="logoutForm" method="POST">@csrf</form>
@@ -160,18 +160,26 @@
             <i class="align-middle" data-feather="camera"></i> <span class="align-middle">Photos</span>
         </a>
     </li>
-    
-    <a class="is-flex sidebar-link collapsed dropdown-toggle" @click="toggleDropdown('operations')">
-        <i class="align-middle" data-feather="truck"></i>
-        <span class="align-middle">Operations</span>
-    </a>
-    <ul id="operations" class="mt-2 sidebar-dropdown list-unstyled collapse animate slideIn">
-        <li class="mb-2 sidebar-item">
-            <a class="sidebar-link" href="#">Leads</a>
-        </li>
-        <li class="sidebar-item">
-            <a class="sidebar-link" href="#">Bookings</a>
-        </li>
-    </ul>    
+
+    <li class="mb-2 sidebar-item" id="{{ Nav::isRoute('institute.dashboard.faculties.index') }}">
+      <a class="sidebar-link" href="{{ route('institute.dashboard.faculties.index') }}">
+          <i class="align-middle" data-feather="book-open"></i> <span class="align-middle">Faculties</span>
+      </a>
+    </li>
+
+    {{-- <li class="sidebar-header">
+      Operations
+    </li>
+
+    <li class="mb-2 sidebar-item">            
+      <a class="sidebar-link" href="#">
+        <i class="align-middle" data-feather="user-plus"></i> <span class="align-middle">Leads</span>
+      </a>
+    </li>
+    <li class="sidebar-item">
+      <a class="sidebar-link" href="#">
+        <i class="align-middle" data-feather="user-check"></i> <span class="align-middle">Bookings</span>
+      </a>
+    </li> --}}
     
  </ul>

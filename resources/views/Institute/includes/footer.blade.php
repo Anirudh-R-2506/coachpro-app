@@ -46,31 +46,31 @@
             <h4 class="text-lg font-semibold text-white mb-9">Quick Links</h4>
             <ul>
               <li>
-                <a href="{{ route('frontend.index') }}"
+                <a href="#"
                   class="mb-2 inline-block text-base leading-loose text-[#f3f4fe] hover:text-primary">
                   Home
                 </a>
               </li>              
               <li>
-                <a href="{{ route('frontend.about') }}"
+                <a href="#"
                   class="mb-2 inline-block text-base leading-loose text-[#f3f4fe] hover:text-primary">
                   About
                 </a>
               </li>
               <li>
-                <a href="{{ route('frontend.product') }}"
+                <a href="#"
                   class="mb-2 inline-block text-base leading-loose text-[#f3f4fe] hover:text-primary">
                   Edu Hunt
                 </a>
               </li>
               <li>
-                <a href="{{ route('frontend.contact') }}"
+                <a href="#"
                   class="mb-2 inline-block text-base leading-loose text-[#f3f4fe] hover:text-primary">
                   Contact
                 </a>
               </li>
               <li>
-                <a href="{{ route('frontend.signin') }}"
+                <a href="#"
                   class="mb-2 inline-block text-base leading-loose text-[#f3f4fe] hover:text-primary">
                   Login/Sign Up
                 </a>

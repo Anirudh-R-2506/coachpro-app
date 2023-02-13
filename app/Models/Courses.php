@@ -10,10 +10,65 @@ use App\Models\EduHuntScore;
 use App\Models\Comments;
 use App\Models\Bookings;
 use App\Models\Ratings;
+use App\Traits\Enum;
+use App\Traits\Uuid;
 
 class Courses extends Model
 {
-    use HasFactory;
+    use HasFactory, Enum, Uuid;
+
+    public function enums(){ 
+        return [
+            'status' => [
+                'ACTIVE' => [
+                    'value' => '0',
+                    'color' => 'success',
+                    'icon' => 'check',
+                    'label' => 'Active'
+                ],
+                'INACTIVE' => [
+                    'value' => '1',
+                    'color' => 'danger',
+                    'icon' => 'times',
+                    'label' => 'Inactive'
+                ]
+            ],
+            'availability' => [
+                'AVAILABLE' => [
+                    'value' => '0',
+                    'color' => 'success',
+                    'icon' => 'check',
+                    'label' => 'Available'
+                ],
+                'FILLING FAST' => [
+                    'value' => '1',
+                    'color' => 'warning',
+                    'icon' => 'check',
+                    'label' => 'Filling Fast'
+                ],
+                'UNAVAILABLE' => [
+                    'value' => '2',
+                    'color' => 'danger',
+                    'icon' => 'check',
+                    'label' => 'Unavailable'
+                ],
+            ],
+            'leads_status' => [
+                'ENABLED' => [
+                    'value' => '0',
+                    'color' => 'success',
+                    'icon' => 'check',
+                    'label' => 'Enabled'
+                ],
+                'DISABLED' => [
+                    'value' => '1',
+                    'color' => 'danger',
+                    'icon' => 'times',
+                    'label' => 'Disabled'
+                ]
+            ]
+        ];
+    }
 
     protected $fillable = [
         'name',
@@ -27,7 +82,12 @@ class Courses extends Model
         'course_timings',
         'start_date',
         'end_date',
-        'fees'
+        'fees',
+        'status',
+        'availability',
+        'leads_status',
+        'category_id',
+        'slug'
     ];
 
     protected $casts = [

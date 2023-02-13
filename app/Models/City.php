@@ -5,10 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Model\Locality;
+use App\Traits\Uuid;
 
 class City extends Model
 {
-    use HasFactory;
+    use HasFactory, Uuid;
 
     protected $table = 'cities';
 

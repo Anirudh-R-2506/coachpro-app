@@ -14,8 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('edu_hunt_scores', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('course_id')->references('id')->on('courses');
+            $table->uuid('id')->primary();
+            $table->uuid('course_id')->references('id')->on('courses')->onDelete('cascade');
             $table->decimal('score', 2, 1);            
             $table->timestamps();
         });

@@ -4,15 +4,46 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Traits\Uuid;
+use App\Traits\Enum;
 
 class Leads extends Model
 {
-    use HasFactory;
+    use HasFactory, Uuid, Enum;
 
     protected $fillable = [
         'course_id',
         'user_id',
+        'status'
     ];
+
+    public function enums()
+    {
+        return [
+            'status' => [
+                'NEW' => [
+                    'label' => 'New',
+                    'value' => '0',
+                    'color' => 'primary',
+                ],
+                'IN_PROGRESS' => [
+                    'label' => 'In Progress',
+                    'value' => '1',
+                    'color' => 'warning',
+                ],
+                'CONVERTED' => [
+                    'label' => 'Converted',
+                    'value' => '2',
+                    'color' => 'success',
+                ],
+                'REJECTED' => [
+                    'label' => 'Rejected',
+                    'value' => '3',
+                    'color' => 'danger',
+                ]                
+            ],
+        ];
+    }
 
     public function course()
     {

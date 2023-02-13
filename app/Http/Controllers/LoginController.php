@@ -25,7 +25,7 @@ class LoginController extends Controller
 
     private function city()
     {
-        return City::find(1)->first()->id;
+        return City::where('name', 'Bangalore')->first()->id;
     }
 
     public function login(Request $request)
@@ -45,10 +45,10 @@ class LoginController extends Controller
 
             if (Auth::user()->status == AccountStatus::UNVERIFIED) {
                 if (Auth::user()->role == UserRole::STUDENT){
-                    Alert::error('Oops!', 'Your account is not verified yet. Please check your inbox or spam for the verification mail :)');
-                    return redirect()->back()->withInput();
+                    Auth::logout();
+                    return redirect()->route('institute.index');
                 }
-                Alert::error('Oops!', 'Your account is not verified yet. Please contact us for more details.');
+                Alert::html('Oops!', 'Your account is not verified yet. Please check your email for a verification link or click below to generate one :)<br><br><center><button onclick="window.location.href=\'/resend/verify\'" style="padding: 1.25rem; background-color: rgb(48, 86, 211); color: #fff; border-radius: 10px;">Resend verification mail</button></center>', 'error');
                 return redirect()->back()->withInput();
             }
             
@@ -157,7 +157,7 @@ class LoginController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'inst_name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255,unique:institutes',
+            'email' => 'required|string|email|max:255,unique:institutes|unique:users',
             'phone' => 'required|numeric|digits:10|unique:institutes',
             //'city' => ['required', 'in:'.implode(',', City::all()->pluck('id')->toArray())],
             'locality' => ['required', 'in:'.implode(',', Locality::all()->pluck('id')->toArray())],
@@ -179,6 +179,8 @@ class LoginController extends Controller
             'phone' => $request->phone,
             'status' => AccountStatus::UNVERIFIED,
             'address' => $request->address,
+            'leads_status' => Institutes::enum('leads_status')->values()[0],
+            'bookings_status' => Institutes::enum('bookings_status')->values()[0],
         ]);
 
         $user_exists = User::where('phone', $request->phone)->first();
@@ -223,6 +225,10 @@ class LoginController extends Controller
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
+            if (Auth::user()->role == UserRole::STUDENT){
+                Auth::logout();
+                return redirect()->route('institute.index');
+            }
             $request->session()->regenerate();
             redirect()->route('institute.dashboard.index');
         }
