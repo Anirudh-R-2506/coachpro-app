@@ -63,7 +63,7 @@ Route::name('services.')->group(function () {
 
 }); */
 
-Route::name('institute.')->prefix('/institutes')->group(function (){
+Route::name('institute.')->domain('institute.eduhunt.co' . env('APP_URL'))->group(function (){
 
     Route::get('/', [HomeController::class, 'institute'])->name('index');
     Route::get('/signin', [HomeController::class, 'inst_signin'])->name('signin'); 
