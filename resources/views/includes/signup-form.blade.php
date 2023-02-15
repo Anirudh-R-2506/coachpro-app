@@ -220,7 +220,6 @@
                           class="w-full border-0 border-b border-[#f1f1f1] py-4 focus:border-primary focus:outline-none"
                         />
                       </div>
-                      <input type="hidden" id="recaptcha" name="recaptcha">
                     </form>
                     <div class="flex justify-center w-full mb-0">
                       <button

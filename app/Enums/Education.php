@@ -44,5 +44,14 @@ class Education
             self::PG => 'Postgraduate',
         ];
     }
+
+    public static function getAll(): array
+    {
+        return [
+            self::SCHOOL => 'School',
+            self::UG => 'Undergraduate',
+            self::PG => 'Postgraduate',
+        ];
+    }
     
 }
