@@ -698,24 +698,36 @@
         </style>
 
         <div class="flex flex-col items-center justify-center p-20 mb-20 text-center more-info" data-aos="fade-zoom-in">
-            <h2 class="mx-auto my-auto text-xl font-bold leading-normal tracking-wider text-gray-300 lg:text-4xl text-ellipsis mb-15" data-aos="fade-zoom-up" data-aos-delay="250">
-                <span class="text-2xl lg:text-5xl" style="color: #f3f4ff !important;">REGISTER</span> AND GET <span class="text-2xl lg:text-5xl" style="color: #f3f4ff !important;">FREE</span> ACCESS TO THESE RESOURCES
-            </h2>
+            <h1
+            class="
+              text-4xl
+              uppercase
+              tracking-[0.2em]
+              text-white
+              font-light
+              sm:text-5xl
+              lg:text-6xl
+              xl:text-7xl
+            "
+          >
+                <span class="mb-10 font-bold text-white">REGISTER</span> AND GET <br><br><span class="mb-10 font-bold text-white">FREE</span> ACCESS TO
+            </h1>
+            <br><br>
             <div class="grid w-full md:grid-cols-3 space-x-28 sm:grid-cols-1">
                 <div class="flex flex-col items-center text-center" data-aos="fade-up" data-aos-delay="300">
                     <lottie-player src="{{asset('images/lottie/reports.json')}}" background="transparent"
                         speed="1" style="width: 200px; height: 200px;" loop autoplay></lottie-player>    
-                    <h1 class="text-2xl font-bold leading-tight text-white">Edu Hunt Reports</h1>
+                    <h1 class="mb-2 text-2xl font-semibold leading-tight text-white">Edu Hunt Reports</h1>
                 </div>
                 <div class="flex flex-col items-center text-center" data-aos="fade-up" data-aos-delay="350">
                     <lottie-player src="{{asset('images/lottie/marketing.json')}}" background="transparent"
                         speed="1" style="width: 200px; height: 200px;" loop autoplay></lottie-player>    
-                    <h1 class="text-2xl font-bold leading-tight text-white">Marketing</h1>
+                    <h1 class="mb-2 text-2xl font-semibold leading-tight text-white">Marketing</h1>
                 </div>
                 <div class="flex flex-col items-center text-center" data-aos="fade-up" data-aos-delay="400">
                     <lottie-player src="{{asset('images/lottie/support.json')}}" background="transparent"
                         speed="1" style="width: 200px; height: 200px;" loop autoplay></lottie-player>    
-                    <h1 class="text-2xl font-bold leading-tight text-white">Personal Manager</h1>
+                    <h1 class="mb-2 text-2xl font-semibold leading-tight text-white">Personal Manager</h1>
                 </div>
             </div>
         </div>

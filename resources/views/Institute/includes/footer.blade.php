@@ -46,6 +46,12 @@
             <h4 class="text-lg font-semibold text-white mb-9">Quick Links</h4>
             <ul>
               <li>
+                <a href="{{route('institute.signin')}}"
+                  class="mb-2 inline-block text-base leading-loose text-[#f3f4fe] hover:text-primary">
+                  Login/Sign Up
+                </a>
+              </li>
+              <li>
                 <a href="#home"
                   class="mb-2 inline-block text-base leading-loose text-[#f3f4fe] hover:text-primary">
                   Home
@@ -68,13 +74,7 @@
                   class="mb-2 inline-block text-base leading-loose text-[#f3f4fe] hover:text-primary">
                   Contact
                 </a>
-              </li>
-              <li>
-                <a href="{{route('institute.signin')}}"
-                  class="mb-2 inline-block text-base leading-loose text-[#f3f4fe] hover:text-primary">
-                  Login/Sign Up
-                </a>
-              </li>
+              </li>              
             </ul>
           </div>
         </div>
@@ -83,7 +83,7 @@
             <h4 class="text-lg font-semibold text-white mb-9">Learn How</h4>
             <ul>
               <li>
-                <a href="{{ route('frontend.index') . '/#tutorial' }}"
+                <a href="{{asset('docs/mou.pdf')}}"
                   class="mb-2 inline-block text-base leading-loose text-[#f3f4fe] hover:text-primary">
                   MoU
                 </a>
@@ -206,7 +206,7 @@
                 <a href="javascript:void(0)" class="px-3 text-base text-[#f3f4fe] hover:text-primary">
                   Privacy policy
                 </a>
-                <a href="javascript:void(0)" class="px-3 text-base text-[#f3f4fe] hover:text-primary">
+                <a href="{{asset('docs/mou.pdf')}}" class="px-3 text-base text-[#f3f4fe] hover:text-primary">
                   MoU
                 </a>
                 <a href="javascript:void(0)" class="px-3 text-base text-[#f3f4fe] hover:text-primary">
