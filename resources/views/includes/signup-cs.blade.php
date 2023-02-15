@@ -1,4 +1,12 @@
-  <script>      
+<script>
+  grecaptcha.ready(function() {
+    grecaptcha.execute("{{ env('RECAPTCHAV3_SITEKEY') }}").then(function(token) {
+     document.getElementById("recaptcha").value = token;
+     console.log(token);
+  }); });
+</script>
+
+<script>      
   
     signup = () => {
       return {
@@ -125,6 +133,7 @@
                             </select>
                             
                           </div> 
+                          <input type="hidden" id="recaptcha" name="recaptcha">
                           <div class="flex justify-center w-full mb-0">
                             {{-- @include('partials.recaptcha') --}}
                             <div class="g-recaptcha"

@@ -1,4 +1,12 @@
-  <script>      
+<script>
+  grecaptcha.ready(function() {
+    grecaptcha.execute("{{ env('RECAPTCHAV3_SITEKEY') }}").then(function(token) {
+     document.getElementById("recaptcha").value = token;
+     console.log(token);
+  }); });
+</script>
+
+<script>      
   
     signup = () => {
       return {
@@ -172,9 +180,7 @@
                             />
                             <p x-show="password.errorMessage && password.blurred" x-text="password.errorMessage" class="mt-2 text-red-500"></p>
                         </div>
-                        <div class="g-recaptcha"
-                            data-sitekey="{{env('RECAPTCHA_SITE_KEY')}}">
-                        </div>
+                        <input type="hidden" id="recaptcha" name="recaptcha">
                         <div class="flex justify-center w-full mb-0">
                             <button
                             type="submit"
