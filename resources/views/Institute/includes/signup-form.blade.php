@@ -172,6 +172,9 @@
                             />
                             <p x-show="password.errorMessage && password.blurred" x-text="password.errorMessage" class="mt-2 text-red-500"></p>
                         </div>
+                        <div class="g-recaptcha"
+                            data-sitekey="{{env('RECAPTCHA_SITE_KEY')}}">
+                        </div>
                         <div class="flex justify-center w-full mb-0">
                             <button
                             type="submit"

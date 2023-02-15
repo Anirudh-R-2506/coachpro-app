@@ -3,7 +3,8 @@
 namespace App\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
-use ReCaptcha\ReCaptcha;
+use GuzzleHttp\Client;
+use ReCaptcha;
 
 class ReCaptchaRule implements Rule
 {
@@ -30,25 +31,33 @@ class ReCaptchaRule implements Rule
     public function passes($attribute, $value)
     {
         if (empty($value)) {
-            $this->error_msg = ':attribute field is required.';
+            $this->error_msg = 'Recaptcha field could not be loaded. Please try again.';
             
             return false;
         }
 
-        $recaptcha = new ReCaptcha(env('RECAPTCHA_SECRET'));
-        $resp = $recaptcha->setExpectedHostname($_SERVER['SERVER_NAME'])
-                          ->setScoreThreshold(0.5)
-                          ->verify($value, $_SERVER['REMOTE_ADDR']);
+        $client = new Client();
 
-        if (!$resp->isSuccess()) {
-            $this->error_msg = 'ReCaptcha field is required.';            
+        $response = $client->post('https://www.google.com/recaptcha/api/siteverify', [
+            'form_params' => [
+                'secret' => env('RECAPTCHAV3_SECRET'),
+                'response' => $value,
+            ]
+        ]);
+
+        $response = json_decode((string) $response->getBody(), true);
+
+        if (!$response['success']) {
+            $this->error_msg = 'Recaptcha failed. Please try again.';
             return false;
         }
-
-        if ($resp->getScore() < 0.5) {
-            $this->error_msg = 'Looks like you are a bot :( Please try again.';
+        
+        if ($response['score'] < 0.5) {
+            $this->error_msg = 'Recaptcha failed. Please try again.';
             return false;
         }
+        
+        return true;
     }
 
     /**

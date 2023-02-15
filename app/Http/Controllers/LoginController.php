@@ -12,13 +12,14 @@ use App\Enums\UserRole;
 use App\Enums\AccountStatus;
 use App\Helpers\DiscordHelper;
 use RealRashid\SweetAlert\Facades\Alert;
-use App\Rules\ReCaptchaRule;
 use App\Models\City;
 use App\Models\Institutes;
 use App\Models\Locality;
 use Illuminate\Auth\Events\Registered;
 use App\Models\UserVerify;
 use App\Jobs\SendAccountVerificationMail;
+use App\Rules\ReCaptchaRule;
+
 
 class LoginController extends Controller
 {
@@ -33,7 +34,8 @@ class LoginController extends Controller
         $request->validate([
             'email' => 'required|email',
             'password' => 'required',
-            'redirect' => 'nullable|url',            
+            'redirect' => 'nullable|url',
+            'recaptcha' => ['required', new ReCaptchaRule]
         ]);
 
         $credentials = [
