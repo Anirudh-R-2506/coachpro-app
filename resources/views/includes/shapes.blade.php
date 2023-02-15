@@ -1,12 +1,12 @@
 <style>
-  svg {
+  #shapes svg {
     width: 100% !important;
   }
 </style>
 <div class="fixed top-0 left-0 w-full h-full" style="background-color: transparent !important; z-index: -1 !important; box-shadow: none !important;">
   <div class="" style="background-color: transparent !important;">
     <div class="flex items-center w-full h-1/2" style="background-color: transparent !important;">
-      <span class="left-0 " data-aos="fade-zoom-in" data-aos-delay="400" style="transform: rotateX(-180deg); box-shadow: none !important; z-index: -1 !important; background-color: transparent !important; width: 50vw !important; height: 50vh !important;">
+      <span class="left-0 " id="shapes" data-aos="fade-zoom-in" data-aos-delay="400" style="transform: rotateX(-180deg); box-shadow: none !important; z-index: -1 !important; background-color: transparent !important; width: 50vw !important; height: 50vh !important;">
           <svg
             width="500"
             height="470"
@@ -40,7 +40,7 @@
             />
           </svg>
         </span> 
-        <span class="right-0 " data-aos="fade-zoom-in" data-aos-delay="400" style="transform: rotateX(180deg);box-shadow: none !important; z-index: -1 !important; background-color: transparent !important; width: 50vw !important; height: 50vh !important;">
+        <span class="right-0 " id="shapes" data-aos="fade-zoom-in" data-aos-delay="400" style="transform: rotateX(180deg);box-shadow: none !important; z-index: -1 !important; background-color: transparent !important; width: 50vw !important; height: 50vh !important;">
           <svg
             width="493"
             height="470"
@@ -77,7 +77,7 @@
         </span>       
     </div>
     <div class="flex items-center w-full h-1/2" style="background-color: transparent !important;">
-      <span data-aos="fade-zoom-in" data-aos-delay="400" class="right-0 " style="z-index: -1 !important; box-shadow: none !important; background-color: transparent !important; width: 50vw !important; height: 50vh !important;">
+      <span data-aos="fade-zoom-in" id="shapes" data-aos-delay="400" class="right-0 " style="z-index: -1 !important; box-shadow: none !important; background-color: transparent !important; width: 50vw !important; height: 50vh !important;">
         <svg
           width="500"
           height="470"
@@ -111,7 +111,7 @@
           />
         </svg>
       </span>        
-        <span data-aos="fade-zoom-in" data-aos-delay="400" class="left-0 " style="z-index: -1 !important; box-shadow: none !important; background-color: transparent !important; width: 50vw !important; height: 50vh !important;">
+        <span data-aos="fade-zoom-in" id="shapes" data-aos-delay="400" class="left-0 " style="z-index: -1 !important; box-shadow: none !important; background-color: transparent !important; width: 50vw !important; height: 50vh !important;">
           <svg
             width="493"
             height="470"

@@ -2,6 +2,203 @@
 
 @section('content')
     
+    <style>
+        * {
+        box-sizing: border-box;
+        }
+
+        body {
+        background: black;
+        }
+
+        .scroll-prompt {
+        position: fixed;
+        z-index: 998;
+        left: 50%;
+        margin-left: -80px;
+        width: 160px;
+        margin-top: 7rem;
+        }
+        .scroll-prompt .scroll-prompt-arrow-container {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        margin-left: -18px;
+        -webkit-animation-name: bounce;
+                animation-name: bounce;
+        -webkit-animation-duration: 1.5s;
+                animation-duration: 1.5s;
+        -webkit-animation-iteration-count: infinite;
+                animation-iteration-count: infinite;
+        }
+        .scroll-prompt .scroll-prompt-arrow {
+        -webkit-animation-name: opacity;
+                animation-name: opacity;
+        -webkit-animation-duration: 1.5s;
+                animation-duration: 1.5s;
+        -webkit-animation-iteration-count: infinite;
+                animation-iteration-count: infinite;
+        }
+        .scroll-prompt .scroll-prompt-arrow:last-child {
+        animation-direction: reverse;
+        margin-top: -6px;
+        }
+        .scroll-prompt .scroll-prompt-arrow > div {
+        width: 36px;
+        height: 36px;
+        border-right: 8px solid #bebebe;
+        border-bottom: 8px solid #bebebe;
+        transform: rotate(45deg) translateZ(1px);
+        }
+
+        @-webkit-keyframes opacity {
+        0% {
+            opacity: 0;
+        }
+        10% {
+            opacity: 0.1;
+        }
+        20% {
+            opacity: 0.2;
+        }
+        30% {
+            opacity: 0.3;
+        }
+        40% {
+            opacity: 0.4;
+        }
+        50% {
+            opacity: 0.5;
+        }
+        60% {
+            opacity: 0.6;
+        }
+        70% {
+            opacity: 0.7;
+        }
+        80% {
+            opacity: 0.8;
+        }
+        90% {
+            opacity: 0.9;
+        }
+        100% {
+            opacity: 1;
+        }
+        }
+
+        @keyframes opacity {
+        0% {
+            opacity: 0;
+        }
+        10% {
+            opacity: 0.1;
+        }
+        20% {
+            opacity: 0.2;
+        }
+        30% {
+            opacity: 0.3;
+        }
+        40% {
+            opacity: 0.4;
+        }
+        50% {
+            opacity: 0.5;
+        }
+        60% {
+            opacity: 0.6;
+        }
+        70% {
+            opacity: 0.7;
+        }
+        80% {
+            opacity: 0.8;
+        }
+        90% {
+            opacity: 0.9;
+        }
+        100% {
+            opacity: 1;
+        }
+        }
+        @-webkit-keyframes bounce {
+        0% {
+            transform: translateY(0);
+        }
+        10% {
+            transform: translateY(3px);
+        }
+        20% {
+            transform: translateY(6px);
+        }
+        30% {
+            transform: translateY(9px);
+        }
+        40% {
+            transform: translateY(12px);
+        }
+        50% {
+            transform: translateY(15px);
+        }
+        60% {
+            transform: translateY(18px);
+        }
+        70% {
+            transform: translateY(21px);
+        }
+        80% {
+            transform: translateY(24px);
+        }
+        90% {
+            transform: translateY(27px);
+        }
+        100% {
+            transform: translateY(30px);
+        }
+        }
+        @keyframes bounce {
+        0% {
+            transform: translateY(0);
+        }
+        10% {
+            transform: translateY(3px);
+        }
+        20% {
+            transform: translateY(6px);
+        }
+        30% {
+            transform: translateY(9px);
+        }
+        40% {
+            transform: translateY(12px);
+        }
+        50% {
+            transform: translateY(15px);
+        }
+        60% {
+            transform: translateY(18px);
+        }
+        70% {
+            transform: translateY(21px);
+        }
+        80% {
+            transform: translateY(24px);
+        }
+        90% {
+            transform: translateY(27px);
+        }
+        100% {
+            transform: translateY(30px);
+        }
+        }
+    </style>
+
+    <div class="relative overflow-hidden" data-aos="fade-zoom-in" data-aos-delay="250">
+        <video muted autoplay loop id="myVideo" style="width: 100vw; height: 100%;">
+            <source src="{{ asset("videos/about.mp4") }}" type="video/mp4" />
+        </video>
+    </div>
 
     <!-- ====== Hero Section Start -->
     <div id="home" class="relative overflow-hidden bg-primary pt-[120px] md:pt-[130px] lg:pt-[160px]">
@@ -10,19 +207,29 @@
                 <div class="w-full px-4">
                     <div class="hero-content mx-auto max-w-[780px] text-center">
                         <h1 data-aos="fade-zoom-up" data-aos-easing="ease-in-back"
-                            class="mb-8 text-3xl font-bold leading-snug text-white sm:text-4xl sm:leading-snug md:text-[45px] md:leading-snug">
-                            Edu Hunt
+                            class="mb-8 font-bold leading-snug text-white sm:text-2xl"
+                            style="font-size: 3rem; line-height: 1;">
+                            EDU HUNT
                         </h1>
                         <p
                             data-aos="fade-zoom-up" data-aos-easing="ease-in-back" data-aos-delay="150"
                             class="mx-auto mb-10 max-w-[600px] text-base text-[#e4e4e4] sm:text-lg sm:leading-relaxed md:text-xl md:leading-relaxed">
-                            Edu Hunt is a platform for students to find the best tutors and courses for their educational needs.                        </p>
+                            Edu Hunt is a platform for students to find the best tutors and courses for their educational needs. You can register your institute with us and help us revolutionize the industry</p>
                         <ul class="flex flex-wrap items-center justify-center mb-10" data-aos="fade-zoom-up" data-aos-easing="ease-in-back" data-aos-delay="300">
-                            <li>
-                                <a href="{{ route('institute.signin') }}"
-                                    class="inline-flex items-center justify-center px-6 py-4 text-base font-medium text-center transition duration-300 ease-in-out bg-white rounded-lg text-dark hover:text-primary hover:shadow-lg sm:px-10">
-                                    Sign up now
-                                </a>
+                            
+                            <li class="mb-2">
+                                <span class="inline-block px-6 py-3 text-base font-medium text-white transition duration-300 ease-in-out rounded-full shadow-lg bg-primary-500 hover:opacity-70">
+                                    <span @click="" class="inline-block px-6 py-3 text-base font-medium text-gray-500 transition duration-300 ease-in-out rounded-full shadow-lg bg-primary-500 hover:opacity-70">
+                                        Scroll to know more
+                                    </span>
+                                </span>
+                            </li>
+
+                            <li class="scroll-prompt" scroll-prompt="" ng-show="showPrompt" style="opacity: 1;">
+                                <div class="scroll-prompt-arrow-container">
+                                    <div class="scroll-prompt-arrow"><div></div></div>
+                                    <div class="scroll-prompt-arrow"><div></div></div>
+                                </div>
                             </li>
                             <!--
                     <li>
@@ -61,8 +268,17 @@
                 <div class="w-full px-4">
                     <div class="relative z-10 mx-auto max-w-[845px]" data-aos="fade-zoom-up" data-aos-easing="ease-in-back" data-aos-delay="350">
                         <div class="mt-16">
-                            <img src={{asset('images/hero/hero-image.jpg')}} alt="hero"
-                                class="max-w-full mx-auto rounded-t-xl rounded-tr-xl" />
+                            {{-- <video id="my-video" class="max-w-full mx-auto rounded-t-xl rounded-tr-xl video-js vjs-theme-sea" data-aos="fade-up" data-aos-delay="250"
+                            controls preload="auto" width="640px" height="500px" poster="{{ asset("images/about/cover.png") }}"
+                            data-setup="{}">
+                            <source src="{{ asset("videos/about.mp4") }}" type="video/mp4" />
+                            <p class="vjs-no-js">
+                              To view this video please enable JavaScript, and consider upgrading to a
+                              web browser that
+                              <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5
+                                video</a>
+                            </p>
+                            </video> --}}
                         </div>
                         <div class="absolute bottom-0 -left-9 z-[-1]">
                             <svg width="134" height="106" viewBox="0 0 134 106" fill="none"
@@ -402,8 +618,133 @@
     <!-- ====== Hero Section End -->
 
     <!-- ====== About Section Start -->
-    <section id="about" class="bg-transparent pt-20 pb-20 lg:pt-[120px] lg:pb-[120px]">
-        <div class="container">
+    <section id="about" class="bg-transparent mt-10 pt-20 pb-20 lg:pt-[120px] lg:pb-[120px]">
+
+        <div class="container mb-20">
+            <div class="flex flex-wrap -mx-4">
+                <div class="w-full px-4 lg:w-1/2">
+                    <div class="items-center justify-between overflow-hidden">
+                        <h1 class="text-4xl font-bold leading-tight text-[#090E34] lg:text-5xl" data-aos="fade-down">
+                            A one stop business solution for your institute
+                        </h1>
+                    </div>
+                </div>
+                <div class="w-full px-4 mt-6 lg:w-1/2 lg:mt-0">
+                    <div class="items-center justify-between overflow-hidden">
+                        <div class="flex flex-row text-[#090E34] mb-12" data-aos="fade-up">                            
+                            <i class="w-8 h-8 mr-5 fa-solid text-primary fa-layer-group"></i>                       
+                            <div class="flex flex-col">
+                                <h1 class="mb-2 text-2xl font-semibold leading-tight">
+                                    Edu Hunt reports
+                                </h1>
+                                <p class="text-base font-normal leading-tight text-gray-600">
+                                    Register with us and get detailed reports on leads and converted leads towards your institute.
+                                </p>
+                            </div>                            
+                        </div>
+                        <div class="flex flex-row text-[#090E34] mb-12" data-aos="fade-up" data-aos-delay="100">                            
+                            <i class="w-8 h-8 mr-5 fa-solid text-primary fa-arrows-split-up-and-left"></i>                        
+                            <div class="flex flex-col">
+                                <h1 class="mb-2 text-2xl font-semibold leading-tight">
+                                    Flexibility
+                                </h1>
+                                <p class="text-base font-normal leading-tight text-gray-600">
+                                    Receive your EduHunt report at a time that suits you. We are flexible.
+                                </p>
+                            </div>                            
+                        </div>
+                        <div class="flex flex-row text-[#090E34] mb-12" data-aos="fade-up" data-aos-delay="200">                            
+                            <i class="w-8 h-8 mr-5 fa-solid text-primary fa-money-bill"></i>                                
+                            <div class="flex flex-col">
+                                <h1 class="mb-2 text-2xl font-semibold leading-tight">
+                                    Predictable costs and billing
+                                </h1>
+                                <p class="text-base font-normal leading-tight text-gray-600">
+                                    Always know for what you are paying per month and how much you are paying. No hidden costs.
+                                </p>
+                            </div>                            
+                        </div>
+                        <div class="flex flex-row text-[#090E34] mb-12" data-aos="fade-up" data-aos-delay="300">                            
+                            <i class="w-8 h-8 mr-5 fa-solid text-primary fa-headset"></i>                                
+                            <div class="flex flex-col">
+                                <h1 class="mb-2 text-2xl font-semibold leading-tight">
+                                    24/7 support
+                                </h1>
+                                <p class="text-base font-normal leading-tight text-gray-600">
+                                    We are always there to help you. Our support team is available 24/7 to help you with any issue.
+                                </p>
+                            </div>                            
+                        </div>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <style>
+            .more-info {
+                background-image: linear-gradient(
+                    45deg,
+                    hsl(233deg 70% 12%) 1%,
+                    hsl(232deg 70% 18%) 47%,
+                    hsl(231deg 69% 25%) 51%,
+                    hsl(229deg 68% 31%) 50%,
+                    hsl(228deg 67% 38%) 49%,
+                    hsl(227deg 65% 44%) 53%,
+                    hsl(226deg 65% 51%) 99%
+                ) !important;
+                min-width: 100vw !important;
+                min-height: 100vh !important;
+            }
+        </style>
+
+        <div class="flex flex-col items-center justify-center p-20 mb-20 text-center more-info" data-aos="fade-zoom-in">
+            <h2 class="mx-auto my-auto text-xl font-bold leading-normal tracking-wider text-gray-300 lg:text-4xl text-ellipsis mb-15" data-aos="fade-zoom-up" data-aos-delay="250">
+                <span class="text-2xl lg:text-5xl" style="color: #f3f4ff !important;">REGISTER</span> AND GET <span class="text-2xl lg:text-5xl" style="color: #f3f4ff !important;">FREE</span> ACCESS TO THESE RESOURCES
+            </h2>
+            <div class="grid w-full md:grid-cols-3 space-x-28 sm:grid-cols-1">
+                <div class="flex flex-col items-center text-center" data-aos="fade-up" data-aos-delay="300">
+                    <lottie-player src="{{asset('images/lottie/reports.json')}}" background="transparent"
+                        speed="1" style="width: 200px; height: 200px;" loop autoplay></lottie-player>    
+                    <h1 class="text-2xl font-bold leading-tight text-white">Edu Hunt Reports</h1>
+                </div>
+                <div class="flex flex-col items-center text-center" data-aos="fade-up" data-aos-delay="350">
+                    <lottie-player src="{{asset('images/lottie/marketing.json')}}" background="transparent"
+                        speed="1" style="width: 200px; height: 200px;" loop autoplay></lottie-player>    
+                    <h1 class="text-2xl font-bold leading-tight text-white">Marketing</h1>
+                </div>
+                <div class="flex flex-col items-center text-center" data-aos="fade-up" data-aos-delay="400">
+                    <lottie-player src="{{asset('images/lottie/support.json')}}" background="transparent"
+                        speed="1" style="width: 200px; height: 200px;" loop autoplay></lottie-player>    
+                    <h1 class="text-2xl font-bold leading-tight text-white">Personal Manager</h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="container pt-20 md:pt-[120px]">
+            <div class="flex flex-wrap -mx-4">
+                <div class="w-full px-4">
+                    <div class="top mx-auto mb-[60px] max-w-[620px] text-center lg:mb-20" data-aos="fade-zoom-in" data-aos-delay="250">
+                        <h2 class="mb-4 text-3xl font-bold text-primary sm:text-4xl md:text-[42px]" data-aos="fade-zoom-up" data-aos-easing="ease-in-back">
+                            Exciting isn't it?
+                        </h2>
+                        <p class="text-lg leading-relaxed text-body-color sm:text-xl sm:leading-relaxed" data-aos="fade-zoom-up" data-aos-easing="ease-in-back" data-aos-delay="100">
+                            We sure are excited to have you on board. Join us and give a boost to your institute's growth :)
+                        </p>
+                        <a
+                        data-aos-easing="ease-in-back" data-aos-delay="200" data-aos="fade-zoom-up"
+                        href="{{route('institute.signin') . '?s=1'}}"
+                        class="inline-flex items-center justify-center px-6 py-4 mt-6 text-base font-medium text-white transition duration-300 ease-in-out rounded bg-primary hover:bg-dark"
+                        >
+                            Let's Go!
+                        </a>
+                        <lottie-player data-aos-easing="ease-in-back" data-aos-delay="300" data-aos="fade-zoom-up" src="{{asset('images/lottie/rocket.json')}}" class="mt-10" background="transparent"
+                            speed="1" style="width: 100%; height: 100%;" loop autoplay></lottie-player>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container pt-20 md:pt-[120px]">
             <div class="bg-white">
                 <div class="flex flex-wrap -mx-4">
                     <div class="w-full px-4">
@@ -415,10 +756,10 @@
                                     About Us
                                 </span>
                                 <h2 class="mb-6 text-3xl font-bold text-dark sm:text-4xl sm:leading-snug 2xl:text-[40px]">
-                                    Your Partner in Revolutionizing Offline Learning .
+                                    Your Partner in Revolutionizing Offline Learning
                                 </h2>
                                 <p class="text-base leading-relaxed mb-9 text-body-color">
-                                    We are dedicated to revolutionizing the way students find and connect with quality tutorial services. Our platform brings together students, parents, and tutors to provide a comprehensive solution for offline learning. Our goal is to make it easier for students to get the help they need to succeed in their studies and for tutorial services to reach more students and grow their businesses.
+                                    We are dedicated to changing the way students find and connect with quality tutorial services. Our platform brings together students, parents, and tutors to provide a comprehensive solution for offline learning. Our goal is to make it easier for students to get the help they need to succeed in their studies and for tutorial services to reach more students and grow their businesses.
                                 </p>
                                 <p class="text-base leading-relaxed mb-9 text-body-color">
                                     As a registered institute on our platform, you'll benefit from our expertise in digital marketing and our commitment to providing a seamless user experience. Our team of experts will work closely with you to understand your unique needs and help you achieve your goals. Whether you're just starting out or you're an established tutorial service, our platform is the perfect solution for growing your business and reaching more students. We're here to help, so get in touch with us today!
@@ -434,11 +775,12 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>        
     </section>
     <!-- ====== About Section End -->
+{{-- 
+    <!-- ====== Feature Section Start -->
 
-    <!-- ====== Faq Section Start -->
     <section id="faq" class="relative top overflow-hidden pt-20 pb-12 lg:pt-[120px] lg:pb-[90px]">
         <div class="container">
             <div class="flex flex-wrap -mx-4">
@@ -453,6 +795,28 @@
                         <p class="text-lg leading-relaxed text-body-color sm:text-xl sm:leading-relaxed">
                             There are many variations of passages of Lorem Ipsum available
                             but the majority have suffered alteration in some form.
+                        </p>
+                    </div>
+                </div>
+            </div>            
+        </div>
+    </section> --}}
+
+
+    <!-- ====== Faq Section Start -->
+    <section id="faq" class="relative top overflow-hidden pt-20 pb-12 lg:pt-[120px] lg:pb-[90px]">
+        <div class="container">
+            <div class="flex flex-wrap -mx-4">
+                <div class="w-full px-4">
+                    <div class="top mx-auto mb-[60px] max-w-[620px] text-center lg:mb-20" data-aos="fade-zoom-in" data-aos-delay="250">
+                        <span class="block mb-2 text-lg font-semibold text-primary">
+                            FAQ
+                        </span>
+                        <h2 class="mb-4 text-3xl font-bold text-dark sm:text-4xl md:text-[42px]">
+                            Any Questions? Answered
+                        </h2>
+                        <p class="text-lg leading-relaxed text-body-color sm:text-xl sm:leading-relaxed">
+                            Find answers to common questions about our platform
                         </p>
                     </div>
                 </div>
@@ -630,7 +994,7 @@
     <!-- ====== Faq Section End -->
 
     <!-- ====== Testimonials Start ====== -->
-    <section id="testimonials" class="pt-20 md:pt-[120px]">
+    {{-- <section id="testimonials" class="pt-20 md:pt-[120px]">
         <div class="container px-4">
             <div class="flex flex-wrap">
                 <div class="w-full mx-4">
@@ -642,8 +1006,8 @@
                             What our Client Say
                         </h2>
                         <p class="text-lg leading-relaxed text-body-color sm:text-xl sm:leading-relaxed">
-                            There are many variations of passages of Lorem Ipsum available
-                            but the majority have suffered alteration in some form.
+                            We are a team of professionals who are passionate about providing the best
+                            services to our clients.
                         </p>
                     </div>
                 </div>
@@ -811,12 +1175,14 @@
                 </div>
             </div>            
         </div>
-    </section>
+    </section> --}}
     <!-- ====== Testimonials End ====== -->
 
 
 
-    @include('includes.contact-form')
+    <div id="contact">
+        @include('includes.contact-form')
+    </div>
 
     <!-- ====== All Scripts -->
 
@@ -864,7 +1230,5 @@
 
         window.document.addEventListener("scroll", onScroll);
     </script>
-    </body>
-
-    </html>
+    <script src="https://vjs.zencdn.net/7.20.3/video.min.js"></script>
 @endsection

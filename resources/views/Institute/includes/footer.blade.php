@@ -46,31 +46,31 @@
             <h4 class="text-lg font-semibold text-white mb-9">Quick Links</h4>
             <ul>
               <li>
-                <a href="#"
+                <a href="#home"
                   class="mb-2 inline-block text-base leading-loose text-[#f3f4fe] hover:text-primary">
                   Home
                 </a>
               </li>              
               <li>
-                <a href="#"
+                <a href="#about"
                   class="mb-2 inline-block text-base leading-loose text-[#f3f4fe] hover:text-primary">
                   About
                 </a>
               </li>
               <li>
-                <a href="#"
+                <a href="#faq"
                   class="mb-2 inline-block text-base leading-loose text-[#f3f4fe] hover:text-primary">
-                  Edu Hunt
+                  FAQ
                 </a>
               </li>
               <li>
-                <a href="#"
+                <a href="#contact"
                   class="mb-2 inline-block text-base leading-loose text-[#f3f4fe] hover:text-primary">
                   Contact
                 </a>
               </li>
               <li>
-                <a href="#"
+                <a href="{{route('institute.signin')}}"
                   class="mb-2 inline-block text-base leading-loose text-[#f3f4fe] hover:text-primary">
                   Login/Sign Up
                 </a>
@@ -85,7 +85,7 @@
               <li>
                 <a href="{{ route('frontend.index') . '/#tutorial' }}"
                   class="mb-2 inline-block text-base leading-loose text-[#f3f4fe] hover:text-primary">
-                  How it works
+                  MoU
                 </a>
               </li>
               <li>
@@ -207,7 +207,7 @@
                   Privacy policy
                 </a>
                 <a href="javascript:void(0)" class="px-3 text-base text-[#f3f4fe] hover:text-primary">
-                  Legal notice
+                  MoU
                 </a>
                 <a href="javascript:void(0)" class="px-3 text-base text-[#f3f4fe] hover:text-primary">
                   Terms of service
