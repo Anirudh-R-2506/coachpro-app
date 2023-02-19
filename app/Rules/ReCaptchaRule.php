@@ -30,6 +30,11 @@ class ReCaptchaRule implements Rule
      */
     public function passes($attribute, $value)
     {
+
+        if (env('APP_ENV') == 'local') {
+            return true;
+        }
+
         if (empty($value)) {
             $this->error_msg = 'Recaptcha field could not be loaded. Please try again.';
             

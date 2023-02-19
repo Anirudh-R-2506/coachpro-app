@@ -197,7 +197,7 @@ trait Enum {
         return $response;
     }    
 
-    public function getBadge(): string
+    public function getBadge($value): string
     {
         $this->checkEnum();
         $label = array_search($value, array_column($this->enum, 'value'));

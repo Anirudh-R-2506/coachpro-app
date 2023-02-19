@@ -84,8 +84,7 @@ data-wow-delay=".2s
       >
         Login
       </button>
-    </div>    
-  </div>
+    </div>      
     <input type="hidden" name="redirect" :value="redirect">
     <input type="hidden" id="recaptcha" name="recaptcha">
   </form>

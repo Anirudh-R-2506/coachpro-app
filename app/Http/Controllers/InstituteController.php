@@ -9,6 +9,8 @@ use App\Models\User;
 use App\Models\City;
 use App\Models\Locality;
 use App\Models\Faculties;
+use App\Models\Courses;
+use App\Models\Examinations;
 use Alert;
 
 class InstituteController extends Controller
@@ -23,6 +25,69 @@ class InstituteController extends Controller
     {
         return view('institute.admin.index');
     }
+
+    public function courses()
+    {
+        $inst_id = auth()->user()->institute_id;
+        $institute = Institutes::find($inst_id);
+        $courses = Courses::where('institute_id', $inst_id)->get();
+
+        return view('institute.admin.courses.index', [
+            'courses' => $courses,
+        ]);
+    }
+
+    public function create_course()
+    {
+        $inst_id = auth()->user()->institute_id;
+        $institute = Institutes::find($inst_id);
+        $faculties = Faculties::where('institute_id', $inst_id)->get();
+        $examinations = Examinations::all();
+
+        return view('institute.admin.courses.create', [
+            'institute' => $institute,
+            'faculties' => $faculties,
+            'examinations' => $examinations,
+        ]);
+    }
+
+    public function edit_course($id)
+    {
+        $course = Courses::find($id);
+        if ($course == null){
+            Alert::error('Oops!', 'Could not find course :(');
+            return redirect()->back()->withInput();
+        }
+        $inst_id = $course->institute_id;
+        $institute = Institutes::find($inst_id);
+        $faculties = Faculties::where('institute_id', $inst_id)->get();
+        $examinations = Examinations::all();
+
+        return view('institute.admin.courses.edit', [
+            'institute' => $institute,
+            'faculties' => $faculties,
+            'examinations' => $examinations,
+            'course' => $course,
+        ]);
+    }
+
+    public function delete_course($id)
+    {
+        $course = Courses::find($id);
+        if ($course == null){
+            Alert::error('Oops!', 'Could not find course :(');
+            return redirect()->back()->withInput();
+        }
+        $course->delete();
+        Alert::success('Success!', 'Course deleted successfully :D');
+        return redirect()->route('institute.dashboard.courses.index');
+    }
+
+    public function store_course(Request $request)
+    {}
+
+    public function update_course(Request $request, $id)
+    {}
 
     public function profile()
     {

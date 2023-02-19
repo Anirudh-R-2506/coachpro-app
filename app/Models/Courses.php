@@ -66,6 +66,20 @@ class Courses extends Model
                     'icon' => 'times',
                     'label' => 'Disabled'
                 ]
+            ],
+            'bookings_status' => [
+                'ENABLED' => [
+                    'value' => '0',
+                    'color' => 'success',
+                    'icon' => 'check',
+                    'label' => 'Enabled'
+                ],
+                'DISABLED' => [
+                    'value' => '1',
+                    'color' => 'danger',
+                    'icon' => 'times',
+                    'label' => 'Disabled'
+                ]
             ]
         ];
     }

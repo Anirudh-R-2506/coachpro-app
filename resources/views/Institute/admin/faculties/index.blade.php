@@ -167,45 +167,56 @@
         </div>
         </div>
 
-        <div class="mt-3 card mild-border" style="border-radius: 1.5rem;">
+        <div class="p-2 mt-3 card mild-border" style="border-radius: 1.5rem;">
             <div class="card-body" style="padding: 0px !important;">
                 <div class="mb-2 row">
                     <div class="px-4 py-2 col-md-12">                            
-                        @include('includes.search-filter', [
-                                'filters' => null,
-                                'table' => 'table',
-                                'search' => true,
-                                'placeholder' => 'Search any faculty...',
-                        ])
-                        <table id="table" class="table table-striped mild-border-t mild-border-b" style="width:100%; font-size: 1rem; margin-top: 20px;">
-                            <thead>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Qualification</th>
-                                    <th>Experience</th>
-                                    <th class="actions-th"></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach($faculties as $user)
-                                <tr>
-                                    <td class="col-4">{{ $user->name }}</td>
-                                    <td class="col-4">{{ $user->qualification }}</td>
-                                    <td class="col-4">{{ $user->experience }}</td>                                    
-                                    <td class="action-edit">
-                                        <div class="inner">
-                                            <a class="icon" href="{{ route('institute.dashboard.faculties.edit', $user->id) }}">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                                    <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"></path>
-                                                </svg>        
-                                                Edit                                    
-                                            </a>                                    
-                                        </div>
-                                    </td>
-                                </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
+                        @if($faculties->count() > 0)
+                            @include('includes.search-filter', [
+                                    'filters' => null,
+                                    'table' => 'table',
+                                    'search' => true,
+                                    'placeholder' => 'Search any faculty...',
+                            ])
+                            <table id="table" class="table table-striped mild-border-t mild-border-b" style="width:100%; font-size: 1rem; margin-top: 20px;">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Qualification</th>
+                                        <th>Experience</th>
+                                        <th class="actions-th"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach($faculties as $user)
+                                    <tr>
+                                        <td class="col-4">{{ $user->name }}</td>
+                                        <td class="col-4">{{ $user->qualification }}</td>
+                                        <td class="col-4">{{ $user->experience }}</td>                                    
+                                        <td class="action-edit">
+                                            <div class="inner">
+                                                <a class="icon" href="{{ route('institute.dashboard.faculties.edit', $user->id) }}">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                        <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"></path>
+                                                    </svg>        
+                                                    Edit                                    
+                                                </a>                                    
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        @else
+                            <div class="mt-2">
+                                <img src="{{ asset('images/empty.png') }}" class="mx-auto mb-4 d-block">
+                                <h1 class="text-center">
+                                    <strong>
+                                        No faculties found
+                                    </strong>
+                                </h1>
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>

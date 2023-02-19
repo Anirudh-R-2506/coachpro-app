@@ -4,6 +4,7 @@
             showFilters: false,
             table: null,
             searchValue: '',
+            filter: 'all',
 
             init () {
                 this.table = $('#{{$table}}').DataTable();
@@ -63,9 +64,9 @@
                                     <div class="filter">
                                         <div>
                                             <select name="filter">
-                                                <option value="all" selected>All</option>
+                                                <option value="all" @click="filter = 'all'" selected>All</option>
                                                 @foreach ($values as $value)
-                                                    <option value="{{$value}}">{{$value}}</option>
+                                                    <option value="{{$value}}" @click="filter = '{{$value}}'">{{$value}}</option>
                                                 @endforeach
                                             </select>
                                         </div>

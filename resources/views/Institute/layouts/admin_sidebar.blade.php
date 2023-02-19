@@ -155,6 +155,12 @@
         </a>
     </li>
 
+    <li class="mb-2 sidebar-item" id="{{ Nav::isRoute('institute.dashboard.courses.index') }}">
+      <a class="sidebar-link" href="{{ route('institute.dashboard.courses.index') }}">
+          <i class="align-middle" data-feather="database"></i> <span class="align-middle">Courses</span>
+      </a>
+    </li>
+
     <li class="mb-2 sidebar-item" id="{{ Nav::isRoute('institute.dashboard.photos.index') }}">
         <a class="sidebar-link" href="{{ route('institute.dashboard.photos.index') }}">
             <i class="align-middle" data-feather="camera"></i> <span class="align-middle">Photos</span>
@@ -167,7 +173,7 @@
       </a>
     </li>
 
-    {{-- <li class="sidebar-header">
+    <li class="sidebar-header">
       Operations
     </li>
 
@@ -180,6 +186,6 @@
       <a class="sidebar-link" href="#">
         <i class="align-middle" data-feather="user-check"></i> <span class="align-middle">Bookings</span>
       </a>
-    </li> --}}
+    </li>
     
  </ul>

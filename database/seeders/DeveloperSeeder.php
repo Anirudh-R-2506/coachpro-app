@@ -35,6 +35,18 @@ class DeveloperSeeder extends Seeder
         ];
     }
 
+    public function examinations()
+    {
+        return [
+            [
+                'name' => 'JEE Main',
+            ],
+            [
+                'name' => 'JEE Advanced',
+            ]
+        ];
+    }    
+
     /**
      * Run the database seeds.
      *
@@ -47,6 +59,12 @@ class DeveloperSeeder extends Seeder
         foreach($users as $user) {
             \App\Models\User::updateOrCreate($user);
             $this->command->info('User created: ' . $user['name']);
+        }
+
+        $examinations = $this->examinations();
+        foreach($examinations as $examination) {
+            \App\Models\Examinations::updateOrCreate($examination);
+            $this->command->info('Examination created: ' . $examination['name']);
         }
     }
 }

@@ -32,7 +32,7 @@
             </h1>    
         </div>
        
-        <div class="p-2 mt-3 card" x-data="showUnsavedAlert()">
+        <div class="p-2 mt-3 card mild-border" style="border-radius: 1.5rem;" x-data="showUnsavedAlert()">
             <form action="{{ route('institute.dashboard.profile.update') }}" method="POST" id="profile_update_form">
                 @csrf
                 <div class="card-body">
