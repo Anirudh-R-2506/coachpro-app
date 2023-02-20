@@ -41,6 +41,7 @@ class VerificationController extends Controller
                     if ($user->account_status == AccountStatus::UNVERIFIED){
                         $user->account_status = AccountStatus::VERIFIED;
                         $user->save();
+                        $verify->delete();
                         Alert::success('Success!', 'Your email has been verified :D');
                         return redirect()->route(auth()->user()->role == UserRole::STUDENT ? 'frontend.index' : 'institute.index');
                     }
