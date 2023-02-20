@@ -52,7 +52,7 @@ class SendAccountVerificationMail implements ShouldQueue
             $verify->save();
         }
 
-        $url = $user->role == '1' ? route('institute.services.verification.verify', ['token' => $token]) : route('services.verification.verify', ['token' => $token]);
+        $url = $this->user->role == '1' ? route('institute.services.verification.verify', ['token' => $token]) : route('services.verification.verify', ['token' => $token]);
 
         Mail::to($this->user->email)->send(new AccountVerificationMail($url));
         
