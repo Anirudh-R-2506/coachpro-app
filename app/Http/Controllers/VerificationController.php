@@ -27,36 +27,33 @@ class VerificationController extends Controller
     }
 
     public function verify($token)
-    {
-        $verify = UserVerify::where('token', $token)->first();
+    {        
 
+        if (!auth()->check()){
+            Alert::error('Oops!', 'You are not logged in :(');
+            return redirect()->route('institute.signin');
+        }
+
+        $user = auth()->user();
+        $verify = UserVerify::where('token', $token)->first();
         if ($verify){
-            if (!auth()->check()){
-                Alert::error('Oops!', 'You are not logged in :(');
-                return redirect()->route('institute.signin');
+            if ($verify->user_id == $user->id){
+                $user->status = AccountStatus::ACTIVE;
+                $user->save();
+                $verify->delete();
+                Alert::success('Success!', 'Your account has been verified :D');
+                return redirect()->route(auth()->user()->role == UserRole::STUDENT ? 'frontend.index' : 'institute.index');
             }
             else{
-                $user = auth()->user();
-                if ($user->id == $verify->user_id){
-                    if ($user->account_status == AccountStatus::UNVERIFIED){
-                        $user->account_status = AccountStatus::VERIFIED;
-                        $user->save();
-                        $verify->delete();
-                        Alert::success('Success!', 'Your email has been verified :D');
-                        return redirect()->route(auth()->user()->role == UserRole::STUDENT ? 'frontend.index' : 'institute.index');
-                    }
-                    else{
-                        Alert::success('Success!', 'Your email has already been verified :D');
-                        return redirect()->route(auth()->user()->role == UserRole::STUDENT ? 'frontend.index' : 'institute.index');
-                    }
-                }
-                else{
-                    Alert::error('Oops!', 'Your verification token is invalid :(');
-                    return redirect()->route(auth()->user()->role == UserRole::STUDENT ? 'frontend.index' : 'institute.index');
-                }
-            }
+                Alert::error('Oops!', 'Your verification token is invalid :(');
+                return redirect()->route(auth()->user()->role == UserRole::STUDENT ? 'frontend.index' : 'institute.index');
+            }            
         }
         else{
+            if ($user->status == AccountStatus::ACTIVE){
+                Alert::success('Success!', 'Your account has already been verified :D');
+                return redirect()->route(auth()->user()->role == UserRole::STUDENT ? 'frontend.index' : 'institute.index');
+            }
             Alert::error('Oops!', 'Your verification token is invalid :(');
             return redirect()->route(auth()->user()->role == UserRole::STUDENT ? 'frontend.index' : 'institute.index');
         }
