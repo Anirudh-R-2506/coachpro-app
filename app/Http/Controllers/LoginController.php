@@ -163,7 +163,7 @@ class LoginController extends Controller
             'inst_name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255,unique:institutes|unique:users',
             'phone' => 'required|numeric|digits:10|unique:institutes',
-            'recaptcha' => [new ReCaptchaRule],
+            /* 'recaptcha' => [new ReCaptchaRule], */
             //'city' => ['required', 'in:'.implode(',', City::all()->pluck('id')->toArray())],
             'locality' => ['required', 'in:'.implode(',', Locality::all()->pluck('id')->toArray())],
             'password' => 'required|string|min:8',
