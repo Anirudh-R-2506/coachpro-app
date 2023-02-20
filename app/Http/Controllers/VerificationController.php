@@ -14,6 +14,12 @@ use App\Enums\UserRole;
 class VerificationController extends Controller
 {
 
+
+    private function get_login_link($token)
+    {
+        return route('institute.signin') . '?redirect=' . route('institute.services.verification.verify', ['token' => $token]);
+    }
+
     private function send_verification_link($user)
     {
 
@@ -26,7 +32,7 @@ class VerificationController extends Controller
         
         if (!auth()->check()){
             Alert::error('Oops!', 'You are not logged in :(');
-            return redirect()->route('institute.signin');
+            return redirect()->to($this->get_login_link($token));
         }
 
         $user = auth()->user();
