@@ -29,6 +29,8 @@ class VerificationController extends Controller
     public function verify($token)
     {        
 
+        dd($token);
+
         if (!auth()->check()){
             Alert::error('Oops!', 'You are not logged in :(');
             return redirect()->route('institute.signin');
