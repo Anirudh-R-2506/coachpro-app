@@ -25,6 +25,12 @@
 @section("content")
 
     <!-- ====== Hero Section Start -->
+
+  <div class="relative overflow-hidden" data-aos="fade-zoom-in" data-aos-delay="250">
+      <video muted autoplay loop id="myVideo" style="width: 100vw; height: 100%;">
+          <source src="{{ asset("videos/about.mp4") }}" type="video/mp4" />
+      </video>
+  </div>
     <!-- ====== Banner Section Start -->
 <div
 class="relative overflow-hidden pb-[100px]"
@@ -34,7 +40,7 @@ style="background: linear-gradient(to left,  rgb(15, 31, 82) 0%,rgb(15, 31, 82) 
 x-intersect="changeToWhite()"
 >
 <div class="container">
-  <div class="flex flex-wrap items-center -mx-4 -mb-12">
+  <div class="flex flex-wrap items-center -mx-4">
     <div class="w-full px-4 pt-8 text-white md:w-1/2 top">
         <header data-aos="fade-zoom-in" class="w-full" data-aos-delay="500">
           <img class="mx-auto mt-6 -mb-6 md:-ml-10" width="300" height="300" src="{{ asset('images/logo/logo.png') }}" alt="base apparel logo" />
@@ -61,7 +67,7 @@ x-intersect="changeToWhite()"
             >
           </h1>
           <p class="mt-6 sm:mt-8 text-desaturated-red sm:text-lg xl:text-xl wow fadeIn" data-wow-delay="0.9s">
-            Hello fellow students! We're currently building our new product to help you choose
+            Hello fellow students! We're currently building our new service to help you choose
             the best path for your career. We're excited to show you more soon!
           </p>
         </div>
@@ -70,8 +76,17 @@ x-intersect="changeToWhite()"
         @include('includes.signup-cs')
     </div>
   </div>
+  <div data-aos="fade-zoom-down" data-aos-delay="900" class="flex flex-row justify-between w-full pt-12 -mb-12" style="background: linear-gradient(to left,  rgb(15, 31, 82) 0%,rgb(15, 31, 82) 50%,rgb(48, 86, 211) 50%,rgb(48, 86, 211) 100%);">
+    <div class="mr-12 text-left">
+        <h1 class="mb-2 uppercase tracking-[0.2em] text-3xl font-bold text-white">Are you an institute ?</h1>    
+        <p class="text-lg text-white font-extralight">Join us and get your institute listed.</p>
+    </div>
+    <a href="{{route('institute.index')}}" class="px-8 py-4 mt-4 mb-4 mr-8 text-xl font-bold bg-white rounded-lg text-primary">Let's Go</a>
+  </div>
 </div>
 </div>
+
+
 <!-- ====== Banner Section End -->
     <!-- ====== Hero Section End -->
 
@@ -198,7 +213,7 @@ x-intersect="changeToWhite()"
     <!-- ====== Features Section End -->
 
     <!-- ====== Product Section Starts -->
-    <section
+    {{-- <section
       class="relative overflow-hidden pt-20 pb-12 lg:pt-[120px] lg:pb-[90px]"
       id="tutorial"
     >
@@ -234,7 +249,7 @@ x-intersect="changeToWhite()"
 
         
       </div>
-    </section>    
+    </section>     --}}
 
     <!-- ====== Faq Section Start -->
     <section
