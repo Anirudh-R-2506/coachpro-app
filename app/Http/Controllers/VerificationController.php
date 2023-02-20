@@ -14,11 +14,6 @@ use App\Enums\UserRole;
 class VerificationController extends Controller
 {
 
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     private function send_verification_link($user)
     {
 
@@ -28,9 +23,7 @@ class VerificationController extends Controller
 
     public function verify($token)
     {        
-
-        dd($token);
-
+        
         if (!auth()->check()){
             Alert::error('Oops!', 'You are not logged in :(');
             return redirect()->route('institute.signin');
@@ -63,6 +56,12 @@ class VerificationController extends Controller
 
     public function resend()
     {
+
+        if (!auth()->check()){
+            Alert::error('Oops!', 'You are not logged in :(');
+            return redirect()->route('institute.signin');
+        }
+
         $user = auth()->user();
         $this->send_verification_link($user);
         Alert::success('Success!', 'A new verification link has been sent to your email :D');
