@@ -16,6 +16,7 @@
         phone: {errorMessage:'', blurred:false},
         inst_name: {errorMessage:'', blurred:false},  
         city: {errorMessage:'', blurred:false},
+        address: {errorMessage:'', blurred:false},
         locality: {errorMessage:'', blurred:false},
         blur: function(event) {
             let ele = event.target;

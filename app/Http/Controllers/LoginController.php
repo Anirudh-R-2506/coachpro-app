@@ -84,7 +84,7 @@ class LoginController extends Controller
             'email' => 'required|string|email|max:255',
             'phone' => 'required|string|max:255|unique:users',
             'password' => 'required|string|min:8',
-            'recaptcha' => ['required', new ReCaptchaRule],
+            'recaptcha' => [new ReCaptchaRule],
         ]);
 
         $user = User::create([
@@ -115,7 +115,7 @@ class LoginController extends Controller
             'phone' => 'required|string|max:255',
             'education' => 'required|string|min:2',
             'class' => 'required_if:education,==,school',
-            'recaptcha' => ['required', new ReCaptchaRule],
+            'recaptcha' => [new ReCaptchaRule],
             'year_of_passing' => 'required_if:education,==,ug|required_if:education,==,pg',
         ]);
 
@@ -163,7 +163,7 @@ class LoginController extends Controller
             'inst_name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255,unique:institutes|unique:users',
             'phone' => 'required|numeric|digits:10|unique:institutes',
-            'recaptcha' => ['required', new ReCaptchaRule],
+            'recaptcha' => [new ReCaptchaRule],
             //'city' => ['required', 'in:'.implode(',', City::all()->pluck('id')->toArray())],
             'locality' => ['required', 'in:'.implode(',', Locality::all()->pluck('id')->toArray())],
             'password' => 'required|string|min:8',

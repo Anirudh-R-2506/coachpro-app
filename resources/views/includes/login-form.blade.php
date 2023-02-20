@@ -29,7 +29,6 @@ data-wow-delay=".2s
                                   </div>
                               </div>                            
   @endif 
-</div>
 <form class="mt-8" id="login_form" method="POST" action="{{ route('services.login') }}">
   @csrf
   <div class="mb-6">
