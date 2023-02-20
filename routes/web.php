@@ -124,6 +124,18 @@ Route::name('services.')->group(function () {
     
 });
 
+Route::name('docs.')->group(function (){
+
+    Route::get('/privacy-policy', function () {
+        return view('docs.privacy-policy');
+    })->name('privacy-policy');
+
+    Route::get('/terms', function () {
+        return view('docs.terms');
+    })->name('terms');
+
+});
+
 /* Route::name('dashboard.')->group(function () {
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('index');

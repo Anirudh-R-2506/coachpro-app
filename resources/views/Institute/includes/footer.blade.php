@@ -89,13 +89,13 @@
                 </a>
               </li>
               <li>
-                <a href="javascript:void(0)"
+                <a href="{{route('docs.privacy-policy')}}"
                   class="mb-2 inline-block text-base leading-loose text-[#f3f4fe] hover:text-primary">
                   Privacy policy
                 </a>
               </li>
               <li>
-                <a href="javascript:void(0)"
+                <a href="{{route('docs.terms')}}"
                   class="mb-2 inline-block text-base leading-loose text-[#f3f4fe] hover:text-primary">
                   Terms of Service
                 </a>
