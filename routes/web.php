@@ -34,6 +34,14 @@ $inst->group(function (){
         Route::post('/signin', [LoginController::class, 'login'])->name('login'); 
         Route::post('/register', [LoginController::class, 'register_inst'])->name('register');
         Route::post('/logout', [LoginController::class, 'logout'])->name('logout'); 
+
+        Route::name('verification.')->group(function (){
+        
+            Route::get('/verify/{token}', [VerificationController::class, 'verify'])->name('verify');
+            Route::get('/resend/verify', [VerificationController::class, 'resend'])->name('resend');
+        
+        });
+
     });
 
     Route::name('dashboard.')->prefix('/dashboard')->group(function () {
