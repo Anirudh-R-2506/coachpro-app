@@ -17,9 +17,7 @@ class Authenticate extends Middleware
     protected function redirectTo($request)
     {
         if (!auth()->check()) {
-            if (Route::is('services.verification.verify'))
-                return route('institute.signin') . '?redirect=' . route('services.verification.verify', ['token' => $request->token]);
-            return redirect()->route('institute.signin');
+            return redirect()->route(Auth::user()->role == UserRole::STUDENT ? 'frontend.signin' : 'institute.signin');
         }
 
         if (auth()->user()->account_status == AccountStatus::UNVERIFIED) {

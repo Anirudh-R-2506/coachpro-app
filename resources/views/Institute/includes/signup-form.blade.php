@@ -16,6 +16,7 @@
         phone: {errorMessage:'', blurred:false},
         inst_name: {errorMessage:'', blurred:false},  
         city: {errorMessage:'', blurred:false},
+        address: {errorMessage:'', blurred:false},
         locality: {errorMessage:'', blurred:false},
         blur: function(event) {
             let ele = event.target;
@@ -181,6 +182,14 @@
                             <p x-show="password.errorMessage && password.blurred" x-text="password.errorMessage" class="mt-2 text-red-500"></p>
                         </div>
                         <input type="hidden" id="recaptcha" name="recaptcha">
+                        <div class="flex items-start mb-6">
+                          <div class="flex items-center h-5">
+                            <input id="terms" aria-describedby="terms" type="checkbox" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800" required>
+                          </div>
+                          <div class="ml-3 text-sm">
+                            <label for="terms" class="font-light text-gray-500 dark:text-gray-300">I agree to the <a href="{{ route('docs.terms') }}" target="_blank" class="font-medium text-primary text-primary-600 hover:underline dark:text-primary-500">Terms of Service</a>, <a href="{{ route('docs.privacy-policy') }}" target="_blank" class="font-medium text-primary text-primary-600 hover:underline dark:text-primary-500">Privacy Policy</a> and <a href="{{asset('docs/mou.pdf')}}" target="_blank" class="font-medium text-primary text-primary-600 hover:underline dark:text-primary-500">MoU</a></label>
+                          </div>
+                        </div>
                         <div class="flex justify-center w-full mb-0">
                             <button
                             type="submit"

@@ -14,9 +14,10 @@ use App\Enums\UserRole;
 class VerificationController extends Controller
 {
 
-    public function __construct()
+
+    private function get_login_link($token)
     {
-        $this->middleware('auth');
+        return route('institute.signin') . '?redirect=' . route('institute.services.verification.verify', ['token' => $token]);
     }
 
     private function send_verification_link($user)
@@ -27,35 +28,33 @@ class VerificationController extends Controller
     }
 
     public function verify($token)
-    {
-        $verify = UserVerify::where('token', $token)->first();
+    {        
+        
+        if (!auth()->check()){
+            Alert::error('Oops!', 'You are not logged in :(');
+            return redirect()->to($this->get_login_link($token));
+        }
 
+        $user = auth()->user();
+        $verify = UserVerify::where('token', $token)->first();
         if ($verify){
-            if (!auth()->check()){
-                Alert::error('Oops!', 'You are not logged in :(');
-                return redirect()->route('institute.signin');
+            if ($verify->user_id == $user->id){
+                $user->account_status = AccountStatus::VERIFIED;
+                $user->save();
+                $verify->delete();
+                Alert::success('Success!', 'Your account has been verified :D');
+                return redirect()->route(auth()->user()->role == UserRole::STUDENT ? 'frontend.index' : 'institute.index');
             }
             else{
-                $user = auth()->user();
-                if ($user->id == $verify->user_id){
-                    if ($user->account_status == AccountStatus::UNVERIFIED){
-                        $user->account_status = AccountStatus::VERIFIED;
-                        $user->save();
-                        Alert::success('Success!', 'Your email has been verified :D');
-                        return redirect()->route(auth()->user()->role == UserRole::STUDENT ? 'frontend.index' : 'institute.index');
-                    }
-                    else{
-                        Alert::success('Success!', 'Your email has already been verified :D');
-                        return redirect()->route(auth()->user()->role == UserRole::STUDENT ? 'frontend.index' : 'institute.index');
-                    }
-                }
-                else{
-                    Alert::error('Oops!', 'Your verification token is invalid :(');
-                    return redirect()->route(auth()->user()->role == UserRole::STUDENT ? 'frontend.index' : 'institute.index');
-                }
-            }
+                Alert::error('Oops!', 'Your verification token is invalid :(');
+                return redirect()->route(auth()->user()->role == UserRole::STUDENT ? 'frontend.index' : 'institute.index');
+            }            
         }
         else{
+            if ($user->account_status == AccountStatus::VERIFIED){
+                Alert::success('Success!', 'Your account has already been verified :D');
+                return redirect()->route(auth()->user()->role == UserRole::STUDENT ? 'frontend.index' : 'institute.index');
+            }
             Alert::error('Oops!', 'Your verification token is invalid :(');
             return redirect()->route(auth()->user()->role == UserRole::STUDENT ? 'frontend.index' : 'institute.index');
         }
@@ -63,6 +62,12 @@ class VerificationController extends Controller
 
     public function resend()
     {
+
+        if (!auth()->check()){
+            Alert::error('Oops!', 'You are not logged in :(');
+            return redirect()->route('institute.signin');
+        }
+
         $user = auth()->user();
         $this->send_verification_link($user);
         Alert::success('Success!', 'A new verification link has been sent to your email :D');

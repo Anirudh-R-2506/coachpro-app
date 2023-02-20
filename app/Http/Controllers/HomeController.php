@@ -9,6 +9,7 @@ use Illuminate\Routing\Controller as BaseController;
 use App\Models\Locality;
 use App\Models\User;
 use App\Jobs\SendAccountVerificationMail;
+use Alert;
 
 class HomeController extends BaseController
 {
@@ -45,7 +46,8 @@ class HomeController extends BaseController
     {
 
         if (auth()->check()){
-            return redirect()->route('frontend.index');
+            Alert::success('Hey!', 'You are already logged in :D');
+            return redirect()->route(auth()->user()->role == '1' ? 'institute.index' : 'frontend.index');
         }
 
         $localitites = Locality::all();        
@@ -55,6 +57,11 @@ class HomeController extends BaseController
 
     public function inst_signin()
     {
+
+        if (auth()->check()){
+            Alert::success('Hey!', 'You are already logged in :D');
+            return redirect()->route(auth()->user()->role == '1' ? 'institute.index' : 'frontend.index');
+        }
 
         $localitites = Locality::all();        
 
