@@ -103,6 +103,12 @@
          --tw-text-opacity: 1;
          color: rgb(255 255 255 / var(--tw-text-opacity)) !important;         
       }
+      .btn-primary:focus{
+         --tw-bg-opacity: 1;
+         background-color: rgb(9 14 52 / var(--tw-bg-opacity)) !important;
+         --tw-text-opacity: 1;
+         color: rgb(255 255 255 / var(--tw-text-opacity)) !important;         
+      }
       .btn-secondary {
          --tw-bg-opacity: 1;
          background-color: rgb(255 255 255 / var(--tw-bg-opacity));
@@ -125,6 +131,12 @@
          --tw-text-opacity: 1;
          color: rgb(255 255 255 / var(--tw-text-opacity)) !important;         
       }
+      .btn-secondary:focus{
+         --tw-bg-opacity: 1;
+         background-color: rgb(9 14 52 / var(--tw-bg-opacity)) !important;
+         --tw-text-opacity: 1;
+         color: rgb(255 255 255 / var(--tw-text-opacity)) !important;         
+      }
       .btn-danger {
          --tw-bg-opacity: 1;
          background-color: rgb(255 255 255 / var(--tw-bg-opacity));
@@ -142,6 +154,12 @@
          transition-duration: .3s;
       }
       .btn-danger:hover{
+         --tw-bg-opacity: 1;
+         background-color: rgb(255 59 48 / var(--tw-bg-opacity)) !important;
+         --tw-text-opacity: 1;
+         color: rgb(255 255 255 / var(--tw-text-opacity)) !important;         
+      }
+      .btn-danger:focus{
          --tw-bg-opacity: 1;
          background-color: rgb(255 59 48 / var(--tw-bg-opacity)) !important;
          --tw-text-opacity: 1;

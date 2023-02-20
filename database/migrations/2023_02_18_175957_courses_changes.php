@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('courses', function (Blueprint $table) {
-            $table->text('subjects')->dropColumn();
+            $table->dropColumn('subjects')->change();
             $table->uuid('examination_id')->references('id')->on('examinations');
         });
     }

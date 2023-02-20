@@ -148,26 +148,25 @@
        Institute
     </li>
 
-
-    <li class="mb-2 sidebar-item" id="{{ Nav::isRoute('institute.dashboard.profile.index') }}">
+    <li class="mb-2 sidebar-item" id="{{ (strpos(Route::currentRouteName(), 'institute.dashboard.profile') !== false) ? 'active' : '' }}">
         <a class="sidebar-link" href="{{ route('institute.dashboard.profile.index') }}">
             <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Profile</span>
         </a>
     </li>
 
-    <li class="mb-2 sidebar-item" id="{{ Nav::isRoute('institute.dashboard.courses.index') }}">
+    <li class="mb-2 sidebar-item" id="{{ (strpos(Route::currentRouteName(), 'institute.dashboard.courses') !== false) ? 'active' : '' }}">
       <a class="sidebar-link" href="{{ route('institute.dashboard.courses.index') }}">
           <i class="align-middle" data-feather="database"></i> <span class="align-middle">Courses</span>
       </a>
     </li>
 
-    <li class="mb-2 sidebar-item" id="{{ Nav::isRoute('institute.dashboard.photos.index') }}">
+    <li class="mb-2 sidebar-item" id="{{ (strpos(Route::currentRouteName(), 'institute.dashboard.photos') !== false) ? 'active' : '' }}">
         <a class="sidebar-link" href="{{ route('institute.dashboard.photos.index') }}">
             <i class="align-middle" data-feather="camera"></i> <span class="align-middle">Photos</span>
         </a>
     </li>
 
-    <li class="mb-2 sidebar-item" id="{{ Nav::isRoute('institute.dashboard.faculties.index') }}">
+    <li class="mb-2 sidebar-item" id="{{ (strpos(Route::currentRouteName(), 'institute.dashboard.faculties') !== false) ? 'active' : '' }}">
       <a class="sidebar-link" href="{{ route('institute.dashboard.faculties.index') }}">
           <i class="align-middle" data-feather="book-open"></i> <span class="align-middle">Faculties</span>
       </a>

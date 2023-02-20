@@ -40,12 +40,10 @@ class InstituteController extends Controller
     public function create_course()
     {
         $inst_id = auth()->user()->institute_id;
-        $institute = Institutes::find($inst_id);
         $faculties = Faculties::where('institute_id', $inst_id)->get();
         $examinations = Examinations::all();
 
         return view('institute.admin.courses.create', [
-            'institute' => $institute,
             'faculties' => $faculties,
             'examinations' => $examinations,
         ]);
