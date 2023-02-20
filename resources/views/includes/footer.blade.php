@@ -83,19 +83,19 @@
             <h4 class="text-lg font-semibold text-white mb-9">Learn How</h4>
             <ul>
               <li>
-                <a href="{{ route('frontend.index') . '/#tutorial' }}"
+                <a href="{{asset('docs/mou.pdf')}}"
                   class="mb-2 inline-block text-base leading-loose text-[#f3f4fe] hover:text-primary">
-                  How it works
+                  MoU
                 </a>
               </li>
               <li>
-                <a href="javascript:void(0)"
+                <a href="{{route('docs.privacy-policy')}}"
                   class="mb-2 inline-block text-base leading-loose text-[#f3f4fe] hover:text-primary">
                   Privacy policy
                 </a>
               </li>
               <li>
-                <a href="javascript:void(0)"
+                <a href="{{route('docs.terms')}}"
                   class="mb-2 inline-block text-base leading-loose text-[#f3f4fe] hover:text-primary">
                   Terms of Service
                 </a>
@@ -206,8 +206,8 @@
                 <a href="javascript:void(0)" class="px-3 text-base text-[#f3f4fe] hover:text-primary">
                   Privacy policy
                 </a>
-                <a href="javascript:void(0)" class="px-3 text-base text-[#f3f4fe] hover:text-primary">
-                  Legal notice
+                <a href="{{asset('docs/mou.pdf')}}" class="px-3 text-base text-[#f3f4fe] hover:text-primary">
+                  MoU
                 </a>
                 <a href="javascript:void(0)" class="px-3 text-base text-[#f3f4fe] hover:text-primary">
                   Terms of service
