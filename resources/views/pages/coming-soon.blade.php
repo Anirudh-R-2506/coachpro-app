@@ -67,7 +67,7 @@ x-intersect="changeToWhite()"
             >
           </h1>
           <p class="mt-6 sm:mt-8 text-desaturated-red sm:text-lg xl:text-xl wow fadeIn" data-wow-delay="0.9s">
-            Hello fellow students! We're currently building our new product to help you choose
+            Hello fellow students! We're currently building our new service to help you choose
             the best path for your career. We're excited to show you more soon!
           </p>
         </div>
@@ -76,7 +76,7 @@ x-intersect="changeToWhite()"
         @include('includes.signup-cs')
     </div>
   </div>
-  <div class="flex flex-row justify-between w-full pt-12 -mb-12" style="background: linear-gradient(to left,  rgb(15, 31, 82) 0%,rgb(15, 31, 82) 50%,rgb(48, 86, 211) 50%,rgb(48, 86, 211) 100%);">
+  <div data-aos="fade-zoom-down" data-aos-delay="900" class="flex flex-row justify-between w-full pt-12 -mb-12" style="background: linear-gradient(to left,  rgb(15, 31, 82) 0%,rgb(15, 31, 82) 50%,rgb(48, 86, 211) 50%,rgb(48, 86, 211) 100%);">
     <div class="mr-12 text-left">
         <h1 class="mb-2 uppercase tracking-[0.2em] text-3xl font-bold text-white">Are you an institute ?</h1>    
         <p class="text-lg text-white font-extralight">Join us and get your institute listed.</p>
