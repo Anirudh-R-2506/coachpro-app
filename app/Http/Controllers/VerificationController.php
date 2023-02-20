@@ -33,7 +33,7 @@ class VerificationController extends Controller
         $verify = UserVerify::where('token', $token)->first();
         if ($verify){
             if ($verify->user_id == $user->id){
-                $user->status = AccountStatus::ACTIVE;
+                $user->account_status = AccountStatus::VERIFIED;
                 $user->save();
                 $verify->delete();
                 Alert::success('Success!', 'Your account has been verified :D');
@@ -45,7 +45,7 @@ class VerificationController extends Controller
             }            
         }
         else{
-            if ($user->status == AccountStatus::ACTIVE){
+            if ($user->account_status == AccountStatus::VERIFIED){
                 Alert::success('Success!', 'Your account has already been verified :D');
                 return redirect()->route(auth()->user()->role == UserRole::STUDENT ? 'frontend.index' : 'institute.index');
             }
