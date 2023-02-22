@@ -3,6 +3,7 @@
 @section('css')
 
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2-bootstrap-theme/0.1.0-beta.10/select2-bootstrap.min.css" integrity="sha512-kq3FES+RuuGoBW3a9R2ELYKRywUEQv0wvPTItv3DSGqjpbNtGWVdvT8qwdKkqvPzT93jp8tSF4+oN4IeTEIlQA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/litepicker.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/litepicker/dist/css/litepicker.css"/>
@@ -28,6 +29,12 @@
     }
 </style>
 
+
+<style>
+
+    
+
+</style>
 
 @endsection
 
@@ -67,10 +74,17 @@
                 });
                 $("#examination").select2({
                     placeholder: "Select an examination",
+                    theme: "bootstrap"
                 });
                 $("#faculties").select2({
                     placeholder: "Select faculties",
+                    theme: "bootstrap"
                 });
+                /* this.timings.push({
+                    day: null,
+                    start_time: null,
+                    end_time: null,
+                }); */
             },
             createTimePicker(selector){
                 $(selector).mdtimepicker({
@@ -89,7 +103,15 @@
                 });
             },
             removeTiming(index){
-                this.timings.splice(index, 1);
+                console.log(this.timings);
+                if (this.timings.length > 1)
+                    this.timings.splice(index, 1);
+                else
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'You must have atleast one class timing!',
+                    });
             },
         }
     }
@@ -246,7 +268,7 @@
                                 </div>
                             </div> 
                             <hr class="my-5">
-                            <h5 class="mb-3 card-title">TIMINGS</h5>
+                            <h5 class="mb-3 card-title">CLASS TIMINGS</h5>
                             <div class="mb-5 row">
                                 <template x-for="(field, index) in timings" :key="index">
                                     <div class="mb-3">

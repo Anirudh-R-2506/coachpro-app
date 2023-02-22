@@ -573,16 +573,16 @@
                      <div class="col-6 text-end">
                         <ul class="list-inline">
                            <li class="list-inline-item">
-                              <a class="text-muted" href="" target="_blank">Support</a>
+                              <a class="text-muted" href="https://institute.eduhunt.co/#contact" target="_blank">Support</a>
                            </li>
                            <li class="list-inline-item">
-                              <a class="text-muted" href="" target="_blank">Help Center</a>
+                              <a class="text-muted" href="{{asset('docs/mou.pdf')}}" target="_blank">MoU</a>
                            </li>
                            <li class="list-inline-item">
-                              <a class="text-muted" href="" target="_blank">Privacy</a>
+                              <a class="text-muted" href="{{route('docs.privacy-policy')}}" target="_blank">Privacy Policy</a>
                            </li>
                            <li class="list-inline-item">
-                              <a class="text-muted" href="" target="_blank">Terms</a>
+                              <a class="text-muted" href="{{route('docs.terms')}}" target="_blank">Terms</a>
                            </li>
                         </ul>
                      </div>
