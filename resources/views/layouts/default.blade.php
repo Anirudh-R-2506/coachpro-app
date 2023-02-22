@@ -4,7 +4,7 @@
 <head>
 
     @include('includes.head')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.14.2/TweenMax.min.js"></script>
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.14.2/TweenMax.min.js"></script> --}}
 
     @yield('addons')
 
@@ -28,15 +28,13 @@
         body {
         -ms-overflow-style: none;
         scrollbar-width: none;
-        }
+        }        
     </style>
 
 </head>
 
     <body class="bg-[#f3f4ff]">
         <div class="progress-bar" id="progressBar"></div>  
-        <canvas id="c"></canvas>
-
         {{-- @include('includes.header') --}}
 
         @include('includes.shapes')
@@ -73,13 +71,13 @@
                 document.getElementById("progressBar").style.width = scrolled + "%";
             }
 
-            var canvas = document.querySelector('#c'),
+            /* var canvas = document.querySelector('#c'),
             ctx = canvas.getContext('2d'),
             points = [],
             m = {x: null, y: null},
             r = 0;
 
-            var a = 20; // how many dots to have
+            var a = 10; // how many dots to have
             var b = 5; // how fast to spin
             var c = 0.1; // how much to fade. 1 all, 0.5 half, 0 none
             var d = 100; // distance from the mouse
@@ -109,7 +107,7 @@
             function render(){
                 if(m.x == null || m.y == null) return;
 
-                ctx.fillStyle = 'rgba(0,0,0,'+c+')';
+                ctx.fillStyle = 'rgba(255,255,255,'+c+')';
                 ctx.fillRect(0, 0, canvas.width, canvas.height);
 
                 ctx.lineCap = 'round';
@@ -153,7 +151,7 @@
             (function animloop(){
                 requestAnimFrame(animloop);
                 render();
-            })();
+            })(); */
 
         </script>
     </body>
