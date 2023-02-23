@@ -25,8 +25,27 @@
     }
     .badge-info {
         background-color: #5bc0de;
-        color: #fff;
+        color: #fff;        
     }
+
+    #faculty_update_form > div.card-body > div:nth-child(5) > div.col-md-9 > span > span.selection > span, #faculty_update_form > div.card-body > div:nth-child(4) > div.col-md-9 > span > span.selection > span
+    {
+        border-radius: 15px !important;
+        background-clip: padding-box;
+        background-color: #fff;
+        border-radius: 0.2rem;
+        color: #495057;
+        display: block;
+        font-size: .875rem;
+        font-weight: 400;
+        line-height: 1.5;
+        padding-top: 5px;
+        padding-bottom: 10px;
+        transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+        width: 100%;
+    }
+
+    
 </style>
 
 
@@ -51,6 +70,7 @@
             start_date_picker: null,
             end_date_picker: null,
             timings: [],
+            faqs: [],
             mounted() {
                 this.start_date_picker = new Litepicker({
                     element: document.getElementById('start_date'),
@@ -80,11 +100,11 @@
                     placeholder: "Select faculties",
                     theme: "bootstrap"
                 });
-                /* this.timings.push({
+                this.timings.push({
                     day: null,
                     start_time: null,
                     end_time: null,
-                }); */
+                });
             },
             createTimePicker(selector){
                 $(selector).mdtimepicker({
@@ -102,8 +122,23 @@
                     end_time: null,
                 });
             },
+            addFaq(){
+                this.faqs.push({
+                    question: null,
+                    answer: null,
+                });
+            },
+            removeFaq(index){
+                if (this.faqs.length > 1)
+                    this.faqs.splice(index, 1);
+                else
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'You must have atleast one FAQ!',
+                    });
+            },
             removeTiming(index){
-                console.log(this.timings);
                 if (this.timings.length > 1)
                     this.timings.splice(index, 1);
                 else
@@ -113,6 +148,53 @@
                         text: 'You must have atleast one class timing!',
                     });
             },
+            submitForm(){
+                let form = document.getElementById('course_create_form');
+                let formData = new FormData(form);
+                let name = document.getElementById('name').value;
+                let description = document.getElementById('description').value;
+                let examination = document.getElementById('examination').value;
+                let faculties = document.getElementById('faculties').value;
+                let total_fee = document.getElementById('total_fee').value;
+                
+                formData.append('name', name);
+                formData.append('description', description);
+                formData.append('total_fee', total_fee);
+                formData.append('start_date', this.start_date);
+                formData.append('end_date', this.end_date);
+                formData.append('examination', examination);
+                formData.append('faculties', faculties);
+                formData.append('timings', this.timings);
+                formData.append('faqs', this.faqs);                
+                
+                axios.post('{{ route('institute.dashboard.courses.store') }}', formData)
+                .then((response) => {
+                    if (response.data.status == 'success') {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Success!',
+                            text: response.data.message,
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                window.location.href = '{{ route('institute.dashboard.courses.index') }}';
+                            }
+                        });
+                    } else {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: response.data.message,
+                        });
+                    }
+                })
+                .catch((error) => {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Something went wrong! Try again later.',
+                    });
+                });
+            }
         }
     }
 
@@ -144,8 +226,7 @@
        
         <div class="p-2 mt-3 card mild-border" style="border-radius: 1.5rem;">
             @if ($faculties->count() > 0 && $examinations->count() > 0)
-                <form action="{{ route('institute.dashboard.courses.store') }}" method="POST" id="faculty_update_form">
-                    @csrf
+                <form id="course_create_form">
                     @if ($errors->any())
                         <div class="card-body">
                             <div class="alert alert-danger" role="alert" x-cloak
@@ -179,7 +260,7 @@
                                     </p>
                                 </div>
                                 <div class="col-md-9">
-                                    <input type="text" class="form-control" name="name" required>
+                                    <input type="text" class="form-control" name="name" id="name" required>
                                 </div>
                             </div>
                             <div class="mb-5 row">
@@ -194,7 +275,7 @@
                                     </p>
                                 </div>
                                 <div class="col-md-9">
-                                    <textarea class="form-control" name="description" rows="3" required></textarea>
+                                    <textarea class="form-control" name="description" id="description" rows="3" required></textarea>
                                 </div>
                             </div>
                             <div class="mb-5 row">
@@ -313,6 +394,42 @@
                                 </div>
                             </div>
                             <hr class="my-5">
+                            <h5 class="card-title" style="margin-bottom: 0rem !important;">FAQs</h5>
+                            <p class="mb-3 text-muted" style="margin-bottom: 1rem !important;">
+                                <small>
+                                    Add frequently asked questions about the course
+                                </small>
+                            </p>
+                            <div class="mb-5 row">
+                                <template x-for="(field, index) in faqs" :key="index">
+                                    <div class="mb-3">
+                                        <h6 class="mb-2 card-title">
+                                            <strong>FAQ <span x-text="index + 1"></span></strong>
+                                        </h6>
+                                        <div class="gap-2 d-flex">
+                                            <div class="col-md-5">
+                                                <label class="mb-1 h4">
+                                                    <strong>Question</strong>
+                                                </label>
+                                                <textarea class="form-control" name="question" x-model="field.question" required></textarea>
+                                            </div>
+                                            <div class="col-md-5">
+                                                <label class="mb-1 h4">
+                                                    <strong>Answer</strong>
+                                                </label>
+                                                <textarea class="form-control" name="answer" x-model="field.answer" required></textarea>
+                                            </div>
+                                            <div class="col-md-2 d-flex align-items-end">
+                                                <button class="btn btn-danger" type="button" @click="removeFaq(index)">Remove</button>
+                                            </div>
+                                        </div>
+                                    </div>    
+                                </template>
+                                <div class="col-md-12">
+                                    <button class="btn btn-primary" type="button" @click="addFaq">Add FAQ</button>
+                                </div>
+                            </div>
+                            <hr class="my-5">
                             <h5 class="mb-3 card-title">FEE DETAILS</h5>
                             <div class="mb-5 row">
                                 <div class="col-md-3">
@@ -326,13 +443,13 @@
                                     </p>
                                 </div>
                                 <div class="col-md-9">
-                                    <input type="number" class="form-control" name="total_fee" required>
+                                    <input type="number" class="form-control" id="total_fee" name="total_fee" required>
                                 </div>
                             </div> 
                     </div>
                     <div class="modal-footer">
                         <span @click="submitForm">
-                            <x-loadingbutton type="submit">Create</x-loadingbutton>
+                            <x-loadingbutton>Create</x-loadingbutton>
                         </span>
                     </div>
                 </form>

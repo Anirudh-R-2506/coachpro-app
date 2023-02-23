@@ -134,4 +134,74 @@ class ImageController extends Controller
             }
         return false;
     }
+
+    public function upload_video(Request $request)
+    {
+        if ($request->video) {
+            $file = $request->video;
+            $extension = $file->getClientOriginalExtension();
+            $filename = uniqid() . '_' . now()->timestamp . '.' . $extension;
+            $path = storage_path('videos' . DIRECTORY_SEPARATOR . 'tmp');
+            if ($this->validate_directory($path)) {
+                $folder = $file->storeAs('videos' . DIRECTORY_SEPARATOR . 'tmp', $filename);
+                return $filename;
+            } else {
+                return false;
+            }
+        }
+        return false;
+    }
+
+    public function store_video(Request $request)
+    {
+        $request->validate([
+            'video' => 'required',
+            'course_id' => 'required',
+        ]);
+
+        try{
+            $tmp_video = $request->video;
+            $inst = Courses::where('id', $request->course_id)->first();
+            $inst->addMedia(storage_path('app' . DIRECTORY_SEPARATOR . 'videos' . DIRECTORY_SEPARATOR . 'tmp') . DIRECTORY_SEPARATOR . $tmp_video)
+                ->toMediaCollection('course_video');
+
+            Storage::disk('local')->delete(storage_path('videos' . DIRECTORY_SEPARATOR . 'tmp') . DIRECTORY_SEPARATOR . $tmp_video);                
+            
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Video added successfully!',
+            ]);
+        } catch (\Exception $e){
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Unable to upload video :(',
+            ]);
+        }
+    }
+
+    public function destroy_video($id)
+    {
+        $inst = Courses::where('id', $id)->first();
+
+        if ($inst == null){
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Something went wrong :(',
+            ]);
+        }
+
+        try{
+            $inst->getMedia('course_video')->first()->delete();
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Video deleted successfully!',
+            ]);
+        } catch (\Exception $e){
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Something went wrong :(',
+            ]);
+        }
+    }
+
 }

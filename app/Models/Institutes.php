@@ -13,7 +13,7 @@ use App\Traits\Enum;
 
 class Institutes extends Model implements HasMedia
 {
-    use HasFactory, InteractsWithMedia, Uuid, Enum;
+    use HasFactory, InteractsWithMedia, Uuid, Enum, HasMediaTrait;
 
     protected $fillable = [
         'name',

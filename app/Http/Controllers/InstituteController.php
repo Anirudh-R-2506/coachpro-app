@@ -11,6 +11,9 @@ use App\Models\Locality;
 use App\Models\Faculties;
 use App\Models\Courses;
 use App\Models\Examinations;
+use App\Enums\Session;
+use App\Enums\Timing;
+use Illuminate\Support\Facades\Str;
 use Alert;
 
 class InstituteController extends Controller
@@ -49,6 +52,235 @@ class InstituteController extends Controller
         ]);
     }
 
+    public function store_course(Request $request)
+    {
+
+        $request->validate([
+            'name' => 'required|string|max:255',            
+            'total_fee' => 'required|numeric',
+            'description' => 'required',
+            'faculties' => 'required',
+            'examination' => 'required',
+            'start_date' => 'required|date',
+            'end_date' => 'required|date',
+            'faqs' => 'required',
+            'timings' => 'required',
+        ]);;
+
+        $inst_id = auth()->user()->institute_id;
+        $institute = Institutes::find($inst_id);
+
+        $faculties = Faculties::where('institute_id', $inst_id)->get();
+        $examinations = Examinations::all();
+
+        foreach($request->faculties as $faculty){
+            if (!$faculties->contains('id', $faculty)){
+                return response()->json([
+                    'status' => 'error',
+                    'message' => 'Could not find faculty :(',
+                ]);
+            }
+        }
+
+        if (!$examinations->contains('id', $request->examination)){
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Could not find examination :(',
+            ]);
+        }
+
+        try{
+            $course = new Courses();
+            $course->name = $request->name;
+            $course->institute_id = $inst_id;
+            $course->description = $request->description;
+            $course->fees = $request->total_fee;
+            $course->start_date = $request->start_date;
+            $course->end_date = $request->end_date;
+            $course->examination_id = $request->examination;
+            $course->faculties = $request->faculties;
+
+            $weekdays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+            $weekends = ['sat', 'sun'];
+
+            $session = null;
+            $timing = null;
+
+            foreach($request->timings as $timing){
+                $day = $timing['day'];
+                $start_time = str_split($timing['start_time'], 2);
+                $end_time = str_split($timing['end_time'], 2);
+
+                if (in_array($day, $weekdays)){
+                    if ($session == Session::WEEKEND){
+                        $session = Session::BOTH;
+                    }
+                    $session = Session::WEEKDAY;
+                } else if (in_array($day, $weekends)){
+                    if ($session == Session::WEEKDAY){
+                        $session = Session::BOTH;
+                    }
+                    $session = Session::WEEKEND;
+                }
+
+                if ($start_time[0] < 12){
+                    if ($timing == Timing::EVENING){
+                        $timing = Timing::BOTH;
+                    }
+                    $timing = Timing::FORENOON;
+                } else if ($start_time[0] >= 12){
+                    if ($timing == Timing::FORENOON){
+                        $timing = Timing::BOTH;
+                    }
+                    $timing = Timing::EVENING;
+                } else {
+                    $timing = Timing::BOTH;
+                }            
+            }
+
+            $course->session = $session;
+            $course->timing = $timing;
+            $course->course_timings = $request->timings;
+            $course->faqs = $request->faqs;
+
+            $course->status = Courses::enum('status')->values()[0];
+            $course->availability = Courses::enum('availability')->values()[0];
+
+            $course->slug = Str::slug($request->name, '-');
+
+            $course->save();
+
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Course created successfully :)',
+            ]);
+        } catch (\Exception $e){
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Could not create course :(',
+            ]);
+        }
+
+    }
+
+    public function update_course(Request $request, $id)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',            
+            'total_fee' => 'required|numeric',
+            'description' => 'required',
+            'faculties' => 'required',
+            'examination' => 'required',
+            'start_date' => 'required|date',
+            'end_date' => 'required|date',
+            'faqs' => 'required',
+            'timings' => 'required',
+            'status' => 'required',
+            'availability' => 'required',
+        ]);;
+
+        $inst_id = auth()->user()->institute_id;
+        $institute = Institutes::find($inst_id);
+
+        $faculties = Faculties::where('institute_id', $inst_id)->get();
+        $examinations = Examinations::all();
+
+        foreach($request->faculties as $faculty){
+            if (!$faculties->contains('id', $faculty)){
+                return response()->json([
+                    'status' => 'error',
+                    'message' => 'Could not find faculty :(',
+                ]);
+            }
+        }
+
+        if (!$examinations->contains('id', $request->examination)){
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Could not find examination :(',
+            ]);
+        }
+
+        try{
+            $course = Courses::find($id);
+            if ($course == null){
+                return response()->json([
+                    'status' => 'error',
+                    'message' => 'Could not find course :(',
+                ]);
+            }
+            $course->name = $request->name;
+            $course->institute_id = $inst_id;
+            $course->description = $request->description;
+            $course->fees = $request->total_fee;
+            $course->start_date = $request->start_date;
+            $course->end_date = $request->end_date;
+            $course->examination_id = $request->examination;
+            $course->faculties = $request->faculties;
+
+            $weekdays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+            $weekends = ['sat', 'sun'];
+
+            $session = null;
+            $timing = null;
+
+            foreach($request->timings as $timing){
+                $day = $timing['day'];
+                $start_time = str_split($timing['start_time'], 2);
+
+                if (in_array($day, $weekdays)){
+                    if ($session == Session::WEEKEND){
+                        $session = Session::BOTH;
+                    }
+                    $session = Session::WEEKDAY;
+                } else if (in_array($day, $weekends)){
+                    if ($session == Session::WEEKDAY){
+                        $session = Session::BOTH;
+                    }
+                    $session = Session::WEEKEND;
+                }
+
+                if ($start_time[0] < 12){
+                    if ($timing == Timing::EVENING){
+                        $timing = Timing::BOTH;
+                    }
+                    $timing = Timing::FORENOON;
+                } else if ($start_time[0] >= 12){
+                    if ($timing == Timing::FORENOON){
+                        $timing = Timing::BOTH;
+                    }
+                    $timing = Timing::EVENING;
+                } else {
+                    $timing = Timing::BOTH;
+                }
+            }
+
+            $course->session = $session;
+            $course->timing = $timing;
+            $course->course_timings = $request->timings;
+            $course->faqs = $request->faqs;
+
+            $course->status = $request->status;
+            $course->availability = $request->availability;
+
+            $course->slug = Str::slug($request->name, '-');
+
+            $course->save();
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Course updated successfully :)',
+            ]);
+
+        }catch (\Exception $e){
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Could not update course :(',
+            ]);
+        }
+            
+
+    }
+
     public function edit_course($id)
     {
         $course = Courses::find($id);
@@ -79,13 +311,7 @@ class InstituteController extends Controller
         $course->delete();
         Alert::success('Success!', 'Course deleted successfully :D');
         return redirect()->route('institute.dashboard.courses.index');
-    }
-
-    public function store_course(Request $request)
-    {}
-
-    public function update_course(Request $request, $id)
-    {}
+    }    
 
     public function profile()
     {
