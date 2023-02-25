@@ -45,7 +45,7 @@ class AccountVerificationMail extends Mailable implements ShouldQueue
     public function content()
     {
         return new Content(
-            view: 'emails.account-verification',
+            view: 'emails.email-verification',
             with: [
                 'url' => $this->url,
             ],

@@ -74,17 +74,21 @@
                     <strong>Dear {{ $name }},</strong> <br>
                 </div>
 
-                Thank you for registering with Edu-Hunt, your one-stop destination for finding the best tutorial services in your area. We are confident that our platform will help you achieve your academic goals, and we are committed to making your learning experience enjoyable and rewarding! We're excited to have you join our community of learners. <br> <br>
+                Thank you for registering with [Website Name]. To ensure that your account is secure, we require that you verify your email address. <br> <br>
 
-                As a registered user, you now have access to a wide range of courses and tutorials in your area. You can search for courses, book your favorite ones, and attend the sessions from the comfort of your home. <br> <br>
+                <button style="background-color: #3056d3; color: #fff; padding: 10px 20px; border-radius: 5px; border: none; margin: 10px 0; cursor: pointer;">
+                    <a href="{{ $url }}" style="text-decoration: none; color: #fff;">Verify Email</a>
+                </button> <br> <br>
 
-                If you have any questions or concerns, feel free to reach out to our customer support team. We're here to help you every step of the way.<br> <br>
+                If the link above doesn't work, please copy and paste this URL into your web browser: <br> {{ $url }} <br> <br>
 
+                Once you've verified your email address, you'll be able to access all the features of Edu-Hunt, including searching for courses, booking your favorite ones, and attending the sessions from the comfort of your home. <br> <br>
 
-                Thank you for choosing Edu-Hunt. We look forward to serving you. <br> <br>
+                If you have any questions, please feel free to contact us at Edu-Hunt. <br> <br>
 
                 Best regards, <br>
-                Edu-Hunt Team <br>
+                Edu-Hunt Team
+
             </p>
         </div>
     </div>
