@@ -19,7 +19,7 @@ class Timing
         return [
             self::FORENOON,
             self::EVENING,
-            self::BOTh,
+            self::BOTH,
         ];
     }
 

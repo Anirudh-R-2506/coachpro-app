@@ -15,7 +15,8 @@ return new class extends Migration
     {
         Schema::table('courses', function (Blueprint $table) {
             $table->dropColumn('subjects')->change();
-            $table->dropColumn('leads_status')->change();
+            if (env('APP_ENV') !== 'local')
+                $table->dropColumn('leads_status')->change();
             $table->string('video_url');
         });
 

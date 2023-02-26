@@ -7,9 +7,33 @@
 
     @yield('addons')
 
+    <style>
+        .progress-bar {
+            background: rgb(48,86,211);
+            background: linear-gradient(34deg, rgba(48,86,211,1) 26%, rgba(9,9,121,1) 87%);
+            height: 8px;
+            border-top-right-radius: 20px;
+            border-bottom-right-radius: 20px;
+            width: 0%;
+            position: fixed;
+            top: 0;
+            z-index: 1;
+        }
+
+        body::-webkit-scrollbar {
+        display: none;
+        }
+
+        body {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        }
+    </style>
+
 </head>
 
     <body class="bg-[#f3f4ff]">
+        <div class="progress-bar" id="progressBar"></div>  
 
         @include('institute.includes.header')
 
@@ -36,6 +60,16 @@
                 easing: 'ease-in-out',
                 delay: 0,                
             });
+
+            window.addEventListener('scroll', handleScroll);
+
+            function handleScroll() {
+                var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+                var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;  
+                var scrolled = (winScroll / height) * 100;
+            
+                document.getElementById("progressBar").style.width = scrolled + "%";
+            }
         </script>
     </body>
 
