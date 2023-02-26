@@ -5,7 +5,6 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Faculties;
-use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use App\Traits\Uuid;
@@ -13,7 +12,7 @@ use App\Traits\Enum;
 
 class Institutes extends Model implements HasMedia
 {
-    use HasFactory, InteractsWithMedia, Uuid, Enum, HasMediaTrait;
+    use HasFactory, InteractsWithMedia, Uuid, Enum;
 
     protected $fillable = [
         'name',

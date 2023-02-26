@@ -8,7 +8,6 @@ use App\Models\Institutes;
 use App\Models\Leads;
 use App\Models\EduHuntScore;
 use App\Models\Comments;
-use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use App\Models\Bookings;
@@ -18,7 +17,7 @@ use App\Traits\Uuid;
 
 class Courses extends Model
 {
-    use HasFactory, InteractsWithMedia, Uuid, Enum, HasMediaTrait;
+    use HasFactory, InteractsWithMedia, Uuid, Enum;
 
     public function enums(){ 
         return [

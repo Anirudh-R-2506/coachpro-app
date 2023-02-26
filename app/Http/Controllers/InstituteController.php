@@ -14,6 +14,7 @@ use App\Models\Examinations;
 use App\Enums\Session;
 use App\Enums\Timing;
 use Illuminate\Support\Facades\Str;
+use Illuminate\Support\Facades\Http;
 use Alert;
 
 class InstituteController extends Controller
@@ -65,7 +66,9 @@ class InstituteController extends Controller
             'end_date' => 'required|date',
             'faqs' => 'required',
             'timings' => 'required',
-        ]);;
+            'video' => 'required|string',
+        ]);
+        
 
         $inst_id = auth()->user()->institute_id;
         $institute = Institutes::find($inst_id);
@@ -149,6 +152,18 @@ class InstituteController extends Controller
             $course->slug = Str::slug($request->name, '-');
 
             $course->save();
+
+            $video = Http::post(route('institute.services.video.store'), [
+                'video' => $request->video,
+                'course_id' => $course->id,
+            ]);
+
+            if ($video['status'] == 'error'){
+                return response()->json([
+                    'status' => 'error',
+                    'message' => $video['message'],
+                ]);
+            }
 
             return response()->json([
                 'status' => 'success',

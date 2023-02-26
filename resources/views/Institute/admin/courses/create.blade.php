@@ -9,6 +9,12 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/litepicker/dist/css/litepicker.css"/>
 <script src="{{asset('js/mdtimepicker.min.js')}}"></script>
 <link rel="stylesheet" href="{{asset('css/mdtimepicker.min.css')}}"/>
+<script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css"
+  type="text/css"
+/>
 
 <style>
     .badge-warning {
@@ -149,13 +155,22 @@
                     });
             },
             submitForm(){
+                let video = document.querySelector('input[name="video"]').value;
+                if (video == '' || video == null){
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Please wait for the video to finish uploading',
+                    });
+                    return;
+                }
                 let form = document.getElementById('course_create_form');
                 let formData = new FormData(form);
                 let name = document.getElementById('name').value;
                 let description = document.getElementById('description').value;
                 let examination = document.getElementById('examination').value;
                 let faculties = document.getElementById('faculties').value;
-                let total_fee = document.getElementById('total_fee').value;
+                let total_fee = document.getElementById('total_fee').value;                
                 
                 formData.append('name', name);
                 formData.append('description', description);
@@ -166,6 +181,7 @@
                 formData.append('faculties', faculties);
                 formData.append('timings', this.timings);
                 formData.append('faqs', this.faqs);                
+                formData.append('video', video);
                 
                 axios.post('{{ route('institute.dashboard.courses.store') }}', formData)
                 .then((response) => {
@@ -396,9 +412,9 @@
                             <hr class="my-5">
                             <h5 class="card-title" style="margin-bottom: 0rem !important;">FAQs</h5>
                             <p class="mb-3 text-muted" style="margin-bottom: 1rem !important;">
-                                <small>
+                                <strong>
                                     Add frequently asked questions about the course
-                                </small>
+                                </strong>
                             </p>
                             <div class="mb-5 row">
                                 <template x-for="(field, index) in faqs" :key="index">
@@ -446,6 +462,27 @@
                                     <input type="number" class="form-control" id="total_fee" name="total_fee" required>
                                 </div>
                             </div> 
+                            <hr class="my-5">
+                            <h5 class="mb-3 card-title">DEMO LECTURE</h5>
+                            <div class="mb-5 row">                                
+                                <div class="col-md-12">
+                                    <div class="dropzone dz-clickable" style="border-radius: 10px;" id="demo_lecture">
+                                        <!--begin::Message-->
+                                        <div class="dz-message needsclick">
+                                            <!--begin::Icon-->
+                                            <i class="bi bi-file-earmark-arrow-up text-primary fs-3x"></i>
+                                            <!--end::Icon-->
+                
+                                            <!--begin::Info-->
+                                            <div class="ms-4">
+                                                <h3 class="mb-1 text-gray-900 fs-5 fw-bolder">Drop video here or click to upload.</h3>
+                                                <span class="opacity-75 fs-7 fw-bold text-primary">This is a demo lecture presented to the students</span>
+                                            </div>
+                                            <!--end::Info-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                     </div>
                     <div class="modal-footer">
                         <span @click="submitForm">
@@ -469,5 +506,29 @@
 
     </div>
 </div>
+
+<script>
+
+function done() {
+    console.log('done');
+}
+
+
+let dropzone = new Dropzone("#demo_lecture", {
+    url: "{{route('institute.services.video.upload')}}",
+    paramName: "file", // The name that will be used to transfer the file
+    maxFiles: 1,
+    maxFilesize: 1000, // MB
+    addRemoveLinks: true,
+    chunking: true,
+    forceChunking: true,
+    acceptedFiles: "video/*",
+    disablePreviews: true,
+    accept: function(file, done) {
+        done();
+    }
+});
+
+</script>
 
 @endsection

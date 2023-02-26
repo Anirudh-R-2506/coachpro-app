@@ -183,6 +183,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
         DevMarketer\EasyNav\EasyNavServiceProvider::class,
+        ProtoneMedia\LaravelFFMpeg\Support\ServiceProvider::class,
         /*
          * Package Service Providers...
          */
@@ -213,6 +214,8 @@ return [
         // 'ExampleClass' => App\Example\ExampleClass::class,
         'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
         'Nav' => DevMarketer\EasyNav\EasyNavFacade::class,
+        'FFMpeg' => ProtoneMedia\LaravelFFMpeg\Support\FFMpeg::class,
+        'Twilio' => Aloha\Twilio\Support\Laravel\Facade::class,
     ])->toArray(),
 
 ];

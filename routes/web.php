@@ -39,8 +39,12 @@ $inst->group(function (){
         
             Route::get('/verify/{token}', [VerificationController::class, 'verify'])->name('verify');
             Route::get('/resend/verify', [VerificationController::class, 'resend'])->name('resend');
+            Route::post('/verify/mobile', [VerificationController::class, 'verify_mobile'])->name('verify.mobile');
+            Route::post('/resend/mobile', [VerificationController::class, 'resend_otp'])->name('resend.mobile');
         
         });
+
+        Route::post('/video/upload', [ImageController::class, 'upload_video'])->name('video.upload');
 
     });
 
