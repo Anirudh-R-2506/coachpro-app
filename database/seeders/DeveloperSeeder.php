@@ -39,10 +39,28 @@ class DeveloperSeeder extends Seeder
     {
         return [
             [
-                'name' => 'JEE Main',
+                'name' => 'JEE',
             ],
             [
-                'name' => 'JEE Advanced',
+                'name' => 'NEET',
+            ],
+            [
+                'name' => '12th Board',
+            ],
+            [
+                'name' => '10th Board',
+            ],
+            [
+                'name' => 'CAT',
+            ],
+            [
+                'name' => 'CLAT',
+            ],
+            [
+                'name' => 'UPSC',
+            ],
+            [
+                'name' => 'CA',
             ]
         ];
     }    

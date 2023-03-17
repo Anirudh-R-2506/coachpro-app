@@ -15,6 +15,11 @@ class Faculties extends Model
         'institute_id',
         'qualification',
         'experience',
+        'subjects',
+    ];
+
+    protected $casts = [
+        'subjects' => 'array',
     ];
 
     public function institute()

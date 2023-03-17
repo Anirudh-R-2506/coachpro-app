@@ -52,15 +52,30 @@
                 <i class="fa-solid fa-plus"></i> &nbsp; Add new course
             </a>
         </div>  
+        
+        <div class="alert alert-info" role="alert" 
+        >
+            <strong>Hey {{auth()->user()->name}}</strong><br>
+            Each course is either a course unto itself or a batch of a course<br>
+            <b>For example:</b> <br>
+            If you have 3 batches for JEE coaching you must create a course for each batch separately
+        </div>
        
         <div class="p-2 mt-3 card mild-border" style="border-radius: 1.5rem;">
             <div class="card-body">
                 @if($courses->count() != 0)
                     @include('includes.search-filter', [
-                            'filters' => null,
+                            'filters' => [
+                                'Status' => \App\Models\Courses::enum('status')->getFilter(),
+                                'Availability' => \App\Models\Courses::enum('availability')->getFilter(),
+                            ],
+                            'index' => [
+                                'Status' => 2,
+                                'Availability' => 3,
+                            ],
                             'table' => 'table',
                             'search' => true,
-                            'placeholder' => 'Search any faculty...',
+                            'placeholder' => 'Search any course...',
                     ])
                     <table id="table" class="table table-striped mild-border-t mild-border-b" style="width:100%; font-size: 1rem; margin-top: 20px;">
                         <thead>
@@ -68,7 +83,8 @@
                                 <th>Name</th>
                                 <th>Description</th>
                                 <th>Status</th>
-                                <th class="actions-th"></th>
+                                <th>Availability</th>
+                                {{-- <th class="actions-th"></th> --}}
                             </tr>
                         </thead>
                         <tbody>
@@ -76,8 +92,9 @@
                             <tr>
                                 <td class="col-3">{{ $course->name }}</td>
                                 <td class="col-6">{{ $course->description }}</td>
-                                <td class="col-3">{{ \App\Models\Courses::enum('status')->getBadge($course->status) }}</td>                                    
-                                <td class="action-edit">
+                                <td class="col-3">{!! \App\Models\Courses::enum('status')->getBadge($course->status) !!}</td>                                    
+                                <td class="col-3">{!! \App\Models\Courses::enum('availability')->getBadge($course->availability) !!}</td>
+                                {{-- <td class="action-edit">
                                     <div class="inner">
                                         <a class="icon" href="{{ route('institute.dashboard.courses.edit', $course->id) }}">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -86,7 +103,7 @@
                                             Edit                                    
                                         </a>                                    
                                     </div>
-                                </td>
+                                </td> --}}
                             </tr>
                             @endforeach
                         </tbody>

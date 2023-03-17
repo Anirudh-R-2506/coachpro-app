@@ -87,15 +87,5 @@ data-wow-delay=".2s
     <input type="hidden" name="redirect" :value="redirect">
     <input type="hidden" id="recaptcha" name="recaptcha">
   </form>
-<div class="flex flex-wrap items-center justify-center mt-8 text-center">
-  <p class="text-sm text-dark">
-    Don't have an account?
-    <button
-      type="button"
-      @click="login = false"
-      class="text-primary hover:text-dark focus:text-dark focus:outline-none"
-      >Sign up</button>
-  </p>
-</div>
 
 </div>

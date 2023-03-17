@@ -14,6 +14,7 @@ use App\Models\Bookings;
 use App\Models\Ratings;
 use App\Traits\Enum;
 use App\Traits\Uuid;
+use App\Models\Faqs;
 
 class Courses extends Model
 {
@@ -78,7 +79,7 @@ class Courses extends Model
 
     protected $casts = [
         'faculties' => 'array',
-        'course_timings' => 'array',
+        'course_timings' => 'array'
     ];
 
     public function institute()
@@ -117,4 +118,10 @@ class Courses extends Model
             ->singleFile()
             ->acceptsMimeTypes(['video/mp4', 'video/avi', 'video/mov', 'video/mkv', 'video/3gp', 'video/wmv', 'video/flv', 'video/webm', 'video/ogg', 'video/ogv', 'video/avi', 'video/mpeg', 'video/quicktime', 'video/x-msvideo', 'vide']);
     }
+
+    public function faqs()
+    {
+        return $this->hasMany(Faqs::class);
+    }
+    
 }

@@ -172,7 +172,7 @@
       </a>
     </li>
 
-    <li class="sidebar-header">
+    {{-- <li class="sidebar-header">
       Operations
     </li>
 
@@ -185,6 +185,6 @@
       <a class="sidebar-link" href="#">
         <i class="align-middle" data-feather="user-check"></i> <span class="align-middle">Bookings</span>
       </a>
-    </li>
+    </li> --}}
     
  </ul>

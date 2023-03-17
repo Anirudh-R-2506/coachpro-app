@@ -1,11 +1,3 @@
-<script>
-  grecaptcha.ready(function() {
-    grecaptcha.execute("{{ env('RECAPTCHAV3_SITEKEY') }}").then(function(token) {
-     document.getElementById("recaptcha").value = token;
-     console.log(token);
-  }); });
-</script>
-
 <script>      
   
     signup = () => {
@@ -198,15 +190,5 @@
                             Register
                             </button>
                         </div>
-                      </form>                                            
-                      <div class="flex flex-wrap items-center justify-center mt-8 text-center">
-                        <p class="text-sm text-dark">
-                          Already have an account?
-                          <button
-                            type="button"
-                            @click="login = true"
-                            class="text-primary hover:text-dark focus:text-dark focus:outline-none"
-                            >Login</button>
-                        </p>
-                      </div>
+                      </form>                                                                  
                     </div>

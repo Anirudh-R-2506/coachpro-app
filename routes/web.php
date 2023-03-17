@@ -60,6 +60,7 @@ $inst->group(function (){
         Route::name('profile.')->group(function (){
             Route::get('/profile', [InstituteController::class, 'profile'])->name('index');
             Route::post('/profile/update', [InstituteController::class, 'profile_update'])->name('update');
+            Route::post('/profile/cover', [InstituteController::class, 'cover_update'])->name('cover');
         });
 
         Route::name('courses.')->group(function (){
@@ -103,11 +104,11 @@ $inst->group(function (){
 
 Route::name('frontend.')->group(function () {
     
-    Route::get('/', [HomeController::class, 'index'])->name('index');
-    Route::get('/about', [HomeController::class, 'about'])->name('about');
+    Route::get('/', [HomeController::class, 'coming_soon'])->name('index');
+    /* Route::get('/about', [HomeController::class, 'about'])->name('about');
     Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
     Route::get('/eduhunt', [HomeController::class, 'product'])->name('product');
-    Route::get('/signin', [HomeController::class, 'signin'])->name('signin');    
+    Route::get('/signin', [HomeController::class, 'signin'])->name('signin');     */
 
 });
 

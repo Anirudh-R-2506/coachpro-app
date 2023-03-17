@@ -1,10 +1,14 @@
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
+<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
+
 <script>
     dataTable = () => {
         return {
             showFilters: false,
             table: null,
             searchValue: '',
-            filter: 'all',
+            indices: @json(isset($index) ? $index : array()),
 
             init () {
                 this.table = $('#{{$table}}').DataTable();
@@ -22,6 +26,15 @@
 
             search(){
                 this.table.search(this.searchValue).draw();
+            },
+
+            filterTable(filter, value) {      
+                filter = this.indices[filter];          
+                value != 'all' ? this.table.column(filter).search(value).draw() : this.table.column(filter).search('').draw();
+            },
+
+            resetFilters() {
+                this.table.columns().search('').draw();
             }
         }
     }
@@ -41,7 +54,7 @@
             </div>
         </div>
     @endif
-    @if(isset($filter))
+    @if(isset($filters))
         <div class="filter">
             <div class="btn-div">
                 <button @click="toggleFilters()">
@@ -50,7 +63,7 @@
                     </svg>
                 </button>
             </div>        
-            <div class="filter-dropdown" x-show="showFilters">
+            <div class="filter-dropdown" x-show="showFilters == true">
                 <div class="dropdown-body">
                     <div class="body">    
                         @foreach ($filters as $name => $values)                                             
@@ -63,10 +76,10 @@
                                     </div>
                                     <div class="filter">
                                         <div>
-                                            <select name="filter">
-                                                <option value="all" @click="filter = 'all'" selected>All</option>
+                                            <select name="filter" x-on:change="filterTable('{{$name}}', $event.target.value)">
+                                                <option value="all" selected>All</option>
                                                 @foreach ($values as $value)
-                                                    <option value="{{$value}}" @click="filter = '{{$value}}'">{{$value}}</option>
+                                                    <option value="{{$value}}">{{$value}}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -76,7 +89,7 @@
                         @endforeach
                     </div>
                     <div class="footer">
-                        <button>
+                        <button x-on:click="resetFilters()">
                             Reset filters
                         </button>
                     </div>
