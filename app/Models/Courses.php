@@ -8,14 +8,17 @@ use App\Models\Institutes;
 use App\Models\Leads;
 use App\Models\EduHuntScore;
 use App\Models\Comments;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 use App\Models\Bookings;
 use App\Models\Ratings;
 use App\Traits\Enum;
 use App\Traits\Uuid;
+use App\Models\Faqs;
 
 class Courses extends Model
 {
-    use HasFactory, Enum, Uuid;
+    use HasFactory, InteractsWithMedia, Uuid, Enum;
 
     public function enums(){ 
         return [
@@ -53,20 +56,6 @@ class Courses extends Model
                     'label' => 'Unavailable'
                 ],
             ],
-            'leads_status' => [
-                'ENABLED' => [
-                    'value' => '0',
-                    'color' => 'success',
-                    'icon' => 'check',
-                    'label' => 'Enabled'
-                ],
-                'DISABLED' => [
-                    'value' => '1',
-                    'color' => 'danger',
-                    'icon' => 'times',
-                    'label' => 'Disabled'
-                ]
-            ]
         ];
     }
 
@@ -78,24 +67,19 @@ class Courses extends Model
         'faculties',
         'session',
         'timing',
-        'subjects',
         'course_timings',
         'start_date',
         'end_date',
         'fees',
         'status',
         'availability',
-        'leads_status',
         'category_id',
         'slug'
     ];
 
     protected $casts = [
         'faculties' => 'array',
-        'subjects' => 'array',
-        'course_timings' => 'array',
-        'start_date' => 'date',
-        'end_date' => 'date',
+        'course_timings' => 'array'
     ];
 
     public function institute()
@@ -127,4 +111,17 @@ class Courses extends Model
     {
         return $this->hasMany(Ratings::class);
     }
+
+    public function registerMediaCollections(): void
+    {
+        $this->addMediaCollection('course_video')
+            ->singleFile()
+            ->acceptsMimeTypes(['video/mp4', 'video/avi', 'video/mov', 'video/mkv', 'video/3gp', 'video/wmv', 'video/flv', 'video/webm', 'video/ogg', 'video/ogv', 'video/avi', 'video/mpeg', 'video/quicktime', 'video/x-msvideo', 'vide']);
+    }
+
+    public function faqs()
+    {
+        return $this->hasMany(Faqs::class);
+    }
+    
 }

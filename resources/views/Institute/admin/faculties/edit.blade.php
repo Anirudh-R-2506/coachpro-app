@@ -21,23 +21,107 @@
             }
         });
     }
-
-    function showUnsavedAlert() {
+    
+    editFaculty = () => {
         return {
+            subjects: [],
+            name: {errorMessage:'', blurred:false},
+            experience: {errorMessage:'', blurred:false},
+            qualification: {errorMessage:'', blurred:false},
             showAlert: false,
-
-            clicked() {
+            clickedInput() {
+                console.log('clicked');
                 if(this.showAlert == false) {
                     this.showAlert = true;
                 }
             },
+            getErrorMessage: function(value, rules) {
+                let isValid = Iodine.is(value, rules);
+                if (isValid !== true) {
+                    return Iodine.getErrorMessage(isValid);
+                }
+                return '';
+            },
+            blur: function(event) {
+                let ele = event.target;
+                this[ele.name].blurred = true;
+                let rules = JSON.parse(ele.dataset.rules)
+                this[ele.name].errorMessage = this.getErrorMessage(ele.value, rules);
+            },
+            input: function(event) {
+                let ele = event.target;
+                let rules = JSON.parse(ele.dataset.rules)
+                this[ele.name].errorMessage = this.getErrorMessage(ele.value, rules);
+            },
+            clicked: function(event) {
+                let ele = event.target;
+                let rules = JSON.parse(ele.dataset.rules)
+                this[ele.name].errorMessage = this.getErrorMessage(ele.value, rules);
+            },
+            initEdit(){
+                let sub = @json($faculty->subjects);
+                sub.forEach((subject) => {
+                    this.subjects.push({
+                        name: subject,
+                    });
+                });
+            },
+            addSubject(){
+                this.subjects.push({
+                    name: '',
+                });
+            },
+            removeSubject(index){
+                if (this.subjects.length > 1)
+                    this.subjects.splice(index, 1);
+                else
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'You must have atleast one Subject!',
+                    });
+            },
+            submit(){
+                Swal.showLoading();
+                let sub = [];
+                this.subjects.forEach((subject) => {
+                    sub.push(subject.name);
+                });
+                axios.post("{{route('institute.dashboard.faculties.update', $faculty->id)}}", {
+                    name: document.getElementById('name').value,
+                    experience: document.getElementById('experience').value,
+                    qualification: document.getElementById('qualification').value,
+                    subjects: sub,
+                })
+                .then((response) => {
+                    if (response.data.status == 'success') {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Success',
+                            text: response.data.message,
+                        });
+                        setTimeout(() => {
+                            window.location.href = "{{route('institute.dashboard.faculties.index')}}";
+                        }, 1000);
+                    } else {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: response.data.message,
+                        });
+                    }
+                })
+                .catch((error) => {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Something went wrong!',
+                    });
+                });
+            },
+        } 
+    }
 
-            submitForm() {
-                document.getElementById('faculty_update_form').submit();
-            }
-
-        }
-    }        
 </script>
 @endsection
 @section('content')
@@ -77,7 +161,7 @@
             </div>
         </div>
        
-        <div class="p-2 mt-3 card" x-data="showUnsavedAlert()">
+        <div class="p-2 mt-3 card mild-border" style="border-radius: 1.5rem;" x-data="editFaculty()" x-init="initEdit()">
             <form action="{{ route('institute.dashboard.faculties.update', $faculty->id) }}" method="POST" id="faculty_update_form">
                 @csrf
                 <div class="card-body">
@@ -122,7 +206,7 @@
                                 </p>
                             </div>
                             <div class="col-md-9">
-                                <input type="text" class="form-control" name="name" value="{{ $faculty->name }}" placeholder="{{ $faculty->name }}" @change="clicked">                                    
+                                <input type="text" class="form-control" id="name" name="name" value="{{ $faculty->name }}" placeholder="{{ $faculty->name }}" x-on:change="clickedInput()">                                    
                             </div>
                         </div>
                         <div class="mb-5 row">
@@ -137,7 +221,7 @@
                                 </p>
                             </div>
                             <div class="col-md-9">
-                                <input type="text" class="form-control" name="qualification" value="{{ $faculty->qualification }}" placeholder="{{ $faculty->qualification }}" @change="clicked">                                    
+                                <input type="text" class="form-control" id="qualification" name="qualification" value="{{ $faculty->qualification }}" placeholder="{{ $faculty->qualification }}" x-on:change="clickedInput()">                                    
                             </div>
                         </div>
                         <div class="mb-5 row">
@@ -152,12 +236,35 @@
                                 </p>
                             </div>
                             <div class="col-md-9">
-                                <input type="number" class="form-control" name="experience" value="{{ $faculty->experience }}" placeholder="{{ $faculty->experience }}" @change="clicked">                                    
+                                <input type="number" class="form-control" id="experience" name="experience" value="{{ $faculty->experience }}" placeholder="{{ $faculty->experience }}" x-on:change="clickedInput()">                                    
                             </div>
-                        </div>                        
+                        </div>  
+                        <div class="mb-5 row">
+                            <template x-for="(field, index) in subjects" :key="index">
+                                <div class="mb-3">
+                                    <h6 class="mb-2 card-title">
+                                        <strong>Subject <span x-text="index + 1"></span></strong>
+                                    </h6>
+                                    <div class="gap-2 d-flex">
+                                        <div class="col-md-10">
+                                            <label class="mb-1 h4">
+                                                <strong>Subject name</strong>
+                                            </label>
+                                            <input type="text" class="form-control" name="subject" x-model="field.name" required x-on:change="clickedInput()">
+                                        </div>
+                                        <div class="col-md-2 d-flex align-items-end">
+                                            <button class="btn btn-danger" type="button" @click="removeSubject(index)">Remove</button>
+                                        </div>
+                                    </div>
+                                </div>    
+                            </template>
+                            <div class="col-md-12">
+                                <button class="btn btn-primary" type="button" @click="addSubject">Add Subject</button>
+                            </div>
+                        </div>                      
                 </div>
                 <div class="modal-footer" x-show="showAlert">
-                    <span @click="submitForm">
+                    <span @click="submit">
                         <x-loadingbutton type="submit">Save</x-loadingbutton>
                     </span>
                 </div>

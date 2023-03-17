@@ -6,6 +6,7 @@
             disabled: false,
 
             clicked() {
+                return;
                 if(this.loading == false) {
                     this.loading = true;
                     this.disabled = true;
@@ -23,7 +24,7 @@
     }
 </script>
 
-<button {{ $attributes->merge(['type' => 'submit', 'class' => 'btn btn-primary']) }} x-bind:disabled="disabled" x-data="loadingButton()" @click="clicked"  x-cloak>
+<button {{ $attributes->merge(['type' => 'button', 'class' => 'btn btn-primary']) }} x-bind:disabled="disabled" x-data="loadingButton()" @click="clicked"  x-cloak>
     <span x-show="loading">
         <i class="fa-solid fa-spinner fa-spin"></i>
         &nbsp;

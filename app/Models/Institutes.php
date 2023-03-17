@@ -5,7 +5,6 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Faculties;
-use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use App\Traits\Uuid;
@@ -24,7 +23,8 @@ class Institutes extends Model implements HasMedia
         'email',        
         'leads_status',
         'bookings_status',
-        'status'
+        'status',
+        'video_url'
     ];
 
     public function enums()
@@ -64,6 +64,7 @@ class Institutes extends Model implements HasMedia
     public function registerMediaCollections(): void
     {
         $this->addMediaCollection('institute_images');
+        $this->addMediaCollection('institute_cover');
     }
 
     public function faculties()

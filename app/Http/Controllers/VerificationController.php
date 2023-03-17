@@ -6,10 +6,12 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use App\Models\UserVerify;
 use App\Models\User;
+use App\Jobs\MobileVerificationSms;
 use App\Jobs\SendAccountVerificationMail;
 use Alert;
 use App\Enums\AccountStatus;
 use App\Enums\UserRole;
+use App\Models\MobileVerify;
 
 class VerificationController extends Controller
 {
@@ -25,6 +27,52 @@ class VerificationController extends Controller
 
         SendAccountVerificationMail::dispatch($user);
 
+    }
+
+    private function send_mobile_verification_sms($user)
+    {
+        MobileVerificationSms::dispatch($user);
+    }
+
+    public function verify_mobile(Request $request)
+    {
+        $request->validate([
+            'otp' => 'required',
+        ]);
+
+        $user = auth()->user();
+        $verify = MobileVerify::where('user_id', $user->id)->first();
+        if ($verify){
+            if ($verify->otp == $request->otp){
+                $user->account_status = AccountStatus::VERIFIED;
+                $user->save();
+                $verify->delete();
+                Alert::success('Success!', 'Your mobile has been verified :D');
+                return redirect()->back();
+            }
+            else{
+                Alert::error('Oops!', 'Your verification OTP is invalid :(');
+                return redirect()->back();
+            }            
+        }
+        else{
+            if ($user->account_status == AccountStatus::VERIFIED){
+                Alert::success('Success!', 'Your mobile has already been verified :D');
+                return redirect()->back();
+            }
+            else{
+                Alert::error('Oops!', 'Your verification OTP is invalid :(');
+                return redirect()->back();
+            }
+        }
+    }
+
+    public function resend_otp(Request $request)
+    {
+        $user = auth()->user();
+        $this->send_mobile_verification_sms($user);
+        Alert::success('Success!', 'OTP has been sent to your mobile number :D');
+        return redirect()->back();
     }
 
     public function verify($token)

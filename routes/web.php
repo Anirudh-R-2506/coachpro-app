@@ -39,8 +39,12 @@ $inst->group(function (){
         
             Route::get('/verify/{token}', [VerificationController::class, 'verify'])->name('verify');
             Route::get('/resend/verify', [VerificationController::class, 'resend'])->name('resend');
+            Route::post('/verify/mobile', [VerificationController::class, 'verify_mobile'])->name('verify.mobile');
+            Route::post('/resend/mobile', [VerificationController::class, 'resend_otp'])->name('resend.mobile');
         
         });
+
+        Route::post('/video/upload', [ImageController::class, 'upload_video'])->name('video.upload');
 
     });
 
@@ -56,16 +60,17 @@ $inst->group(function (){
         Route::name('profile.')->group(function (){
             Route::get('/profile', [InstituteController::class, 'profile'])->name('index');
             Route::post('/profile/update', [InstituteController::class, 'profile_update'])->name('update');
+            Route::post('/profile/cover', [InstituteController::class, 'cover_update'])->name('cover');
         });
 
-        /* Route::name('courses.')->group(function (){
+        Route::name('courses.')->group(function (){
             Route::get('/courses', [InstituteController::class, 'courses'])->name('index');
             Route::get('/courses/create', [InstituteController::class, 'create_course'])->name('create');
             Route::post('/courses/store', [InstituteController::class, 'store_course'])->name('store');
             Route::get('/courses/{course}/edit', [InstituteController::class, 'edit_course'])->name('edit');
             Route::post('/courses/{course}/update', [InstituteController::class, 'update_course'])->name('update');
             Route::post('/courses/{course}/delete', [InstituteController::class, 'delete_course'])->name('delete');
-        }); */
+        });
 
         Route::name('faculties.')->group(function(){
             Route::get('/faculties', [InstituteController::class, 'faculties'])->name('index');
@@ -82,7 +87,7 @@ $inst->group(function (){
             Route::post('/photos/upload', [ImageController::class, 'upload'])->name('upload');
         }); 
         
-        /* Route::name('leads.')->group(function (){
+        Route::name('leads.')->group(function (){
             Route::get('/leads', [InstituteController::class, 'leads'])->name('index');
             Route::get('/leads/{lead}/show', [InstituteController::class, 'show_lead'])->name('show');
         });
@@ -90,7 +95,7 @@ $inst->group(function (){
         Route::name('bookings.')->group(function (){
             Route::get('/bookings', [InstituteController::class, 'bookings'])->name('index');
             Route::get('/bookings/{booking}/show', [InstituteController::class, 'show_booking'])->name('show');
-        }); */
+        });
 
     
     });
@@ -102,8 +107,8 @@ Route::name('frontend.')->group(function () {
     Route::get('/', [HomeController::class, 'coming_soon'])->name('index');
     /* Route::get('/about', [HomeController::class, 'about'])->name('about');
     Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
-    Route::get('/eduhunt', [HomeController::class, 'product'])->name('product'); */
-    Route::get('/signin', [HomeController::class, 'signin'])->name('signin');    
+    Route::get('/eduhunt', [HomeController::class, 'product'])->name('product');
+    Route::get('/signin', [HomeController::class, 'signin'])->name('signin');     */
 
 });
 

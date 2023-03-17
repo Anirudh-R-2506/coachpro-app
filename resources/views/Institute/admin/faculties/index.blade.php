@@ -2,15 +2,7 @@
 
 @section('css')
 {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> --}}
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
-<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
-<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
 <script defer>
-    function createFaculty(id)
-    {
-        document.getElementById(`${id}`).submit();
-    }
-    
     function trigger_delete(id) {
         Swal.fire({
             title: 'Are you sure?',
@@ -30,8 +22,92 @@
         });
     }
 
-    alterRole = () => {
-        console.log(event.target.value);
+    newFaculty = () => {
+        return {
+            subjects: [],
+            name: {errorMessage:'', blurred:false},
+            experience: {errorMessage:'', blurred:false},
+            qualification: {errorMessage:'', blurred:false},
+            getErrorMessage: function(value, rules) {
+                let isValid = Iodine.is(value, rules);
+                if (isValid !== true) {
+                    return Iodine.getErrorMessage(isValid);
+                }
+                return '';
+            },
+            blur: function(event) {
+                let ele = event.target;
+                this[ele.name].blurred = true;
+                let rules = JSON.parse(ele.dataset.rules)
+                this[ele.name].errorMessage = this.getErrorMessage(ele.value, rules);
+            },
+            input: function(event) {
+                let ele = event.target;
+                let rules = JSON.parse(ele.dataset.rules)
+                this[ele.name].errorMessage = this.getErrorMessage(ele.value, rules);
+            },
+            clicked: function(event) {
+                let ele = event.target;
+                let rules = JSON.parse(ele.dataset.rules)
+                this[ele.name].errorMessage = this.getErrorMessage(ele.value, rules);
+            },
+            initSub(){
+                this.addSubject();
+            },
+            addSubject(){
+                this.subjects.push({
+                    name: '',
+                });
+            },
+            removeSubject(index){
+                if (this.subjects.length > 1)
+                    this.subjects.splice(index, 1);
+                else
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'You must have atleast one Subject!',
+                    });
+            },
+            submit(){
+                Swal.showLoading();
+                let sub = [];
+                this.subjects.forEach((subject) => {
+                    sub.push(subject.name);
+                });
+                axios.post("{{route('institute.dashboard.faculties.store')}}", {
+                    name: document.getElementById('name').value,
+                    experience: document.getElementById('experience').value,
+                    qualification: document.getElementById('qualification').value,
+                    subjects: sub,
+                })
+                .then((response) => {
+                    if (response.data.status == 'success') {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Success',
+                            text: response.data.message,
+                        });
+                        setTimeout(() => {
+                            location.reload();
+                        }, 1000);
+                    } else {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: response.data.message,
+                        });
+                    }
+                })
+                .catch((error) => {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Something went wrong!',
+                    });
+                });
+            },
+        }
     }
 </script>
 <style>
@@ -102,7 +178,7 @@
                             </small>
                         </h3>           
                     </div>
-                    <div class="m-3 modal-body">
+                    <div class="m-3 modal-body" x-data="newFaculty" x-init="initSub">
 
                         <form action="{{ route('institute.dashboard.faculties.store') }}" id="new_faculty_form" method="POST" autocomplete="off">
                             @csrf
@@ -119,7 +195,7 @@
                                 </div>
                                 <div class="col-md-9">
                                     <input @blur="blur" @input="input" data-rules='["required","string"]'
-                                           type="text" class="form-control" name="name" placeholder="John Doe" @change="clicked">
+                                           type="text" class="form-control" id="name" name="name" placeholder="John Doe" @change="clicked">
                                 </div>
                             </div>
                             <div class="mb-5 row">
@@ -135,7 +211,7 @@
                                 </div>
                                 <div class="col-md-9">
                                     <input @blur="blur" @input="input" data-rules='["required","string"]'
-                                           type="text" class="form-control" name="qualification" placeholder="MS, PhD" @change="clicked">                                    
+                                           type="text" class="form-control" id="qualification" name="qualification" placeholder="MS, PhD" @change="clicked">                                    
                                 </div>
                             </div>
                             <div class="mb-5 row">
@@ -151,12 +227,45 @@
                                 </div>
                                 <div class="col-md-9">
                                     <input @blur="blur" @input="input" data-rules='["required","number"]'
-                                           type="number" class="form-control" name="experience" placeholder="15" @change="clicked">                                    
+                                           type="number" class="form-control" id="experience" name="experience" placeholder="15" @change="clicked">                                    
+                                </div>
+                            </div>
+                            <div class="mb-2">
+                                <label class="h4">
+                                    <strong>Subjects</strong>
+                                </label>
+                                <p class="-mt-1 text-muted">
+                                    <small>
+                                        The subjects taught by the faculty
+                                    </small>
+                                </p>
+                            </div>
+                            <div class="mb-5 row">
+                                <template x-for="(field, index) in subjects" :key="index">
+                                    <div class="mb-3">
+                                        <h6 class="mb-2 card-title">
+                                            <strong>Subject <span x-text="index + 1"></span></strong>
+                                        </h6>
+                                        <div class="gap-2 d-flex">
+                                            <div class="col-md-10">
+                                                <label class="mb-1 h4">
+                                                    <strong>Subject name</strong>
+                                                </label>
+                                                <input type="text" class="form-control" name="subject" x-model="field.name" required>
+                                            </div>
+                                            <div class="col-md-2 d-flex align-items-end">
+                                                <button class="btn btn-danger" type="button" @click="removeSubject(index)">Remove</button>
+                                            </div>
+                                        </div>
+                                    </div>    
+                                </template>
+                                <div class="col-md-12">
+                                    <button class="btn btn-primary" type="button" @click="addSubject">Add Subject</button>
                                 </div>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                <span onclick="createFaculty('new_faculty_form')">
+                                <span @click="submit">
                                     <x-loadingbutton type="button">Create</x-loadingbutton>
                                 </span>
                             </div>
@@ -167,45 +276,56 @@
         </div>
         </div>
 
-        <div class="mt-3 card mild-border" style="border-radius: 1.5rem;">
+        <div class="p-2 mt-3 card mild-border" style="border-radius: 1.5rem;">
             <div class="card-body" style="padding: 0px !important;">
                 <div class="mb-2 row">
                     <div class="px-4 py-2 col-md-12">                            
-                        @include('includes.search-filter', [
-                                'filters' => null,
-                                'table' => 'table',
-                                'search' => true,
-                                'placeholder' => 'Search any faculty...',
-                        ])
-                        <table id="table" class="table table-striped mild-border-t mild-border-b" style="width:100%; font-size: 1rem; margin-top: 20px;">
-                            <thead>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Qualification</th>
-                                    <th>Experience</th>
-                                    <th class="actions-th"></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach($faculties as $user)
-                                <tr>
-                                    <td class="col-4">{{ $user->name }}</td>
-                                    <td class="col-4">{{ $user->qualification }}</td>
-                                    <td class="col-4">{{ $user->experience }}</td>                                    
-                                    <td class="action-edit">
-                                        <div class="inner">
-                                            <a class="icon" href="{{ route('institute.dashboard.faculties.edit', $user->id) }}">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                                    <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"></path>
-                                                </svg>        
-                                                Edit                                    
-                                            </a>                                    
-                                        </div>
-                                    </td>
-                                </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
+                        @if($faculties->count() > 0)
+                            @include('includes.search-filter', [
+                                    'filters' => null,
+                                    'table' => 'table',
+                                    'search' => true,
+                                    'placeholder' => 'Search any faculty...',
+                            ])
+                            <table id="table" class="table table-striped mild-border-t mild-border-b" style="width:100%; font-size: 1rem; margin-top: 20px;">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Qualification</th>
+                                        <th>Experience</th>
+                                        <th class="actions-th"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach($faculties as $user)
+                                    <tr>
+                                        <td class="col-4">{{ $user->name }}</td>
+                                        <td class="col-4">{{ $user->qualification }}</td>
+                                        <td class="col-4">{{ $user->experience }}</td>                                    
+                                        <td class="action-edit">
+                                            <div class="inner">
+                                                <a class="icon" href="{{ route('institute.dashboard.faculties.edit', $user->id) }}">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                        <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"></path>
+                                                    </svg>        
+                                                    Edit                                    
+                                                </a>                                    
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        @else
+                            <div class="mt-2">
+                                <img src="{{ asset('images/empty.png') }}" class="mx-auto mb-4 d-block">
+                                <h1 class="text-center">
+                                    <strong>
+                                        No faculties found
+                                    </strong>
+                                </h1>
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>

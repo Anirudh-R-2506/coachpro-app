@@ -1,6 +1,13 @@
 @extends('institute.layouts.admin')
 
 @section('css')
+
+<link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
+<script src="https://unpkg.com/filepond/dist/filepond.min.js"></script>
+<script src="https://unpkg.com/jquery-filepond/filepond.jquery.js"></script>
+<script src="https://unpkg.com/filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.js"></script>
+<script src="https://unpkg.com/filepond-plugin-image-transform/dist/filepond-plugin-image-transform.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/browser-image-compression@2.0.0/dist/browser-image-compression.js"></script>
 <script src="{{asset('js/jquery.lbt-lightbox.min.js')}}"></script>
 <link rel="stylesheet" href="{{asset('css/jquery.lbt-lightbox.min.css')}}">
 <script defer>
@@ -128,7 +135,7 @@
             </div>
         </div>
         </div>        
-        <div class="p-2 mt-3 card">
+        <div class="p-2 mt-3 card mild-border" style="border-radius: 1.5rem;">
             <div class="card-body">
                 @if($images->count() != 0)
                     <div id="gallery" class="row">
@@ -181,7 +188,6 @@
 
 
         $.fn.filepond.registerPlugin(FilePondPluginFileValidateType);
-        $.fn.filepond.registerPlugin(FilePondPluginImagePreview);
         $.fn.filepond.registerPlugin(FilePondPluginImageTransform);
         FilePond.setOptions({
             name: 'image',

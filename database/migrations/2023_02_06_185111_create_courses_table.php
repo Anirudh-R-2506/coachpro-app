@@ -34,7 +34,6 @@ return new class extends Migration
             $table->enum('availability', Courses::enum('availability')->values())->default(Courses::enum('availability')->values()[0]);
             $table->dropColumn('video_url');
             $table->string('slug');
-            $table->enum('leads_status', Courses::enum('leads_status')->values())->default(Courses::enum('leads_status')->values()[0]);                       
             $table->timestamps();
         });
     }

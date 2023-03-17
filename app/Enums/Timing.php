@@ -11,15 +11,15 @@ class Timing
     use EnumConstant;
 
     const FORENOON = '0';
-    const AFTERNOON = '1';
-    const EVENING = '2';
+    const BOTH = '2';
+    const EVENING = '1';
 
     public static function getValues(): array
     {
         return [
             self::FORENOON,
-            self::AFTERNOON,
             self::EVENING,
+            self::BOTH,
         ];
     }
 
@@ -27,8 +27,8 @@ class Timing
     {
         return [
             self::FORENOON => 'Forenoon',
-            self::AFTERNOON => 'Afternoon',
             self::EVENING => 'Evening',
+            self::BOTH => 'Both',
         ];
     }
 

@@ -109,7 +109,7 @@ class LoginController extends Controller
     public function register_cs(Request $request)
     {
         $request->validate([
-            //'recaptcha_token' => env('APP_ENV') == 'local' ? '' : ['required', new ReCaptchaRule($request->recaptcha_token)],
+            //'recaptcha_token' => env('APP_ENV') == 'local' ? '' : [new ReCaptchaRule($request->recaptcha_token)],
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255',
             'phone' => 'required|string|max:255',

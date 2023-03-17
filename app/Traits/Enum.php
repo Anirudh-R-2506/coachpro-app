@@ -97,7 +97,14 @@ trait Enum {
 
     protected function hex2rgba($color, $opacity = false): string
     {
- 
+
+        if (empty($color))
+            return 'rgba(0,0,0,0)';
+
+        if (in_array($color, $this->colors)) {
+            $color = array_search($color, $this->colors);
+        }
+
         $default = 'rgb(0,0,0)';
 
         if(empty($color))
@@ -145,7 +152,7 @@ trait Enum {
         }
     }
 
-    public static function enum(string $key): self
+    public static function enum(string $key, ?bool $inverse = false): self
     {        
         $self = new self;
         $enums = $self->enums();
@@ -153,6 +160,15 @@ trait Enum {
             return $self->setEnum($key);
         }
         throw new EnumException('Enum not defined for model: ' . get_called_class() . ". Call enum() method first. (ex: \$model->enum('status')) [From function: " . debug_backtrace()[1]['function'] . "()]");
+    }
+
+    public function getFilter()
+    {
+        $response = [];
+        foreach ($this->enum as $key => $value) {
+            $response[$value['value']] = $value['label'];
+        }
+        return $response;
     }
 
     public function keys(): array
@@ -197,17 +213,28 @@ trait Enum {
         return $response;
     }    
 
-    public function getBadge(): string
+    public function getEnumFromValue($value)
     {
         $this->checkEnum();
-        $label = array_search($value, array_column($this->enum, 'value'));
-        $color = $this->enum['color'];
-        $icon = $this->enum['icon'];
-        $bg = self::hex2rgba($color, 0.1);
+        foreach ($this->enum as $key => $enum) {
+            if ($enum['value'] == $value) {
+                return $enum;
+            }
+        }
+    }
+
+    public function getBadge($value): string
+    {
+        $this->checkEnum();
+        $enum = $this->getEnumFromValue($value);
+        $label = $enum['label'];
+        $color = $enum['color'];
+        $icon = $enum['icon'];
+        $bg = $this->getColor($color);
 
         $div = "<div style='color: $color; letter-spacing: -.025em; font-weight: 500; font-size: .875rem; line-height: 1.25rem; padding-bottom: 0.25rem; padding-top: 0.25rem; padding-left: 0.6rem; padding-right: 0.6rem; background-color: $bg; border-radius: 0.75rem; white-space: nowrap; justify-content: center; align-items: center; display: inline-flex; border: 0 solid #e5e7eb; box-sizing: border-box;'>";        
-        $icon = "<i class='fas fa-$icon' style='width: 1rem; height: 1rem; margin-right: 0.25rem;'></i>";
-        $text = "<span>$label</span></div>";
+        $icon = "<i class='fas fa-$icon' style='width: 1rem; height: 1rem; margin-right: 0.25rem; color: white;'></i>";
+        $text = "<span style='color: white;'>$label</span></div>";
 
         return $div . $icon . $text;
     }

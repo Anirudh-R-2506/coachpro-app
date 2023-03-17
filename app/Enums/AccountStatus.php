@@ -15,6 +15,7 @@ class AccountStatus
     public CONST FLAGGED = '2';
     public CONST BANNED = '3';
     public CONST INACTIVE = '4';
+    public const MOBILE_UNVERIFIED = '5';
 
     /**
      * colors
@@ -38,6 +39,7 @@ class AccountStatus
             'warning' => self::FLAGGED,
             'danger' => self::BANNED,
             'muted' => self::INACTIVE,
+            'bg-gray-200 text-gray-900' => self::MOBILE_UNVERIFIED,
         ];
     }
 
@@ -53,6 +55,7 @@ class AccountStatus
             'heroicon-o-exclamation' => self::FLAGGED,
             'heroicon-o-x-circle' => self::BANNED,
             'heroicon-o-user-remove' => self::INACTIVE,
+            'heroicon-o-question-mark-circle' => self::MOBILE_UNVERIFIED,
         ];
     }
 
@@ -64,6 +67,7 @@ class AccountStatus
             self::FLAGGED => 'Flagged',
             self::BANNED => 'Banned',
             self::INACTIVE => 'Inactive',
+            self::MOBILE_UNVERIFIED => 'Mobile Unverified',
         ];
     }
 
@@ -75,6 +79,7 @@ class AccountStatus
             self::FLAGGED,
             self::BANNED,
             self::INACTIVE,
+            self::MOBILE_UNVERIFIED,
         ];
     }
 }

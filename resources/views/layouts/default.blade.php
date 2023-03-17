@@ -41,7 +41,7 @@
 
         @yield('content')
 
-        {{-- @include('includes.footer') --}}
+        @include('includes.footer')
 
         <!-- ====== Back To Top Start -->
         <button   

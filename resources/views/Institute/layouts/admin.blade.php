@@ -17,12 +17,7 @@
    <title>
       Edu Hunt | Dashboard
    </title>
-   <link rel="shortcut icon" href="{{ asset('images/logo/logo.png') }}" type="image/x-icon" />
-   <link rel="stylesheet" href="{{ asset('css/animate.css') }} "/>
-   
-   <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}" />
-   <link href="https://vjs.zencdn.net/7.20.3/video-js.css" rel="stylesheet" />
-   <link href="https://unpkg.com/@videojs/themes@1/dist/sea/index.css" rel="stylesheet" />
+   <link rel="shortcut icon" href="{{ asset('images/logo/logo.png') }}" type="image/x-icon" />   
    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.2/axios.min.js" integrity="sha512-NCiXRSV460cHD9ClGDrTbTaw0muWUBf/zB/yLzJavRsPNUl9ODkUVmUHsZtKu17XknhsGlmyVoJxLg/ZQQEeGA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -31,67 +26,17 @@
    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-   <script src="https://cdn.jsdelivr.net/gh/mattkingshott/iodine@3/dist/iodine.min.js" defer></script>
-   <!-- ==== WOW JS ==== -->
-   <script src="{{ asset('js/wow.min.js') }}"></script>
+   <script src="https://cdn.jsdelivr.net/gh/mattkingshott/iodine@3/dist/iodine.min.js" defer></script>   
    <style>
       button:focus {
          outline: none !important;
       }
    </style>
-   <script>
-      new WOW().init();
-   </script>
-   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-   {{-- <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}" /> --}}
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">   
    <link href="{{ asset('dist/css/app.css') }}" rel="stylesheet">
-
-   {{-- JQUERY --}}
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-   {{-- DATATABLES --}}
-   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
-   <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
-   <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
-
-   {{-- DATATABLES  RESPONSIVE EXTENSION
-   <link href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap5.min.css" rel="stylesheet">
-   <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
-   <script src="https://cdn.datatables.net/responsive/2.2.9/js/responsive.bootstrap5.min.js"></script>
-   --}}
-   {{-- SELECT2 --}}
-   <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-   <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-
-   {{-- CHARTISAN --}}
-   <script src="https://unpkg.com/echarts/dist/echarts.min.js"></script>
-   <script src="https://unpkg.com/@chartisan/echarts/dist/chartisan_echarts.js"></script>
-
-   {{-- RTF EDITOR --}}
-   <script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
-
-   {{-- BOOTSTRAP SWITCH --}}
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/4.0.0-alpha.1/js/bootstrap-switch.min.js"></script>
-   <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/4.0.0-alpha.1/css/bootstrap-switch.min.css" rel="stylesheet">
-
-   {{-- FILEPOND --}}
-   <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
-   <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css" rel="stylesheet"/>
-   <script src="https://unpkg.com/filepond/dist/filepond.min.js"></script>
-   <script src="https://unpkg.com/jquery-filepond/filepond.jquery.js"></script>
-   <script src="https://unpkg.com/filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.js"></script>
-   <script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
-   <script src="https://unpkg.com/filepond-plugin-image-transform/dist/filepond-plugin-image-transform.js"></script>
-   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/browser-image-compression@2.0.0/dist/browser-image-compression.js"></script>
-
-   {{-- LITEPICKER --}}
-   <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/litepicker.js"></script>
-   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/litepicker/dist/css/litepicker.css"/>
 
    <script src="{{ asset('js/bootstrap.bundle.js') }}"></script>
    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-   {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script> --}}
-   {{-- APP JS --}}   
 
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
@@ -158,6 +103,12 @@
          --tw-text-opacity: 1;
          color: rgb(255 255 255 / var(--tw-text-opacity)) !important;         
       }
+      .btn-primary:focus{
+         --tw-bg-opacity: 1;
+         background-color: rgb(9 14 52 / var(--tw-bg-opacity)) !important;
+         --tw-text-opacity: 1;
+         color: rgb(255 255 255 / var(--tw-text-opacity)) !important;         
+      }
       .btn-secondary {
          --tw-bg-opacity: 1;
          background-color: rgb(255 255 255 / var(--tw-bg-opacity));
@@ -180,6 +131,12 @@
          --tw-text-opacity: 1;
          color: rgb(255 255 255 / var(--tw-text-opacity)) !important;         
       }
+      .btn-secondary:focus{
+         --tw-bg-opacity: 1;
+         background-color: rgb(9 14 52 / var(--tw-bg-opacity)) !important;
+         --tw-text-opacity: 1;
+         color: rgb(255 255 255 / var(--tw-text-opacity)) !important;         
+      }
       .btn-danger {
          --tw-bg-opacity: 1;
          background-color: rgb(255 255 255 / var(--tw-bg-opacity));
@@ -197,6 +154,12 @@
          transition-duration: .3s;
       }
       .btn-danger:hover{
+         --tw-bg-opacity: 1;
+         background-color: rgb(255 59 48 / var(--tw-bg-opacity)) !important;
+         --tw-text-opacity: 1;
+         color: rgb(255 255 255 / var(--tw-text-opacity)) !important;         
+      }
+      .btn-danger:focus{
          --tw-bg-opacity: 1;
          background-color: rgb(255 59 48 / var(--tw-bg-opacity)) !important;
          --tw-text-opacity: 1;
@@ -610,16 +573,16 @@
                      <div class="col-6 text-end">
                         <ul class="list-inline">
                            <li class="list-inline-item">
-                              <a class="text-muted" href="https://adminkit.io/" target="_blank">Support</a>
+                              <a class="text-muted" href="https://institute.eduhunt.co/#contact" target="_blank">Support</a>
                            </li>
                            <li class="list-inline-item">
-                              <a class="text-muted" href="https://adminkit.io/" target="_blank">Help Center</a>
+                              <a class="text-muted" href="{{asset('docs/mou.pdf')}}" target="_blank">MoU</a>
                            </li>
                            <li class="list-inline-item">
-                              <a class="text-muted" href="https://adminkit.io/" target="_blank">Privacy</a>
+                              <a class="text-muted" href="{{route('docs.privacy-policy')}}" target="_blank">Privacy Policy</a>
                            </li>
                            <li class="list-inline-item">
-                              <a class="text-muted" href="https://adminkit.io/" target="_blank">Terms</a>
+                              <a class="text-muted" href="{{route('docs.terms')}}" target="_blank">Terms</a>
                            </li>
                         </ul>
                      </div>
