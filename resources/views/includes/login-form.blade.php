@@ -89,3 +89,14 @@ data-wow-delay=".2s
   </form>
 
 </div>
+<div class="flex flex-wrap items-center justify-center mt-8 text-center">
+  <p class="text-sm text-dark">
+    Don't have an account?
+    <button
+      type="button"
+      @click="login = false"
+      class="text-primary hover:text-dark focus:text-dark focus:outline-none"
+      >Sign up</button>
+  </p>
+</div>
+</div>

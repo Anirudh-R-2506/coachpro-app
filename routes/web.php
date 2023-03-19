@@ -50,7 +50,7 @@ $inst->group(function (){
 
     Route::name('dashboard.')->prefix('/dashboard')->group(function () {
 
-        Route::get('/', [InstituteController::class, 'coming_soon'])->name('index');
+        Route::get('/', [InstituteController::class, 'index'])->name('index');
 
         Route::name('user.')->group(function (){
             Route::get('/user', [InstituteController::class, 'user'])->name('index');

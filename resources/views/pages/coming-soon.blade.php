@@ -75,14 +75,7 @@ x-intersect="changeToWhite()"
     <div class="w-full px-4 pt-8 md:pl-8 md:w-1/2 top" data-aos="fade-zoom-in" data-aos-delay="1000">
         @include('includes.signup-cs')
     </div>
-  </div>
-  <div data-aos="fade-zoom-down" data-aos-delay="900" class="flex flex-row justify-between w-full pt-12 -mb-12" style="background: linear-gradient(to left,  rgb(15, 31, 82) 0%,rgb(15, 31, 82) 50%,rgb(48, 86, 211) 50%,rgb(48, 86, 211) 100%);">
-    <div class="mr-12 text-left">
-        <h1 class="mb-2 uppercase tracking-[0.2em] text-3xl font-bold text-white">Are you an institute ?</h1>    
-        <p class="text-lg text-white font-extralight">Join us and get your institute listed.</p>
-    </div>
-    <a href="{{route('institute.index')}}" class="px-8 py-4 mt-4 mb-4 mr-8 text-xl font-bold bg-white rounded-lg text-primary">Let's Go</a>
-  </div>
+  </div>  
 </div>
 </div>
 

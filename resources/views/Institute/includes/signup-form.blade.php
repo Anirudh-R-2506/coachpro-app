@@ -191,4 +191,15 @@
                             </button>
                         </div>
                       </form>                                                                  
-                    </div>
+                      <div class="flex flex-wrap items-center justify-center mt-8 text-center">
+                        <p class="text-sm text-dark">
+                          Already have an account?
+                          <button
+                            type="button"
+                            @click="login = true"
+                            class="text-primary hover:text-dark focus:text-dark focus:outline-none"
+                            >Login</button>
+                        </p>
+                      </div>
+                    </div>                    
+                  </div>

@@ -33,30 +33,10 @@
             data-wow-delay=".2s"
           >
             <div x-show="login" class="p-10">
-              @include('includes.login-form')
-              <div class="flex flex-wrap items-center justify-center mt-8 text-center">
-                <p class="text-sm text-dark">
-                  Don't have an account?
-                  <button
-                    type="button"
-                    @click="login = false"
-                    class="text-primary hover:text-dark focus:text-dark focus:outline-none"
-                    >Sign up</button>
-                </p>
-              </div>
+              @include('includes.login-form')              
             </div>
             <div x-show="!login" class="p-10">
-              @include('institute.includes.signup-form', ['localities' => $localities])
-              <div class="flex flex-wrap items-center justify-center mt-8 text-center">
-                <p class="text-sm text-dark">
-                  Already have an account?
-                  <button
-                    type="button"
-                    @click="login = true"
-                    class="text-primary hover:text-dark focus:text-dark focus:outline-none"
-                    >Login</button>
-                </p>
-              </div>
+              @include('institute.includes.signup-form', ['localities' => $localities])              
             </div>
           </div>
         </div>
