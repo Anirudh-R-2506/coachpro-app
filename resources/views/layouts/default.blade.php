@@ -18,7 +18,7 @@
             width: 0%;
             position: fixed;
             top: 0;
-            z-index: 1;
+            z-index: 40;
         }
 
         body::-webkit-scrollbar {
@@ -35,7 +35,7 @@
 
     <body class="bg-[#f3f4ff]">
         <div class="progress-bar" id="progressBar"></div>  
-        {{-- @include('includes.header') --}}
+        @include('includes.cs-header')
 
         @include('includes.shapes')
 
