@@ -51,6 +51,12 @@
                     Contact
                   </a>
                 </li>
+                <li class="relative group sm:hidden">
+                  <a href="{{ !auth()->check() ? route('institute.signin') : route('institute.dashboard.profile.index') }}"
+                    class="flex py-2 mx-8 text-base ud-menu-scroll text-dark group-hover:text-primary lg:mr-0 lg:ml-7 lg:inline-flex lg:py-6 lg:px-0 lg:text-white lg:group-hover:text-white lg:group-hover:opacity-70 xl:ml-12">
+                    {!! !auth()->check() ? 'Login or Register' : 'Dashboard' !!}
+                  </a>
+                </li>
               </ul>
             </nav>
           </div>

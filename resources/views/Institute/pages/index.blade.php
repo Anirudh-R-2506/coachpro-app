@@ -1203,8 +1203,21 @@
         // ==== for menu scroll
         const pageLink = document.querySelectorAll(".ud-menu-scroll");
 
+        function isValidHttpUrl(string) {
+            let url;
+            try {
+                url = new URL(string);
+            } catch (_) {
+                return false;
+            }
+            return url.protocol === "http:" || url.protocol === "https:";
+        }
+
         pageLink.forEach((elem) => {
             elem.addEventListener("click", (e) => {
+                if (isValidUrl(elem.getAttribute("href"))){
+                    return;
+                }
                 e.preventDefault();
                 document.querySelector(elem.getAttribute("href")).scrollIntoView({
                     behavior: "smooth",
