@@ -141,7 +141,7 @@
                     <div id="gallery" class="row">
                         @foreach ($images as $image)
                             <div class="mb-2 col-md-4 item">
-                                <img width="100%" height="300" src="{{ $image->getTemporaryUrl(now()->addMinutes(100)); }}" alt="image" />
+                                <img width="100%" height="300" src="{{ /* $image->getTemporaryUrl(now()->addMinutes(100)); */$image->getUrl(); }}" alt="image" />
                                 <div class="caption">
                                     <div class="mt-2">
                                         <center><button class="btn btn-danger" type="button" onclick="trigger_delete({{$image->id}});">
