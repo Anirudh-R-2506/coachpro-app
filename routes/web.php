@@ -118,6 +118,10 @@ Route::name('frontend.')->group(function () {
     Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
     Route::get('/eduhunt', [HomeController::class, 'product'])->name('product');
     Route::get('/signin', [HomeController::class, 'signin'])->name('signin');     */
+    Route::prefix('/survey')->group(function () {
+        Route::get('/', [SurveyController::class, 'index'])->name('survey.index');
+        Route::post('/store', [SurveyController::class, 'store'])->name('survey.store');
+    });
 
 });
 
