@@ -152,18 +152,16 @@
         <a class="sidebar-link" href="{{ route('institute.dashboard.profile.index') }}">
             <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Profile</span>
         </a>
-    </li>
-
-    <li class="mb-2 sidebar-item" id="{{ (strpos(Route::currentRouteName(), 'institute.dashboard.courses') !== false) ? 'active' : '' }}">
-      <a class="sidebar-link" href="{{ route('institute.dashboard.courses.index') }}">
-          <i class="align-middle" data-feather="database"></i> <span class="align-middle">Courses</span>
-      </a>
-    </li>
+    </li>    
 
     <li class="mb-2 sidebar-item" id="{{ (strpos(Route::currentRouteName(), 'institute.dashboard.photos') !== false) ? 'active' : '' }}">
         <a class="sidebar-link" href="{{ route('institute.dashboard.photos.index') }}">
             <i class="align-middle" data-feather="camera"></i> <span class="align-middle">Photos</span>
         </a>
+    </li>
+
+    <li class="sidebar-header">
+      Operations
     </li>
 
     <li class="mb-2 sidebar-item" id="{{ (strpos(Route::currentRouteName(), 'institute.dashboard.faculties') !== false) ? 'active' : '' }}">
@@ -172,19 +170,25 @@
       </a>
     </li>
 
-    {{-- <li class="sidebar-header">
-      Operations
+    <li class="mb-2 sidebar-item" id="{{ (strpos(Route::currentRouteName(), 'institute.dashboard.courses') !== false) ? 'active' : '' }}">
+      <a class="sidebar-link" href="{{ route('institute.dashboard.courses.index') }}">
+          <i class="align-middle" data-feather="database"></i> <span class="align-middle">Courses</span>
+      </a>
     </li>
 
-    <li class="mb-2 sidebar-item">            
-      <a class="sidebar-link" href="#">
+    <li class="sidebar-header">
+      Leads & Bookings
+    </li>
+
+    <li class="mb-2 sidebar-item" id="{{ (strpos(Route::currentRouteName(), 'institute.dashboard.leads.index') !== false) ? 'active' : '' }}">            
+      <a class="sidebar-link" href="{{route('institute.dashboard.leads.index')}}">
         <i class="align-middle" data-feather="user-plus"></i> <span class="align-middle">Leads</span>
       </a>
     </li>
-    <li class="sidebar-item">
-      <a class="sidebar-link" href="#">
+    <li class="sidebar-item" id="{{ (strpos(Route::currentRouteName(), 'institute.dashboard.bookings.index') !== false) ? 'active' : '' }}">
+      <a class="sidebar-link" href="{{route('institute.dashboard.bookings.index')}}">
         <i class="align-middle" data-feather="user-check"></i> <span class="align-middle">Bookings</span>
       </a>
-    </li> --}}
+    </li>
     
  </ul>

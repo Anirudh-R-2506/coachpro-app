@@ -98,7 +98,7 @@
             start_date_picker: null,
             end_date_picker: null,
             timings: 0,
-            faqs: 0,
+            faqs: @json($faqs),
             mounted() {
                 formatDate = (date) => {
                     let d = new Date(date),
@@ -172,7 +172,8 @@
                         });
                     },
                 });
-                this.addTiming();
+                /* this.addTiming(); */
+                this.timings = @json($course->course_timings)
                 $('#faculties').select2({
                     theme: 'bootstrap4',
                     width: 'style',
@@ -424,7 +425,7 @@
                                     </p>
                                 </div>
                                 <div class="col-md-9">
-                                    <input type="text" class="form-control" name="name" id="name" required>
+                                    <input type="text" class="form-control" name="name" id="name" required value="{{$course->name}}">
                                 </div>
                             </div>
                             <div class="mb-5 row">
@@ -439,7 +440,9 @@
                                     </p>
                                 </div>
                                 <div class="col-md-9">
-                                    <textarea class="form-control" name="description" id="description" rows="3" required></textarea>
+                                    <textarea class="form-control" name="description" id="description" rows="3" required>
+                                        {{$course->description}}
+                                    </textarea>
                                 </div>
                             </div>
                             <div class="mb-5 row">
@@ -457,7 +460,7 @@
                                 <div class="col-md-9">
                                     <select multiple="multiple" id="faculties" name="faculties[]">
                                         @foreach ($faculties as $faculty)
-                                            <option value="{{ $faculty->id }}">{{ $faculty->name }}</option>
+                                            <option value="{{ $faculty->id }}" {{in_array($faculty->id, $course->faculties) ? 'selected' : ''}}>{{ $faculty->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -476,7 +479,7 @@
                                 <div class="col-md-9">
                                     <select class="form-control" id="examination" name="examination" required>
                                         @foreach ($examinations as $examination)
-                                            <option value="{{ $examination->id }}">{{ $examination->name }}</option>                                        
+                                            <option value="{{ $examination->id }}" {{$examination->id == $course->examination_id ? 'selected' : ''}}>{{ $examination->name }}</option>                                        
                                         @endforeach
                                     </select>
                                 </div>
@@ -495,7 +498,7 @@
                                     </p>
                                 </div>
                                 <div class="col-md-9">
-                                    <input type="date" x-model="start_date" class="form-control" name="start_date" id="start_date" required>
+                                    <input type="date" x-model="start_date" class="form-control" name="start_date" id="start_date" required value="{{$course->start_date}}">
                                 </div>
                             </div> 
                             <div class="mb-5 row">
@@ -510,7 +513,7 @@
                                     </p>
                                 </div>
                                 <div class="col-md-9">
-                                    <input type="date" x-model="end_date" class="form-control" name="end_date" id="end_date" required>
+                                    <input type="date" x-model="end_date" class="form-control" name="end_date" id="end_date" required value="{{$course->end_date}}">
                                 </div>
                             </div> 
                             <hr class="my-5">

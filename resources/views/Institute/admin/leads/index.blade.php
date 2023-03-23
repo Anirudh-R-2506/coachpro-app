@@ -69,41 +69,55 @@
             </div>
         </div>  
 
+        <div class="alert alert-info" role="alert" 
+        >
+            <strong>Hey {{auth()->user()->name}}</strong><br>
+            This is a demo of how leads are delivered to your institute. <br>
+        </div>
+
         <div class="mt-3 card mild-border" style="border-radius: 1.5rem;">
             <div class="card-body" style="padding: 0px !important;">
                 <div class="mb-2 row">
                     <div class="px-4 py-2 col-md-12">                            
                         @include('includes.search-filter', [
-                                'filters' => null,
+                                'filters' => [
+                                    'Status' => \App\Models\Leads::enum('status')->getFilter(),
+                                ],
+                                'index' => [
+                                    'Status' => 3,
+                                ],
                                 'table' => 'table',
                                 'search' => true,
                                 'placeholder' => 'Search leads...',
+                                'buttons' => [
+                                    'Export' => [
+                                        'url' => '#'/* route('institute.admin.leads.export') */,
+                                        'class' => 'btn btn-primary',
+                                        'icon' => 'fas fa-file-export',
+                                        'target' => '_blank',
+                                    ],
+                                ],
                         ])
                         <table id="table" class="table table-striped mild-border-t mild-border-b" style="width:100%; font-size: 1rem; margin-top: 20px;">
                             <thead>
                                 <tr>
-                                    <th>Student Name</th>
-                                    <th>Course Name</th>
-                                    <th>Experience</th>
-                                    <th class="actions-th"></th>
+                                    <th>Name</th>
+                                    <th>Course</th>
+                                    <th>Contact</th>
+                                    <th>Status</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($faculties as $user)
+                                @foreach($users as $user)
                                 <tr>
-                                    <td class="col-4">{{ $user->name }}</td>
-                                    <td class="col-4">{{ $user->qualification }}</td>
-                                    <td class="col-4">{{ $user->experience }}</td>                                    
-                                    <td class="action-edit">
-                                        <div class="inner">
-                                            <a class="icon" href="{{ route('institute.dashboard.faculties.edit', $user->id) }}">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                                    <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"></path>
-                                                </svg>        
-                                                Edit                                    
-                                            </a>                                    
-                                        </div>
+                                    <td class="col-4">{{ $user['name'] }}</td>
+                                    <td class="col-4">{{ $user['course'] }}</td>
+                                    <td class="col-2">
+                                        <a href="#" class="text-blue-500 hover:text-blue-600 btn btn-primary" style="">
+                                            <i class="fas fa-phone"></i>&nbsp;Call now
+                                        </a>
                                     </td>
+                                    <td class="col-2">{!! \App\Models\Leads::enum('status')->getBadge($user['status']) !!}</td>
                                 </tr>
                                 @endforeach
                             </tbody>

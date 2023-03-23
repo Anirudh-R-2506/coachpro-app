@@ -25,21 +25,25 @@ class Leads extends Model
                     'label' => 'New',
                     'value' => '0',
                     'color' => 'primary',
+                    'icon' => 'check-circle',
                 ],
-                'IN_PROGRESS' => [
-                    'label' => 'In Progress',
+                'VERIFIED' => [
+                    'label' => 'Verified',
                     'value' => '1',
                     'color' => 'warning',
+                    'icon' => 'check-circle',
                 ],
                 'CONVERTED' => [
                     'label' => 'Converted',
                     'value' => '2',
                     'color' => 'success',
+                    'icon' => 'check-circle',
                 ],
                 'REJECTED' => [
                     'label' => 'Rejected',
                     'value' => '3',
                     'color' => 'danger',
+                    'icon' => 'times-circle',
                 ]                
             ],
         ];

@@ -2,21 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Routing\Controller;
-use App\Models\Institutes;
-use Illuminate\Support\Facades\Storage;
-use App\Models\User;
+use Alert;
 use App\Models\City;
+use App\Models\User;
+use App\Enums\Timing;
+use App\Models\Leads;
+use App\Enums\Session;
+use App\Models\Courses;
+use App\Models\Bookings;
 use App\Models\Locality;
 use App\Models\Faculties;
-use App\Models\Courses;
-use App\Models\Examinations;
-use App\Enums\Session;
-use App\Enums\Timing;
+use App\Models\Institutes;
 use Illuminate\Support\Str;
+use App\Models\Examinations;
+use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Http;
-use Alert;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
 class InstituteController extends Controller
@@ -26,35 +28,24 @@ class InstituteController extends Controller
     {
         $this->middleware('inst');
     }
-
+    
+    /**
+     * index - Institute dashboard
+     *
+     * @return void
+     */
     public function index()
     {
         return view('institute.admin.index');
     }
-
-    public function courses()
-    {
-        $inst_id = auth()->user()->institute_id;
-        $institute = Institutes::find($inst_id);
-        $courses = Courses::where('institute_id', $inst_id)->get();
-
-        return view('institute.admin.courses.index', [
-            'courses' => $courses,
-        ]);
-    }
-
-    public function create_course()
-    {
-        $inst_id = auth()->user()->institute_id;
-        $faculties = Faculties::where('institute_id', $inst_id)->get();
-        $examinations = Examinations::all();
-
-        return view('institute.admin.courses.create', [
-            'faculties' => $faculties,
-            'examinations' => $examinations,
-        ]);
-    }
-
+    
+    /**
+     * saveCover - Save institute cover image to storage
+     *
+     * @param  mixed $file
+     * @param  mixed $inst
+     * @return void
+     */
     public function saveCover($file, $inst)
     {
         try{
@@ -70,7 +61,13 @@ class InstituteController extends Controller
             return false;
         }
     }
-
+    
+    /**
+     * cover_update - Update institute cover image
+     *
+     * @param  mixed $request
+     * @return void
+     */
     public function cover_update(Request $request)
     {
         $request->validate([
@@ -88,6 +85,46 @@ class InstituteController extends Controller
         return redirect()->back();
     }
 
+    /* Institute Courses
+    
+    methods: courses, create_course, store_course, edit_course, update_course, delete_course
+    
+    */
+
+    public function courses()
+    {
+        $inst_id = auth()->user()->institute_id;
+        $institute = Institutes::find($inst_id);
+        $courses = Courses::where('institute_id', $inst_id)->get();
+
+        return view('institute.admin.courses.index', [
+            'courses' => $courses,
+        ]);
+    }
+    
+    /**
+     * create_course - Display view page for creating new course
+     *
+     * @return void
+     */
+    public function create_course()
+    {
+        $inst_id = auth()->user()->institute_id;
+        $faculties = Faculties::where('institute_id', $inst_id)->get();
+        $examinations = Examinations::all();
+
+        return view('institute.admin.courses.create', [
+            'faculties' => $faculties,
+            'examinations' => $examinations,
+        ]);
+    }    
+    
+    /**
+     * store_course - Store new course in database
+     *
+     * @param  mixed $request
+     * @return void
+     */
     public function store_course(Request $request)
     {
         $data = json_decode($request->getContent(), true);
@@ -100,7 +137,7 @@ class InstituteController extends Controller
             'start_date' => 'required|date',
             'end_date' => 'required|date',
             'timings' => 'required',
-            'video' => 'required|string',
+            'video' => 'string',
         ];
         $validator = Validator::make($data, $rules);
         $errMessages = $validator->errors()->messages();
@@ -231,7 +268,14 @@ class InstituteController extends Controller
         }
 
     }
-
+    
+    /**
+     * update_course - Update course details
+     *
+     * @param  mixed $request
+     * @param  mixed $id
+     * @return void
+     */
     public function update_course(Request $request, $id)
     {
         $request->validate([
@@ -352,7 +396,13 @@ class InstituteController extends Controller
             
 
     }
-
+    
+    /**
+     * edit_course - Show view page to edit a course
+     *
+     * @param  mixed $id
+     * @return void
+     */
     public function edit_course($id)
     {
         $course = Courses::find($id);
@@ -372,7 +422,13 @@ class InstituteController extends Controller
             'course' => $course,
         ]);
     }
-
+    
+    /**
+     * delete_course - Delete a course
+     *
+     * @param  mixed $id
+     * @return void
+     */
     public function delete_course($id)
     {
         $course = Courses::find($id);
@@ -383,8 +439,19 @@ class InstituteController extends Controller
         $course->delete();
         Alert::success('Success!', 'Course deleted successfully :D');
         return redirect()->route('institute.dashboard.courses.index');
-    }    
-
+    }   
+    
+    /* Institute profile 
+    
+    methods: profile, profile_update
+    
+    */
+    
+    /**
+     * profile - Show institute profile page
+     *
+     * @return void
+     */
     public function profile()
     {
 
@@ -399,7 +466,13 @@ class InstituteController extends Controller
             'localities' => $locality,
         ]);
     }
-    
+        
+    /**
+     * profile_update - Update institute profile
+     *
+     * @param  mixed $request
+     * @return void
+     */
     public function profile_update(Request $request)
     {
 
@@ -428,6 +501,18 @@ class InstituteController extends Controller
         return redirect()->route('institute.dashboard.profile.index');
     }
 
+
+    /* Institute faculties
+    
+    methods: faculties, delete_faculty, store_faculty, edit_faculty, update_faculty
+
+    */
+    
+    /**
+     * faculties - Show institute faculties page
+     *
+     * @return void
+     */
     public function faculties()
     {
         $faculties = Faculties::where('institute_id', auth()->user()->institute_id)->get();
@@ -436,7 +521,13 @@ class InstituteController extends Controller
             'faculties' => $faculties,
         ]);
     }
-
+    
+    /**
+     * delete_faculty - Delete a faculty
+     *
+     * @param  mixed $id
+     * @return void
+     */
     public function delete_faculty($id)
     {
         $user = Faculties::find($id);
@@ -448,7 +539,13 @@ class InstituteController extends Controller
         Alert::success('Success!', 'Faculty deleted successfully :D');
         return redirect()->route('institute.dashboard.faculties.index');
     }
-
+    
+    /**
+     * store_faculty - Store a faculty in database
+     *
+     * @param  mixed $request
+     * @return void
+     */
     public function store_faculty(Request $request)
     {
         $request->validate([
@@ -509,7 +606,13 @@ class InstituteController extends Controller
             'message' => 'Faculty added successfully :D',
         ]);
     }
-
+    
+    /**
+     * edit_faculty - Show edit faculty page
+     *
+     * @param  mixed $id
+     * @return void
+     */
     public function edit_faculty($id)
     {
         $faculty = Faculties::find($id);
@@ -521,7 +624,14 @@ class InstituteController extends Controller
             'faculty' => $faculty,
         ]);
     }
-
+    
+    /**
+     * update_faculty - Update faculty
+     *
+     * @param  mixed $request
+     * @param  mixed $id
+     * @return void
+     */
     public function update_faculty(Request $request, $id)
     {
         $request->validate([
@@ -573,11 +683,29 @@ class InstituteController extends Controller
         ]);
     }
 
+
+    /* Institute Admin user
+
+    Methods: user, user_update
+    
+    */
+    
+    /**
+     * user - Show institute admin user page
+     *
+     * @return void
+     */
     public function user()
     {
         return view('institute.admin.user.index');
     }
-
+    
+    /**
+     * user_update - Update institute admin user
+     *
+     * @param  mixed $request
+     * @return void
+     */
     public function user_update(Request $request)
     {
         $request->validate([
@@ -627,5 +755,69 @@ class InstituteController extends Controller
             Alert::success('Success!', 'Your profile has been updated successfully :D');
             return redirect()->route('institute.dashboard.user.index');
         }
+    }
+
+
+    /* Institute Leads 
+    
+
+    
+    */
+
+    public function leads()
+    {
+        /* $leads = Leads::where('institute_id', auth()->user()->institute_id)->get(); */
+        $users = [
+            [
+                'name' => 'John Doe',
+                'course' => Courses::first() ? Courses::first()->name : 'JEE Coaching',
+                'status' => Leads::enum('status')->values()[1],
+            ],
+            [
+                'name' => 'John Doe',
+                'course' => Courses::first() ? Courses::first()->name : 'JEE Coaching',
+                'status' => Leads::enum('status')->values()[2],
+            ],
+            [
+                'name' => 'John Doe',
+                'course' => Courses::first() ? Courses::first()->name : 'JEE Coaching',
+                'status' => Leads::enum('status')->values()[3],
+            ],
+        ];
+        return view('institute.admin.leads.index', [
+            'users' => $users,
+        ]);
+    }
+
+
+    /* Institute Bookings 
+    
+
+    
+    */
+
+    public function bookings()
+    {
+        /* $bookings = Bookings::where('institute_id', auth()->user()->institute_id)->get(); */
+        $users = [
+            [
+                'name' => 'John Doe',
+                'course' => Courses::first() ? Courses::first()->name : 'JEE Coaching',
+                'status' => Bookings::enum('status')->values()[1],
+            ],
+            [
+                'name' => 'John Doe',
+                'course' => Courses::first() ? Courses::first()->name : 'JEE Coaching',
+                'status' => Bookings::enum('status')->values()[2],
+            ],
+            [
+                'name' => 'John Doe',
+                'course' => Courses::first() ? Courses::first()->name : 'JEE Coaching',
+                'status' => Bookings::enum('status')->values()[3],
+            ],
+        ];
+        return view('institute.admin.bookings.index', [
+            'users' => $users,
+        ]);
     }
 }

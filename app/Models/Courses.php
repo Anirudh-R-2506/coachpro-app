@@ -73,6 +73,7 @@ class Courses extends Model
         'fees',
         'status',
         'availability',
+        'examination_id',
         'category_id',
         'slug'
     ];
