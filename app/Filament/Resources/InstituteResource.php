@@ -2,20 +2,22 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\InstituteResource\Pages;
-use App\Filament\Resources\InstituteResource\RelationManagers;
-use App\Models\Institutes;
 use Filament\Forms;
-use Filament\Resources\Form;
-use Filament\Resources\Resource;
-use Filament\Resources\Table;
 use Filament\Tables;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
-use App\Enums\AccountStatus;
 use App\Models\Locality;
+use App\Models\Institutes;
+use App\Enums\AccountStatus;
+use Filament\Resources\Form;
+use Filament\Resources\Table;
+use Filament\Resources\Resource;
 use Filament\Tables\Columns\BadgeColumn;
 use Filament\Tables\Filters\SelectFilter;
+use Illuminate\Database\Eloquent\Builder;
+use App\Filament\Resources\InstituteResource\Pages;
+use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
+use App\Filament\Resources\InstituteResource\RelationManagers;
+use App\Filament\Resources\InstituteResource\Widgets\InstituteRegistrationChart;
 
 class InstituteResource extends Resource
 {
@@ -70,6 +72,14 @@ class InstituteResource extends Resource
                         ->required(),
                 ])
                 ->columns(3),
+                Forms\Components\Card::make()
+                ->schema([                        
+                    SpatieMediaLibraryFileUpload::make('photos')
+                        ->multiple()
+                        ->collection('institute_images')
+                        ->rules('required'),
+                ])
+                ->columns(1),
 
             ]);
     }
@@ -146,4 +156,11 @@ class InstituteResource extends Resource
             'edit' => Pages\EditInstitute::route('/{record}/edit'),
         ];
     }    
+
+    public static function getWidgets(): array
+    {
+        return [
+            InstituteRegistrationChart::class,
+        ];
+    }
 }

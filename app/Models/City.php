@@ -19,6 +19,6 @@ class City extends Model
 
     public function localities()
     {
-        return $this->hasOne(City::class);
+        return $this->hasMany(Locality::class);
     }
 }
