@@ -2,10 +2,11 @@
 
 namespace App\Filament\Resources\InstituteResource\Widgets;
 
-use Filament\Widgets\LineChartWidget;
 use App\Models\User;
+use App\Models\Institutes;
 use Flowframe\Trend\Trend;
 use Flowframe\Trend\TrendValue;
+use Filament\Widgets\LineChartWidget;
 
 class InstituteRegistrationChart extends LineChartWidget
 {
@@ -72,31 +73,31 @@ class InstituteRegistrationChart extends LineChartWidget
         
         switch ($activeFilter) {
             case 'today':
-                $data = Trend::model(User::class)
+                $data = Trend::model(Institutes::class)
                     ->between(now()->subDay(), now())
                     ->perHour()
                     ->count();
                 break;
             case 'week':
-                $data = Trend::model(User::class)                    
+                $data = Trend::model(Institutes::class)                    
                     ->between(now()->subWeek(), now())
                     ->perDay()
                     ->count();
                 break;
             case 'month':
-                $data = Trend::model(User::class)
+                $data = Trend::model(Institutes::class)
                     ->between(now()->subMonth(), now())
                     ->perDay()
                     ->count();
                 break;
             case 'year':
-                $data = Trend::model(User::class)
+                $data = Trend::model(Institutes::class)
                     ->between(now()->subYear(), now())
                     ->perMonth()
                     ->count();
                 break;
             default:
-                $data = Trend::model(User::class)
+                $data = Trend::model(Institutes::class)
                     ->between(now()->subWeek(), now())
                     ->perHour()
                     ->count();
