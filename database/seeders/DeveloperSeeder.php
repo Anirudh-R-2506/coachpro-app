@@ -61,6 +61,9 @@ class DeveloperSeeder extends Seeder
             ],
             [
                 'name' => 'CA',
+            ],
+            [
+                'name' => 'NDA',
             ]
         ];
     }    

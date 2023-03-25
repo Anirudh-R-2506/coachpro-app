@@ -259,4 +259,14 @@ trait Enum {
         return $response;
     }
 
+    public function filamentIcons(): array
+    {
+        $this->checkEnum();
+        $response = [];
+        foreach ($this->enum as $key => $value) {
+            $response['heroicon-o-' . $value['icon']] = $value['value'];
+        }
+        return $response;
+    }
+
 }

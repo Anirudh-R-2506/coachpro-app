@@ -16,8 +16,10 @@ class Dashboard extends BasePage
     {
         return [
             \App\Filament\Widgets\StatsOverview::class,
+            \App\Filament\Resources\InstituteResource\Widgets\InstituteRegistrationChart::class,
             \App\Filament\Resources\UserResource\Widgets\UserRegistrationChart::class,
             \Ekremogul\FilamentGoogleAnalyticsRealtime\Widgets\RealtimeAnalytics::class,
+            /* \App\Filament\Resources\CourseResource\Widgets\CourseOverview::class, */            
         ];
     }
 

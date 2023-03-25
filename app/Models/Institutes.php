@@ -81,5 +81,10 @@ class Institutes extends Model implements HasMedia
     {
         return $this->belongsTo(Locality::class);
     }
+
+    public function courses()
+    {
+        return $this->hasManyThrough(Courses::class, Faculties::class);
+    }
     
 }

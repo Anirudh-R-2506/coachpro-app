@@ -130,10 +130,10 @@ class InstituteController extends Controller
         $data = json_decode($request->getContent(), true);
         $rules = [
             'name' => 'required|string|max:255',            
-            'total_fee' => 'required|numeric',
+            'total_fee' => 'numeric',
             'description' => 'required',
             'faculties' => 'required',
-            'examination' => 'required',
+            'examination' => 'string|exists:examinations,id',
             'start_date' => 'required|date',
             'end_date' => 'required|date',
             'timings' => 'required',
@@ -280,10 +280,10 @@ class InstituteController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255',            
-            'total_fee' => 'required|numeric',
+            'total_fee' => 'numeric',
             'description' => 'required',
             'faculties' => 'required',
-            'examination' => 'required',
+            'examination' => 'string|exists:examinations,id',
             'start_date' => 'required|date',
             'end_date' => 'required|date',
             'faqs' => 'required',
