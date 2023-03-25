@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-use Illuminate\Foundation\Bus\DispatchesJobs;
-use Illuminate\Foundation\Validation\ValidatesRequests;
-use Illuminate\Routing\Controller as BaseController;
-use App\Models\Locality;
-use App\Models\User;
-use App\Jobs\SendAccountVerificationMail;
 use Alert;
+use App\Models\City;
+use App\Models\User;
+use App\Models\Locality;
+use App\Jobs\SendAccountVerificationMail;
+use Illuminate\Foundation\Bus\DispatchesJobs;
+use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class HomeController extends BaseController
 {
@@ -65,7 +66,7 @@ class HomeController extends BaseController
 
         $localitites = Locality::all();        
 
-        return view('institute.pages.signin', ['localities' => $localitites]);
+        return view('institute.pages.signin', ['localities' => $localitites, 'city_id' => City::where('name', 'Bangalore')->first()->id]);
     }
     
     public function institute()

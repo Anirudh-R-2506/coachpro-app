@@ -2,13 +2,15 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use App\Traits\Enum;
+use App\Traits\Uuid;
+use App\Models\Leads;
+use App\Models\Bookings;
 use App\Models\Faculties;
 use Spatie\MediaLibrary\HasMedia;
+use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\InteractsWithMedia;
-use App\Traits\Uuid;
-use App\Traits\Enum;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Institutes extends Model implements HasMedia
 {
@@ -84,7 +86,17 @@ class Institutes extends Model implements HasMedia
 
     public function courses()
     {
-        return $this->hasManyThrough(Courses::class, Faculties::class);
+        return $this->hasMany(Courses::class);
+    }
+
+    public function leads()
+    {
+        return $this->hasMany(Leads::class);
+    }
+
+    public function bookings()
+    {
+        return $this->hasMany(Bookings::class);
     }
     
 }

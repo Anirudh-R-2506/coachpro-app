@@ -125,8 +125,8 @@
                             <label for="fullName" class="block text-sm text-dark"
                               >City<span style="color: red"> *</span></label
                             >
-                            <select disabled @blur="blur" @input="input" id="underline_select" name="city" class="block py-2.5 px-0 w-full text-gray-500 bg-transparent w-full border-0 border-b border-[#f1f1f1] py-4 focus:border-primary focus:outline-none peer">                              
-                              <option selected value="1">Bangalore</option>
+                            <select @blur="blur" @input="input" id="underline_select" name="city" class="block py-2.5 px-0 w-full text-gray-500 bg-transparent w-full border-0 border-b border-[#f1f1f1] py-4 focus:border-primary focus:outline-none peer">                              
+                              <option selected value="{{$city_id}}">Bangalore</option>
                             </select>
                             <p x-show="city.errorMessage && city.blurred" x-text="city.errorMessage" class="mt-2 text-red-500"></p>
                           </div>
