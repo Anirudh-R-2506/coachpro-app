@@ -72,6 +72,41 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('courses', function (Blueprint $table) {
+            $table->dropForeign(['institute_id']);
+        });
+
+        Schema::table('faculties', function (Blueprint $table) {
+            $table->dropForeign(['institute_id']);
+        });
+
+        Schema::table('institutes', function (Blueprint $table) {
+            $table->dropForeign(['city_id']);
+            $table->dropForeign(['locality_id']);
+        });
+
+        Schema::table('leads', function (Blueprint $table) {
+            $table->dropForeign(['course_id']);            
+            $table->dropForeign(['institute_id']);
+            $table->dropColumn('institute_id');
+            $table->dropForeign(['user_id']);
+        });
+
+        Schema::table('bookings', function (Blueprint $table) {
+            $table->dropForeign(['course_id']);
+            $table->dropForeign(['institute_id']);
+            $table->dropColumn('institute_id');
+            $table->dropForeign(['user_id']);
+        });
+
+        Schema::table('faqs', function (Blueprint $table) {
+            $table->dropForeign(['course_id']);
+        });
+
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropForeign(['city']);
+            $table->dropForeign(['locality']);
+            $table->dropForeign(['institute_id']);
+        });
     }
 };
