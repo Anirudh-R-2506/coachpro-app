@@ -61,7 +61,7 @@ return new class extends Migration
             $table->dropForeign(['institute_id']); */
             $table->foreign('city')->references('id')->on('cities');
             $table->foreign('locality')->references('id')->on('localities');
-            $table->foreign('institute_id')->references('id')->on('institutes')->onDelete('cascade');
+            $table->foreign('institute_id')->references('id')->on('institutes')->onDelete('cascade')->nullable();
         });
     }
 
