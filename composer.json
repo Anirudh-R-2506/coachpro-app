@@ -23,6 +23,7 @@
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.7",
         "league/flysystem-aws-s3-v3": "^3.12",
+        "owenvoke/blade-fontawesome": "^2.2",
         "pbmedia/laravel-ffmpeg": "^8.3",
         "php-ffmpeg/php-ffmpeg": "^1.1",
         "pion/laravel-chunk-upload": "^1.5",

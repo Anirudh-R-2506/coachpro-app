@@ -10,6 +10,7 @@ use App\Enums\AccountStatus;
 use Filament\Resources\Form;
 use Filament\Resources\Table;
 use Filament\Resources\Resource;
+use Filament\Forms\Components\Section;
 use Filament\Tables\Columns\BadgeColumn;
 use Filament\Tables\Filters\SelectFilter;
 use Illuminate\Database\Eloquent\Builder;
@@ -33,7 +34,7 @@ class InstituteResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\Card::make()
+                Section::make('Basic details')
                 ->schema([                        
                     Forms\Components\TextInput::make('name')
                         ->required()
@@ -48,8 +49,10 @@ class InstituteResource extends Resource
                         ->required()
                         ->maxLength(255),
                 ])
+                ->collapsed(false)
+                ->collapsible()
                 ->columns(2),
-                Forms\Components\Card::make()
+                Section::make('Contact details')
                 ->schema([                        
                     Forms\Components\TextInput::make('phone')
                         ->required()
@@ -58,8 +61,10 @@ class InstituteResource extends Resource
                         ->required()
                         ->email(),
                 ])
+                ->collapsed(false)
+                ->collapsible()
                 ->columns(2),
-                Forms\Components\Card::make()
+                Section::make('Status')
                 ->schema([                        
                     Forms\Components\Select::make('status')                        
                         ->required()
@@ -71,14 +76,18 @@ class InstituteResource extends Resource
                         ->options(Institutes::enum('bookings_status')->filament())
                         ->required(),
                 ])
+                ->collapsed(false)
+                ->collapsible()
                 ->columns(3),
-                Forms\Components\Card::make()
+                Section::make('Images')
                 ->schema([                        
                     SpatieMediaLibraryFileUpload::make('photos')
                         ->multiple()
                         ->collection('institute_images')
                         ->rules('required'),
                 ])
+                ->collapsed(false)
+                ->collapsible()
                 ->columns(1),
 
             ]);

@@ -16,7 +16,7 @@ use App\Traits\Enum;
 use App\Traits\Uuid;
 use App\Models\Faqs;
 
-class Courses extends Model
+class Courses extends Model implements HasMedia
 {
     use HasFactory, InteractsWithMedia, Uuid, Enum;
 
@@ -123,6 +123,11 @@ class Courses extends Model
     public function faqs()
     {
         return $this->hasMany(Faqs::class);
+    }
+
+    public function examination()
+    {
+        return $this->belongsTo(Examinations::class);
     }
     
 }

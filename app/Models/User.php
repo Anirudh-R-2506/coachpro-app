@@ -3,17 +3,19 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\City;
+use App\Traits\Uuid;
+use App\Enums\UserRole;
+use App\Models\Locality;
+use App\Models\Institutes;
+use Laravel\Sanctum\HasApiTokens;
+use Spatie\Activitylog\LogOptions;
+use Spatie\Permission\Traits\HasRoles;
+use Illuminate\Notifications\Notifiable;
+use Filament\Models\Contracts\FilamentUser;
+use Spatie\Activitylog\Traits\LogsActivity;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
-use Spatie\Activitylog\Traits\LogsActivity;
-use Spatie\Activitylog\LogOptions;
-use Filament\Models\Contracts\FilamentUser;
-use App\Enums\UserRole;
-use Spatie\Permission\Traits\HasRoles;
-use App\Models\Institutes;
-use App\Traits\Uuid;
 
 class User extends Authenticatable implements FilamentUser
 {
@@ -28,6 +30,15 @@ class User extends Authenticatable implements FilamentUser
     public function canAccessFilament(): bool
     {
         if($this->role == UserRole::ADMIN || $this->role == UserRole::SUPER_ADMIN) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function canCreate(): bool
+    {
+        if($this->role == UserRole::SUPER_ADMIN) {
             return true;
         } else {
             return false;
@@ -76,5 +87,15 @@ class User extends Authenticatable implements FilamentUser
     public function institute()
     {
         return $this->belongsTo(Institutes::class, 'institute_id');
+    }
+
+    public function city()
+    {
+        return $this->belongsTo(City::class, 'city_id');
+    }
+
+    public function locality()
+    {
+        return $this->belongsTo(Locality::class, 'locality_id');
     }
 }

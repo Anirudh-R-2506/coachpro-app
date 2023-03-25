@@ -465,16 +465,18 @@
                             <div class="mb-5 row">
                                 <div class="col-md-3">
                                     <label class="h4">
-                                        <strong>Examination</strong>
+                                        <strong>
+                                            Examination/Skill
+                                        </strong>
                                     </label>
                                     <p class="-mt-1 text-muted">
                                         <small>
-                                            The examination that this course is for
+                                            The examination/skill that this course prepares for
                                         </small>
                                     </p>
                                 </div>
                                 <div class="col-md-9">
-                                    <select class="form-control" id="examination" name="examination" required>
+                                    <select class="form-control" id="examination" name="examination">
                                         @foreach ($examinations as $examination)
                                             <option value="{{ $examination->id }}">{{ $examination->name }}</option>                                        
                                         @endforeach
@@ -608,7 +610,7 @@
                                     </p>
                                 </div>
                                 <div class="col-md-9">
-                                    <input type="number" class="form-control" id="total_fee" name="total_fee" required>
+                                    <input type="number" class="form-control" id="total_fee" name="total_fee">
                                 </div>
                             </div> 
                             <hr class="my-5">
