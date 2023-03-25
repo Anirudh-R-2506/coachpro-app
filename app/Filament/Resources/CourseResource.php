@@ -54,7 +54,8 @@ class CourseResource extends Resource
                     ->sortable()
                     ->searchable()
                     ->description(function(Courses $record) {
-                        return 'Institute: ' . Institutes::find($record->institute_id)->name;
+                        $inst = Institutes::find($record->institute_id);
+                        return 'Institute: ' . $inst ? $inst->name : 'N/A';
                     }),
                 Tables\Columns\TextColumn::make('fees')
                     ->sortable()
