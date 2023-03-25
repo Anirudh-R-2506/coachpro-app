@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use Filament\Forms;
 use Filament\Tables;
 use App\Models\Courses;
+use App\Models\Institutes;
 use App\Models\Examinations;
 use Filament\Resources\Form;
 use Filament\Resources\Table;
@@ -53,7 +54,7 @@ class CourseResource extends Resource
                     ->sortable()
                     ->searchable()
                     ->description(function(Courses $record) {
-                        return 'Institute: ' . $record->institute->name;
+                        return 'Institute: ' . Institutes::find($record->institute_id)->name;
                     }),
                 Tables\Columns\TextColumn::make('fees')
                     ->sortable()
