@@ -200,7 +200,7 @@
                 this.faqs--;
             },
             removeTiming(index){
-                if (this.timings >= 1)
+                if (this.timings > 1)
                     this.timings--;
                 else
                     Swal.fire({
@@ -528,7 +528,7 @@
                                                 <label class="mb-1 h4">
                                                     <strong>Day of the week</strong>
                                                 </label>
-                                                <select class="form-control" name="day" :id="'day' + index" required>
+                                                <select class="form-control" name="day" :id="'day' + index">
                                                     <option value="Monday">Monday</option>
                                                     <option value="Tuesday">Tuesday</option>
                                                     <option value="Wednesday">Wednesday</option>
@@ -542,13 +542,13 @@
                                                 <label class="mb-1 h4">
                                                     <strong>Start time</strong>
                                                 </label>
-                                                <input type="time" class="form-control timepicker-ui-input" name="start_time" :id="'start' + index" required x-init="createTimePicker('#start'+index)">
+                                                <input type="time" class="form-control timepicker-ui-input" name="start_time" :id="'start' + index" x-init="createTimePicker('#start'+index)">
                                             </div>
                                             <div class="col-md-3">
                                                 <label class="mb-1 h4">
                                                     <strong>End time</strong>
                                                 </label>
-                                                <input type="time" class="form-control timepicker-ui-input" name="end_time" :id="'end' + index" required x-init="createTimePicker('#end'+index)">
+                                                <input type="time" class="form-control timepicker-ui-input" name="end_time" :id="'end' + index" x-init="createTimePicker('#end'+index)">
                                             </div>
                                             <div class="col-md-2 d-flex align-items-end">
                                                 <button class="btn btn-danger" type="button" @click="removeTiming(index)">Remove</button>

@@ -533,6 +533,11 @@
         .text-muted {
             margin-bottom: 0px !important;            
         }
+
+        .has-error {
+            border-color: red;
+            box-shadow: inset 0 1px 1px rgba(255,0,0,0.5);
+        }
     </style>
 
    @yield('css')   
@@ -601,6 +606,19 @@
       const response = await axios.get("");
       console.log(response);
    } */
+
+   document.addEventListener('DOMContentLoaded', function() {
+      let requiredInputs = document.querySelectorAll('input[required], textarea[required]');
+      requiredInputs.forEach(input => {
+         input.addEventListener('invalid', function() {
+            this.classList.add('has-error');
+         });
+         input.addEventListener('input', function() {
+            this.classList.remove('has-error');
+         });
+         input.parentNode.parentElement.childNodes[1].childNodes[1].innerHTML = input.parentNode.parentElement.childNodes[1].childNodes[1].innerHTML + "<strong><span style='color: red;'>*</span></strong>";
+      });
+   });
 </script>
 
 </html>
