@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('courses', function (Blueprint $table) {
-            $table->dropColumn('video_url')->change();
+            //$table->dropColumn('video_url')->change();
             $table->string('video_url')->nullable()->change();
         });
     }
