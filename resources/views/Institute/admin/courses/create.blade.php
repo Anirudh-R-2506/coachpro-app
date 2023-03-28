@@ -293,14 +293,14 @@
                     });
                     return;
                 }
-                if (total_fee == '' || total_fee == null || total_fee == 0){
+                /* if (total_fee == '' || total_fee == null || total_fee == 0){                    
                     Swal.fire({
                         icon: 'error',
                         title: 'Oops...',
                         text: 'Please enter a total fee for the course',
                     });
                     return;
-                }
+                } */
                 if (examination == '' || examination == null){
                     Swal.fire({
                         icon: 'error',
@@ -317,14 +317,14 @@
                     });
                     return;
                 }
-                if (times.length == 0 || times == null || times == []){
+                /* if (times.length == 0 || times == null || times == []){
                     Swal.fire({
                         icon: 'error',
                         title: 'Oops...',
                         text: 'Please add atleast one class timing for your course',
                     });
                     return;
-                }              
+                }     */          
                 
                 let data = JSON.stringify({
                     'name' : name,
@@ -497,7 +497,7 @@
                                     </p>
                                 </div>
                                 <div class="col-md-9">
-                                    <input type="date" x-model="start_date" class="form-control" name="start_date" id="start_date" required>
+                                    <input type="date" x-model="start_date" class="form-control" name="start_date" id="start_date">
                                 </div>
                             </div> 
                             <div class="mb-5 row">
@@ -512,7 +512,7 @@
                                     </p>
                                 </div>
                                 <div class="col-md-9">
-                                    <input type="date" x-model="end_date" class="form-control" name="end_date" id="end_date" required>
+                                    <input type="date" x-model="end_date" class="form-control" name="end_date" id="end_date">
                                 </div>
                             </div> 
                             <hr class="my-5">
@@ -536,6 +536,9 @@
                                                     <option value="Friday">Friday</option>
                                                     <option value="Saturday">Saturday</option>
                                                     <option value="Sunday">Sunday</option>
+                                                    <option value="Weekdays">Weekdays</option>
+                                                    <option value="Weekends">Weekends</option>
+                                                    <option value="Everyday">Everyday</option>
                                                 </select>
                                             </div>
                                             <div class="col-md-3">
