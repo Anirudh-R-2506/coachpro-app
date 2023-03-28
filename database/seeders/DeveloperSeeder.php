@@ -32,6 +32,15 @@ class DeveloperSeeder extends Seeder
                 'account_status' => AccountStatus::VERIFIED,
                 'admin_remarks' => 'Admin account. Do not delete.',
             ],
+            [
+                'name' => 'Edu Hunt - Sales Team',
+                'email' => 'sales@eduhunt.co',
+                'password' => bcrypt('password'),
+                'role' => UserRole::ADMIN,
+                'phone' => '0000000003',
+                'account_status' => AccountStatus::VERIFIED,
+                'admin_remarks' => 'Admin account. Do not delete.',
+            ],
         ];
     }
 
