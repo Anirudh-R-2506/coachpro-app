@@ -26,7 +26,12 @@ class LoginController extends Controller
 
     private function city()
     {
-        return City::where('name', 'Bangalore')->first()->id;
+        return City::all();
+    }
+
+    private function locality()
+    {
+        return Locality::all();
     }
 
     public function login(Request $request)
@@ -178,7 +183,7 @@ class LoginController extends Controller
 
         $inst = Institutes::create([
             'name' => $request->inst_name,
-            'city_id' => $this->city(),
+            'city_id' => $request->city,
             'locality_id' => $request->locality,
             'email' => $request->email,
             'phone' => $request->phone,

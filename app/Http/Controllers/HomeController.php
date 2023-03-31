@@ -64,9 +64,14 @@ class HomeController extends BaseController
             return redirect()->route(auth()->user()->role == '1' ? 'institute.index' : 'frontend.index');
         }
 
-        $localitites = Locality::all();        
+        $cities = City::all()->sortBy('name')->pluck('name', 'id')->toArray();
+        $localities = Locality::all()->sortBy('name');
+        $l = [];
+        foreach($localities as $loc){
+            $l[$loc->city_id][] = $loc;
+        }
 
-        return view('institute.pages.signin', ['localities' => $localitites, 'city_id' => City::where('name', 'Bangalore')->first()->id]);
+        return view('institute.pages.signin', ['localities' => $l, 'cities' => $cities]);
     }
     
     public function institute()

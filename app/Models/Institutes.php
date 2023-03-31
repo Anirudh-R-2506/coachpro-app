@@ -11,6 +11,7 @@ use Spatie\MediaLibrary\HasMedia;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\User;
 
 class Institutes extends Model implements HasMedia
 {
@@ -99,4 +100,27 @@ class Institutes extends Model implements HasMedia
         return $this->hasMany(Bookings::class);
     }
     
+    public static function boot()
+    {
+        parent::boot();
+
+        self::created(function ($inst){
+            if (!User::where('institute_id', $inst->id)->first()){
+                User::create([
+                    [
+                        'name' => $inst->name,
+                        'email' => $inst->email,
+                        'password' => bcrypt('password'),
+                        'role' => UserRole::INSTITUTE,
+                        'phone' => $inst->phone,
+                        'account_status' => AccountStatus::VERIFIED,
+                        'admin_remarks' => 'Created from admin panel after creating an institute.',
+                        'institute_id' => $inst->id,
+                        'city' => $inst->city_id,
+                        'locality' => $inst->locality_id,
+                    ]
+                ]);
+            }
+        });
+    }
 }

@@ -1,3 +1,8 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+<link href="https://raw.githack.com/ttskch/select2-bootstrap4-theme/master/dist/select2-bootstrap4.css" rel="stylesheet">
+
 <script>      
   
     signup = () => {
@@ -10,6 +15,9 @@
         city: {errorMessage:'', blurred:false},
         address: {errorMessage:'', blurred:false},
         locality: {errorMessage:'', blurred:false},
+        city_selected: false,
+        localityArray: {},
+        allLocalities: @json($localities),
         blur: function(event) {
             let ele = event.target;
             this[ele.name].blurred = true;
@@ -27,6 +35,22 @@
                 return Iodine.getErrorMessage(isValid);
             }
             return '';
+        },
+        citySelected(city) {
+            for (let i in this.allLocalities) {
+              console.log(Number(i) == Number(city));
+                if (i == city) {
+                    this.localityArray = this.allLocalities[i];
+                    this.city_selected = true;
+                    return;
+                }
+            }            
+        },
+        init() {
+          $('#localities').select2({
+                    theme: 'bootstrap4',
+                    width: 'style',
+          });
         }
       };
     };
@@ -125,8 +149,11 @@
                             <label for="fullName" class="block text-sm text-dark"
                               >City<span style="color: red"> *</span></label
                             >
-                            <select @blur="blur" @input="input" id="underline_select" name="city" class="block py-2.5 px-0 w-full text-gray-500 bg-transparent w-full border-0 border-b border-[#f1f1f1] py-4 focus:border-primary focus:outline-none peer">                              
-                              <option selected value="{{$city_id}}">Bangalore</option>
+                            <select @blur="blur" @input="input" id="underline_select" name="city" class="block py-2.5 px-0 w-full text-gray-500 bg-transparent w-full border-0 border-b border-[#f1f1f1] py-4 focus:border-primary focus:outline-none peer" x-on:change="citySelected($event.target.value)">                              
+                              <option value="">Select City</option>
+                              @foreach ($cities as $id => $city)
+                                <option value="{{ $id }}">{{ $city }}</option>
+                              @endforeach
                             </select>
                             <p x-show="city.errorMessage && city.blurred" x-text="city.errorMessage" class="mt-2 text-red-500"></p>
                           </div>
@@ -134,13 +161,20 @@
                             <label for="fullName" class="block mb-4 text-sm text-dark"
                                 >Locality<span style="color: red"> *</span></label
                               >
-                              <select @blur="blur" @input="input" data-rules='["required"]' id="underline_select" name="locality" class="block py-2.5 px-0 w-full text-gray-500 bg-transparent w-full border-0 border-b border-[#f1f1f1] py-4 focus:border-primary focus:outline-none peer">
-                                  <option selected value="">Choose a locality</option>
-                                  @foreach ($localities as $locality)
-                                      <option value="{{ $locality->id }}">{{ $locality->name }}</option>
-                                  @endforeach
-                              </select>
-                              <p x-show="locality.errorMessage && locality.blurred" x-text="locality.errorMessage" class="mt-2 text-red-500"></p>
+                              <div x-show="city">
+                                <select @blur="blur" @input="input" data-rules='["required"]' id="localities" name="locality" class="block py-2.5 px-0 w-full text-gray-500 bg-transparent w-full border-0 border-b border-[#f1f1f1] py-4 focus:border-primary focus:outline-none peer">
+                                    <option selected value="">Choose a locality</option>
+                                    <template x-for="locality in localityArray">
+                                      <option x-text="locality.name" :value="locality.id"></option>
+                                    </template>
+                                </select>
+                                <p x-show="locality.errorMessage && locality.blurred" x-text="locality.errorMessage" class="mt-2 text-red-500"></p>
+                              </div>  
+                              <div x-show="!city">
+                                <select @blur="blur" @input="input" data-rules='["required"]' id="underline_select" name="locality" class="block py-2.5 px-0 w-full text-gray-500 bg-transparent w-full border-0 border-b border-[#f1f1f1] py-4 focus:border-primary focus:outline-none peer">
+                                    <option selected value="">Choose a City first</option>
+                                </select>
+                              </div>
                         </div>
                         <div class="mb-6">
                           <label for="fullName" class="block mb-4 text-sm text-dark"
@@ -203,3 +237,4 @@
                       </div>
                     </div>                    
                   </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>                  
