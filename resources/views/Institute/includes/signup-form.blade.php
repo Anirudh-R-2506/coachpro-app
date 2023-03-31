@@ -38,9 +38,9 @@
         },
         citySelected(city) {
             for (let i in this.allLocalities) {
-              console.log(Number(i) == Number(city));
+              console.log(i == city, i, city);
                 if (i == city) {
-                    this.localityArray = this.allLocalities[i];
+                    this.localityArray = this.allLocalities.i;
                     this.city_selected = true;
                     return;
                 }
@@ -161,16 +161,16 @@
                             <label for="fullName" class="block mb-4 text-sm text-dark"
                                 >Locality<span style="color: red"> *</span></label
                               >
-                              <div x-show="city">
+                              <div x-show="city_selected">
                                 <select @blur="blur" @input="input" data-rules='["required"]' id="localities" name="locality" class="block py-2.5 px-0 w-full text-gray-500 bg-transparent w-full border-0 border-b border-[#f1f1f1] py-4 focus:border-primary focus:outline-none peer">
                                     <option selected value="">Choose a locality</option>
-                                    <template x-for="locality in localityArray">
-                                      <option x-text="locality.name" :value="locality.id"></option>
+                                    <template x-for="locality_1 in localityArray">
+                                      <option x-text="locality_1.name" :value="locality_1.id"></option>
                                     </template>
                                 </select>
                                 <p x-show="locality.errorMessage && locality.blurred" x-text="locality.errorMessage" class="mt-2 text-red-500"></p>
                               </div>  
-                              <div x-show="!city">
+                              <div x-show="!city_selected">
                                 <select @blur="blur" @input="input" data-rules='["required"]' id="underline_select" name="locality" class="block py-2.5 px-0 w-full text-gray-500 bg-transparent w-full border-0 border-b border-[#f1f1f1] py-4 focus:border-primary focus:outline-none peer">
                                     <option selected value="">Choose a City first</option>
                                 </select>
