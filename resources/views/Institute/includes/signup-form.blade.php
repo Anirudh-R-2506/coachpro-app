@@ -20,12 +20,14 @@
         allLocalities: @json($localities),
         blur: function(event) {
             let ele = event.target;
+            if (!ele) return;
             this[ele.name].blurred = true;
             let rules = JSON.parse(ele.dataset.rules)
             this[ele.name].errorMessage = this.getErrorMessage(ele.value, rules);
         },
         input: function(event) {
             let ele = event.target;
+            if (!ele) return;
             let rules = JSON.parse(ele.dataset.rules)
             this[ele.name].errorMessage = this.getErrorMessage(ele.value, rules);
         },
@@ -38,9 +40,9 @@
         },
         citySelected(city) {
             for (let i in this.allLocalities) {
-              console.log(i == city, i, city);
                 if (i == city) {
-                    this.localityArray = this.allLocalities.i;
+                    console.log(this.allLocalities[i]);
+                    this.localityArray = this.allLocalities[i];
                     this.city_selected = true;
                     return;
                 }
@@ -171,7 +173,7 @@
                                 <p x-show="locality.errorMessage && locality.blurred" x-text="locality.errorMessage" class="mt-2 text-red-500"></p>
                               </div>  
                               <div x-show="!city_selected">
-                                <select @blur="blur" @input="input" data-rules='["required"]' id="underline_select" name="locality" class="block py-2.5 px-0 w-full text-gray-500 bg-transparent w-full border-0 border-b border-[#f1f1f1] py-4 focus:border-primary focus:outline-none peer">
+                                <select @blur="blur" @input="input" id="underline_select" name="locality" class="block py-2.5 px-0 w-full text-gray-500 bg-transparent w-full border-0 border-b border-[#f1f1f1] py-4 focus:border-primary focus:outline-none peer">
                                     <option selected value="">Choose a City first</option>
                                 </select>
                               </div>
