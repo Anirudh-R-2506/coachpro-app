@@ -20,14 +20,14 @@
         allLocalities: @json($localities),
         blur: function(event) {
             let ele = event.target;
-            if (!ele) return;
+            if (!ele.dataset.rules) return;
             this[ele.name].blurred = true;
             let rules = JSON.parse(ele.dataset.rules)
             this[ele.name].errorMessage = this.getErrorMessage(ele.value, rules);
         },
         input: function(event) {
             let ele = event.target;
-            if (!ele) return;
+            if (!ele.dataset.rules) return;
             let rules = JSON.parse(ele.dataset.rules)
             this[ele.name].errorMessage = this.getErrorMessage(ele.value, rules);
         },
@@ -44,9 +44,13 @@
                     console.log(this.allLocalities[i]);
                     this.localityArray = this.allLocalities[i];
                     this.city_selected = true;
+                    $('#localities').select2({
+                        theme: 'bootstrap4',
+                        width: 'style',
+                    });
                     return;
                 }
-            }            
+            }                      
         },
         init() {
           $('#localities').select2({
