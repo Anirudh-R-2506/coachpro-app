@@ -177,9 +177,7 @@
                                 <p x-show="locality.errorMessage && locality.blurred" x-text="locality.errorMessage" class="mt-2 text-red-500"></p>
                               </div>  
                               <div x-show="!city_selected">
-                                <select @blur="blur" @input="input" id="underline_select" name="locality" class="block py-2.5 px-0 w-full text-gray-500 bg-transparent w-full border-0 border-b border-[#f1f1f1] py-4 focus:border-primary focus:outline-none peer">
-                                    <option selected value="">Choose a City first</option>
-                                </select>
+                                <p class="text-red-500">Please select a city first</p>
                               </div>
                         </div>
                         <div class="mb-6">

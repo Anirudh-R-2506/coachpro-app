@@ -170,7 +170,7 @@ class LoginController extends Controller
             'phone' => 'required|numeric|digits:10|unique:institutes',
             /* 'recaptcha' => [new ReCaptchaRule], */
             'city' => ['required', 'in:'.implode(',', City::all()->pluck('id')->toArray())],
-            'locality' => ['required', 'in:'.implode(',', Locality::all()->pluck('id')->toArray())],
+            'locality' => ['required'/* , 'in:'.implode(',', Locality::all()->pluck('id')->toArray()) */],
             'password' => 'required|string|min:8',
             'address' => 'required|string|max:255',
         ]);
@@ -201,7 +201,7 @@ class LoginController extends Controller
                 'phone' => $request->phone,
                 'password' => bcrypt($request->password),
                 'role' => UserRole::INSTITUTE,
-                'city' => $this->city(),
+                'city' => $request->city,
                 'locality' => $request->locality,
                 'institute_id' => $inst->id,
                 'account_status' => AccountStatus::UNVERIFIED,
