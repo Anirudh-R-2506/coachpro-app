@@ -2,23 +2,24 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\City;
+use App\Models\User;
+use App\Enums\UserRole;
+use App\Enums\Education;
+use App\Models\Locality;
+use App\Models\Institutes;
+use App\Models\UserVerify;
+use Illuminate\Support\Str;
+use App\Enums\AccountStatus;
+use App\Rules\ReCaptchaRule;
 use Illuminate\Http\Request;
+use App\Helpers\DiscordHelper;
+use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Routing\Controller;
-use App\Models\User;
-use App\Enums\Education;
-use App\Enums\UserRole;
-use App\Enums\AccountStatus;
-use App\Helpers\DiscordHelper;
-use RealRashid\SweetAlert\Facades\Alert;
-use App\Models\City;
-use App\Models\Institutes;
-use App\Models\Locality;
 use Illuminate\Auth\Events\Registered;
-use App\Models\UserVerify;
+use RealRashid\SweetAlert\Facades\Alert;
 use App\Jobs\SendAccountVerificationMail;
-use App\Rules\ReCaptchaRule;
 
 
 class LoginController extends Controller
@@ -182,6 +183,7 @@ class LoginController extends Controller
         }
 
         $inst = Institutes::create([
+            'id' => Str::uuid()->toString(),
             'name' => $request->inst_name,
             'city_id' => $request->city,
             'locality_id' => $request->locality,

@@ -2,22 +2,24 @@
 
 namespace App\Models;
 
+use App\Models\User;
 use App\Traits\Enum;
 use App\Traits\Uuid;
 use App\Models\Leads;
+use App\Enums\UserRole;
 use App\Models\Bookings;
 use App\Models\Faculties;
 use Spatie\MediaLibrary\HasMedia;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use App\Models\User;
 
 class Institutes extends Model implements HasMedia
 {
     use HasFactory, InteractsWithMedia, Uuid, Enum;
 
     protected $fillable = [
+        'id',
         'name',
         'city_id',
         'locality_id',
@@ -100,7 +102,7 @@ class Institutes extends Model implements HasMedia
         return $this->hasMany(Bookings::class);
     }
     
-    public static function boot()
+    /* public static function boot()
     {
         parent::boot();
 
@@ -122,5 +124,5 @@ class Institutes extends Model implements HasMedia
                 ]);
             }
         });
-    }
+    } */
 }
