@@ -12,7 +12,9 @@ trait Uuid
     {
         parent::boot();
         static::creating(function ($model) {
-            $model->id = Str::uuid()->toString();
+            if (empty($model->id)) {
+                $model->id = Str::uuid()->toString();
+            }
         });
     }
    /**
