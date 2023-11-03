@@ -101,23 +101,13 @@ $inst->group(function (){
     });
 });
 
-Route::name('frontend.')->prefix('preview')->group(function () {
+Route::name('frontend.')->group(function () {
             
     Route::get('/', [HomeController::class, 'index'])->name('index');
     Route::get('/about', [HomeController::class, 'about'])->name('about');
     Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
     Route::get('/eduhunt', [HomeController::class, 'product'])->name('product');
     Route::get('/signin', [HomeController::class, 'signin'])->name('signin');    
-
-})->middleware('preview');
-
-Route::name('frontend.')->group(function () {
-            
-    Route::get('/', [HomeController::class, 'coming_soon'])->name('index');
-    /* Route::get('/about', [HomeController::class, 'about'])->name('about');
-    Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
-    Route::get('/eduhunt', [HomeController::class, 'product'])->name('product');
-    Route::get('/signin', [HomeController::class, 'signin'])->name('signin');     */
 
 });
 

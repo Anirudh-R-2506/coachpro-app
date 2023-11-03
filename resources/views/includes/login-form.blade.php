@@ -12,6 +12,7 @@ data-wow-delay=".2s
 >
 <div class="mb-8 border-b-2">
   <img class="mx-auto -mt-6 -mb-6" width="200" height="200" src="{{ asset('images/logo/logo.png') }}" alt="base apparel logo" />
+  <br><br>
   <h3 class="pb-4 text-2xl border-b-2 w-full font-semibold md:text-[26px]">
     Login to access our services
   </h3>

@@ -2,16 +2,18 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\LocalityResource\Pages;
-use App\Filament\Resources\LocalityResource\RelationManagers;
-use App\Models\Locality;
 use Filament\Forms;
-use Filament\Resources\Form;
-use Filament\Resources\Resource;
-use Filament\Resources\Table;
+use App\Models\City;
 use Filament\Tables;
+use App\Models\Locality;
+use Filament\Resources\Form;
+use Filament\Resources\Table;
+use Filament\Resources\Resource;
+use Filament\Tables\Filters\SelectFilter;
 use Illuminate\Database\Eloquent\Builder;
+use App\Filament\Resources\LocalityResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Filament\Resources\LocalityResource\RelationManagers;
 
 class LocalityResource extends Resource
 {
@@ -46,7 +48,9 @@ class LocalityResource extends Resource
                 Tables\Columns\TextColumn::make('city.name')->sortable()->searchable(),
             ])
             ->filters([
-                //
+                SelectFilter::make('city_id')
+                    ->label('Filter by city')
+                    ->options(City::all()->pluck('name', 'id')->toArray()),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),

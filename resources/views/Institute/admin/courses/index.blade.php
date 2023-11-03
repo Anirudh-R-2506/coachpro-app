@@ -84,7 +84,7 @@
                                 <th>Description</th>
                                 <th>Status</th>
                                 <th>Availability</th>
-                                {{-- <th class="actions-th"></th> --}}
+                                <th class="actions-th"></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -94,7 +94,7 @@
                                 <td class="col-6">{{ $course->description }}</td>
                                 <td class="col-3">{!! \App\Models\Courses::enum('status')->getBadge($course->status) !!}</td>                                    
                                 <td class="col-3">{!! \App\Models\Courses::enum('availability')->getBadge($course->availability) !!}</td>
-                                {{-- <td class="action-edit">
+                                <td class="action-edit">
                                     <div class="inner">
                                         <a class="icon" href="{{ route('institute.dashboard.courses.edit', $course->id) }}">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -103,7 +103,7 @@
                                             Edit                                    
                                         </a>                                    
                                     </div>
-                                </td> --}}
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>

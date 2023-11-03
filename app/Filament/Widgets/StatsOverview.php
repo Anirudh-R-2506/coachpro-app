@@ -21,7 +21,7 @@ class StatsOverview extends BaseWidget
 
     protected function getColor(int $value): string
     {
-
+        return 'danger';
         if ($value > 0) {
             return 'success';
         } else if ($value < 0) {
@@ -33,7 +33,7 @@ class StatsOverview extends BaseWidget
 
     protected function getIcon(int $value): string
     {
-
+        return 'heroicon-s-trending-down';
         if ($value > 0) {
             return 'heroicon-s-trending-up';
         } else if ($value < 0) {
@@ -46,7 +46,7 @@ class StatsOverview extends BaseWidget
 
     protected function getGraph(int $value): array
     {
-
+        return [70, 60, 50, 40, 30, 20, 10, 1];
         if ($value > 0) {
             return [1, 10, 20, 30, 40, 50, 60, 70];
         } else if ($value < 0) {

@@ -36,19 +36,13 @@
     <body class="bg-[#f3f4ff]">
         <div class="progress-bar" id="progressBar"></div>  
 
-        @if(auth()->check() && auth()->user()->email == env('PREVIEW_EMAIL'))
-            @include('includes.header')
-        @else
-            @include('includes.cs-header')
-        @endif
+        @include('includes.header')
 
         @include('includes.shapes')
 
         @yield('content')
 
-        @if(auth()->check() && auth()->user()->email == env('PREVIEW_EMAIL'))
-            @include('includes.footer')
-        @endif
+        @include('includes.footer')
 
         <!-- ====== Back To Top Start -->
         <button   

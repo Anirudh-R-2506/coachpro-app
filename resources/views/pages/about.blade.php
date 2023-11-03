@@ -29,10 +29,10 @@
                   <h2
                     class="mb-6 text-3xl font-bold text-dark sm:text-4xl sm:leading-snug 2xl:text-[40px]"
                   >
-                  Edu Hunt - Where your success is our priority
+                  Gradify - Where your success is our priority
                   </h2>
                   <p class="text-base leading-relaxed mb-9 text-body-color">
-                    Welcome to our tutoring platform! We are a team of education enthusiasts who are passionate about connecting students with top-notch tutors. Our platform makes it easy for students to find the help they need to succeed in their studies.
+                    Welcome to our platform! We are a team of education enthusiasts who are passionate about connecting students with top-notch tutors. Our platform makes it easy for students to find the help they need to succeed in their studies.
                   </p>
                   <p class="text-base leading-relaxed mb-9 text-body-color">
                     Our platform was founded by [Founder Name] in [Year], with the goal of revolutionizing the way students find and connect with tutors. [Founder Name] saw firsthand the challenges students faced in finding high-quality tutoring resources, and wanted to create a platform that made it easier and more convenient for students to get the help they needed. Today, our platform has helped thousands of students and tutors connect and achieve their academic goals.

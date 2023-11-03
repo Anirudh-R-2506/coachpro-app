@@ -3,6 +3,7 @@
 namespace App\Filament\Resources;
 
 use Filament\Forms;
+use App\Models\City;
 use Filament\Tables;
 use App\Models\Locality;
 use App\Models\Institutes;
@@ -141,6 +142,9 @@ class InstituteResource extends Resource
                 SelectFilter::make('bookings_status')
                     ->label('Filter by bookings status')
                     ->options(Institutes::enum('bookings_status')->filament()),
+                SelectFilter::make('city_id')
+                    ->label('Filter by city')
+                    ->options(City::all()->pluck('name', 'id')->toArray()),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),

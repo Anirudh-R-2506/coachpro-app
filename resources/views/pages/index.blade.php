@@ -23,7 +23,7 @@
               <p
                 class="mx-auto mb-6 max-w-[600px] text-base text-[#e4e4e4] sm:text-lg sm:leading-relaxed md:text-xl md:leading-relaxed"
               >
-                We are a platform where you can choose the right coach for you and start your journey to the summit of success.
+                We are a platform where you can choose the right college for you and start your journey to the summit of success.
               </p>
               <ul class="flex flex-wrap items-center justify-center mb-6">
                 <li>
@@ -1235,12 +1235,12 @@
               <h2
                 class="mb-4 text-3xl font-bold text-dark sm:text-4xl md:text-[42px]"
               >
-                Main Features Of Edu Hunt
+                Main Features Of Gradify
               </h2>
               <p
                 class="text-lg leading-relaxed text-body-color sm:text-xl sm:leading-relaxed"
               >
-                Our platform offers a range of convenient features for connecting students with qualified tutors.
+                Our platform offers a range of convenient features for connecting students with various colleges around the country.
                 These include a search function, ratings and reviews, payment system, and In-Depth Information about Centers.
               </p>
             </div>
@@ -1261,7 +1261,7 @@
                 Flexible Search
               </h4>
               <p class="mb-8 text-body-color lg:mb-11">
-                Allows students to find tutors based on subject, location, availability, and other critical criteria.
+                Allows students to find colleges based on subject, location, availability, and other critical criteria.
               </p>
               
             </div>
@@ -1283,7 +1283,7 @@
                 Ratings and Reviews
               </h4>
               <p class="mb-8 text-body-color lg:mb-11">
-                Allows students to rate their experiences with tutors and helps students choose right.
+                Allows students to rate their experiences with colleges and helps students choose right.
               </p>
               
             </div>
@@ -1302,7 +1302,7 @@
                 Payment System
               </h4>
               <p class="mb-8 text-body-color lg:mb-11">
-                Makes it easy for students to pay for tutoring sessions, either in advance or at the time of the session.
+                Makes it easy for students to pay for tuition, either in advance or at the college.
               </p>
               
             </div>
@@ -1335,7 +1335,7 @@
                 Vast Database
               </h4>
               <p class="mb-8 text-body-color lg:mb-11">
-                Our platform collects detailed information about tutorial services to ensure their authenticity and quality.
+                Our platform collects detailed information about various colleges and their courses to ensure their authenticity and quality.
               </p>
               
             </div>
@@ -1360,13 +1360,13 @@
               <h2
                 class="mb-4 text-3xl font-bold text-dark sm:text-4xl md:text-[42px]"
               >
-                Learn how you choose your perfect tutorial institute
+                Learn how you choose your perfect college
               </h2>
-              <p
+              {{-- <p
                 class="text-lg leading-relaxed text-body-color sm:text-xl sm:leading-relaxed"
               >
                 Learn more about how our platform connects students with qualified tutors in four easy steps.
-              </p>
+              </p> --}}
             </div>
           </div>
         </div>
@@ -1384,7 +1384,7 @@
                   <p class="mb-3 text-base text-primary">Step 1</p>
                   <h4 class="mb-3 text-lg font-bold md:text-2xl">Search for courses</h4>
                   <p class="text-sm leading-relaxed text-opacity-100 md:text-base text-gray-50">
-                    Use our search function to find tutors who offer the courses you need. Specify criteria such as subject, location, and availability to narrow down the results.
+                    Use our search function to find colleges which offer the courses you need. Specify criteria such as rating, location, and fees to narrow down the results.
                   </p>
                 </div>
               </div>
@@ -1394,7 +1394,7 @@
                   <p class="mb-3 text-base text-primary">Step 2</p>
                   <h4 class="mb-3 text-lg font-bold md:text-2xl">Enquire about courses</h4>
                   <p class="text-sm leading-relaxed text-opacity-100 md:text-base text-gray-50">
-                    Contact the tutor to ask questions and learn more about the course. The tutor can provide additional information and clarify any details.
+                    Contact the college to ask questions and learn more about the course. The college can provide additional information and clarify any details.
                   </p>
                 </div>
               </div>
@@ -1404,7 +1404,7 @@
                   <p class="mb-3 text-base text-primary">Step 3</p>
                   <h4 class="mb-3 text-lg font-bold md:text-2xl">Book Courses</h4>
                   <p class="text-sm leading-relaxed text-opacity-100 md:text-base text-gray-50">
-                    If you want to book a course, use our booking system to reserve a spot. Payment may be required at this time, depending on the tutor's policy.
+                    If you want to book a course, provided all criterias are met, use our booking system to reserve a spot. Payment may be required at this time, depending on the college's policy.
                   </p>
                 </div>
               </div>
@@ -1416,7 +1416,7 @@
                   <p class="mb-3 text-base text-primary">Step 4</p>
                   <h4 class="mb-3 text-lg font-bold text-left md:text-2xl">Attend sessions</h4>
                   <p class="text-sm leading-relaxed text-opacity-100 md:text-base text-gray-50">
-                    Once the booking is complete, we will generate a document with the necessary details to attend the tutoring sessions of your choice as scheduled.
+                    Once the booking is complete, we will generate a document with the necessary details to attend the course of your choice as scheduled.
                   </p>
                 </div>
               </div>

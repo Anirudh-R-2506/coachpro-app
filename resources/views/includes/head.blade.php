@@ -1,19 +1,11 @@
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-256702174-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-256702174-1');
-</script>
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <title>
-    Edu Hunt | Revolutionizing Education
+    Gradify
 </title>
-<link rel="shortcut icon" href="{{ asset('images/logo/logo.png') }}" type="image/x-icon" />
+<link rel="shortcut icon" href="{{ asset('images/logo/favicon.png') }}" type="image/x-icon" />
 <link rel="stylesheet" href="{{ asset('css/animate.css') }} "/>
 <link rel="stylesheet" href="{{ asset('css/tailwind.css?v=').time() }} "/>
 <link href="https://vjs.zencdn.net/7.20.3/video-js.css" rel="stylesheet" />

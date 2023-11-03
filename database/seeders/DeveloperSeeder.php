@@ -69,9 +69,6 @@ class DeveloperSeeder extends Seeder
                 'name' => 'UPSC',
             ],
             [
-                'name' => 'CA',
-            ],
-            [
                 'name' => 'NDA',
             ]
         ];

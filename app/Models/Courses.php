@@ -63,24 +63,15 @@ class Courses extends Model implements HasMedia
         'name',
         'institute_id',
         'description',
-        'video_url',
-        'faculties',
-        'session',
-        'timing',
-        'course_timings',
         'start_date',
         'end_date',
         'fees',
         'status',
         'availability',
-        'examination_id',
-        'category_id',
-        'slug'
     ];
 
     protected $casts = [
-        'faculties' => 'array',
-        'course_timings' => 'array'
+
     ];
 
     public function institute()

@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Alert;
 use App\Models\City;
 use App\Models\User;
+use App\Models\Courses;
 use App\Models\Locality;
+use Google\Service\Classroom\Course;
 use App\Jobs\SendAccountVerificationMail;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
@@ -40,7 +42,10 @@ class HomeController extends BaseController
 
     public function product()
     {
-        return view('app.index');
+        $courses = Courses::all();
+        return view('app.index', [
+            'courses' => $courses,
+        ]);
     }
 
     public function signin()

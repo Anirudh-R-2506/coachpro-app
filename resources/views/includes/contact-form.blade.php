@@ -57,7 +57,7 @@
                 <div>
                   <h5 class="mb-2 text-lg font-semibold">How Can We Help?</h5>
                   <a href="mailto:helpline@eduhunt.co" class="text-base no-underline text-primary">
-                    helpline@eduhunt.co
+                    helpline@gradify.co
                   </a>
                 </div>
               </div>
