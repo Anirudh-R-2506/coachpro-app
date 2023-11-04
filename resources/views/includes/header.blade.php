@@ -61,7 +61,7 @@
             </nav>
           </div>
           <div class="justify-end hidden pr-16 sm:flex lg:pr-0">
-            <a href="{{ !auth()->check() ? route('frontend.signin') : route('dashboard.index') }}"
+            <a href="{{ !auth()->check() ? route('frontend.signin') : route('frontend.index') }}"
               class="px-6 py-3 text-base font-medium text-white duration-300 ease-in-out bg-white rounded-lg signUpBtn bg-opacity-20 hover:bg-opacity-100 hover:text-dark">
               {!! !auth()->check() ? 'Login or Register  &nbsp;<i class="fas fa-sign-in-alt"></i>' : 'Dashboard &nbsp; <i class="fas fa-sign-in-alt"></i>' !!}
             </a>

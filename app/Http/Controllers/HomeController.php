@@ -4,13 +4,9 @@ namespace App\Http\Controllers;
 
 use Alert;
 use App\Models\City;
-use App\Models\User;
-use App\Models\Courses;
 use App\Models\Locality;
 use App\Models\Institutes;
 use App\Enums\AccountStatus;
-use Google\Service\Classroom\Course;
-use App\Jobs\SendAccountVerificationMail;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -23,8 +19,9 @@ class HomeController extends BaseController
     public function index()
     {
         $localitites = Locality::all();
+        $cities = City::all();
 
-        return view('pages.index', ['localities' => $localitites]);
+        return view('pages.index', ['localities' => $localitites, 'cities' => $cities]);
     }
 
     public function about()
@@ -65,6 +62,7 @@ class HomeController extends BaseController
                 'verified' => $institute->status == AccountStatus::VERIFIED,
                 'known_for' => $known[array_rand($known)],
                 'link' => route('frontend.inst', $institute->id),
+                'avg_fees' => $institute->avg_fees(),
             ];
         }
         

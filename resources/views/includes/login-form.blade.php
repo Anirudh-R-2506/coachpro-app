@@ -95,7 +95,7 @@ data-wow-delay=".2s
     Don't have an account?
     <button
       type="button"
-      @click="login = false"
+      @click="window.location.assign('{{route('frontend.index')}}')"
       class="text-primary hover:text-dark focus:text-dark focus:outline-none"
       >Sign up</button>
   </p>

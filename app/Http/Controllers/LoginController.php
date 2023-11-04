@@ -110,7 +110,7 @@ class LoginController extends Controller
     }
 
     public function register_cs(Request $request)
-    {
+    {        
         $request->validate([
             //'recaptcha_token' => env('APP_ENV') == 'local' ? '' : [new ReCaptchaRule($request->recaptcha_token)],
             'name' => 'required|string|max:255',
@@ -118,11 +118,8 @@ class LoginController extends Controller
             'phone' => 'required|string|max:255',
             'education' => 'required|string|min:2',
             'class' => 'required_if:education,==,school',
-            /* 'recaptcha' => [new ReCaptchaRule], */
             'year_of_passing' => 'required_if:education,==,ug|required_if:education,==,pg',
             'password' => 'required|string',
-            'city' => 'required|integer|exists:cities,id',
-            'locality' => 'required|integer|exists:localities,id',
         ]);
 
         $edu = Education::getEnum($request->education);
@@ -134,7 +131,8 @@ class LoginController extends Controller
                 'phone' => $request->phone,
                 'education' => $edu,
                 'role' => UserRole::STUDENT,
-                'city' => $this->city(),
+                'city' => City::first()->id,
+                'password' => bcrypt($request->password),
             ]);            
             if ($user){
                 if ($edu == Education::SCHOOL) {
@@ -145,8 +143,8 @@ class LoginController extends Controller
                     $user->class = null;
                 }
                 $user->save();
-
-                Alert::success('Success', 'We will keep you updated and help you in your journey towards success :)');
+                Auth::login($user);
+                Alert::success('Success', 'Welcome to Gradify :)');
                 return redirect()->back();
             } else {
                 Alert::error('Error', 'Something went wrong. Please try again :(');

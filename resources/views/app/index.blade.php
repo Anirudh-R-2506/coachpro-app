@@ -5,19 +5,61 @@
     uniListing = () => {
       return {
         institutes: @json($institutes),
-        search: null,
-        get filtered(){
-          if (!this.search){
-            return this.institutes;
+        search: "",
+        sortby: 0,
+        getOrder(prop, order){
+          return function(a, b) {  
+              if (order > 0){
+                if (order == 1){
+                  if (a[prop] > b[prop]) {    
+                      return 1;    
+                  } else if (a[prop] < b[prop]) {    
+                      return -1;    
+                  }
+                  return 0; 
+                }
+                if (order == 2){
+                  if (a[prop] < b[prop]) {    
+                      return 1;    
+                  } else if (a[prop] > b[prop]) {    
+                      return -1;    
+                  } 
+                  return 0;
+                }
+              }            
+              if (a[prop] > b[prop]) {    
+                  return 1;    
+              } else if (a[prop] < b[prop]) {    
+                  return -1;    
+              } 
+              return 0;       
+              return 0;    
           }
-          return this.institutes.filter((itm) => {
-            return itm.name.toLowerCase().includes(this.search.toLowerCase());
+        },
+        searchDraw(){
+          let inst = this.institutes;
+          console.log(this.sortby, this.search, inst.sort(this.getOrder("rank", 0)));
+          switch(this.sortby){
+            case 1:
+              inst.sort(this.getOrder("avg_price", 1));
+            case 2:
+              inst.sort(this.getOrder("avg_price", 2));
+            case 3:
+              inst.sort(this.getOrder("rank", 0));
+            case 4:
+              inst.sort(this.getOrder("verified", 0));
+          }
+          if (!this.search){
+            this.institutes = inst;
+          }
+          this.institutes = inst.filter((itm) => {
+            return itm.name.toLowerCase().includes(this.search.toLowerCase()) || itm.address.toLowerCase().includes(this.search.toLowerCase()) || itm.known_for.toLowerCase().includes(this.search.toLowerCase())
           })
         }
       };
     }
   </script>
-  <div class="mx-4 mt-10 bg-[#fff] pt-10 pb-10 lg:pt-[120px] lg:pb-[120px] p-10">
+  <div class="mx-4 mt-10 bg-[#fff] pt-10 pb-10 lg:pt-[120px] lg:pb-[120px] p-10" x-data="uniListing()" x-model="sortby">
     <!-- Main modal -->
     <div id="crypto-modal" tabindex="-1" aria-hidden="true"
       class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full">
@@ -48,22 +90,8 @@
             <ul class="my-4 space-y-3">
               <li>
                 <a href="#"
-                  class="flex items-center p-3 text-base font-bold text-gray-900 rounded-lg bg-gray-50 hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white">
-                  <i class="fa-solid fa-location-dot"></i>
-                  <span class="flex-1 ml-3 whitespace-nowrap">City</span>
-                </a>
-              </li>
-
-              <li>
-                <a href="#"
-                  class="flex items-center p-3 text-base font-bold text-gray-900 rounded-lg bg-gray-50 hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white">
-                  <i class="fa-solid fa-location-dot"></i>
-                  <span class="flex-1 ml-3 whitespace-nowrap">Locality</span>
-                </a>
-              </li>
-
-              <li>
-                <a href="#"
+                  :class="sortby == 1 ? 'bg-gray-100' : ''"
+                  @click="sortby = 1;searchDraw()"
                   class="flex items-center p-3 text-base font-bold text-gray-900 rounded-lg bg-gray-50 hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white">
                   <i class="fa-solid fa-arrow-down-short-wide"></i>
                   <span class="flex-1 ml-3 whitespace-nowrap">Avg Price (low to high)</span>
@@ -71,6 +99,8 @@
               </li>
               <li>
                 <a href="#"
+                  :class="sortby == 2 ? 'bg-gray-100' : ''"
+                  @click="sortby = 2;searchDraw()"
                   class="flex items-center p-3 text-base font-bold text-gray-900 rounded-lg bg-gray-50 hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white">
                   <i class="fa-solid fa-arrow-up-wide-short"></i>
                   <span class="flex-1 ml-3 whitespace-nowrap">Avg Price (High to Low)</span>
@@ -78,9 +108,20 @@
               </li>
               <li>
                 <a href="#"
+                  :class="sortby == 3 ? 'bg-gray-100' : ''"
+                  @click="sortby = 3;searchDraw()"
                   class="flex items-center p-3 text-base font-bold text-gray-900 rounded-lg bg-gray-50 hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white">
                   <i class="fa-solid fa-star"></i>
                   <span class="flex-1 ml-3 whitespace-nowrap">Rank</span>
+                </a>
+              </li>
+              <li>
+                <a href="#"
+                  :class="sortby == 4 ? 'bg-gray-100' : ''"
+                  @click="sortby = 4;searchDraw()"
+                  class="flex items-center p-3 text-base font-bold text-gray-900 rounded-lg bg-gray-50 hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white">
+                  <i class="fa-solid fa-circle-check"></i>
+                  <span class="flex-1 ml-3 whitespace-nowrap">Verified</span>
                 </a>
               </li>
             </ul>
@@ -102,7 +143,7 @@
 
 
 
-      <section class="" x-data="uniListing()">        
+      <section class="">        
         <div class="container">
           <div class="flex gap-3 mb-4 -mx-4">
             <button type="button" data-modal-toggle="crypto-modal"
@@ -110,17 +151,23 @@
               <i class="pr-2 fa-solid fa-filter"></i>
               Sort By
             </button>
-            <input
-              x-ref="searchField"
-              x-model="search"
-              x-on:keydown.window.prevent.slash="$refs.searchField.focus()"
-              placeholder="Search for an institute..."
-              type="search"
-              class="block w-full h-full px-4 py-3 mr-8 font-bold text-gray-700 bg-white rounded-lg focus:outline-none focus:bg-white focus:shadow"
-            />
+            <div class="flex flex-col w-full gap-2 mr-8">
+              <input
+                x-ref="searchField"
+                x-model="search"
+                x-on:change="searchDraw()"
+                x-on:keydown.window.prevent.slash="$refs.searchField.focus()"
+                placeholder="Search for an institute..."
+                type="search"
+                class="block px-4 py-3 font-bold text-gray-700 bg-white rounded-lg focus:outline-none focus:bg-white focus:shadow"
+              />
+              <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                Search among institute name, address and what they are known for
+              </p>
+            </div>
           </div>
           <div class="flex flex-wrap -mx-4">
-            <template x-for="inst in filtered">
+            <template x-for="inst in institutes">
               <div class="w-full md:w-1/2 lg:w-1/3">              
                 <div class="mb-6 group" data-wow-delay=".1s">
                   <div class="mb-8 overflow-hidden rounded">
@@ -150,6 +197,9 @@
                         <p class="mb-3 text-2xl tracking-wide text-bold">
                           Rank <span x-text="inst.rank" class="font-primary"></span>
                         </p>
+                        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                          Avg Fees: <span x-text="inst.avg_fees"></span>
+                        </p>
                         <span class="p-2 mb-3 font-normal text-gray-700 bg-yellow-200 rounded-lg" style="max-width: 100px;">
                           Known for: <span x-text="inst.known_for"></span>
                         </span>
@@ -164,7 +214,7 @@
       </section>
 
 
-      <nav aria-label="Page navigation example">
+      {{-- <nav aria-label="Page navigation example">
         <center>
           <ul class="inline-flex items-center -space-x-px">
             <li>
@@ -213,7 +263,7 @@
             </li>
           </ul>
         </center>
-      </nav>
+      </nav> --}}
 
 
     </div>

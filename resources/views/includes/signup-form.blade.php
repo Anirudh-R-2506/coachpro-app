@@ -23,6 +23,9 @@
       prevStep() {
         this.step--;
       },
+      submitForm(){
+        document.getElementById('signup_form').submit();
+      }
     };
   };
 </script>
@@ -40,20 +43,20 @@
                       <h3 class="pb-4 text-2xl border-b-2 w-full font-semibold md:text-[26px]">
                         Sign up & start your journey to success
                       </h3>        
-                      @if ($errors->any())
-                          <div class="flex p-2 mb-4 text-sm text-red-800 bg-red-300 rounded-lg dark:bg-gray-800 dark:text-red-400" role="alert">
-                              <svg aria-hidden="true" class="flex-shrink-0 inline w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
-                              <span class="sr-only">Whoops!</span>
-                              <div>
-                                <span class="font-medium">Looks like you have a few errors in your submission :(</span>
-                                  <ul class="mt-1 ml-4 list-disc list-inside">
-                                      @foreach ($errors->all() as $error)
-                                          <li>{{ $error }}</li>
-                                      @endforeach
-                                  </ul>
-                              </div>
-                          </div>                            
-                      @endif              
+                      @if($errors->all())
+                        <div class="flex p-2 mb-4 text-sm text-red-800 bg-red-300 rounded-lg dark:bg-gray-800 dark:text-red-400" role="alert">
+                          <svg aria-hidden="true" class="flex-shrink-0 inline w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
+                          <span class="sr-only">Whoops!</span>
+                          <div>
+                            <span class="font-medium">Looks like you have a few errors in your submission :(</span>
+                              <ul class="mt-1 ml-4 list-disc list-inside">
+                                  @foreach ($errors->all() as $error)
+                                      <li>{{ $error }}</li>
+                                  @endforeach
+                              </ul>
+                          </div>
+                        </div> 
+                      @endif            
                     </div>
                     <div class="mb-8 border-b-2">
                       <div class="mb-1 text-xs font-bold leading-tight tracking-wide text-gray-500 uppercase" x-text="`Step: ${step} of 3`"></div>
@@ -81,93 +84,76 @@
                         </div>
                       </div>
                     </div>
-                    <form x-show="step == 1">
-                      <div class="mb-6">
-                        <label for="fullName" class="block text-md text-dark"
-                          >Interested competitive exam/course<span style="color: red"> *</span></label
-                        >
-                        <select id="underline_select" class="block py-2.5 px-0 w-full text-gray-500 bg-transparent w-full border-0 border-b border-[#f1f1f1] py-4 focus:border-primary focus:outline-none peer">
-                          <option selected>Choose a competitive exam/course</option>
-                          <option value="US">NEET</option>
-                          <option value="CA">JEE</option>
-                          <option value="FR">UPSC</option>
-                          <option value="DE">Class 10 Boards</option>
-                        </select>
-                      </div>
-                      <div class="mb-6">
-                        <label for="email" class="block text-md text-dark"
-                          >Education<span style="color: red"> *</span></label
-                        >
-                        <select x-on:change="education = $el.value" id="underline_select" class="block py-2.5 px-0 w-full text-gray-500 bg-transparent w-full border-0 border-b border-[#f1f1f1] py-4 focus:border-primary focus:outline-none peer">
-                          <option selected>Choose an education level</option>
-                          <option value="school">School</option>
-                          <option value="ug">UG</option>
-                          <option value="pg">PG</option>
-                        </select>
-                      </div>
-                      <div class="mb-6" x-show="education == 'school'">
-                        <label for="phone" class="block text-md text-dark"
-                          >Class currently studying<span style="color: red"> *</span></label
-                        >
-                        <select id="underline_select" class="block py-2.5 px-0 w-full text-gray-500 bg-transparent w-full border-0 border-b border-[#f1f1f1] py-4 focus:border-primary focus:outline-none peer">
-                          <option selected>Choose a class</option>
-                          <option value="school">8th</option>
-                          <option value="ug">9th</option>
-                          <option value="pg">10th</option>
-                          <option value="pg">11th</option>
-                          <option value="pg">12th</option>
-                        </select>
-                      </div>
-                      <div class="mb-6" x-show="education == 'ug' || education == 'pg'">
-                        <label for="message" class="block text-md text-dark"
-                          >Year of completion<span style="color: red"> *</span></label
-                        >
-                        <select id="underline_select" class="block py-2.5 px-0 w-full text-gray-500 bg-transparent w-full border-0 border-b border-[#f1f1f1] py-4 focus:border-primary focus:outline-none peer">
-                          <option selected>Choose a year</option>
-                          <option value="school">2023</option>
-                          <option value="ug">2024</option>
-                          <option value="pg">2025</option>
-                          <option value="pg">2026</option>
-                        </select>
-                      </div> 
+                    <form method="POST" action="{{route('services.register-cs')}}" id="signup_form">
+                      @csrf
+                      <div x-show="step == 1">
+                        <div class="mb-6">
+                          <label for="email" class="block text-md text-dark"
+                            >Education<span style="color: red"> *</span></label
+                          >
+                          <select name="education" x-on:change="education = $el.value" id="underline_select" class="block py-2.5 px-0 w-full text-gray-500 bg-transparent w-full border-0 border-b border-[#f1f1f1] py-4 focus:border-primary focus:outline-none peer">
+                            <option selected>Choose an education level</option>
+                            <option value="school">School</option>
+                            <option value="ug">UG</option>
+                            <option value="pg">PG</option>
+                          </select>
+                        </div>
+                        <div class="mb-6" x-show="education == 'school'">
+                          <label for="phone" class="block text-md text-dark"
+                            >Class currently studying<span style="color: red"> *</span></label
+                          >
+                          <select name="class" id="underline_select" class="block py-2.5 px-0 w-full text-gray-500 bg-transparent w-full border-0 border-b border-[#f1f1f1] py-4 focus:border-primary focus:outline-none peer">
+                            <option selected>Choose a class</option>
+                            <option value="school">8th</option>
+                            <option value="ug">9th</option>
+                            <option value="pg">10th</option>
+                            <option value="pg">11th</option>
+                            <option value="pg">12th</option>
+                          </select>
+                        </div>
+                        <div class="mb-6" x-show="education == 'ug' || education == 'pg'">
+                          <label for="message" class="block text-md text-dark"
+                            >Year of completion<span style="color: red"> *</span></label
+                          >
+                          <select name="year_of_passing" id="underline_select" class="block py-2.5 px-0 w-full text-gray-500 bg-transparent w-full border-0 border-b border-[#f1f1f1] py-4 focus:border-primary focus:outline-none peer">
+                            <option selected>Choose a year</option>
+                            <option value="school">2023</option>
+                            <option value="ug">2024</option>
+                            <option value="pg">2025</option>
+                            <option value="pg">2026</option>
+                          </select>
+                        </div> 
 
-                      <div class="mb-6">
-                        <label for="message" class="block text-md text-dark"
-                          >Preferred session<span style="color: red"> *</span></label
-                        >
-                        <select id="underline_select" class="block py-2.5 px-0 w-full text-gray-500 bg-transparent w-full border-0 border-b border-[#f1f1f1] py-4 focus:border-primary focus:outline-none peer">
-                          <option selected>Choose a session</option>
-                          <option value="school">Weekdays</option>
-                          <option value="ug">Weekends</option>
-                        </select>
-                      </div> 
-
-                      <div class="mb-6">
-                        <label for="message" class="block text-md text-dark"
-                          >Preferred timings<span style="color: red"> *</span></label
-                        >
-                        <select id="underline_select" class="block py-2.5 px-0 w-full text-gray-500 bg-transparent w-full border-0 border-b border-[#f1f1f1] py-4 focus:border-primary focus:outline-none peer">
-                          <option selected>Choose a timing</option>
-                          <option value="school">Morning</option>
-                          <option value="ug">Evening</option>
-                        </select>
-                      </div> 
-
-                    </form>
-                    <form x-show="step == 2">
+                        <div class="mb-6">
+                          <label for="message" class="block text-md text-dark"
+                            >Preferred session<span style="color: red"> *</span></label
+                          >
+                          <select id="underline_select" class="block py-2.5 px-0 w-full text-gray-500 bg-transparent w-full border-0 border-b border-[#f1f1f1] py-4 focus:border-primary focus:outline-none peer">
+                            <option selected>Choose a session</option>
+                            <option value="school">Morning</option>
+                            <option value="ug">Evening</option>
+                            <option value="ug">Both</option>
+                            <option value="ug">Any</option>
+                          </select>
+                        </div> 
+                      </div>
+                    <div x-show="step == 2">
                       <div class="mb-6">
                         <label for="fullName" class="block text-md text-dark"
                           >City<span style="color: red"> *</span></label
                         >
-                        <select disabled name="city" id="underline_select" class="block py-2.5 px-0 w-full text-gray-500 bg-transparent w-full border-0 border-b border-[#f1f1f1] py-4 focus:border-primary focus:outline-none peer">
+                        <select name="city" id="underline_select" class="block py-2.5 px-0 w-full text-gray-500 bg-transparent w-full border-0 border-b border-[#f1f1f1] py-4 focus:border-primary focus:outline-none peer">
                           <option selected value="1">Bangalore</option>
+                          @foreach ($cities as $city)
+                              <option value="{{ $city->id }}">{{ $city->name }}</option>
+                          @endforeach
                         </select>
                       </div>
                       <div class="mb-6">
                         <label for="fullName" class="block mb-4 text-sm text-dark"
                                 >Locality<span style="color: red"> *</span></label
                               >
-                              <select @blur="blur" @input="input" data-rules='["required"]' id="underline_select" name="locality" class="block py-2.5 px-0 w-full text-gray-500 bg-transparent w-full border-0 border-b border-[#f1f1f1] py-4 focus:border-primary focus:outline-none peer">
+                              <select name="locality" @blur="blur" @input="input" data-rules='["required"]' id="underline_select" name="locality" class="block py-2.5 px-0 w-full text-gray-500 bg-transparent w-full border-0 border-b border-[#f1f1f1] py-4 focus:border-primary focus:outline-none peer">
                                   <option selected value="">Choose a locality</option>
                                   @foreach ($localities as $locality)
                                       <option value="{{ $locality->id }}">{{ $locality->name }}</option>
@@ -175,8 +161,8 @@
                               </select>
                             <p x-show="locality.errorMessage && locality.blurred" x-text="locality.errorMessage" class="mt-2 text-red-500"></p>
                       </div>
-                    </form>
-                    <form x-show="step == 3">
+                    </div>
+                    <div x-show="step == 3">
                       <div class="mb-6">
                         <label for="fullName" class="block text-xs text-dark"
                           >Name<span style="color: red"> *</span></label
@@ -221,9 +207,10 @@
                           class="w-full border-0 border-b border-[#f1f1f1] py-4 focus:border-primary focus:outline-none"
                         />
                       </div>
-                    </form>
+                    </div>
                     <div class="flex justify-center w-full mb-0">
                       <button
+                        type="button"
                         class="inline-flex items-center justify-center px-6 py-4 mr-5 text-base font-medium transition duration-300 ease-in-out bg-white rounded text-primary hover:bg-dark"
                         x-show="step > 1"
                         x-on:click="prevStep"
@@ -231,12 +218,14 @@
                       Previous
                       </button>
                       <button
+                        type="button"
                         class="inline-flex items-center justify-center px-6 py-4 text-base font-medium text-white transition duration-300 ease-in-out rounded bg-primary hover:bg-dark"
                         x-text="step === 3 ? 'Submit' : 'Next'"
-                        x-on:click="step != 3 ? nextStep : submit"
+                        x-on:click="step != 3 ? nextStep : submitForm"
                       >
                       </button>
                     </div>
+                  </form>
                     {{-- <div class="flex flex-wrap items-center justify-center mt-8 text-center">
                       <p class="text-sm text-dark">
                         Already have an account?
