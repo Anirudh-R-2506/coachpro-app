@@ -43,6 +43,4 @@ class ContactController
             return redirect()->back();
         }
     }
-    
-    
 }

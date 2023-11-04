@@ -26,7 +26,7 @@ class CoursesFactory extends Factory
             'name' => fake()->name(),
             'description'=> $this->faker->sentence(),
             'institute_id' => Institutes::inRandomOrder()->first()->id,
-            'duration' => '4 years',
+            'duration' => $this->faker->numberBetween(1, 5) . ' years',
             'fees' => $this->faker->randomNumber(5, true),            
             'exams_accepted' => Examinations::inRandomOrder()->limit(5)->pluck('id')->toArray(),
             'specialisations' => $this->faker->words($this->faker->randomDigit()),

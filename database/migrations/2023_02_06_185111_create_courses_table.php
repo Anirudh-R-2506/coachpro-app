@@ -20,7 +20,7 @@ return new class extends Migration
             $table->uuid('institute_id')->references('id')->on('institutes')->onDelete('cascade');
             $table->string('name');
             $table->string('description');
-            $table->datetime('duration');
+            $table->string('duration');
             $table->bigInteger('fees'); 
             $table->enum('status', Courses::enum('status')->values())->default(Courses::enum('status')->values()[0]);
             $table->enum('availability', Courses::enum('availability')->values())->default(Courses::enum('availability')->values()[0]);
