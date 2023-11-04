@@ -28,7 +28,7 @@ class InstitutesFactory extends Factory
             'address' => fake()->address(),
             'phone' => fake()->phoneNumber(),
             'email' => fake()->unique()->safeEmail(),
-            'rank'=> $this->faker->randomDigit(),
+            'rank'=> $this->faker->numberBetween(1, 100),
             'description' => $this->faker->paragraph(),
             'status' => array_rand(array_values(AccountStatus::getValues())),
         ];

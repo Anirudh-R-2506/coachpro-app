@@ -5,7 +5,15 @@
     uniListing = () => {
       return {
         institutes: @json($institutes),
-
+        search: null,
+        get filtered(){
+          if (!this.search){
+            return this.institutes;
+          }
+          return this.institutes.filter((itm) => {
+            return itm.name.toLowerCase().includes(this.search.toLowerCase());
+          })
+        }
       };
     }
   </script>
@@ -42,6 +50,14 @@
                 <a href="#"
                   class="flex items-center p-3 text-base font-bold text-gray-900 rounded-lg bg-gray-50 hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white">
                   <i class="fa-solid fa-location-dot"></i>
+                  <span class="flex-1 ml-3 whitespace-nowrap">City</span>
+                </a>
+              </li>
+
+              <li>
+                <a href="#"
+                  class="flex items-center p-3 text-base font-bold text-gray-900 rounded-lg bg-gray-50 hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white">
+                  <i class="fa-solid fa-location-dot"></i>
                   <span class="flex-1 ml-3 whitespace-nowrap">Locality</span>
                 </a>
               </li>
@@ -50,28 +66,21 @@
                 <a href="#"
                   class="flex items-center p-3 text-base font-bold text-gray-900 rounded-lg bg-gray-50 hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white">
                   <i class="fa-solid fa-arrow-down-short-wide"></i>
-                  <span class="flex-1 ml-3 whitespace-nowrap">Price (low to high)</span>
+                  <span class="flex-1 ml-3 whitespace-nowrap">Avg Price (low to high)</span>
                 </a>
               </li>
               <li>
                 <a href="#"
                   class="flex items-center p-3 text-base font-bold text-gray-900 rounded-lg bg-gray-50 hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white">
                   <i class="fa-solid fa-arrow-up-wide-short"></i>
-                  <span class="flex-1 ml-3 whitespace-nowrap">Price (High to Low)</span>
+                  <span class="flex-1 ml-3 whitespace-nowrap">Avg Price (High to Low)</span>
                 </a>
               </li>
               <li>
                 <a href="#"
                   class="flex items-center p-3 text-base font-bold text-gray-900 rounded-lg bg-gray-50 hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white">
                   <i class="fa-solid fa-star"></i>
-                  <span class="flex-1 ml-3 whitespace-nowrap">Student Ratings</span>
-                </a>
-              </li>
-              <li>
-                <a href="#"
-                  class="flex items-center p-3 text-base font-bold text-gray-900 rounded-lg bg-gray-50 hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white">
-                  <i class="fa-solid fa-pencil"></i>
-                  <span class="flex-1 ml-3 whitespace-nowrap">Student Reviews</span>
+                  <span class="flex-1 ml-3 whitespace-nowrap">Rank</span>
                 </a>
               </li>
             </ul>
@@ -93,17 +102,25 @@
 
 
 
-      <section class="">        
+      <section class="" x-data="uniListing()">        
         <div class="container">
-          <div class="mb-4 -mx-4">
+          <div class="flex gap-3 mb-4 -mx-4">
             <button type="button" data-modal-toggle="crypto-modal"
-              class="inline-flex items-center px-3 py-3 text-sm font-medium text-center text-white rounded-lg bg-primary focus:ring-4 focus:outline-none">
+              class="inline-flex items-center w-1/12 px-3 py-3 text-sm font-medium text-center text-white rounded-lg bg-primary focus:ring-4 focus:outline-none">
               <i class="pr-2 fa-solid fa-filter"></i>
               Sort By
             </button>
+            <input
+              x-ref="searchField"
+              x-model="search"
+              x-on:keydown.window.prevent.slash="$refs.searchField.focus()"
+              placeholder="Search for an institute..."
+              type="search"
+              class="block w-full h-full px-4 py-3 mr-8 font-bold text-gray-700 bg-white rounded-lg focus:outline-none focus:bg-white focus:shadow"
+            />
           </div>
-          <div class="flex flex-wrap -mx-4" x-data="uniListing()" x-init="console.log(institutes);">
-            <template x-for="inst in institutes">
+          <div class="flex flex-wrap -mx-4">
+            <template x-for="inst in filtered">
               <div class="w-full md:w-1/2 lg:w-1/3">              
                 <div class="mb-6 group" data-wow-delay=".1s">
                   <div class="mb-8 overflow-hidden rounded">
