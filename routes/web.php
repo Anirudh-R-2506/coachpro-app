@@ -21,7 +21,7 @@ use App\Http\Controllers\ForgotPasswordController;
 |
 */
 
-$inst = env('APP_ENV') == 'local' ? Route::name('institute.')->prefix('/institutes') : Route::name('institute.')->domain('institute.eduhunt.co');
+/* $inst = env('APP_ENV') == 'local' ? Route::name('institute.')->prefix('/institutes') : Route::name('institute.')->domain('institute.eduhunt.co');
 
 $inst->group(function (){
 
@@ -99,14 +99,15 @@ $inst->group(function (){
 
     
     });
-});
+}); */
 
 Route::name('frontend.')->group(function () {
             
     Route::get('/', [HomeController::class, 'index'])->name('index');
     Route::get('/about', [HomeController::class, 'about'])->name('about');
     Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
-    Route::get('/eduhunt', [HomeController::class, 'product'])->name('product');
+    Route::get('/institutes', [HomeController::class, 'product'])->name('product');
+    Route::get('/courses', [HomeController::class,'courses'])->name('courses');
     Route::get('/signin', [HomeController::class, 'signin'])->name('signin');    
 
 });
@@ -134,7 +135,6 @@ Route::name('services.')->group(function () {
         Route::get('/resend/verify', [VerificationController::class, 'resend'])->name('resend');
     
     });
-    
 });
 
 Route::name('docs.')->group(function (){
@@ -149,9 +149,9 @@ Route::name('docs.')->group(function (){
 
 });
 
-/* Route::name('dashboard.')->group(function () {
+Route::name('dashboard.')->group(function () {
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('index');
     Route::post('/user/update', [DashboardController::class, 'update'])->name('update');
 
-}); */
+});

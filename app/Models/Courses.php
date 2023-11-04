@@ -5,13 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Institutes;
-use App\Models\Leads;
-use App\Models\EduHuntScore;
-use App\Models\Comments;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
-use App\Models\Bookings;
-use App\Models\Ratings;
 use App\Traits\Enum;
 use App\Traits\Uuid;
 use App\Models\Faqs;
@@ -63,25 +58,25 @@ class Courses extends Model implements HasMedia
         'name',
         'institute_id',
         'description',
-        'start_date',
-        'end_date',
+        'duration',
         'fees',
         'status',
         'availability',
-    ];
+        'exams_accepted',
+        'specialisations',
+        'rank',
+        'pre_education',
+        'gradify_score',
+    ];  
 
     protected $casts = [
-
+        'exams_accepted' => 'array',
+        'specialisations' => 'array',
     ];
 
     public function institute()
     {
         return $this->belongsTo(Institutes::class);
-    }
-
-    public function leads()
-    {
-        return $this->hasMany(Leads::class);
     }
 
     public function eduHuntScore()
@@ -94,31 +89,14 @@ class Courses extends Model implements HasMedia
         return $this->hasMany(Comments::class);
     }
 
-    public function bookings()
-    {
-        return $this->hasMany(Bookings::class);
-    }
-
     public function ratings()
     {
         return $this->hasMany(Ratings::class);
     }
 
-    public function registerMediaCollections(): void
-    {
-        $this->addMediaCollection('course_video')
-            ->singleFile()
-            ->acceptsMimeTypes(['video/mp4', 'video/avi', 'video/mov', 'video/mkv', 'video/3gp', 'video/wmv', 'video/flv', 'video/webm', 'video/ogg', 'video/ogv', 'video/avi', 'video/mpeg', 'video/quicktime', 'video/x-msvideo', 'vide']);
-    }
-
     public function faqs()
     {
         return $this->hasMany(Faqs::class);
-    }
-
-    public function examination()
-    {
-        return $this->belongsTo(Examinations::class);
     }
     
 }

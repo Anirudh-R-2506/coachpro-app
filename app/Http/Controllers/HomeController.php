@@ -7,6 +7,8 @@ use App\Models\City;
 use App\Models\User;
 use App\Models\Courses;
 use App\Models\Locality;
+use App\Models\Institutes;
+use App\Enums\AccountStatus;
 use Google\Service\Classroom\Course;
 use App\Jobs\SendAccountVerificationMail;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -42,9 +44,32 @@ class HomeController extends BaseController
 
     public function product()
     {
-        $courses = Courses::all();
+        $institutes = Institutes::all();
+
+        $res = [];
+
+        $known = [
+            'Academics',
+            'Social Life',
+            'Faculty',
+            'Infrastructure',
+            'Acomodation',
+            'Placement',
+        ];
+
+        foreach ($institutes as $institute) {
+            $res[] = [
+                'name' => $institute->name,
+                'address' => $institute->locality->name . ', ' . $institute->city->name,
+                'rank' => $institute->rank,
+                'verified' => $institute->status == AccountStatus::VERIFIED,
+                'known_for' => $known[array_rand($known)],
+                'link' => 'https://google.com',
+            ];
+        }
+        
         return view('app.index', [
-            'courses' => $courses,
+            'institutes' => $res,
         ]);
     }
 

@@ -2,11 +2,13 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Enums\UserRole;
+use App\Models\Courses;
+use App\Models\Institutes;
+use App\Enums\AccountStatus;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
-use App\Enums\UserRole;
-use App\Enums\AccountStatus;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class DeveloperSeeder extends Seeder
 {
@@ -72,7 +74,7 @@ class DeveloperSeeder extends Seeder
                 'name' => 'NDA',
             ]
         ];
-    }    
+    }
 
     /**
      * Run the database seeds.
@@ -93,5 +95,9 @@ class DeveloperSeeder extends Seeder
             \App\Models\Examinations::updateOrCreate($examination);
             $this->command->info('Examination created: ' . $examination['name']);
         }
+
+        Institutes::factory()->count(20)->create();
+
+        Courses::factory()->count(100)->create();
     }
 }

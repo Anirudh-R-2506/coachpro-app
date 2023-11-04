@@ -5,10 +5,7 @@ namespace App\Models;
 use App\Models\User;
 use App\Traits\Enum;
 use App\Traits\Uuid;
-use App\Models\Leads;
 use App\Enums\UserRole;
-use App\Models\Bookings;
-use App\Models\Faculties;
 use Spatie\MediaLibrary\HasMedia;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\InteractsWithMedia;
@@ -25,11 +22,10 @@ class Institutes extends Model implements HasMedia
         'locality_id',
         'address',
         'phone',
-        'email',        
-        'leads_status',
-        'bookings_status',
+        'email',
+        'rank',
         'status',
-        'video_url'
+        'description',
     ];
 
     public function enums()
@@ -72,11 +68,6 @@ class Institutes extends Model implements HasMedia
         $this->addMediaCollection('institute_cover');
     }
 
-    public function faculties()
-    {
-        return $this->hasMany(Faculties::class);
-    }
-
     public function city()
     {
         return $this->belongsTo(City::class);
@@ -90,16 +81,6 @@ class Institutes extends Model implements HasMedia
     public function courses()
     {
         return $this->hasMany(Courses::class);
-    }
-
-    public function leads()
-    {
-        return $this->hasMany(Leads::class);
-    }
-
-    public function bookings()
-    {
-        return $this->hasMany(Bookings::class);
     }
     
     /* public static function boot()

@@ -18,9 +18,9 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->string('name');
             $table->uuid('city_id')->references('id')->on('cities');
+            $table->text('description');
+            $table->unsignedInteger('rank');
             $table->uuid('locality_id')->references('id')->on('localities');
-            $table->enum('leads_status', Institutes::enum('leads_status')->values())->default(Institutes::enum('leads_status')->values()[0]);
-            $table->enum('bookings_status', Institutes::enum('bookings_status')->values())->default(Institutes::enum('bookings_status')->values()[0]);
             $table->text('address')->nullable();
             $table->string('phone')->nullable();
             $table->string('email')->nullable();

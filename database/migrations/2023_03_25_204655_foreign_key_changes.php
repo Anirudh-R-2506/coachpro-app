@@ -18,36 +18,11 @@ return new class extends Migration
             $table->foreign('institute_id')->references('id')->on('institutes')->onDelete('cascade')->change();
         });
 
-        Schema::table('faculties', function (Blueprint $table) {
-            //$table->dropForeign(['institute_id']);
-            $table->foreign('institute_id')->references('id')->on('institutes')->onDelete('cascade')->change();
-        });
-
         Schema::table('institutes', function (Blueprint $table) {
             /* $table->dropForeign(['city_id']);
             $table->dropForeign(['locality_id']); */
             $table->foreign('city_id')->references('id')->on('cities')->onDelete('cascade');
             $table->foreign('locality_id')->references('id')->on('localities')->onDelete('cascade');
-        });
-
-        Schema::table('leads', function (Blueprint $table) {
-            /* $table->dropForeign(['course_id']);
-            $table->dropForeign(['institute_id']);
-            $table->dropForeign(['user_id']); */
-            $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');
-            $table->uuid('institute_id');
-            $table->foreign('institute_id')->references('id')->on('institutes')->onDelete('cascade');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-        });
-
-        Schema::table('bookings', function (Blueprint $table) {
-            /* $table->dropForeign(['course_id']);
-            $table->dropForeign(['institute_id']);
-            $table->dropForeign(['user_id']); */
-            $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');
-            $table->uuid('institute_id');
-            $table->foreign('institute_id')->references('id')->on('institutes')->onDelete('cascade');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
 
         Schema::table('faqs', function (Blueprint $table) {
@@ -71,31 +46,10 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('courses', function (Blueprint $table) {
-            $table->dropForeign(['institute_id']);
-        });
-
-        Schema::table('faculties', function (Blueprint $table) {
-            $table->dropForeign(['institute_id']);
-        });
 
         Schema::table('institutes', function (Blueprint $table) {
             $table->dropForeign(['city_id']);
             $table->dropForeign(['locality_id']);
-        });
-
-        Schema::table('leads', function (Blueprint $table) {
-            $table->dropForeign(['course_id']);            
-            $table->dropForeign(['institute_id']);
-            $table->dropColumn('institute_id');
-            $table->dropForeign(['user_id']);
-        });
-
-        Schema::table('bookings', function (Blueprint $table) {
-            $table->dropForeign(['course_id']);
-            $table->dropForeign(['institute_id']);
-            $table->dropColumn('institute_id');
-            $table->dropForeign(['user_id']);
         });
 
         Schema::table('faqs', function (Blueprint $table) {
