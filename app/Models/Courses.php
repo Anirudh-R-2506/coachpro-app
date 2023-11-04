@@ -2,14 +2,16 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-use App\Models\Institutes;
-use Spatie\MediaLibrary\HasMedia;
-use Spatie\MediaLibrary\InteractsWithMedia;
+use App\Models\Faqs;
 use App\Traits\Enum;
 use App\Traits\Uuid;
-use App\Models\Faqs;
+use App\Enums\Education;
+use App\Models\Institutes;
+use App\Models\Examinations;
+use Spatie\MediaLibrary\HasMedia;
+use Illuminate\Database\Eloquent\Model;
+use Spatie\MediaLibrary\InteractsWithMedia;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Courses extends Model implements HasMedia
 {
@@ -76,27 +78,20 @@ class Courses extends Model implements HasMedia
 
     public function institute()
     {
-        return $this->belongsTo(Institutes::class);
+        return $this->belongsTo(Institutes::class, 'institute_id');
     }
 
-    public function eduHuntScore()
+    public function examinations(): string
     {
-        return $this->hasOne(EduHuntScore::class);
-    }
-
-    public function comments()
-    {
-        return $this->hasMany(Comments::class);
-    }
-
-    public function ratings()
-    {
-        return $this->hasMany(Ratings::class);
-    }
-
-    public function faqs()
-    {
-        return $this->hasMany(Faqs::class);
+        $r = '';
+        foreach ($this->exams_accepted as $exam_id) {
+            $exam = Examinations::find($exam_id);
+            $r .= $exam->name . ' ';
+        }
+        return $r;
     }
     
+    public function prerequisite(){
+        return Education::getLabels()[$this->pre_education];
+    }
 }

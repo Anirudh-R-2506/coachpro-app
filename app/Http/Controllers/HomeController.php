@@ -64,12 +64,20 @@ class HomeController extends BaseController
                 'rank' => $institute->rank,
                 'verified' => $institute->status == AccountStatus::VERIFIED,
                 'known_for' => $known[array_rand($known)],
-                'link' => 'https://google.com',
+                'link' => route('frontend.inst', $institute->id),
             ];
         }
         
         return view('app.index', [
             'institutes' => $res,
+        ]);
+    }
+
+    public function inst($id){
+        $inst = Institutes::find($id);
+
+        return view('app.inst', [
+            'institute' => $inst,
         ]);
     }
 

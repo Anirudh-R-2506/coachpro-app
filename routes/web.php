@@ -109,6 +109,7 @@ Route::name('frontend.')->group(function () {
     Route::get('/institutes', [HomeController::class, 'product'])->name('product');
     Route::get('/courses', [HomeController::class,'courses'])->name('courses');
     Route::get('/signin', [HomeController::class, 'signin'])->name('signin');    
+    Route::get('/inst/{id}', [HomeController::class,'inst'])->name('inst');
 
 });
 

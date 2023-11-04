@@ -80,7 +80,18 @@ class Institutes extends Model implements HasMedia
 
     public function courses()
     {
-        return $this->hasMany(Courses::class);
+        return $this->hasMany(Courses::class, 'institute_id');
+    }
+
+    public function avg_fees(){
+        $courses = $this->courses;
+        $tot = 0;
+        $fee = 0;
+        foreach ($courses as $course) {
+            $tot++;
+            $fee += $course->fees;
+        }
+        return round($fee/$tot,0);
     }
     
     /* public static function boot()

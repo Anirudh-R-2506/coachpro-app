@@ -200,8 +200,5 @@
 
 
     </div>
-  </div>
-
-
-  <script src="https://vjs.zencdn.net/7.20.3/video.min.js"></script>
+  </div>  
 @endsection
