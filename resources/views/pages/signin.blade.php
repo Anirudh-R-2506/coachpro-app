@@ -27,9 +27,6 @@
             <div x-show="login">
               @include('includes.login-form')
             </div>
-            <div x-show="!login">
-              @include('includes.signup-form', ['localities' => $localities])
-            </div>
           </div>
         </div>
       </div>
