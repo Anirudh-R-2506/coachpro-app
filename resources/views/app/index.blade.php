@@ -104,11 +104,11 @@
           </div>
           <div class="flex flex-wrap -mx-4" x-data="uniListing()" x-init="console.log(institutes);">
             <template x-for="inst in institutes">
-              <a :href="inst.link">
               <div class="w-full md:w-1/2 lg:w-1/3">              
                 <div class="mb-6 group" data-wow-delay=".1s">
                   <div class="mb-8 overflow-hidden rounded">
                     <div
+                      x-on:click="window.location.assign(inst.link)"
                       class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
                       <a href="#">
                         <img class="rounded-t-lg" src="https://flowbite.com/docs/images/blog/image-1.jpg" alt="" />
@@ -136,14 +136,10 @@
                         <span class="p-2 mb-3 font-normal text-gray-700 bg-yellow-200 rounded-lg" style="max-width: 100px;">
                           Known for: <span x-text="inst.known_for"></span>
                         </span>
-                        <a :href="inst.link" class="px-6 py-3 text-base font-medium text-white duration-300 ease-in-out bg-white rounded-lg signUpBtn bg-opacity-20 hover:bg-opacity-100 hover:text-dark">
-                          See more
-                        </a>
                     </div>
                   </div>
                 </div>
               </div>
-              </a>
             </template>
           </div>
         </div>
